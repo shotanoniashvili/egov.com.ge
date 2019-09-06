@@ -1,0 +1,175 @@
+/*** ---------- Panel custom css ---------- ***/
+.row {
+    padding: 0 15px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.panel-heading span {
+    margin-top: -20px;
+    font-size: 15px;
+}
+/* ---------- btn custom css ----------*/
+
+.btn-success {
+    color: #fff;
+    background-color: #01bc8c;
+    border-color: #01bc8c;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #418bca;
+    border-color: #418bca;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #67c5df;
+    border-color: #67c5df;
+}
+
+.btn-warning {
+    color: #fff;
+    background-color: #f89a14;
+    border-color: #f89a14;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #ef6f6c;
+    border-color: #ef6f6c;
+}
+/* ---------- //btn custom css End----------*/
+/* ---------- Custom color code Css ---------- */
+
+.success {
+    background: #01bc8c;
+}
+
+.primary {
+    background: #418bca;
+}
+
+.info {
+    background: #67c5df;
+}
+
+.warning {
+    background: #f89a14;
+}
+
+.danger {
+    background: #ef6f6c;
+}
+/* ---------- //Custom color code Css End ----------*/
+/* ---------- //panel default css ---------- */
+/* ---------- panel Warning css ---------- */
+
+.panel-warning {
+    border-color: #e7e1e8;
+}
+
+.panel-warning > .panel-heading {
+    color: #fff;
+    background-color: #f89a14;
+    border-color: #f89a14;
+}
+
+.panel-warning > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #f89a14;
+}
+
+.panel-warning > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #f89a14;
+}
+/* ---------- //panel Warning css End ---------- */
+/* ---------- panel Danger css ---------- */
+
+.panel-danger {
+    border-color: #e7e1e8;
+}
+
+.panel-danger > .panel-heading {
+    color: #fff;
+    background-color: #ef6f6c;
+    border-color: #ef6f6c;
+}
+
+.panel-danger > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #ef6f6c;
+}
+
+.panel-danger > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #ef6f6c;
+}
+/* ---------- //panel Danger css End ---------- */
+/* ---------- panel Success css ---------- */
+
+.panel-success {
+    border-color: #e7e1e8;
+}
+
+.panel-success > .panel-heading {
+    color: #fff;
+    background-color: #01bc8c;
+    border-color: #01bc8c;
+}
+
+.panel-success > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #01bc8c;
+}
+
+.panel-success > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #01bc8c;
+}
+/* ---------- //panel Success css  End---------- */
+/* ---------- panel Priamry css---------- */
+
+.panel-primary {
+    border-color: #e7e1e8;
+}
+
+.panel-primary > .panel-heading {
+    color: #fff;
+    background-color: #418bca;
+    border-color: #418bca;
+}
+
+.panel-primary > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #418bca;
+}
+
+.panel-primary > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #418bca;
+}
+/* ---------- //panel Primary css End ---------- */
+/* ---------- panel Default css ---------- */
+
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+    border-top-color: #a9b6bc;
+}
+
+.panel-default > .panel-footer + .panel-collapse .panel-body {
+    border-bottom-color: #a9b6bc;
+}
+/* ---------- //panel Default css End ---------- */
+/* ---------- Customized Bootstrap Button ---------- */
+
+.btn-warning {
+    color: white;
+    background-color: #f89a14;
+    border-color: '';
+}
+@media (max-width: 320px) {
+    .form_padding {
+        padding-right: 0px;
+    }
+    .form_padding input {
+        padding: 9px 9px;
+    }
+}
+/* ---------- //Customized Bootstrap Button End---------- */
+/*** ---------- //Panel custom css End----------***/
