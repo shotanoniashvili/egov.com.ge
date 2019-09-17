@@ -44,11 +44,11 @@ class Project extends Model
     }
 
     public function scopeEvaluated($query) {
-        // TODO
+        return $query;
     }
 
     public function scopeToEvaluate($query) {
-        // TODO
+        return $query;
     }
 
     public function getShortDescriptionAttribute() {
