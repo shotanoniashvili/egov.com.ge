@@ -563,3 +563,15 @@ input::-webkit-input-placeholder {
     background-color: #007bb6;
     border-color: rgba(0, 0, 0, 0.2);
 }
+
+
+.none_bg{
+    padding-top:10px;
+
+
+}
+
+
+.btn-login{
+    padding:4px !important;
+}
