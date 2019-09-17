@@ -29,6 +29,10 @@ Route::get('clear', function () {
 
 Route::pattern('slug', '[a-z0-9- _]+');
 
+Route::group(['middleware' => 'expert'], function() {
+    Route::get('my-account/to-be-evaluated', 'ProjectController@showProjectsToEvaluate')->name('my-account.show-projects-to-evaluate');
+});
+
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin'], function () {
 
     # Error pages should be shown without requiring login
@@ -167,7 +171,6 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('{projectCategory}/restore', 'ProjectCategoryController@getRestore')->name('project-categories.restore');
     });
     Route::resource('regions', 'RegionController');
-
 
     /*routes for projects in admin panel*/
     Route::group(['prefix' => 'projects'], function () {

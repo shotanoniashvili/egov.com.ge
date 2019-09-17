@@ -54,14 +54,19 @@ class User extends EloquentUser
         return $this->hasMany(Project::class, 'user_id');
     }
 
+    public function category() {
+        return $this->belongsTo(ProjectCategory::class, 'project_category_id');
+    }
+
     public function getEvaluatedProjects() {
-        $projects = $this->projects()->evaluated()->get();
+        $projects = $this->category()->projects()->evaluated()->get();
 
         return $projects;
     }
 
     public function getProjectsToEvaluate() {
-        $projects = $this->projects()->toEvaluate()->get();
+        dd($this->category->projects()->toEvaluate());
+        $projects = $this->category()->projects()->to_evaluate()->get();
 
         return $projects;
     }
