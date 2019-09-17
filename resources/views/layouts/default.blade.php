@@ -78,7 +78,7 @@
                     <li  class="nav-item {!! (Request::is('faq') ? 'active' : '') !!}">
                         <a href="{{ URL::to('faq') }}" class="nav-link"> კითხვა პასუხი</a>
                     </li>
-                    <li  class="nav-item {!! (Request::is('faq') ? 'active' : '') !!}">
+                    <li  class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
                         <a href="{{ URL::to('contact') }}" class="nav-link"> კონტაქტი</a>
                     </li>
                     {{--<li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
@@ -86,18 +86,16 @@
                     </li>--}}
 
                     {{--based on anyone login or not display menu items--}}
-                    {{--@if(Sentinel::guest())
-                    <li class="nav-item"><a href="{{ URL::to('login') }}" class="nav-link">Login</a>
-                    </li>
-                    <li class="nav-item"><a href="{{ URL::to('register') }}" class="nav-link">Register</a>
-                    </li>
-                    @else
-                    <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}"><a href="{{ URL::to('my-account') }}" class="nav-link">My
-                        Account</a>
-                    </li>
-                    <li class="nav-item"><a href="{{ URL::to('logout') }}" class="nav-link">Logout</a>
-                    </li>
-                    @endif--}}
+                    @if(!Sentinel::guest())
+                        <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}">
+                            <a href="{{ URL::to('my-account') }}" class="nav-link">ჩემი გვერდი</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ URL::to('logout') }}" class="nav-link" title="სისტემიდან გასვლა">
+                                <i class="livicon" data-name="sign-out" data-s="18"></i>
+                            </a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </nav>

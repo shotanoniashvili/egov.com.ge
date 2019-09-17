@@ -9,7 +9,6 @@ class ProjectCategory extends Model
     protected $fillable = ['name'];
 
     public function projects() {
-        // TODO
-        return ProjectCategory::where('id', 11111);
+        return $this->hasMany(Project::class, 'category_id');
     }
 }

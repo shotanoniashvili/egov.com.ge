@@ -8,7 +8,7 @@
         </a>
     </li>
 
-    <li {!! (Request::is('admin/projects') || Request::is('admin/bulk_import_users') || Request::is('admin/users/create') || Request::is('admin/user_profile') || Request::is('admin/users/*') || Request::is('admin/deleted_users') ? 'class="active"' : '') !!}>
+    <li {!! Request::is('admin/project*') ? 'class="active"' : '' !!}>
         <a href="#">
             <i class="livicon" data-name="bulb" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"
                data-loop="true"></i>
@@ -26,6 +26,12 @@
                 <a href="{{ URL::to('admin/projects/archive') }}">
                     <i class="fa fa-angle-double-right"></i>
                     არქივი
+                </a>
+            </li>
+            <li {!! (Request::is('admin/projects/create') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/projects/create') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    დამატება
                 </a>
             </li>
             <li {!! (Request::is('admin/project-categories') ? 'class="active" id="active"' : '') !!}>
@@ -51,6 +57,28 @@
             </li>
             <li {!! (Request::is('admin/municipalities/create') ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ URL::to('admin/municipalities/create') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    დამატება
+                </a>
+            </li>
+        </ul>
+    </li>
+
+    <li {!! (Request::is('admin/regions*')) ? 'class="active"' : '' !!}>
+        <a href="#">
+            <i class="livicon" data-name="region" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"
+               data-loop="true"></i> რეგიონები
+            <span class="fa arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li {!! (Request::is('admin/regions') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/regions') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    სია
+                </a>
+            </li>
+            <li {!! (Request::is('admin/regions/create') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/regions/create') }}">
                     <i class="fa fa-angle-double-right"></i>
                     დამატება
                 </a>
@@ -610,20 +638,20 @@
             <span class="fa arrow"></span>
         </a>
         <ul class="sub-menu">
-            <li {!! (Request::is('admin/users') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('admin/users') }}">
+            <li {!! (Request::is('admin/users') && request()->type == 'all' ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/users?type=all') }}">
                     <i class="fa fa-angle-double-right"></i>
                     ყველა
                 </a>
             </li>
-            <li {!! (Request::is('admin/users?experts') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('admin/users?experts') }}">
+            <li {!! (Request::is('admin/users') && request()->type == 'experts' ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/users?type=experts') }}">
                     <i class="fa fa-angle-double-right"></i>
                     ექსპერტები
                 </a>
             </li>
-            <li {!! (Request::is('admin/users?users') ? 'class="active" id="active"' : '') !!}>
-                <a href="{{ URL::to('admin/users?users') }}">
+            <li {!! (Request::is('admin/users') && request()->type == 'users'  ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/users?type=users') }}">
                     <i class="fa fa-angle-double-right"></i>
                     თანამშრომლები
                 </a>

@@ -55,7 +55,7 @@
                     <div class="card-body">
                         <div class="card-group card-accordion faq-accordion">
                             <div id="faq">
-                                <div class="mix category-1 col-lg-12 card mb-2" data-value="1">
+                                <div class="mix category-1 card mb-2 w-100" data-value="1">
                                     <div class="card-header" id="headingOne">
                                         <h4 class="card-title">
                                             <a  href="#question1" data-toggle="collapse" data-target="#question1" aria-expanded="true" aria-controls="question1">
@@ -82,7 +82,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-1 col-lg-12 mb-2 card" data-value="2">
+                                <div class="mix category-1 card mb-2 w-100" data-value="2">
                                     <div class="card-header" id="headingTwo">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question2" aria-expanded="true" aria-controls="question2">
@@ -103,7 +103,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-1 col-lg-12 mb-2 card" data-value="3">
+                                <div class="mix category-1 card mb-2 w-100" data-value="3">
                                     <div class="card-header" id="headingThree">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question3" aria-expanded="false" aria-controls="collapseThree">
@@ -138,7 +138,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-2 col-lg-12 mb-2 card" data-value="4">
+                                <div class="mix category-2 w-100 mb-2 card" data-value="4">
                                     <div class="card-header" id="headingFour">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question4" aria-expanded="false" aria-controls="question4">
@@ -173,7 +173,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-1 col-lg-12 mb-2 card" data-value="5">
+                                <div class="mix category-1 card mb-2 w-100" data-value="5">
                                     <div class="card-header" id="headingFive">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question5" aria-expanded="false" aria-controls="question5">
@@ -194,7 +194,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-2 col-lg-12 mb-2 card" data-value="6">
+                                <div class="mix category-2 card mb-2 w-100" data-value="6">
                                     <div class="card-header" id="headingSix">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question6" aria-expanded="false" aria-controls="question6">
@@ -215,7 +215,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-3 col-lg-12 mb-2 card" data-value="7">
+                                <div class="mix category-3 mb-2 card w-100" data-value="7">
                                     <div class="card-header" id="headingSeven">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question7" aria-expanded="false" aria-controls="question7">
@@ -242,7 +242,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-3 col-lg-12 mb-2 card" data-value="8">
+                                <div class="mix category-3 mb-2 card w-100" data-value="8">
                                     <div class="card-header" id="headingEight">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question8" aria-expanded="false" aria-controls="question8">
@@ -274,7 +274,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mix category-2 col-lg-12 mb-2 card" data-value="9">
+                                <div class="mix category-2 card mb-2 w-100" data-value="9">
                                     <div class="card-header" id="headingNine">
                                         <h4 class="card-title">
                                             <a data-toggle="collapse" data-target="#question9" aria-expanded="false" aria-controls="question9">

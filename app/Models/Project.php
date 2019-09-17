@@ -10,15 +10,9 @@ class Project extends Model
     protected $fillable = [
         'title',
         'category_id',
-        'author_person_id',
         'short_description',
         'municipality_id',
-        'detailed_description',
-        'goal',
-        'experience',
-        'council_contribution',
-        'future_plans',
-        'contact_person_id',
+        'picture',
         'user_id',
         'is_archive',
         'is_active_for_experts',
@@ -33,14 +27,6 @@ class Project extends Model
         return $this->belongsTo(Municipality::class, 'municipality_id');
     }
 
-    public function authorPerson() {
-        return $this->belongsTo(Person::class, 'author_person_id');
-    }
-
-    public function contactPerson() {
-        return $this->belongsTo(Person::class, 'contact_person_id');
-    }
-
     public function uploaderUser() {
         return $this->belongsTo(User::class, 'user_id');
     }
@@ -49,53 +35,78 @@ class Project extends Model
         return $this->hasMany(ProjectDocument::class, 'project_id');
     }
 
+    public function scopeActiveForWeb($query) {
+        return $query->where('is_active_for_web', true);
+    }
+
+    public function scopeActiveForExpert($query) {
+        return $query->where('is_active_for_experts', true);
+    }
+
+    public function scopeEvaluated($query) {
+        // TODO
+    }
+
+    public function scopeToEvaluate($query) {
+        // TODO
+    }
+
+    public function getShortDescriptionAttribute() {
+        return stripslashes($this->attributes['short_description']);
+    }
+
     /**
      * @param $title
      * @param $categoryId
      * @param $shortDescription
      * @param $municipalityId
-     * @param $detailedDescription
-     * @param $goal
-     * @param $experience
-     * @param $councilContribution
-     * @param $futurePlans
-     * @param $authorId
-     * @param $contactPersonId
+     * @param $picture
      * @param $userId
      * @param $documents
+     * @param bool $isArchive
+     * @param bool $isActiveForExperts
+     * @param bool $isActiveForWeb
+     * @param null $projectDate
      * @throws \Exception
      */
     public static function createProject($title,
                                          $categoryId,
                                          $shortDescription,
                                          $municipalityId,
-                                         $detailedDescription,
-                                         $goal,
-                                         $experience,
-                                         $councilContribution,
-                                         $futurePlans,
-                                         $authorId,
-                                         $contactPersonId,
+                                         $picture,
                                          $userId,
-                                         $documents) {
+                                         $documents,
+                                         $isArchive = false,
+                                         $isActiveForExperts = true,
+                                         $isActiveForWeb = false,
+                                         $projectDate = null) {
         try {
             $project = new Project();
 
             $project->title = $title;
             $project->category_id = $categoryId;
-            $project->short_description = $shortDescription;
+            $project->short_description = addslashes($shortDescription);
             $project->municipality_id = $municipalityId;
-            $project->detailed_description = $detailedDescription;
-            $project->goal = $goal;
-            $project->experience = $experience;
-            $project->council_contribution = $councilContribution;
-            $project->future_plans = $futurePlans;
-            $project->author_person_id = $authorId;
-            $project->contact_person_id = $contactPersonId;
-            $project->is_archive = false;
+            $project->is_archive = $isArchive;
             $project->user_id = $userId;
-            $project->is_active_for_experts = true;
-            $project->is_active_for_web = false;
+            $project->is_active_for_experts = $isActiveForExperts;
+            $project->is_active_for_web = $isActiveForWeb;
+            if($projectDate !== null && $projectDate !== '') {
+                $project->created_at = \DateTime::createFromFormat('Y-m-d', $projectDate);
+            }
+
+            if($picture) {
+                $destinationPath = 'storage/projects/pictures/';
+                $fileName = $picture->getClientOriginalName();
+                if(file_exists(public_path($destinationPath).$fileName)) {
+                    $fileName = time().'-'.$fileName;
+                }
+                $picture->move(public_path($destinationPath), $fileName);
+
+                $path = $destinationPath.$fileName;
+
+                $project->picture = $path;
+            }
 
             $project->save();
 
@@ -110,7 +121,7 @@ class Project extends Model
      * @throws \Exception
      */
     public function uploadDocuments($documents) {
-        $destinationPath = 'storage/projects/';
+        $destinationPath = 'storage/projects/docs/';
 
         DB::beginTransaction();
         try {
@@ -132,6 +143,35 @@ class Project extends Model
         } catch (\Exception $e) {
             DB::rollBack();
 
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    public function getStatus() {
+        if($this->is_active_for_experts && !$this->is_active_for_web) return 'შეფასების პროცესშია';
+
+        if($this->is_active_for_experts && !$this->is_active_for_web) return 'უარყოფილია';
+
+        return 'მიღებულია';
+    }
+
+    public function getShortDescription() {
+        $stripped = strip_tags($this->short_description);
+
+        return (strlen($stripped) > 160) ? substr($stripped, 0, 160).'...' : $stripped;
+    }
+
+    public function getRating() {
+        // TODO
+        return '-';
+    }
+
+    public function delete() {
+        try {
+            $this->documents()->delet();
+
+            parent::delete();
+        } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
     }

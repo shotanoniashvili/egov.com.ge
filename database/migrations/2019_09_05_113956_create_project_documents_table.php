@@ -18,6 +18,8 @@ class CreateProjectDocumentsTable extends Migration
             $table->unsignedBigInteger('project_id');
             $table->text('path');
             $table->timestamps();
+
+            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateProjectDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_document');
+        Schema::dropIfExists('project_documents');
     }
 }

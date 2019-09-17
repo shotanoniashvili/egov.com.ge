@@ -32,6 +32,7 @@ class MunicipalityRequest extends FormRequest
                 return [
                     'name' => 'required|unique:municipalities|min:3',
                     'website' => 'required',
+                    'image' => 'required|mimes:png,jpg,jpeg,webp,bmp'
                 ];
 
             case 'PUT':

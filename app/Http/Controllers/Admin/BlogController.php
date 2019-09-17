@@ -56,9 +56,6 @@ class BlogController extends JoshController
      */
     public function store(BlogRequest $request)
     {
-
-        dd($request->all());
-
         $blog = new Blog($request->except('files', 'image', 'tags'));
         $message=$request->get('content');
         $dom = new DomDocument();

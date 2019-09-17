@@ -1,0 +1,1603 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'i' ]
+2 info using npm@3.5.2
+3 info using node@v8.10.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly fetchNamedPackageData buttons
+20 silly mapToRegistry name buttons
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/buttons
+24 silly fetchOtherPackageData Buttons@git+https://github.com/alexwolfe/Buttons.git
+25 silly cache add args [ 'Buttons@git+https://github.com/alexwolfe/Buttons.git', null ]
+26 verbose cache add spec Buttons@git+https://github.com/alexwolfe/Buttons.git
+27 silly fetchOtherPackageData Jcrop@git+https://github.com/tapmodo/Jcrop.git#0.9.15
+28 silly cache add args [ 'Jcrop@git+https://github.com/tapmodo/Jcrop.git#0.9.15',
+28 silly cache add   null ]
+29 verbose cache add spec Jcrop@git+https://github.com/tapmodo/Jcrop.git#0.9.15
+30 silly fetchOtherPackageData acc-wizard@git+https://github.com/sathomas/acc-wizard.git
+31 silly cache add args [ 'acc-wizard@git+https://github.com/sathomas/acc-wizard.git',
+31 silly cache add   null ]
+32 verbose cache add spec acc-wizard@git+https://github.com/sathomas/acc-wizard.git
+33 silly fetchOtherPackageData animatechart@git+https://github.com/Codicode/flotanimator.git
+34 silly cache add args [ 'animatechart@git+https://github.com/Codicode/flotanimator.git',
+34 silly cache add   null ]
+35 verbose cache add spec animatechart@git+https://github.com/Codicode/flotanimator.git
+36 silly fetchOtherPackageData autogrow@git+https://github.com/petkaantonov/jQuery-autogrow.git
+37 silly cache add args [ 'autogrow@git+https://github.com/petkaantonov/jQuery-autogrow.git',
+37 silly cache add   null ]
+38 verbose cache add spec autogrow@git+https://github.com/petkaantonov/jQuery-autogrow.git
+39 silly fetchOtherPackageData blueimp-gallery-with-desc@git+https://github.com/likt0r/Gallery.git
+40 silly cache add args [ 'blueimp-gallery-with-desc@git+https://github.com/likt0r/Gallery.git',
+40 silly cache add   null ]
+41 verbose cache add spec blueimp-gallery-with-desc@git+https://github.com/likt0r/Gallery.git
+42 silly fetchOtherPackageData bootstrap-form-builder-v4@git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized
+43 silly cache add args [ 'bootstrap-form-builder-v4@git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+43 silly cache add   null ]
+44 verbose cache add spec bootstrap-form-builder-v4@git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized
+45 silly fetchOtherPackageData bootstrap-magnify@git+https://github.com/marcaube/bootstrap-magnify.git
+46 silly cache add args [ 'bootstrap-magnify@git+https://github.com/marcaube/bootstrap-magnify.git',
+46 silly cache add   null ]
+47 verbose cache add spec bootstrap-magnify@git+https://github.com/marcaube/bootstrap-magnify.git
+48 silly fetchOtherPackageData bootstrapvalidator@git+https://github.com/nghuuphuoc/bootstrapvalidator.git
+49 silly cache add args [ 'bootstrapvalidator@git+https://github.com/nghuuphuoc/bootstrapvalidator.git',
+49 silly cache add   null ]
+50 verbose cache add spec bootstrapvalidator@git+https://github.com/nghuuphuoc/bootstrapvalidator.git
+51 silly fetchOtherPackageData bower-jquery-easyPieChart@git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git
+52 silly cache add args [ 'bower-jquery-easyPieChart@git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+52 silly cache add   null ]
+53 verbose cache add spec bower-jquery-easyPieChart@git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git
+54 silly fetchOtherPackageData bower-jvectormap@git+https://github.com/tlvince/bower-jvectormap.git
+55 silly cache add args [ 'bower-jvectormap@git+https://github.com/tlvince/bower-jvectormap.git',
+55 silly cache add   null ]
+56 verbose cache add spec bower-jvectormap@git+https://github.com/tlvince/bower-jvectormap.git
+57 silly fetchOtherPackageData clockface.js@git+https://github.com/jetapps-eu/clockface.git
+58 silly cache add args [ 'clockface.js@git+https://github.com/jetapps-eu/clockface.git',
+58 silly cache add   null ]
+59 verbose cache add spec clockface.js@git+https://github.com/jetapps-eu/clockface.git
+60 silly fetchOtherPackageData flot.tooltip@git+https://github.com/krzysu/flot.tooltip.git
+61 silly cache add args [ 'flot.tooltip@git+https://github.com/krzysu/flot.tooltip.git',
+61 silly cache add   null ]
+62 verbose cache add spec flot.tooltip@git+https://github.com/krzysu/flot.tooltip.git
+63 silly fetchOtherPackageData gridmanager@git+https://github.com/neokoenig/jQuery-gridmanager.git
+64 silly cache add args [ 'gridmanager@git+https://github.com/neokoenig/jQuery-gridmanager.git',
+64 silly cache add   null ]
+65 verbose cache add spec gridmanager@git+https://github.com/neokoenig/jQuery-gridmanager.git
+66 silly fetchOtherPackageData iCheck@git+https://github.com/fronteed/iCheck.git
+67 silly cache add args [ 'iCheck@git+https://github.com/fronteed/iCheck.git', null ]
+68 verbose cache add spec iCheck@git+https://github.com/fronteed/iCheck.git
+69 silly fetchOtherPackageData jquery.newsTicker@git+https://github.com/risq/jquery-advanced-news-ticker.git
+70 silly cache add args [ 'jquery.newsTicker@git+https://github.com/risq/jquery-advanced-news-ticker.git',
+70 silly cache add   null ]
+71 verbose cache add spec jquery.newsTicker@git+https://github.com/risq/jquery-advanced-news-ticker.git
+72 silly fetchOtherPackageData jquery.spinner@git+https://github.com/vsn4ik/jquery.spinner.git
+73 silly cache add args [ 'jquery.spinner@git+https://github.com/vsn4ik/jquery.spinner.git',
+73 silly cache add   null ]
+74 verbose cache add spec jquery.spinner@git+https://github.com/vsn4ik/jquery.spinner.git
+75 silly fetchOtherPackageData jscharts@git+https://github.com/carlcraig/tc-angular-chartjs.git
+76 silly cache add args [ 'jscharts@git+https://github.com/carlcraig/tc-angular-chartjs.git',
+76 silly cache add   null ]
+77 verbose cache add spec jscharts@git+https://github.com/carlcraig/tc-angular-chartjs.git
+78 silly fetchOtherPackageData mega-master@git+https://github.com/geedmo/yamm3.git
+79 silly cache add args [ 'mega-master@git+https://github.com/geedmo/yamm3.git', null ]
+80 verbose cache add spec mega-master@git+https://github.com/geedmo/yamm3.git
+81 silly fetchOtherPackageData nestable-list@git+https://github.com/dbushell/Nestable.git
+82 silly cache add args [ 'nestable-list@git+https://github.com/dbushell/Nestable.git',
+82 silly cache add   null ]
+83 verbose cache add spec nestable-list@git+https://github.com/dbushell/Nestable.git
+84 silly fetchOtherPackageData owlCarousel@git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git
+85 silly cache add args [ 'owlCarousel@git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+85 silly cache add   null ]
+86 verbose cache add spec owlCarousel@git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git
+87 silly fetchOtherPackageData rangy-1.3@git+https://github.com/noap/rangy-1.3.git
+88 silly cache add args [ 'rangy-1.3@git+https://github.com/noap/rangy-1.3.git', null ]
+89 verbose cache add spec rangy-1.3@git+https://github.com/noap/rangy-1.3.git
+90 silly fetchOtherPackageData slimmenu@git+https://github.com/adnantopal/slimmenu.git
+91 silly cache add args [ 'slimmenu@git+https://github.com/adnantopal/slimmenu.git',
+91 silly cache add   null ]
+92 verbose cache add spec slimmenu@git+https://github.com/adnantopal/slimmenu.git
+93 silly fetchOtherPackageData switchery@git+https://github.com/abpetkov/switchery.git
+94 silly cache add args [ 'switchery@git+https://github.com/abpetkov/switchery.git',
+94 silly cache add   null ]
+95 verbose cache add spec switchery@git+https://github.com/abpetkov/switchery.git
+96 silly fetchOtherPackageData twitter-bootstrap-wizard@git+https://github.com/VinceG/twitter-bootstrap-wizard.git
+97 silly cache add args [ 'twitter-bootstrap-wizard@git+https://github.com/VinceG/twitter-bootstrap-wizard.git',
+97 silly cache add   null ]
+98 verbose cache add spec twitter-bootstrap-wizard@git+https://github.com/VinceG/twitter-bootstrap-wizard.git
+99 silly cache add parsed spec Result {
+99 silly cache add   raw: 'Buttons@git+https://github.com/alexwolfe/Buttons.git',
+99 silly cache add   scope: null,
+99 silly cache add   name: 'Buttons',
+99 silly cache add   rawSpec: 'git+https://github.com/alexwolfe/Buttons.git',
+99 silly cache add   spec: 'git+https://github.com/alexwolfe/Buttons.git',
+99 silly cache add   type: 'hosted',
+99 silly cache add   hosted:
+99 silly cache add    { type: 'github',
+99 silly cache add      ssh: 'git@github.com:alexwolfe/Buttons.git',
+99 silly cache add      sshUrl: 'git+ssh://git@github.com/alexwolfe/Buttons.git',
+99 silly cache add      httpsUrl: 'git+https://github.com/alexwolfe/Buttons.git',
+99 silly cache add      gitUrl: 'git://github.com/alexwolfe/Buttons.git',
+99 silly cache add      shortcut: 'github:alexwolfe/Buttons',
+99 silly cache add      directUrl: 'https://raw.githubusercontent.com/alexwolfe/Buttons/master/package.json' } }
+100 verbose addRemoteGit caching git+https://github.com/alexwolfe/Buttons.git
+101 verbose addRemoteGit git+https://github.com/alexwolfe/Buttons.git is a repository hosted by github
+102 silly tryClone cloning git+https://github.com/alexwolfe/Buttons.git via git+https://github.com/alexwolfe/Buttons.git
+103 verbose tryClone git-https-github-com-alexwolfe-Buttons-git-bfec147c not in flight; caching
+104 silly cache add parsed spec Result {
+104 silly cache add   raw: 'Jcrop@git+https://github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add   scope: null,
+104 silly cache add   name: 'Jcrop',
+104 silly cache add   rawSpec: 'git+https://github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add   spec: 'git+https://github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add   type: 'hosted',
+104 silly cache add   hosted:
+104 silly cache add    { type: 'github',
+104 silly cache add      ssh: 'git@github.com:tapmodo/Jcrop.git#0.9.15',
+104 silly cache add      sshUrl: 'git+ssh://git@github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add      httpsUrl: 'git+https://github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add      gitUrl: 'git://github.com/tapmodo/Jcrop.git#0.9.15',
+104 silly cache add      shortcut: 'github:tapmodo/Jcrop#0.9.15',
+104 silly cache add      directUrl: 'https://raw.githubusercontent.com/tapmodo/Jcrop/0.9.15/package.json' } }
+105 verbose addRemoteGit caching git+https://github.com/tapmodo/Jcrop.git#0.9.15
+106 verbose addRemoteGit git+https://github.com/tapmodo/Jcrop.git#0.9.15 is a repository hosted by github
+107 silly tryClone cloning git+https://github.com/tapmodo/Jcrop.git#0.9.15 via git+https://github.com/tapmodo/Jcrop.git#0.9.15
+108 verbose tryClone git-https-github-com-tapmodo-Jcrop-git-0-9-15-d851fc15 not in flight; caching
+109 silly cache add parsed spec Result {
+109 silly cache add   raw: 'acc-wizard@git+https://github.com/sathomas/acc-wizard.git',
+109 silly cache add   scope: null,
+109 silly cache add   name: 'acc-wizard',
+109 silly cache add   rawSpec: 'git+https://github.com/sathomas/acc-wizard.git',
+109 silly cache add   spec: 'git+https://github.com/sathomas/acc-wizard.git',
+109 silly cache add   type: 'hosted',
+109 silly cache add   hosted:
+109 silly cache add    { type: 'github',
+109 silly cache add      ssh: 'git@github.com:sathomas/acc-wizard.git',
+109 silly cache add      sshUrl: 'git+ssh://git@github.com/sathomas/acc-wizard.git',
+109 silly cache add      httpsUrl: 'git+https://github.com/sathomas/acc-wizard.git',
+109 silly cache add      gitUrl: 'git://github.com/sathomas/acc-wizard.git',
+109 silly cache add      shortcut: 'github:sathomas/acc-wizard',
+109 silly cache add      directUrl: 'https://raw.githubusercontent.com/sathomas/acc-wizard/master/package.json' } }
+110 verbose addRemoteGit caching git+https://github.com/sathomas/acc-wizard.git
+111 verbose addRemoteGit git+https://github.com/sathomas/acc-wizard.git is a repository hosted by github
+112 silly tryClone cloning git+https://github.com/sathomas/acc-wizard.git via git+https://github.com/sathomas/acc-wizard.git
+113 verbose tryClone git-https-github-com-sathomas-acc-wizard-git-2f38dab8 not in flight; caching
+114 silly cache add parsed spec Result {
+114 silly cache add   raw: 'animatechart@git+https://github.com/Codicode/flotanimator.git',
+114 silly cache add   scope: null,
+114 silly cache add   name: 'animatechart',
+114 silly cache add   rawSpec: 'git+https://github.com/Codicode/flotanimator.git',
+114 silly cache add   spec: 'git+https://github.com/Codicode/flotanimator.git',
+114 silly cache add   type: 'hosted',
+114 silly cache add   hosted:
+114 silly cache add    { type: 'github',
+114 silly cache add      ssh: 'git@github.com:Codicode/flotanimator.git',
+114 silly cache add      sshUrl: 'git+ssh://git@github.com/Codicode/flotanimator.git',
+114 silly cache add      httpsUrl: 'git+https://github.com/Codicode/flotanimator.git',
+114 silly cache add      gitUrl: 'git://github.com/Codicode/flotanimator.git',
+114 silly cache add      shortcut: 'github:Codicode/flotanimator',
+114 silly cache add      directUrl: 'https://raw.githubusercontent.com/Codicode/flotanimator/master/package.json' } }
+115 verbose addRemoteGit caching git+https://github.com/Codicode/flotanimator.git
+116 verbose addRemoteGit git+https://github.com/Codicode/flotanimator.git is a repository hosted by github
+117 silly tryClone cloning git+https://github.com/Codicode/flotanimator.git via git+https://github.com/Codicode/flotanimator.git
+118 verbose tryClone git-https-github-com-Codicode-flotanimator-git-8213389b not in flight; caching
+119 silly cache add parsed spec Result {
+119 silly cache add   raw: 'autogrow@git+https://github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add   scope: null,
+119 silly cache add   name: 'autogrow',
+119 silly cache add   rawSpec: 'git+https://github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add   spec: 'git+https://github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add   type: 'hosted',
+119 silly cache add   hosted:
+119 silly cache add    { type: 'github',
+119 silly cache add      ssh: 'git@github.com:petkaantonov/jQuery-autogrow.git',
+119 silly cache add      sshUrl: 'git+ssh://git@github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add      httpsUrl: 'git+https://github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add      gitUrl: 'git://github.com/petkaantonov/jQuery-autogrow.git',
+119 silly cache add      shortcut: 'github:petkaantonov/jQuery-autogrow',
+119 silly cache add      directUrl: 'https://raw.githubusercontent.com/petkaantonov/jQuery-autogrow/master/package.json' } }
+120 verbose addRemoteGit caching git+https://github.com/petkaantonov/jQuery-autogrow.git
+121 verbose addRemoteGit git+https://github.com/petkaantonov/jQuery-autogrow.git is a repository hosted by github
+122 silly tryClone cloning git+https://github.com/petkaantonov/jQuery-autogrow.git via git+https://github.com/petkaantonov/jQuery-autogrow.git
+123 verbose tryClone git-https-github-com-petkaantonov-jQuery-autogrow-git-95a38cfd not in flight; caching
+124 silly cache add parsed spec Result {
+124 silly cache add   raw: 'blueimp-gallery-with-desc@git+https://github.com/likt0r/Gallery.git',
+124 silly cache add   scope: null,
+124 silly cache add   name: 'blueimp-gallery-with-desc',
+124 silly cache add   rawSpec: 'git+https://github.com/likt0r/Gallery.git',
+124 silly cache add   spec: 'git+https://github.com/likt0r/Gallery.git',
+124 silly cache add   type: 'hosted',
+124 silly cache add   hosted:
+124 silly cache add    { type: 'github',
+124 silly cache add      ssh: 'git@github.com:likt0r/Gallery.git',
+124 silly cache add      sshUrl: 'git+ssh://git@github.com/likt0r/Gallery.git',
+124 silly cache add      httpsUrl: 'git+https://github.com/likt0r/Gallery.git',
+124 silly cache add      gitUrl: 'git://github.com/likt0r/Gallery.git',
+124 silly cache add      shortcut: 'github:likt0r/Gallery',
+124 silly cache add      directUrl: 'https://raw.githubusercontent.com/likt0r/Gallery/master/package.json' } }
+125 verbose addRemoteGit caching git+https://github.com/likt0r/Gallery.git
+126 verbose addRemoteGit git+https://github.com/likt0r/Gallery.git is a repository hosted by github
+127 silly tryClone cloning git+https://github.com/likt0r/Gallery.git via git+https://github.com/likt0r/Gallery.git
+128 verbose tryClone git-https-github-com-likt0r-Gallery-git-51dde775 not in flight; caching
+129 silly cache add parsed spec Result {
+129 silly cache add   raw: 'bootstrap-form-builder-v4@git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add   scope: null,
+129 silly cache add   name: 'bootstrap-form-builder-v4',
+129 silly cache add   rawSpec: 'git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add   spec: 'git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add   type: 'hosted',
+129 silly cache add   hosted:
+129 silly cache add    { type: 'github',
+129 silly cache add      ssh: 'git@github.com:lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add      sshUrl: 'git+ssh://git@github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add      httpsUrl: 'git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add      gitUrl: 'git://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized',
+129 silly cache add      shortcut: 'github:lorvent/Bootstrap-Form-Builder-V3V4#v4-lib-customized',
+129 silly cache add      directUrl: 'https://raw.githubusercontent.com/lorvent/Bootstrap-Form-Builder-V3V4/v4-lib-customized/package.json' } }
+130 verbose addRemoteGit caching git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized
+131 verbose addRemoteGit git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized is a repository hosted by github
+132 silly tryClone cloning git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized via git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized
+133 verbose tryClone git-https-github-com-lorvent-Bootstrap-Form-Builder-V3V4-git-v4-lib-customized-43a51406 not in flight; caching
+134 silly cache add parsed spec Result {
+134 silly cache add   raw: 'bootstrap-magnify@git+https://github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add   scope: null,
+134 silly cache add   name: 'bootstrap-magnify',
+134 silly cache add   rawSpec: 'git+https://github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add   spec: 'git+https://github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add   type: 'hosted',
+134 silly cache add   hosted:
+134 silly cache add    { type: 'github',
+134 silly cache add      ssh: 'git@github.com:marcaube/bootstrap-magnify.git',
+134 silly cache add      sshUrl: 'git+ssh://git@github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add      httpsUrl: 'git+https://github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add      gitUrl: 'git://github.com/marcaube/bootstrap-magnify.git',
+134 silly cache add      shortcut: 'github:marcaube/bootstrap-magnify',
+134 silly cache add      directUrl: 'https://raw.githubusercontent.com/marcaube/bootstrap-magnify/master/package.json' } }
+135 verbose addRemoteGit caching git+https://github.com/marcaube/bootstrap-magnify.git
+136 verbose addRemoteGit git+https://github.com/marcaube/bootstrap-magnify.git is a repository hosted by github
+137 silly tryClone cloning git+https://github.com/marcaube/bootstrap-magnify.git via git+https://github.com/marcaube/bootstrap-magnify.git
+138 verbose tryClone git-https-github-com-marcaube-bootstrap-magnify-git-e67da611 not in flight; caching
+139 silly cache add parsed spec Result {
+139 silly cache add   raw: 'bootstrapvalidator@git+https://github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add   scope: null,
+139 silly cache add   name: 'bootstrapvalidator',
+139 silly cache add   rawSpec: 'git+https://github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add   spec: 'git+https://github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add   type: 'hosted',
+139 silly cache add   hosted:
+139 silly cache add    { type: 'github',
+139 silly cache add      ssh: 'git@github.com:nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add      sshUrl: 'git+ssh://git@github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add      httpsUrl: 'git+https://github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add      gitUrl: 'git://github.com/nghuuphuoc/bootstrapvalidator.git',
+139 silly cache add      shortcut: 'github:nghuuphuoc/bootstrapvalidator',
+139 silly cache add      directUrl: 'https://raw.githubusercontent.com/nghuuphuoc/bootstrapvalidator/master/package.json' } }
+140 verbose addRemoteGit caching git+https://github.com/nghuuphuoc/bootstrapvalidator.git
+141 verbose addRemoteGit git+https://github.com/nghuuphuoc/bootstrapvalidator.git is a repository hosted by github
+142 silly tryClone cloning git+https://github.com/nghuuphuoc/bootstrapvalidator.git via git+https://github.com/nghuuphuoc/bootstrapvalidator.git
+143 verbose tryClone git-https-github-com-nghuuphuoc-bootstrapvalidator-git-a541b8d8 not in flight; caching
+144 silly cache add parsed spec Result {
+144 silly cache add   raw: 'bower-jquery-easyPieChart@git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add   scope: null,
+144 silly cache add   name: 'bower-jquery-easyPieChart',
+144 silly cache add   rawSpec: 'git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add   spec: 'git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add   type: 'hosted',
+144 silly cache add   hosted:
+144 silly cache add    { type: 'github',
+144 silly cache add      ssh: 'git@github.com:nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add      sshUrl: 'git+ssh://git@github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add      httpsUrl: 'git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add      gitUrl: 'git://github.com/nicolabortignon/bower-jquery-easyPieChart.git',
+144 silly cache add      shortcut: 'github:nicolabortignon/bower-jquery-easyPieChart',
+144 silly cache add      directUrl: 'https://raw.githubusercontent.com/nicolabortignon/bower-jquery-easyPieChart/master/package.json' } }
+145 verbose addRemoteGit caching git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git
+146 verbose addRemoteGit git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git is a repository hosted by github
+147 silly tryClone cloning git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git via git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git
+148 verbose tryClone git-https-github-com-nicolabortignon-bower-jquery-easyPieChart-git-271cf38c not in flight; caching
+149 silly cache add parsed spec Result {
+149 silly cache add   raw: 'bower-jvectormap@git+https://github.com/tlvince/bower-jvectormap.git',
+149 silly cache add   scope: null,
+149 silly cache add   name: 'bower-jvectormap',
+149 silly cache add   rawSpec: 'git+https://github.com/tlvince/bower-jvectormap.git',
+149 silly cache add   spec: 'git+https://github.com/tlvince/bower-jvectormap.git',
+149 silly cache add   type: 'hosted',
+149 silly cache add   hosted:
+149 silly cache add    { type: 'github',
+149 silly cache add      ssh: 'git@github.com:tlvince/bower-jvectormap.git',
+149 silly cache add      sshUrl: 'git+ssh://git@github.com/tlvince/bower-jvectormap.git',
+149 silly cache add      httpsUrl: 'git+https://github.com/tlvince/bower-jvectormap.git',
+149 silly cache add      gitUrl: 'git://github.com/tlvince/bower-jvectormap.git',
+149 silly cache add      shortcut: 'github:tlvince/bower-jvectormap',
+149 silly cache add      directUrl: 'https://raw.githubusercontent.com/tlvince/bower-jvectormap/master/package.json' } }
+150 verbose addRemoteGit caching git+https://github.com/tlvince/bower-jvectormap.git
+151 verbose addRemoteGit git+https://github.com/tlvince/bower-jvectormap.git is a repository hosted by github
+152 silly tryClone cloning git+https://github.com/tlvince/bower-jvectormap.git via git+https://github.com/tlvince/bower-jvectormap.git
+153 verbose tryClone git-https-github-com-tlvince-bower-jvectormap-git-d219c894 not in flight; caching
+154 silly cache add parsed spec Result {
+154 silly cache add   raw: 'clockface.js@git+https://github.com/jetapps-eu/clockface.git',
+154 silly cache add   scope: null,
+154 silly cache add   name: 'clockface.js',
+154 silly cache add   rawSpec: 'git+https://github.com/jetapps-eu/clockface.git',
+154 silly cache add   spec: 'git+https://github.com/jetapps-eu/clockface.git',
+154 silly cache add   type: 'hosted',
+154 silly cache add   hosted:
+154 silly cache add    { type: 'github',
+154 silly cache add      ssh: 'git@github.com:jetapps-eu/clockface.git',
+154 silly cache add      sshUrl: 'git+ssh://git@github.com/jetapps-eu/clockface.git',
+154 silly cache add      httpsUrl: 'git+https://github.com/jetapps-eu/clockface.git',
+154 silly cache add      gitUrl: 'git://github.com/jetapps-eu/clockface.git',
+154 silly cache add      shortcut: 'github:jetapps-eu/clockface',
+154 silly cache add      directUrl: 'https://raw.githubusercontent.com/jetapps-eu/clockface/master/package.json' } }
+155 verbose addRemoteGit caching git+https://github.com/jetapps-eu/clockface.git
+156 verbose addRemoteGit git+https://github.com/jetapps-eu/clockface.git is a repository hosted by github
+157 silly tryClone cloning git+https://github.com/jetapps-eu/clockface.git via git+https://github.com/jetapps-eu/clockface.git
+158 verbose tryClone git-https-github-com-jetapps-eu-clockface-git-787cf18b not in flight; caching
+159 silly cache add parsed spec Result {
+159 silly cache add   raw: 'flot.tooltip@git+https://github.com/krzysu/flot.tooltip.git',
+159 silly cache add   scope: null,
+159 silly cache add   name: 'flot.tooltip',
+159 silly cache add   rawSpec: 'git+https://github.com/krzysu/flot.tooltip.git',
+159 silly cache add   spec: 'git+https://github.com/krzysu/flot.tooltip.git',
+159 silly cache add   type: 'hosted',
+159 silly cache add   hosted:
+159 silly cache add    { type: 'github',
+159 silly cache add      ssh: 'git@github.com:krzysu/flot.tooltip.git',
+159 silly cache add      sshUrl: 'git+ssh://git@github.com/krzysu/flot.tooltip.git',
+159 silly cache add      httpsUrl: 'git+https://github.com/krzysu/flot.tooltip.git',
+159 silly cache add      gitUrl: 'git://github.com/krzysu/flot.tooltip.git',
+159 silly cache add      shortcut: 'github:krzysu/flot.tooltip',
+159 silly cache add      directUrl: 'https://raw.githubusercontent.com/krzysu/flot.tooltip/master/package.json' } }
+160 verbose addRemoteGit caching git+https://github.com/krzysu/flot.tooltip.git
+161 verbose addRemoteGit git+https://github.com/krzysu/flot.tooltip.git is a repository hosted by github
+162 silly tryClone cloning git+https://github.com/krzysu/flot.tooltip.git via git+https://github.com/krzysu/flot.tooltip.git
+163 verbose tryClone git-https-github-com-krzysu-flot-tooltip-git-0c6a805c not in flight; caching
+164 silly cache add parsed spec Result {
+164 silly cache add   raw: 'gridmanager@git+https://github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add   scope: null,
+164 silly cache add   name: 'gridmanager',
+164 silly cache add   rawSpec: 'git+https://github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add   spec: 'git+https://github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add   type: 'hosted',
+164 silly cache add   hosted:
+164 silly cache add    { type: 'github',
+164 silly cache add      ssh: 'git@github.com:neokoenig/jQuery-gridmanager.git',
+164 silly cache add      sshUrl: 'git+ssh://git@github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add      httpsUrl: 'git+https://github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add      gitUrl: 'git://github.com/neokoenig/jQuery-gridmanager.git',
+164 silly cache add      shortcut: 'github:neokoenig/jQuery-gridmanager',
+164 silly cache add      directUrl: 'https://raw.githubusercontent.com/neokoenig/jQuery-gridmanager/master/package.json' } }
+165 verbose addRemoteGit caching git+https://github.com/neokoenig/jQuery-gridmanager.git
+166 verbose addRemoteGit git+https://github.com/neokoenig/jQuery-gridmanager.git is a repository hosted by github
+167 silly tryClone cloning git+https://github.com/neokoenig/jQuery-gridmanager.git via git+https://github.com/neokoenig/jQuery-gridmanager.git
+168 verbose tryClone git-https-github-com-neokoenig-jQuery-gridmanager-git-71f20580 not in flight; caching
+169 silly cache add parsed spec Result {
+169 silly cache add   raw: 'iCheck@git+https://github.com/fronteed/iCheck.git',
+169 silly cache add   scope: null,
+169 silly cache add   name: 'iCheck',
+169 silly cache add   rawSpec: 'git+https://github.com/fronteed/iCheck.git',
+169 silly cache add   spec: 'git+https://github.com/fronteed/iCheck.git',
+169 silly cache add   type: 'hosted',
+169 silly cache add   hosted:
+169 silly cache add    { type: 'github',
+169 silly cache add      ssh: 'git@github.com:fronteed/iCheck.git',
+169 silly cache add      sshUrl: 'git+ssh://git@github.com/fronteed/iCheck.git',
+169 silly cache add      httpsUrl: 'git+https://github.com/fronteed/iCheck.git',
+169 silly cache add      gitUrl: 'git://github.com/fronteed/iCheck.git',
+169 silly cache add      shortcut: 'github:fronteed/iCheck',
+169 silly cache add      directUrl: 'https://raw.githubusercontent.com/fronteed/iCheck/master/package.json' } }
+170 verbose addRemoteGit caching git+https://github.com/fronteed/iCheck.git
+171 verbose addRemoteGit git+https://github.com/fronteed/iCheck.git is a repository hosted by github
+172 silly tryClone cloning git+https://github.com/fronteed/iCheck.git via git+https://github.com/fronteed/iCheck.git
+173 verbose tryClone git-https-github-com-fronteed-iCheck-git-a4188830 not in flight; caching
+174 silly cache add parsed spec Result {
+174 silly cache add   raw: 'jquery.newsTicker@git+https://github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add   scope: null,
+174 silly cache add   name: 'jquery.newsTicker',
+174 silly cache add   rawSpec: 'git+https://github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add   spec: 'git+https://github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add   type: 'hosted',
+174 silly cache add   hosted:
+174 silly cache add    { type: 'github',
+174 silly cache add      ssh: 'git@github.com:risq/jquery-advanced-news-ticker.git',
+174 silly cache add      sshUrl: 'git+ssh://git@github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add      httpsUrl: 'git+https://github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add      gitUrl: 'git://github.com/risq/jquery-advanced-news-ticker.git',
+174 silly cache add      shortcut: 'github:risq/jquery-advanced-news-ticker',
+174 silly cache add      directUrl: 'https://raw.githubusercontent.com/risq/jquery-advanced-news-ticker/master/package.json' } }
+175 verbose addRemoteGit caching git+https://github.com/risq/jquery-advanced-news-ticker.git
+176 verbose addRemoteGit git+https://github.com/risq/jquery-advanced-news-ticker.git is a repository hosted by github
+177 silly tryClone cloning git+https://github.com/risq/jquery-advanced-news-ticker.git via git+https://github.com/risq/jquery-advanced-news-ticker.git
+178 verbose tryClone git-https-github-com-risq-jquery-advanced-news-ticker-git-4d0a71c9 not in flight; caching
+179 silly cache add parsed spec Result {
+179 silly cache add   raw: 'jquery.spinner@git+https://github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add   scope: null,
+179 silly cache add   name: 'jquery.spinner',
+179 silly cache add   rawSpec: 'git+https://github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add   spec: 'git+https://github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add   type: 'hosted',
+179 silly cache add   hosted:
+179 silly cache add    { type: 'github',
+179 silly cache add      ssh: 'git@github.com:vsn4ik/jquery.spinner.git',
+179 silly cache add      sshUrl: 'git+ssh://git@github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add      httpsUrl: 'git+https://github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add      gitUrl: 'git://github.com/vsn4ik/jquery.spinner.git',
+179 silly cache add      shortcut: 'github:vsn4ik/jquery.spinner',
+179 silly cache add      directUrl: 'https://raw.githubusercontent.com/vsn4ik/jquery.spinner/master/package.json' } }
+180 verbose addRemoteGit caching git+https://github.com/vsn4ik/jquery.spinner.git
+181 verbose addRemoteGit git+https://github.com/vsn4ik/jquery.spinner.git is a repository hosted by github
+182 silly tryClone cloning git+https://github.com/vsn4ik/jquery.spinner.git via git+https://github.com/vsn4ik/jquery.spinner.git
+183 verbose tryClone git-https-github-com-vsn4ik-jquery-spinner-git-9c12f2ba not in flight; caching
+184 silly cache add parsed spec Result {
+184 silly cache add   raw: 'jscharts@git+https://github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add   scope: null,
+184 silly cache add   name: 'jscharts',
+184 silly cache add   rawSpec: 'git+https://github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add   spec: 'git+https://github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add   type: 'hosted',
+184 silly cache add   hosted:
+184 silly cache add    { type: 'github',
+184 silly cache add      ssh: 'git@github.com:carlcraig/tc-angular-chartjs.git',
+184 silly cache add      sshUrl: 'git+ssh://git@github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add      httpsUrl: 'git+https://github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add      gitUrl: 'git://github.com/carlcraig/tc-angular-chartjs.git',
+184 silly cache add      shortcut: 'github:carlcraig/tc-angular-chartjs',
+184 silly cache add      directUrl: 'https://raw.githubusercontent.com/carlcraig/tc-angular-chartjs/master/package.json' } }
+185 verbose addRemoteGit caching git+https://github.com/carlcraig/tc-angular-chartjs.git
+186 verbose addRemoteGit git+https://github.com/carlcraig/tc-angular-chartjs.git is a repository hosted by github
+187 silly tryClone cloning git+https://github.com/carlcraig/tc-angular-chartjs.git via git+https://github.com/carlcraig/tc-angular-chartjs.git
+188 verbose tryClone git-https-github-com-carlcraig-tc-angular-chartjs-git-9523a79e not in flight; caching
+189 silly cache add parsed spec Result {
+189 silly cache add   raw: 'mega-master@git+https://github.com/geedmo/yamm3.git',
+189 silly cache add   scope: null,
+189 silly cache add   name: 'mega-master',
+189 silly cache add   rawSpec: 'git+https://github.com/geedmo/yamm3.git',
+189 silly cache add   spec: 'git+https://github.com/geedmo/yamm3.git',
+189 silly cache add   type: 'hosted',
+189 silly cache add   hosted:
+189 silly cache add    { type: 'github',
+189 silly cache add      ssh: 'git@github.com:geedmo/yamm3.git',
+189 silly cache add      sshUrl: 'git+ssh://git@github.com/geedmo/yamm3.git',
+189 silly cache add      httpsUrl: 'git+https://github.com/geedmo/yamm3.git',
+189 silly cache add      gitUrl: 'git://github.com/geedmo/yamm3.git',
+189 silly cache add      shortcut: 'github:geedmo/yamm3',
+189 silly cache add      directUrl: 'https://raw.githubusercontent.com/geedmo/yamm3/master/package.json' } }
+190 verbose addRemoteGit caching git+https://github.com/geedmo/yamm3.git
+191 verbose addRemoteGit git+https://github.com/geedmo/yamm3.git is a repository hosted by github
+192 silly tryClone cloning git+https://github.com/geedmo/yamm3.git via git+https://github.com/geedmo/yamm3.git
+193 verbose tryClone git-https-github-com-geedmo-yamm3-git-06a1c213 not in flight; caching
+194 silly cache add parsed spec Result {
+194 silly cache add   raw: 'nestable-list@git+https://github.com/dbushell/Nestable.git',
+194 silly cache add   scope: null,
+194 silly cache add   name: 'nestable-list',
+194 silly cache add   rawSpec: 'git+https://github.com/dbushell/Nestable.git',
+194 silly cache add   spec: 'git+https://github.com/dbushell/Nestable.git',
+194 silly cache add   type: 'hosted',
+194 silly cache add   hosted:
+194 silly cache add    { type: 'github',
+194 silly cache add      ssh: 'git@github.com:dbushell/Nestable.git',
+194 silly cache add      sshUrl: 'git+ssh://git@github.com/dbushell/Nestable.git',
+194 silly cache add      httpsUrl: 'git+https://github.com/dbushell/Nestable.git',
+194 silly cache add      gitUrl: 'git://github.com/dbushell/Nestable.git',
+194 silly cache add      shortcut: 'github:dbushell/Nestable',
+194 silly cache add      directUrl: 'https://raw.githubusercontent.com/dbushell/Nestable/master/package.json' } }
+195 verbose addRemoteGit caching git+https://github.com/dbushell/Nestable.git
+196 verbose addRemoteGit git+https://github.com/dbushell/Nestable.git is a repository hosted by github
+197 silly tryClone cloning git+https://github.com/dbushell/Nestable.git via git+https://github.com/dbushell/Nestable.git
+198 verbose tryClone git-https-github-com-dbushell-Nestable-git-504a818b not in flight; caching
+199 silly cache add parsed spec Result {
+199 silly cache add   raw: 'owlCarousel@git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add   scope: null,
+199 silly cache add   name: 'owlCarousel',
+199 silly cache add   rawSpec: 'git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add   spec: 'git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add   type: 'hosted',
+199 silly cache add   hosted:
+199 silly cache add    { type: 'github',
+199 silly cache add      ssh: 'git@github.com:JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add      sshUrl: 'git+ssh://git@github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add      httpsUrl: 'git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add      gitUrl: 'git://github.com/JeroenKnoops/owlfonk-owlcarousel.git',
+199 silly cache add      shortcut: 'github:JeroenKnoops/owlfonk-owlcarousel',
+199 silly cache add      directUrl: 'https://raw.githubusercontent.com/JeroenKnoops/owlfonk-owlcarousel/master/package.json' } }
+200 verbose addRemoteGit caching git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git
+201 verbose addRemoteGit git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git is a repository hosted by github
+202 silly tryClone cloning git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git via git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git
+203 verbose tryClone git-https-github-com-JeroenKnoops-owlfonk-owlcarousel-git-bfdd0f85 not in flight; caching
+204 silly cache add parsed spec Result {
+204 silly cache add   raw: 'rangy-1.3@git+https://github.com/noap/rangy-1.3.git',
+204 silly cache add   scope: null,
+204 silly cache add   name: 'rangy-1.3',
+204 silly cache add   rawSpec: 'git+https://github.com/noap/rangy-1.3.git',
+204 silly cache add   spec: 'git+https://github.com/noap/rangy-1.3.git',
+204 silly cache add   type: 'hosted',
+204 silly cache add   hosted:
+204 silly cache add    { type: 'github',
+204 silly cache add      ssh: 'git@github.com:noap/rangy-1.3.git',
+204 silly cache add      sshUrl: 'git+ssh://git@github.com/noap/rangy-1.3.git',
+204 silly cache add      httpsUrl: 'git+https://github.com/noap/rangy-1.3.git',
+204 silly cache add      gitUrl: 'git://github.com/noap/rangy-1.3.git',
+204 silly cache add      shortcut: 'github:noap/rangy-1.3',
+204 silly cache add      directUrl: 'https://raw.githubusercontent.com/noap/rangy-1.3/master/package.json' } }
+205 verbose addRemoteGit caching git+https://github.com/noap/rangy-1.3.git
+206 verbose addRemoteGit git+https://github.com/noap/rangy-1.3.git is a repository hosted by github
+207 silly tryClone cloning git+https://github.com/noap/rangy-1.3.git via git+https://github.com/noap/rangy-1.3.git
+208 verbose tryClone git-https-github-com-noap-rangy-1-3-git-ba5ed810 not in flight; caching
+209 silly cache add parsed spec Result {
+209 silly cache add   raw: 'slimmenu@git+https://github.com/adnantopal/slimmenu.git',
+209 silly cache add   scope: null,
+209 silly cache add   name: 'slimmenu',
+209 silly cache add   rawSpec: 'git+https://github.com/adnantopal/slimmenu.git',
+209 silly cache add   spec: 'git+https://github.com/adnantopal/slimmenu.git',
+209 silly cache add   type: 'hosted',
+209 silly cache add   hosted:
+209 silly cache add    { type: 'github',
+209 silly cache add      ssh: 'git@github.com:adnantopal/slimmenu.git',
+209 silly cache add      sshUrl: 'git+ssh://git@github.com/adnantopal/slimmenu.git',
+209 silly cache add      httpsUrl: 'git+https://github.com/adnantopal/slimmenu.git',
+209 silly cache add      gitUrl: 'git://github.com/adnantopal/slimmenu.git',
+209 silly cache add      shortcut: 'github:adnantopal/slimmenu',
+209 silly cache add      directUrl: 'https://raw.githubusercontent.com/adnantopal/slimmenu/master/package.json' } }
+210 verbose addRemoteGit caching git+https://github.com/adnantopal/slimmenu.git
+211 verbose addRemoteGit git+https://github.com/adnantopal/slimmenu.git is a repository hosted by github
+212 silly tryClone cloning git+https://github.com/adnantopal/slimmenu.git via git+https://github.com/adnantopal/slimmenu.git
+213 verbose tryClone git-https-github-com-adnantopal-slimmenu-git-05fbc795 not in flight; caching
+214 silly cache add parsed spec Result {
+214 silly cache add   raw: 'switchery@git+https://github.com/abpetkov/switchery.git',
+214 silly cache add   scope: null,
+214 silly cache add   name: 'switchery',
+214 silly cache add   rawSpec: 'git+https://github.com/abpetkov/switchery.git',
+214 silly cache add   spec: 'git+https://github.com/abpetkov/switchery.git',
+214 silly cache add   type: 'hosted',
+214 silly cache add   hosted:
+214 silly cache add    { type: 'github',
+214 silly cache add      ssh: 'git@github.com:abpetkov/switchery.git',
+214 silly cache add      sshUrl: 'git+ssh://git@github.com/abpetkov/switchery.git',
+214 silly cache add      httpsUrl: 'git+https://github.com/abpetkov/switchery.git',
+214 silly cache add      gitUrl: 'git://github.com/abpetkov/switchery.git',
+214 silly cache add      shortcut: 'github:abpetkov/switchery',
+214 silly cache add      directUrl: 'https://raw.githubusercontent.com/abpetkov/switchery/master/package.json' } }
+215 verbose addRemoteGit caching git+https://github.com/abpetkov/switchery.git
+216 verbose addRemoteGit git+https://github.com/abpetkov/switchery.git is a repository hosted by github
+217 silly tryClone cloning git+https://github.com/abpetkov/switchery.git via git+https://github.com/abpetkov/switchery.git
+218 verbose tryClone git-https-github-com-abpetkov-switchery-git-d7b3847c not in flight; caching
+219 silly cache add parsed spec Result {
+219 silly cache add   raw: 'twitter-bootstrap-wizard@git+https://github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add   scope: null,
+219 silly cache add   name: 'twitter-bootstrap-wizard',
+219 silly cache add   rawSpec: 'git+https://github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add   spec: 'git+https://github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add   type: 'hosted',
+219 silly cache add   hosted:
+219 silly cache add    { type: 'github',
+219 silly cache add      ssh: 'git@github.com:VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add      sshUrl: 'git+ssh://git@github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add      httpsUrl: 'git+https://github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add      gitUrl: 'git://github.com/VinceG/twitter-bootstrap-wizard.git',
+219 silly cache add      shortcut: 'github:VinceG/twitter-bootstrap-wizard',
+219 silly cache add      directUrl: 'https://raw.githubusercontent.com/VinceG/twitter-bootstrap-wizard/master/package.json' } }
+220 verbose addRemoteGit caching git+https://github.com/VinceG/twitter-bootstrap-wizard.git
+221 verbose addRemoteGit git+https://github.com/VinceG/twitter-bootstrap-wizard.git is a repository hosted by github
+222 silly tryClone cloning git+https://github.com/VinceG/twitter-bootstrap-wizard.git via git+https://github.com/VinceG/twitter-bootstrap-wizard.git
+223 verbose tryClone git-https-github-com-VinceG-twitter-bootstrap-wizard-git-72f0e7b5 not in flight; caching
+224 verbose request uri https://registry.npmjs.org/buttons
+225 verbose request no auth needed
+226 info attempt registry request try #1 at 11:05:42 PM
+227 verbose request id af5b74da49039d51
+228 verbose etag W/"76298d91e6a3c95922053006e5e19874"
+229 verbose lastModified Sat, 26 May 2018 19:12:51 GMT
+230 http request GET https://registry.npmjs.org/buttons
+231 info git [ 'config', '--get', 'remote.origin.url' ]
+232 info git [ 'config', '--get', 'remote.origin.url' ]
+233 info git [ 'config', '--get', 'remote.origin.url' ]
+234 info git [ 'config', '--get', 'remote.origin.url' ]
+235 info git [ 'config', '--get', 'remote.origin.url' ]
+236 info git [ 'config', '--get', 'remote.origin.url' ]
+237 info git [ 'config', '--get', 'remote.origin.url' ]
+238 info git [ 'config', '--get', 'remote.origin.url' ]
+239 info git [ 'config', '--get', 'remote.origin.url' ]
+240 info git [ 'config', '--get', 'remote.origin.url' ]
+241 info git [ 'config', '--get', 'remote.origin.url' ]
+242 info git [ 'config', '--get', 'remote.origin.url' ]
+243 info git [ 'config', '--get', 'remote.origin.url' ]
+244 info git [ 'config', '--get', 'remote.origin.url' ]
+245 info git [ 'config', '--get', 'remote.origin.url' ]
+246 info git [ 'config', '--get', 'remote.origin.url' ]
+247 info git [ 'config', '--get', 'remote.origin.url' ]
+248 info git [ 'config', '--get', 'remote.origin.url' ]
+249 info git [ 'config', '--get', 'remote.origin.url' ]
+250 info git [ 'config', '--get', 'remote.origin.url' ]
+251 info git [ 'config', '--get', 'remote.origin.url' ]
+252 info git [ 'config', '--get', 'remote.origin.url' ]
+253 info git [ 'config', '--get', 'remote.origin.url' ]
+254 info git [ 'config', '--get', 'remote.origin.url' ]
+255 info git [ 'config', '--get', 'remote.origin.url' ]
+256 silly validateExistingRemote git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git remote.origin.url: https://github.com/JeroenKnoops/owlfonk-owlcarousel.git
+257 verbose validateExistingRemote git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-JeroenKnoops-owlfonk-owlcarousel-git-bfdd0f85
+258 silly validateExistingRemote git+https://github.com/dbushell/Nestable.git remote.origin.url: https://github.com/dbushell/Nestable.git
+259 verbose validateExistingRemote git+https://github.com/dbushell/Nestable.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-dbushell-Nestable-git-504a818b
+260 silly validateExistingRemote git+https://github.com/geedmo/yamm3.git remote.origin.url: https://github.com/geedmo/yamm3.git
+261 verbose validateExistingRemote git+https://github.com/geedmo/yamm3.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-geedmo-yamm3-git-06a1c213
+262 silly validateExistingRemote git+https://github.com/carlcraig/tc-angular-chartjs.git remote.origin.url: https://github.com/carlcraig/tc-angular-chartjs.git
+263 verbose validateExistingRemote git+https://github.com/carlcraig/tc-angular-chartjs.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-carlcraig-tc-angular-chartjs-git-9523a79e
+264 silly validateExistingRemote git+https://github.com/vsn4ik/jquery.spinner.git remote.origin.url: https://github.com/vsn4ik/jquery.spinner.git
+265 verbose validateExistingRemote git+https://github.com/vsn4ik/jquery.spinner.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-vsn4ik-jquery-spinner-git-9c12f2ba
+266 silly validateExistingRemote git+https://github.com/risq/jquery-advanced-news-ticker.git remote.origin.url: https://github.com/risq/jquery-advanced-news-ticker.git
+267 verbose validateExistingRemote git+https://github.com/risq/jquery-advanced-news-ticker.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-risq-jquery-advanced-news-ticker-git-4d0a71c9
+268 silly validateExistingRemote git+https://github.com/fronteed/iCheck.git remote.origin.url: https://github.com/fronteed/iCheck.git
+269 verbose validateExistingRemote git+https://github.com/fronteed/iCheck.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-fronteed-iCheck-git-a4188830
+270 silly validateExistingRemote git+https://github.com/neokoenig/jQuery-gridmanager.git remote.origin.url: https://github.com/neokoenig/jQuery-gridmanager.git
+271 verbose validateExistingRemote git+https://github.com/neokoenig/jQuery-gridmanager.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-neokoenig-jQuery-gridmanager-git-71f20580
+272 silly validateExistingRemote git+https://github.com/krzysu/flot.tooltip.git remote.origin.url: https://github.com/krzysu/flot.tooltip.git
+273 verbose validateExistingRemote git+https://github.com/krzysu/flot.tooltip.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-krzysu-flot-tooltip-git-0c6a805c
+274 silly validateExistingRemote git+https://github.com/jetapps-eu/clockface.git remote.origin.url: https://github.com/jetapps-eu/clockface.git
+275 verbose validateExistingRemote git+https://github.com/jetapps-eu/clockface.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-jetapps-eu-clockface-git-787cf18b
+276 silly validateExistingRemote git+https://github.com/tlvince/bower-jvectormap.git remote.origin.url: https://github.com/tlvince/bower-jvectormap.git
+277 verbose validateExistingRemote git+https://github.com/tlvince/bower-jvectormap.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-tlvince-bower-jvectormap-git-d219c894
+278 silly validateExistingRemote git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git remote.origin.url: https://github.com/nicolabortignon/bower-jquery-easyPieChart.git
+279 verbose validateExistingRemote git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-nicolabortignon-bower-jquery-easyPieChart-git-271cf38c
+280 silly validateExistingRemote git+https://github.com/nghuuphuoc/bootstrapvalidator.git remote.origin.url: https://github.com/nghuuphuoc/bootstrapvalidator.git
+281 verbose validateExistingRemote git+https://github.com/nghuuphuoc/bootstrapvalidator.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-nghuuphuoc-bootstrapvalidator-git-a541b8d8
+282 silly validateExistingRemote git+https://github.com/marcaube/bootstrap-magnify.git remote.origin.url: https://github.com/marcaube/bootstrap-magnify.git
+283 verbose validateExistingRemote git+https://github.com/marcaube/bootstrap-magnify.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-marcaube-bootstrap-magnify-git-e67da611
+284 silly validateExistingRemote git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized remote.origin.url: https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git
+285 verbose validateExistingRemote git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-lorvent-Bootstrap-Form-Builder-V3V4-git-v4-lib-customized-43a51406
+286 silly validateExistingRemote git+https://github.com/likt0r/Gallery.git remote.origin.url: https://github.com/likt0r/Gallery.git
+287 verbose validateExistingRemote git+https://github.com/likt0r/Gallery.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-likt0r-Gallery-git-51dde775
+288 silly validateExistingRemote git+https://github.com/petkaantonov/jQuery-autogrow.git remote.origin.url: https://github.com/petkaantonov/jQuery-autogrow.git
+289 verbose validateExistingRemote git+https://github.com/petkaantonov/jQuery-autogrow.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-petkaantonov-jQuery-autogrow-git-95a38cfd
+290 silly validateExistingRemote git+https://github.com/Codicode/flotanimator.git remote.origin.url: https://github.com/Codicode/flotanimator.git
+291 verbose validateExistingRemote git+https://github.com/Codicode/flotanimator.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-Codicode-flotanimator-git-8213389b
+292 silly validateExistingRemote git+https://github.com/sathomas/acc-wizard.git remote.origin.url: https://github.com/sathomas/acc-wizard.git
+293 verbose validateExistingRemote git+https://github.com/sathomas/acc-wizard.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-sathomas-acc-wizard-git-2f38dab8
+294 silly validateExistingRemote git+https://github.com/tapmodo/Jcrop.git#0.9.15 remote.origin.url: https://github.com/tapmodo/Jcrop.git
+295 verbose validateExistingRemote git+https://github.com/tapmodo/Jcrop.git#0.9.15 is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-tapmodo-Jcrop-git-0-9-15-d851fc15
+296 silly validateExistingRemote git+https://github.com/alexwolfe/Buttons.git remote.origin.url: https://github.com/alexwolfe/Buttons.git
+297 verbose validateExistingRemote git+https://github.com/alexwolfe/Buttons.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-alexwolfe-Buttons-git-bfec147c
+298 silly validateExistingRemote git+https://github.com/VinceG/twitter-bootstrap-wizard.git remote.origin.url: https://github.com/VinceG/twitter-bootstrap-wizard.git
+299 verbose validateExistingRemote git+https://github.com/VinceG/twitter-bootstrap-wizard.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-VinceG-twitter-bootstrap-wizard-git-72f0e7b5
+300 silly validateExistingRemote git+https://github.com/abpetkov/switchery.git remote.origin.url: https://github.com/abpetkov/switchery.git
+301 verbose validateExistingRemote git+https://github.com/abpetkov/switchery.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-abpetkov-switchery-git-d7b3847c
+302 silly validateExistingRemote git+https://github.com/adnantopal/slimmenu.git remote.origin.url: https://github.com/adnantopal/slimmenu.git
+303 verbose validateExistingRemote git+https://github.com/adnantopal/slimmenu.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-adnantopal-slimmenu-git-05fbc795
+304 silly validateExistingRemote git+https://github.com/noap/rangy-1.3.git remote.origin.url: https://github.com/noap/rangy-1.3.git
+305 verbose validateExistingRemote git+https://github.com/noap/rangy-1.3.git is updating existing cached remote /home/injector/.npm/_git-remotes/git-https-github-com-noap-rangy-1-3-git-ba5ed810
+306 info git [ 'fetch', '-a', 'origin' ]
+307 info git [ 'fetch', '-a', 'origin' ]
+308 info git [ 'fetch', '-a', 'origin' ]
+309 info git [ 'fetch', '-a', 'origin' ]
+310 info git [ 'fetch', '-a', 'origin' ]
+311 info git [ 'fetch', '-a', 'origin' ]
+312 info git [ 'fetch', '-a', 'origin' ]
+313 info git [ 'fetch', '-a', 'origin' ]
+314 info git [ 'fetch', '-a', 'origin' ]
+315 info git [ 'fetch', '-a', 'origin' ]
+316 info git [ 'fetch', '-a', 'origin' ]
+317 info git [ 'fetch', '-a', 'origin' ]
+318 info git [ 'fetch', '-a', 'origin' ]
+319 info git [ 'fetch', '-a', 'origin' ]
+320 info git [ 'fetch', '-a', 'origin' ]
+321 info git [ 'fetch', '-a', 'origin' ]
+322 info git [ 'fetch', '-a', 'origin' ]
+323 info git [ 'fetch', '-a', 'origin' ]
+324 info git [ 'fetch', '-a', 'origin' ]
+325 info git [ 'fetch', '-a', 'origin' ]
+326 info git [ 'fetch', '-a', 'origin' ]
+327 info git [ 'fetch', '-a', 'origin' ]
+328 info git [ 'fetch', '-a', 'origin' ]
+329 info git [ 'fetch', '-a', 'origin' ]
+330 info git [ 'fetch', '-a', 'origin' ]
+331 http 304 https://registry.npmjs.org/buttons
+332 verbose headers { date: 'Sun, 08 Sep 2019 19:05:42 GMT',
+332 verbose headers   connection: 'keep-alive',
+332 verbose headers   'set-cookie':
+332 verbose headers    [ '__cfduid=d85125b17a493dcf7f6eced154faa3be31567969542; expires=Mon, 07-Sep-20 19:05:42 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+332 verbose headers   'cf-cache-status': 'HIT',
+332 verbose headers   'cache-control': 'max-age=300',
+332 verbose headers   'cf-ray': '5133320b9a73d43b-BUD',
+332 verbose headers   age: '241',
+332 verbose headers   etag: '"76298d91e6a3c95922053006e5e19874"',
+332 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+332 verbose headers   'last-modified': 'Sat, 26 May 2018 19:12:51 GMT',
+332 verbose headers   vary: 'accept-encoding, accept',
+332 verbose headers   server: 'cloudflare' }
+333 silly get cb [ 304,
+333 silly get   { date: 'Sun, 08 Sep 2019 19:05:42 GMT',
+333 silly get     connection: 'keep-alive',
+333 silly get     'set-cookie':
+333 silly get      [ '__cfduid=d85125b17a493dcf7f6eced154faa3be31567969542; expires=Mon, 07-Sep-20 19:05:42 GMT; path=/; domain=.npmjs.org; HttpOnly' ],
+333 silly get     'cf-cache-status': 'HIT',
+333 silly get     'cache-control': 'max-age=300',
+333 silly get     'cf-ray': '5133320b9a73d43b-BUD',
+333 silly get     age: '241',
+333 silly get     etag: '"76298d91e6a3c95922053006e5e19874"',
+333 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+333 silly get     'last-modified': 'Sat, 26 May 2018 19:12:51 GMT',
+333 silly get     vary: 'accept-encoding, accept',
+333 silly get     server: 'cloudflare' } ]
+334 verbose etag https://registry.npmjs.org/buttons from cache
+335 verbose get saving buttons to /home/injector/.npm/registry.npmjs.org/buttons/.cache.json
+336 silly resolveWithNewModule buttons@0.1.2 checking installable status
+337 silly cache add args [ 'buttons@^0.1.2', null ]
+338 verbose cache add spec buttons@^0.1.2
+339 silly cache add parsed spec Result {
+339 silly cache add   raw: 'buttons@^0.1.2',
+339 silly cache add   scope: null,
+339 silly cache add   name: 'buttons',
+339 silly cache add   rawSpec: '^0.1.2',
+339 silly cache add   spec: '>=0.1.2 <0.2.0',
+339 silly cache add   type: 'range' }
+340 silly addNamed buttons@>=0.1.2 <0.2.0
+341 verbose addNamed ">=0.1.2 <0.2.0" is a valid semver range for buttons
+342 silly addNameRange { name: 'buttons', range: '>=0.1.2 <0.2.0', hasData: false }
+343 silly mapToRegistry name buttons
+344 silly mapToRegistry using default registry
+345 silly mapToRegistry registry https://registry.npmjs.org/
+346 silly mapToRegistry uri https://registry.npmjs.org/buttons
+347 verbose addNameRange registry:https://registry.npmjs.org/buttons not in flight; fetching
+348 verbose get https://registry.npmjs.org/buttons not expired, no request
+349 silly addNameRange number 2 { name: 'buttons', range: '>=0.1.2 <0.2.0', hasData: true }
+350 silly addNameRange versions [ 'buttons', [ '0.1.1', '0.1.2' ] ]
+351 silly addNamed buttons@0.1.2
+352 verbose addNamed "0.1.2" is a plain semver version for buttons
+353 silly cache afterAdd buttons@0.1.2
+354 verbose afterAdd /home/injector/.npm/buttons/0.1.2/package/package.json not in flight; writing
+355 verbose afterAdd /home/injector/.npm/buttons/0.1.2/package/package.json written
+356 verbose updateRemote git fetch -a origin (https://github.com/JeroenKnoops/owlfonk-owlcarousel.git)
+357 verbose setPermissions git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-JeroenKnoops-owlfonk-owlcarousel-git-bfdd0f85
+358 verbose resolveHead git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git original treeish: master
+359 info git [ 'rev-list', '-n1', 'master' ]
+360 silly resolveHead git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git resolved treeish: 31413692812896e19db89baee9be30b9d36d1e64
+361 verbose resolveHead git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git resolved Git URL: git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git#31413692812896e19db89baee9be30b9d36d1e64
+362 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-b4b99239/31413692812896e19db89baee9be30b9d36d1e64
+363 info git [ 'clone',
+363 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-JeroenKnoops-owlfonk-owlcarousel-git-bfdd0f85',
+363 info git   '/tmp/npm-8090-f6a14140/git-cache-b4b99239/31413692812896e19db89baee9be30b9d36d1e64' ]
+364 verbose cloneResolved git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-b4b99239/31413692812896e19db89baee9be30b9d36d1e64'...
+364 verbose cloneResolved done.
+365 info git [ 'checkout', '31413692812896e19db89baee9be30b9d36d1e64' ]
+366 verbose checkoutTreeish git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git checkout Note: checking out '31413692812896e19db89baee9be30b9d36d1e64'.
+366 verbose checkoutTreeish
+366 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+366 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+366 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+366 verbose checkoutTreeish
+366 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+366 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+366 verbose checkoutTreeish
+366 verbose checkoutTreeish   git checkout -b <new-branch-name>
+366 verbose checkoutTreeish
+366 verbose checkoutTreeish HEAD is now at 3141369 Push the owl-carousel v1.3.2
+367 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-b4b99239/31413692812896e19db89baee9be30b9d36d1e64
+368 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+368 silly fetchPackageMetaData  error for owlCarousel@git+https://github.com/JeroenKnoops/owlfonk-owlcarousel.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+369 verbose updateRemote git fetch -a origin (https://github.com/dbushell/Nestable.git)
+370 verbose updateRemote git fetch -a origin (https://github.com/risq/jquery-advanced-news-ticker.git)
+371 verbose setPermissions git+https://github.com/dbushell/Nestable.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-dbushell-Nestable-git-504a818b
+372 verbose resolveHead git+https://github.com/dbushell/Nestable.git original treeish: master
+373 verbose setPermissions git+https://github.com/risq/jquery-advanced-news-ticker.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-risq-jquery-advanced-news-ticker-git-4d0a71c9
+374 verbose resolveHead git+https://github.com/risq/jquery-advanced-news-ticker.git original treeish: master
+375 info git [ 'rev-list', '-n1', 'master' ]
+376 info git [ 'rev-list', '-n1', 'master' ]
+377 silly resolveHead git+https://github.com/dbushell/Nestable.git resolved treeish: 9132dea0d69b280178522668c78193a72c1bb5e9
+378 verbose resolveHead git+https://github.com/dbushell/Nestable.git resolved Git URL: git+https://github.com/dbushell/Nestable.git#9132dea0d69b280178522668c78193a72c1bb5e9
+379 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-6a14a70b/9132dea0d69b280178522668c78193a72c1bb5e9
+380 silly resolveHead git+https://github.com/risq/jquery-advanced-news-ticker.git resolved treeish: 4fe396f067a70270714ce2094a8eaad7c142ee0d
+381 verbose resolveHead git+https://github.com/risq/jquery-advanced-news-ticker.git resolved Git URL: git+https://github.com/risq/jquery-advanced-news-ticker.git#4fe396f067a70270714ce2094a8eaad7c142ee0d
+382 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-79e27718/4fe396f067a70270714ce2094a8eaad7c142ee0d
+383 info git [ 'clone',
+383 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-dbushell-Nestable-git-504a818b',
+383 info git   '/tmp/npm-8090-f6a14140/git-cache-6a14a70b/9132dea0d69b280178522668c78193a72c1bb5e9' ]
+384 info git [ 'clone',
+384 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-risq-jquery-advanced-news-ticker-git-4d0a71c9',
+384 info git   '/tmp/npm-8090-f6a14140/git-cache-79e27718/4fe396f067a70270714ce2094a8eaad7c142ee0d' ]
+385 verbose updateRemote git fetch -a origin (https://github.com/neokoenig/jQuery-gridmanager.git)
+386 verbose cloneResolved git+https://github.com/dbushell/Nestable.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-6a14a70b/9132dea0d69b280178522668c78193a72c1bb5e9'...
+386 verbose cloneResolved done.
+387 info git [ 'checkout', '9132dea0d69b280178522668c78193a72c1bb5e9' ]
+388 verbose updateRemote git fetch -a origin (https://github.com/geedmo/yamm3.git)
+389 verbose updateRemote git fetch -a origin (https://github.com/jetapps-eu/clockface.git)
+390 verbose setPermissions git+https://github.com/neokoenig/jQuery-gridmanager.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-neokoenig-jQuery-gridmanager-git-71f20580
+391 verbose resolveHead git+https://github.com/neokoenig/jQuery-gridmanager.git original treeish: master
+392 verbose updateRemote git fetch -a origin (https://github.com/carlcraig/tc-angular-chartjs.git)
+393 verbose updateRemote git fetch -a origin (https://github.com/nghuuphuoc/bootstrapvalidator.git)
+394 info git [ 'rev-list', '-n1', 'master' ]
+395 verbose updateRemote git fetch -a origin (https://github.com/likt0r/Gallery.git)
+396 verbose cloneResolved git+https://github.com/risq/jquery-advanced-news-ticker.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-79e27718/4fe396f067a70270714ce2094a8eaad7c142ee0d'...
+396 verbose cloneResolved done.
+397 verbose checkoutTreeish git+https://github.com/dbushell/Nestable.git checkout Note: checking out '9132dea0d69b280178522668c78193a72c1bb5e9'.
+397 verbose checkoutTreeish
+397 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+397 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+397 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+397 verbose checkoutTreeish
+397 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+397 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+397 verbose checkoutTreeish
+397 verbose checkoutTreeish   git checkout -b <new-branch-name>
+397 verbose checkoutTreeish
+397 verbose checkoutTreeish HEAD is now at 9132dea Update index.html
+398 verbose updateRemote git fetch -a origin (https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git)
+399 silly resolveHead git+https://github.com/neokoenig/jQuery-gridmanager.git resolved treeish: 2a8d629e4d177dd359939f38d5e299e21941de62
+400 verbose resolveHead git+https://github.com/neokoenig/jQuery-gridmanager.git resolved Git URL: git+https://github.com/neokoenig/jQuery-gridmanager.git#2a8d629e4d177dd359939f38d5e299e21941de62
+401 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-2237d00e/2a8d629e4d177dd359939f38d5e299e21941de62
+402 verbose updateRemote git fetch -a origin (https://github.com/tlvince/bower-jvectormap.git)
+403 verbose updateRemote git fetch -a origin (https://github.com/vsn4ik/jquery.spinner.git)
+404 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-6a14a70b/9132dea0d69b280178522668c78193a72c1bb5e9
+405 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+405 silly fetchPackageMetaData  error for nestable-list@git+https://github.com/dbushell/Nestable.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+406 info git [ 'checkout', '4fe396f067a70270714ce2094a8eaad7c142ee0d' ]
+407 verbose setPermissions git+https://github.com/geedmo/yamm3.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-geedmo-yamm3-git-06a1c213
+408 verbose resolveHead git+https://github.com/geedmo/yamm3.git original treeish: master
+409 verbose setPermissions git+https://github.com/jetapps-eu/clockface.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-jetapps-eu-clockface-git-787cf18b
+410 verbose resolveHead git+https://github.com/jetapps-eu/clockface.git original treeish: master
+411 verbose updateRemote git fetch -a origin (https://github.com/sathomas/acc-wizard.git)
+412 verbose updateRemote git fetch -a origin (https://github.com/nicolabortignon/bower-jquery-easyPieChart.git)
+413 verbose setPermissions git+https://github.com/carlcraig/tc-angular-chartjs.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-carlcraig-tc-angular-chartjs-git-9523a79e
+414 verbose resolveHead git+https://github.com/carlcraig/tc-angular-chartjs.git original treeish: master
+415 verbose setPermissions git+https://github.com/nghuuphuoc/bootstrapvalidator.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-nghuuphuoc-bootstrapvalidator-git-a541b8d8
+416 verbose resolveHead git+https://github.com/nghuuphuoc/bootstrapvalidator.git original treeish: master
+417 info git [ 'clone',
+417 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-neokoenig-jQuery-gridmanager-git-71f20580',
+417 info git   '/tmp/npm-8090-f6a14140/git-cache-2237d00e/2a8d629e4d177dd359939f38d5e299e21941de62' ]
+418 info git [ 'rev-list', '-n1', 'master' ]
+419 info git [ 'rev-list', '-n1', 'master' ]
+420 silly resolveHead git+https://github.com/geedmo/yamm3.git resolved treeish: 86ff1356d0b2a06310e51440a414dd6f25e51c07
+421 verbose resolveHead git+https://github.com/geedmo/yamm3.git resolved Git URL: git+https://github.com/geedmo/yamm3.git#86ff1356d0b2a06310e51440a414dd6f25e51c07
+422 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-95e5143a/86ff1356d0b2a06310e51440a414dd6f25e51c07
+423 verbose updateRemote git fetch -a origin (https://github.com/marcaube/bootstrap-magnify.git)
+424 verbose updateRemote git fetch -a origin (https://github.com/Codicode/flotanimator.git)
+425 verbose updateRemote git fetch -a origin (https://github.com/adnantopal/slimmenu.git)
+426 verbose updateRemote git fetch -a origin (https://github.com/petkaantonov/jQuery-autogrow.git)
+427 verbose updateRemote git fetch -a origin (https://github.com/VinceG/twitter-bootstrap-wizard.git)
+428 verbose checkoutTreeish git+https://github.com/risq/jquery-advanced-news-ticker.git checkout Note: checking out '4fe396f067a70270714ce2094a8eaad7c142ee0d'.
+428 verbose checkoutTreeish
+428 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+428 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+428 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+428 verbose checkoutTreeish
+428 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+428 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+428 verbose checkoutTreeish
+428 verbose checkoutTreeish   git checkout -b <new-branch-name>
+428 verbose checkoutTreeish
+428 verbose checkoutTreeish HEAD is now at 4fe396f Merge pull request #12 from bitdeli-chef/master
+429 silly resolveHead git+https://github.com/jetapps-eu/clockface.git resolved treeish: 57e637782d5c8e9f423122ceb25d40c763e8dc42
+430 verbose resolveHead git+https://github.com/jetapps-eu/clockface.git resolved Git URL: git+https://github.com/jetapps-eu/clockface.git#57e637782d5c8e9f423122ceb25d40c763e8dc42
+431 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-98047170/57e637782d5c8e9f423122ceb25d40c763e8dc42
+432 info git [ 'rev-list', '-n1', 'master' ]
+433 info git [ 'rev-list', '-n1', 'master' ]
+434 verbose setPermissions git+https://github.com/likt0r/Gallery.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-likt0r-Gallery-git-51dde775
+435 verbose resolveHead git+https://github.com/likt0r/Gallery.git original treeish: master
+436 verbose cloneResolved git+https://github.com/neokoenig/jQuery-gridmanager.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-2237d00e/2a8d629e4d177dd359939f38d5e299e21941de62'...
+436 verbose cloneResolved done.
+437 silly resolveHead git+https://github.com/nghuuphuoc/bootstrapvalidator.git resolved treeish: 0c96659eda586269c02a45948744ac135676ff0d
+438 verbose resolveHead git+https://github.com/nghuuphuoc/bootstrapvalidator.git resolved Git URL: git+https://github.com/nghuuphuoc/bootstrapvalidator.git#0c96659eda586269c02a45948744ac135676ff0d
+439 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-c04f01bc/0c96659eda586269c02a45948744ac135676ff0d
+440 silly resolveHead git+https://github.com/carlcraig/tc-angular-chartjs.git resolved treeish: c8ddd075c82ce26624a05faca4e648a9eb6710e8
+441 verbose resolveHead git+https://github.com/carlcraig/tc-angular-chartjs.git resolved Git URL: git+https://github.com/carlcraig/tc-angular-chartjs.git#c8ddd075c82ce26624a05faca4e648a9eb6710e8
+442 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-fa977783/c8ddd075c82ce26624a05faca4e648a9eb6710e8
+443 verbose updateRemote git fetch -a origin (https://github.com/abpetkov/switchery.git)
+444 verbose updateRemote git fetch -a origin (https://github.com/noap/rangy-1.3.git)
+445 verbose setPermissions git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-lorvent-Bootstrap-Form-Builder-V3V4-git-v4-lib-customized-43a51406
+446 verbose resolveHead git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized original treeish: v4-lib-customized
+447 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-79e27718/4fe396f067a70270714ce2094a8eaad7c142ee0d
+448 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+448 silly fetchPackageMetaData  error for jquery.newsTicker@git+https://github.com/risq/jquery-advanced-news-ticker.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+449 verbose updateRemote git fetch -a origin (https://github.com/alexwolfe/Buttons.git)
+450 verbose setPermissions git+https://github.com/tlvince/bower-jvectormap.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-tlvince-bower-jvectormap-git-d219c894
+451 verbose resolveHead git+https://github.com/tlvince/bower-jvectormap.git original treeish: master
+452 verbose setPermissions git+https://github.com/vsn4ik/jquery.spinner.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-vsn4ik-jquery-spinner-git-9c12f2ba
+453 verbose resolveHead git+https://github.com/vsn4ik/jquery.spinner.git original treeish: master
+454 info git [ 'rev-list', '-n1', 'master' ]
+455 info git [ 'checkout', '2a8d629e4d177dd359939f38d5e299e21941de62' ]
+456 verbose updateRemote git fetch -a origin (https://github.com/tapmodo/Jcrop.git)
+457 verbose setPermissions git+https://github.com/sathomas/acc-wizard.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-sathomas-acc-wizard-git-2f38dab8
+458 verbose resolveHead git+https://github.com/sathomas/acc-wizard.git original treeish: master
+459 info git [ 'clone',
+459 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-geedmo-yamm3-git-06a1c213',
+459 info git   '/tmp/npm-8090-f6a14140/git-cache-95e5143a/86ff1356d0b2a06310e51440a414dd6f25e51c07' ]
+460 silly resolveHead git+https://github.com/likt0r/Gallery.git resolved treeish: 7a37beb971b1e5d8de2b784f58614b7a85ed125a
+461 verbose resolveHead git+https://github.com/likt0r/Gallery.git resolved Git URL: git+https://github.com/likt0r/Gallery.git#7a37beb971b1e5d8de2b784f58614b7a85ed125a
+462 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-64fe0d20/7a37beb971b1e5d8de2b784f58614b7a85ed125a
+463 verbose updateRemote git fetch -a origin (https://github.com/fronteed/iCheck.git)
+464 verbose updateRemote git fetch -a origin (https://github.com/krzysu/flot.tooltip.git)
+465 info git [ 'rev-list', '-n1', 'v4-lib-customized' ]
+466 info git [ 'clone',
+466 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-jetapps-eu-clockface-git-787cf18b',
+466 info git   '/tmp/npm-8090-f6a14140/git-cache-98047170/57e637782d5c8e9f423122ceb25d40c763e8dc42' ]
+467 verbose setPermissions git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-nicolabortignon-bower-jquery-easyPieChart-git-271cf38c
+468 verbose resolveHead git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git original treeish: master
+469 silly resolveHead git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized resolved treeish: 73ddbaf5d76de98a78728f2f305f736fe33805a3
+470 verbose resolveHead git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized resolved Git URL: git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#73ddbaf5d76de98a78728f2f305f736fe33805a3
+471 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-bca4a692/73ddbaf5d76de98a78728f2f305f736fe33805a3
+472 info git [ 'clone',
+472 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-nghuuphuoc-bootstrapvalidator-git-a541b8d8',
+472 info git   '/tmp/npm-8090-f6a14140/git-cache-c04f01bc/0c96659eda586269c02a45948744ac135676ff0d' ]
+473 info git [ 'clone',
+473 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-carlcraig-tc-angular-chartjs-git-9523a79e',
+473 info git   '/tmp/npm-8090-f6a14140/git-cache-fa977783/c8ddd075c82ce26624a05faca4e648a9eb6710e8' ]
+474 verbose checkoutTreeish git+https://github.com/neokoenig/jQuery-gridmanager.git checkout Note: checking out '2a8d629e4d177dd359939f38d5e299e21941de62'.
+474 verbose checkoutTreeish
+474 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+474 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+474 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+474 verbose checkoutTreeish
+474 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+474 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+474 verbose checkoutTreeish
+474 verbose checkoutTreeish   git checkout -b <new-branch-name>
+474 verbose checkoutTreeish
+474 verbose checkoutTreeish HEAD is now at 2a8d629 IE remove col fix
+475 verbose cloneResolved git+https://github.com/geedmo/yamm3.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-95e5143a/86ff1356d0b2a06310e51440a414dd6f25e51c07'...
+475 verbose cloneResolved done.
+476 info git [ 'rev-list', '-n1', 'master' ]
+477 info git [ 'rev-list', '-n1', 'master' ]
+478 verbose cloneResolved git+https://github.com/jetapps-eu/clockface.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-98047170/57e637782d5c8e9f423122ceb25d40c763e8dc42'...
+478 verbose cloneResolved done.
+479 info git [ 'rev-list', '-n1', 'master' ]
+480 silly resolveHead git+https://github.com/vsn4ik/jquery.spinner.git resolved treeish: 94b51a9d4c2648dffadecfc929bf8112ebe099b8
+481 verbose resolveHead git+https://github.com/vsn4ik/jquery.spinner.git resolved Git URL: git+https://github.com/vsn4ik/jquery.spinner.git#94b51a9d4c2648dffadecfc929bf8112ebe099b8
+482 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-2de5a979/94b51a9d4c2648dffadecfc929bf8112ebe099b8
+483 silly resolveHead git+https://github.com/tlvince/bower-jvectormap.git resolved treeish: 691130899d606d1470e90f8e83b821d425176f8e
+484 verbose resolveHead git+https://github.com/tlvince/bower-jvectormap.git resolved Git URL: git+https://github.com/tlvince/bower-jvectormap.git#691130899d606d1470e90f8e83b821d425176f8e
+485 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-30cca00e/691130899d606d1470e90f8e83b821d425176f8e
+486 verbose setPermissions git+https://github.com/marcaube/bootstrap-magnify.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-marcaube-bootstrap-magnify-git-e67da611
+487 verbose resolveHead git+https://github.com/marcaube/bootstrap-magnify.git original treeish: master
+488 verbose setPermissions git+https://github.com/Codicode/flotanimator.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-Codicode-flotanimator-git-8213389b
+489 verbose resolveHead git+https://github.com/Codicode/flotanimator.git original treeish: master
+490 verbose setPermissions git+https://github.com/adnantopal/slimmenu.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-adnantopal-slimmenu-git-05fbc795
+491 verbose resolveHead git+https://github.com/adnantopal/slimmenu.git original treeish: master
+492 verbose setPermissions git+https://github.com/petkaantonov/jQuery-autogrow.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-petkaantonov-jQuery-autogrow-git-95a38cfd
+493 verbose resolveHead git+https://github.com/petkaantonov/jQuery-autogrow.git original treeish: master
+494 silly resolveHead git+https://github.com/sathomas/acc-wizard.git resolved treeish: 32e2533a63d2d8447d043cce4fd1dc0bd0fd0919
+495 verbose resolveHead git+https://github.com/sathomas/acc-wizard.git resolved Git URL: git+https://github.com/sathomas/acc-wizard.git#32e2533a63d2d8447d043cce4fd1dc0bd0fd0919
+496 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-5f71125b/32e2533a63d2d8447d043cce4fd1dc0bd0fd0919
+497 verbose setPermissions git+https://github.com/VinceG/twitter-bootstrap-wizard.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-VinceG-twitter-bootstrap-wizard-git-72f0e7b5
+498 verbose resolveHead git+https://github.com/VinceG/twitter-bootstrap-wizard.git original treeish: master
+499 info git [ 'rev-list', '-n1', 'master' ]
+500 verbose cloneResolved git+https://github.com/nghuuphuoc/bootstrapvalidator.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-c04f01bc/0c96659eda586269c02a45948744ac135676ff0d'...
+500 verbose cloneResolved done.
+501 verbose cloneResolved git+https://github.com/carlcraig/tc-angular-chartjs.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-fa977783/c8ddd075c82ce26624a05faca4e648a9eb6710e8'...
+501 verbose cloneResolved done.
+502 info git [ 'checkout', '86ff1356d0b2a06310e51440a414dd6f25e51c07' ]
+503 info git [ 'clone',
+503 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-likt0r-Gallery-git-51dde775',
+503 info git   '/tmp/npm-8090-f6a14140/git-cache-64fe0d20/7a37beb971b1e5d8de2b784f58614b7a85ed125a' ]
+504 silly resolveHead git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git resolved treeish: 544a5902879e46a9f9c4ec991812832330036204
+505 verbose resolveHead git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git resolved Git URL: git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git#544a5902879e46a9f9c4ec991812832330036204
+506 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-b90498e9/544a5902879e46a9f9c4ec991812832330036204
+507 verbose setPermissions git+https://github.com/abpetkov/switchery.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-abpetkov-switchery-git-d7b3847c
+508 verbose resolveHead git+https://github.com/abpetkov/switchery.git original treeish: master
+509 info git [ 'checkout', '57e637782d5c8e9f423122ceb25d40c763e8dc42' ]
+510 verbose setPermissions git+https://github.com/noap/rangy-1.3.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-noap-rangy-1-3-git-ba5ed810
+511 verbose resolveHead git+https://github.com/noap/rangy-1.3.git original treeish: master
+512 verbose checkoutTreeish git+https://github.com/geedmo/yamm3.git checkout Note: checking out '86ff1356d0b2a06310e51440a414dd6f25e51c07'.
+512 verbose checkoutTreeish
+512 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+512 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+512 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+512 verbose checkoutTreeish
+512 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+512 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+512 verbose checkoutTreeish
+512 verbose checkoutTreeish   git checkout -b <new-branch-name>
+512 verbose checkoutTreeish
+512 verbose checkoutTreeish HEAD is now at 86ff135 Updated readme
+513 info git [ 'clone',
+513 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-lorvent-Bootstrap-Form-Builder-V3V4-git-v4-lib-customized-43a51406',
+513 info git   '/tmp/npm-8090-f6a14140/git-cache-bca4a692/73ddbaf5d76de98a78728f2f305f736fe33805a3' ]
+514 info git [ 'rev-list', '-n1', 'master' ]
+515 info git [ 'rev-list', '-n1', 'master' ]
+516 info git [ 'rev-list', '-n1', 'master' ]
+517 info git [ 'rev-list', '-n1', 'master' ]
+518 verbose cloneResolved git+https://github.com/likt0r/Gallery.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-64fe0d20/7a37beb971b1e5d8de2b784f58614b7a85ed125a'...
+518 verbose cloneResolved done.
+519 info git [ 'rev-list', '-n1', 'master' ]
+520 silly resolveHead git+https://github.com/adnantopal/slimmenu.git resolved treeish: c2642568603dfa8bbf7f256c76997f38e3762ace
+521 verbose resolveHead git+https://github.com/adnantopal/slimmenu.git resolved Git URL: git+https://github.com/adnantopal/slimmenu.git#c2642568603dfa8bbf7f256c76997f38e3762ace
+522 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-bd038a07/c2642568603dfa8bbf7f256c76997f38e3762ace
+523 silly resolveHead git+https://github.com/Codicode/flotanimator.git resolved treeish: 3c256c0183d713fd3bf41d04417873928eb1a751
+524 verbose resolveHead git+https://github.com/Codicode/flotanimator.git resolved Git URL: git+https://github.com/Codicode/flotanimator.git#3c256c0183d713fd3bf41d04417873928eb1a751
+525 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-c1aafd73/3c256c0183d713fd3bf41d04417873928eb1a751
+526 silly resolveHead git+https://github.com/marcaube/bootstrap-magnify.git resolved treeish: 323ec932556362034326bf5258f17ccbc93cba63
+527 verbose resolveHead git+https://github.com/marcaube/bootstrap-magnify.git resolved Git URL: git+https://github.com/marcaube/bootstrap-magnify.git#323ec932556362034326bf5258f17ccbc93cba63
+528 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-d0ea84de/323ec932556362034326bf5258f17ccbc93cba63
+529 verbose cloneResolved git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-bca4a692/73ddbaf5d76de98a78728f2f305f736fe33805a3'...
+529 verbose cloneResolved done.
+530 verbose checkoutTreeish git+https://github.com/jetapps-eu/clockface.git checkout Note: checking out '57e637782d5c8e9f423122ceb25d40c763e8dc42'.
+530 verbose checkoutTreeish
+530 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+530 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+530 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+530 verbose checkoutTreeish
+530 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+530 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+530 verbose checkoutTreeish
+530 verbose checkoutTreeish   git checkout -b <new-branch-name>
+530 verbose checkoutTreeish
+530 verbose checkoutTreeish HEAD is now at 57e6377 Created bower.json
+531 verbose setPermissions git+https://github.com/alexwolfe/Buttons.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-alexwolfe-Buttons-git-bfec147c
+532 verbose resolveHead git+https://github.com/alexwolfe/Buttons.git original treeish: master
+533 info git [ 'checkout', '0c96659eda586269c02a45948744ac135676ff0d' ]
+534 info git [ 'checkout', 'c8ddd075c82ce26624a05faca4e648a9eb6710e8' ]
+535 silly resolveHead git+https://github.com/petkaantonov/jQuery-autogrow.git resolved treeish: 351d071d49fa404235de2542097abd5299a34a83
+536 verbose resolveHead git+https://github.com/petkaantonov/jQuery-autogrow.git resolved Git URL: git+https://github.com/petkaantonov/jQuery-autogrow.git#351d071d49fa404235de2542097abd5299a34a83
+537 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-a5943ee1/351d071d49fa404235de2542097abd5299a34a83
+538 info git [ 'clone',
+538 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-vsn4ik-jquery-spinner-git-9c12f2ba',
+538 info git   '/tmp/npm-8090-f6a14140/git-cache-2de5a979/94b51a9d4c2648dffadecfc929bf8112ebe099b8' ]
+539 verbose setPermissions git+https://github.com/tapmodo/Jcrop.git#0.9.15 set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-tapmodo-Jcrop-git-0-9-15-d851fc15
+540 verbose resolveHead git+https://github.com/tapmodo/Jcrop.git#0.9.15 original treeish: 0.9.15
+541 info git [ 'clone',
+541 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-tlvince-bower-jvectormap-git-d219c894',
+541 info git   '/tmp/npm-8090-f6a14140/git-cache-30cca00e/691130899d606d1470e90f8e83b821d425176f8e' ]
+542 silly resolveHead git+https://github.com/VinceG/twitter-bootstrap-wizard.git resolved treeish: f36ef63157ed3984a187156da6de0f8724d58a93
+543 verbose resolveHead git+https://github.com/VinceG/twitter-bootstrap-wizard.git resolved Git URL: git+https://github.com/VinceG/twitter-bootstrap-wizard.git#f36ef63157ed3984a187156da6de0f8724d58a93
+544 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-6e89fab4/f36ef63157ed3984a187156da6de0f8724d58a93
+545 info git [ 'clone',
+545 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-sathomas-acc-wizard-git-2f38dab8',
+545 info git   '/tmp/npm-8090-f6a14140/git-cache-5f71125b/32e2533a63d2d8447d043cce4fd1dc0bd0fd0919' ]
+546 info git [ 'rev-list', '-n1', 'master' ]
+547 info git [ 'rev-list', '-n1', 'master' ]
+548 verbose setPermissions git+https://github.com/fronteed/iCheck.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-fronteed-iCheck-git-a4188830
+549 verbose resolveHead git+https://github.com/fronteed/iCheck.git original treeish: master
+550 verbose setPermissions git+https://github.com/krzysu/flot.tooltip.git set permissions on /home/injector/.npm/_git-remotes/git-https-github-com-krzysu-flot-tooltip-git-0c6a805c
+551 verbose resolveHead git+https://github.com/krzysu/flot.tooltip.git original treeish: master
+552 verbose checkoutTreeish git+https://github.com/carlcraig/tc-angular-chartjs.git checkout Note: checking out 'c8ddd075c82ce26624a05faca4e648a9eb6710e8'.
+552 verbose checkoutTreeish
+552 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+552 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+552 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+552 verbose checkoutTreeish
+552 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+552 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+552 verbose checkoutTreeish
+552 verbose checkoutTreeish   git checkout -b <new-branch-name>
+552 verbose checkoutTreeish
+552 verbose checkoutTreeish HEAD is now at c8ddd07 Inline plugins support for charts (#86)
+553 verbose addLocalDirectory /home/injector/.npm/gridmanager/0.3.1/package.tgz not in flight; packing
+554 info git [ 'checkout', '7a37beb971b1e5d8de2b784f58614b7a85ed125a' ]
+555 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-98047170/57e637782d5c8e9f423122ceb25d40c763e8dc42
+556 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+556 silly fetchPackageMetaData  error for clockface.js@git+https://github.com/jetapps-eu/clockface.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+557 silly resolveHead git+https://github.com/noap/rangy-1.3.git resolved treeish: d2b26285b83a1d2f3cbd46196cb13896e3098a29
+558 verbose resolveHead git+https://github.com/noap/rangy-1.3.git resolved Git URL: git+https://github.com/noap/rangy-1.3.git#d2b26285b83a1d2f3cbd46196cb13896e3098a29
+559 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-436ee2a3/d2b26285b83a1d2f3cbd46196cb13896e3098a29
+560 silly resolveHead git+https://github.com/abpetkov/switchery.git resolved treeish: 778104eb5bd2579a24f4d9bd124592dcdb8598aa
+561 verbose resolveHead git+https://github.com/abpetkov/switchery.git resolved Git URL: git+https://github.com/abpetkov/switchery.git#778104eb5bd2579a24f4d9bd124592dcdb8598aa
+562 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-9f2ae7ce/778104eb5bd2579a24f4d9bd124592dcdb8598aa
+563 verbose cloneResolved git+https://github.com/sathomas/acc-wizard.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-5f71125b/32e2533a63d2d8447d043cce4fd1dc0bd0fd0919'...
+563 verbose cloneResolved done.
+564 verbose checkoutTreeish git+https://github.com/nghuuphuoc/bootstrapvalidator.git checkout Note: checking out '0c96659eda586269c02a45948744ac135676ff0d'.
+564 verbose checkoutTreeish
+564 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+564 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+564 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+564 verbose checkoutTreeish
+564 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+564 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+564 verbose checkoutTreeish
+564 verbose checkoutTreeish   git checkout -b <new-branch-name>
+564 verbose checkoutTreeish
+564 verbose checkoutTreeish HEAD is now at 0c96659 Update README.md
+565 verbose cloneResolved git+https://github.com/tlvince/bower-jvectormap.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-30cca00e/691130899d606d1470e90f8e83b821d425176f8e'...
+565 verbose cloneResolved done.
+566 verbose cloneResolved git+https://github.com/vsn4ik/jquery.spinner.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-2de5a979/94b51a9d4c2648dffadecfc929bf8112ebe099b8'...
+566 verbose cloneResolved done.
+567 info git [ 'clone',
+567 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-nicolabortignon-bower-jquery-easyPieChart-git-271cf38c',
+567 info git   '/tmp/npm-8090-f6a14140/git-cache-b90498e9/544a5902879e46a9f9c4ec991812832330036204' ]
+568 info git [ 'checkout', '73ddbaf5d76de98a78728f2f305f736fe33805a3' ]
+569 info git [ 'rev-list', '-n1', 'master' ]
+570 verbose tar pack [ '/home/injector/.npm/gridmanager/0.3.1/package.tgz',
+570 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-2237d00e/2a8d629e4d177dd359939f38d5e299e21941de62' ]
+571 verbose tarball /home/injector/.npm/gridmanager/0.3.1/package.tgz
+572 verbose folder /tmp/npm-8090-f6a14140/git-cache-2237d00e/2a8d629e4d177dd359939f38d5e299e21941de62
+573 verbose checkoutTreeish git+https://github.com/likt0r/Gallery.git checkout Note: checking out '7a37beb971b1e5d8de2b784f58614b7a85ed125a'.
+573 verbose checkoutTreeish
+573 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+573 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+573 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+573 verbose checkoutTreeish
+573 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+573 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+573 verbose checkoutTreeish
+573 verbose checkoutTreeish   git checkout -b <new-branch-name>
+573 verbose checkoutTreeish
+573 verbose checkoutTreeish HEAD is now at 7a37beb Added missing min files
+574 info git [ 'rev-list', '-n1', '0.9.15' ]
+575 silly resolveHead git+https://github.com/alexwolfe/Buttons.git resolved treeish: 0a91b65bc9e3a8bbbefbe1af20047dabed0d742e
+576 verbose resolveHead git+https://github.com/alexwolfe/Buttons.git resolved Git URL: git+https://github.com/alexwolfe/Buttons.git#0a91b65bc9e3a8bbbefbe1af20047dabed0d742e
+577 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-cdbac09c/0a91b65bc9e3a8bbbefbe1af20047dabed0d742e
+578 verbose checkoutTreeish git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized checkout Note: checking out '73ddbaf5d76de98a78728f2f305f736fe33805a3'.
+578 verbose checkoutTreeish
+578 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+578 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+578 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+578 verbose checkoutTreeish
+578 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+578 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+578 verbose checkoutTreeish
+578 verbose checkoutTreeish   git checkout -b <new-branch-name>
+578 verbose checkoutTreeish
+578 verbose checkoutTreeish HEAD is now at 73ddbaf to make it work with laravel assets path
+579 verbose cloneResolved git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-b90498e9/544a5902879e46a9f9c4ec991812832330036204'...
+579 verbose cloneResolved done.
+580 info git [ 'rev-list', '-n1', 'master' ]
+581 info git [ 'rev-list', '-n1', 'master' ]
+582 info git [ 'clone',
+582 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-adnantopal-slimmenu-git-05fbc795',
+582 info git   '/tmp/npm-8090-f6a14140/git-cache-bd038a07/c2642568603dfa8bbf7f256c76997f38e3762ace' ]
+583 info git [ 'clone',
+583 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-Codicode-flotanimator-git-8213389b',
+583 info git   '/tmp/npm-8090-f6a14140/git-cache-c1aafd73/3c256c0183d713fd3bf41d04417873928eb1a751' ]
+584 info git [ 'clone',
+584 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-marcaube-bootstrap-magnify-git-e67da611',
+584 info git   '/tmp/npm-8090-f6a14140/git-cache-d0ea84de/323ec932556362034326bf5258f17ccbc93cba63' ]
+585 error git rev-list -n1 0.9.15: fatal: ambiguous argument '0.9.15': unknown revision or path not in the working tree.
+585 error git rev-list -n1 0.9.15: Use '--' to separate paths from revisions, like this:
+585 error git rev-list -n1 0.9.15: 'git <command> [<revision>...] -- [<file>...]'
+586 silly fetchPackageMetaData Error: Command failed: git rev-list -n1 0.9.15
+586 silly fetchPackageMetaData fatal: ambiguous argument '0.9.15': unknown revision or path not in the working tree.
+586 silly fetchPackageMetaData Use '--' to separate paths from revisions, like this:
+586 silly fetchPackageMetaData 'git <command> [<revision>...] -- [<file>...]'
+586 silly fetchPackageMetaData
+586 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:275:12)
+586 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
+586 silly fetchPackageMetaData     at ChildProcess.emit (events.js:214:7)
+586 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:925:16)
+586 silly fetchPackageMetaData     at Socket.stream.socket.on (internal/child_process.js:346:11)
+586 silly fetchPackageMetaData     at emitOne (events.js:116:13)
+586 silly fetchPackageMetaData     at Socket.emit (events.js:211:7)
+586 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:567:12)
+586 silly fetchPackageMetaData  error for Jcrop@git+https://github.com/tapmodo/Jcrop.git#0.9.15 { Error: Command failed: git rev-list -n1 0.9.15
+586 silly fetchPackageMetaData fatal: ambiguous argument '0.9.15': unknown revision or path not in the working tree.
+586 silly fetchPackageMetaData Use '--' to separate paths from revisions, like this:
+586 silly fetchPackageMetaData 'git <command> [<revision>...] -- [<file>...]'
+586 silly fetchPackageMetaData
+586 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:275:12)
+586 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
+586 silly fetchPackageMetaData     at ChildProcess.emit (events.js:214:7)
+586 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:925:16)
+586 silly fetchPackageMetaData     at Socket.stream.socket.on (internal/child_process.js:346:11)
+586 silly fetchPackageMetaData     at emitOne (events.js:116:13)
+586 silly fetchPackageMetaData     at Socket.emit (events.js:211:7)
+586 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:567:12)
+586 silly fetchPackageMetaData   killed: false,
+586 silly fetchPackageMetaData   code: 128,
+586 silly fetchPackageMetaData   signal: null,
+586 silly fetchPackageMetaData   cmd: 'git rev-list -n1 0.9.15' }
+587 info git [ 'clone',
+587 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-petkaantonov-jQuery-autogrow-git-95a38cfd',
+587 info git   '/tmp/npm-8090-f6a14140/git-cache-a5943ee1/351d071d49fa404235de2542097abd5299a34a83' ]
+588 info git [ 'checkout', '32e2533a63d2d8447d043cce4fd1dc0bd0fd0919' ]
+589 info git [ 'checkout', '691130899d606d1470e90f8e83b821d425176f8e' ]
+590 info git [ 'checkout', '94b51a9d4c2648dffadecfc929bf8112ebe099b8' ]
+591 verbose cloneResolved git+https://github.com/adnantopal/slimmenu.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-bd038a07/c2642568603dfa8bbf7f256c76997f38e3762ace'...
+591 verbose cloneResolved done.
+592 silly resolveHead git+https://github.com/krzysu/flot.tooltip.git resolved treeish: a4ae1ae23e3ac3379c8c506295ea193d8139b2f5
+593 verbose resolveHead git+https://github.com/krzysu/flot.tooltip.git resolved Git URL: git+https://github.com/krzysu/flot.tooltip.git#a4ae1ae23e3ac3379c8c506295ea193d8139b2f5
+594 silly resolveHead Git working directory: /tmp/npm-8090-f6a14140/git-cache-836ae24c/a4ae1ae23e3ac3379c8c506295ea193d8139b2f5
+595 error git rev-list -n1 master: fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+595 error git rev-list -n1 master: Use '--' to separate paths from revisions, like this:
+595 error git rev-list -n1 master: 'git <command> [<revision>...] -- [<file>...]'
+596 silly fetchPackageMetaData Error: Command failed: git rev-list -n1 master
+596 silly fetchPackageMetaData fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+596 silly fetchPackageMetaData Use '--' to separate paths from revisions, like this:
+596 silly fetchPackageMetaData 'git <command> [<revision>...] -- [<file>...]'
+596 silly fetchPackageMetaData
+596 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:275:12)
+596 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
+596 silly fetchPackageMetaData     at ChildProcess.emit (events.js:214:7)
+596 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:925:16)
+596 silly fetchPackageMetaData     at Socket.stream.socket.on (internal/child_process.js:346:11)
+596 silly fetchPackageMetaData     at emitOne (events.js:116:13)
+596 silly fetchPackageMetaData     at Socket.emit (events.js:211:7)
+596 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:567:12)
+596 silly fetchPackageMetaData  error for iCheck@git+https://github.com/fronteed/iCheck.git { Error: Command failed: git rev-list -n1 master
+596 silly fetchPackageMetaData fatal: ambiguous argument 'master': unknown revision or path not in the working tree.
+596 silly fetchPackageMetaData Use '--' to separate paths from revisions, like this:
+596 silly fetchPackageMetaData 'git <command> [<revision>...] -- [<file>...]'
+596 silly fetchPackageMetaData
+596 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:275:12)
+596 silly fetchPackageMetaData     at emitTwo (events.js:126:13)
+596 silly fetchPackageMetaData     at ChildProcess.emit (events.js:214:7)
+596 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:925:16)
+596 silly fetchPackageMetaData     at Socket.stream.socket.on (internal/child_process.js:346:11)
+596 silly fetchPackageMetaData     at emitOne (events.js:116:13)
+596 silly fetchPackageMetaData     at Socket.emit (events.js:211:7)
+596 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:567:12)
+596 silly fetchPackageMetaData   killed: false,
+596 silly fetchPackageMetaData   code: 128,
+596 silly fetchPackageMetaData   signal: null,
+596 silly fetchPackageMetaData   cmd: 'git rev-list -n1 master' }
+597 verbose addLocalDirectory /home/injector/.npm/@geedmo/yamm3/1.3.1/package.tgz not in flight; packing
+598 info git [ 'clone',
+598 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-VinceG-twitter-bootstrap-wizard-git-72f0e7b5',
+598 info git   '/tmp/npm-8090-f6a14140/git-cache-6e89fab4/f36ef63157ed3984a187156da6de0f8724d58a93' ]
+599 verbose checkoutTreeish git+https://github.com/tlvince/bower-jvectormap.git checkout Note: checking out '691130899d606d1470e90f8e83b821d425176f8e'.
+599 verbose checkoutTreeish
+599 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+599 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+599 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+599 verbose checkoutTreeish
+599 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+599 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+599 verbose checkoutTreeish
+599 verbose checkoutTreeish   git checkout -b <new-branch-name>
+599 verbose checkoutTreeish
+599 verbose checkoutTreeish HEAD is now at 6911308 Create package.json
+600 verbose checkoutTreeish git+https://github.com/sathomas/acc-wizard.git checkout Note: checking out '32e2533a63d2d8447d043cce4fd1dc0bd0fd0919'.
+600 verbose checkoutTreeish
+600 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+600 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+600 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+600 verbose checkoutTreeish
+600 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+600 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+600 verbose checkoutTreeish
+600 verbose checkoutTreeish   git checkout -b <new-branch-name>
+600 verbose checkoutTreeish
+600 verbose checkoutTreeish HEAD is now at 32e2533 Merge pull request #27 from hackable/master
+601 verbose cloneResolved git+https://github.com/petkaantonov/jQuery-autogrow.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-a5943ee1/351d071d49fa404235de2542097abd5299a34a83'...
+601 verbose cloneResolved done.
+602 verbose cloneResolved git+https://github.com/marcaube/bootstrap-magnify.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-d0ea84de/323ec932556362034326bf5258f17ccbc93cba63'...
+602 verbose cloneResolved done.
+603 verbose cloneResolved git+https://github.com/Codicode/flotanimator.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-c1aafd73/3c256c0183d713fd3bf41d04417873928eb1a751'...
+603 verbose cloneResolved done.
+604 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-bca4a692/73ddbaf5d76de98a78728f2f305f736fe33805a3
+605 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+605 silly fetchPackageMetaData  error for bootstrap-form-builder-v4@git+https://github.com/lorvent/Bootstrap-Form-Builder-V3V4.git#v4-lib-customized { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+606 verbose checkoutTreeish git+https://github.com/vsn4ik/jquery.spinner.git checkout Note: checking out '94b51a9d4c2648dffadecfc929bf8112ebe099b8'.
+606 verbose checkoutTreeish
+606 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+606 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+606 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+606 verbose checkoutTreeish
+606 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+606 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+606 verbose checkoutTreeish
+606 verbose checkoutTreeish   git checkout -b <new-branch-name>
+606 verbose checkoutTreeish
+606 verbose checkoutTreeish HEAD is now at 94b51a9 Update
+607 verbose tar pack [ '/home/injector/.npm/@geedmo/yamm3/1.3.1/package.tgz',
+607 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-95e5143a/86ff1356d0b2a06310e51440a414dd6f25e51c07' ]
+608 verbose tarball /home/injector/.npm/@geedmo/yamm3/1.3.1/package.tgz
+609 verbose folder /tmp/npm-8090-f6a14140/git-cache-95e5143a/86ff1356d0b2a06310e51440a414dd6f25e51c07
+610 info git [ 'clone',
+610 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-abpetkov-switchery-git-d7b3847c',
+610 info git   '/tmp/npm-8090-f6a14140/git-cache-9f2ae7ce/778104eb5bd2579a24f4d9bd124592dcdb8598aa' ]
+611 info git [ 'clone',
+611 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-noap-rangy-1-3-git-ba5ed810',
+611 info git   '/tmp/npm-8090-f6a14140/git-cache-436ee2a3/d2b26285b83a1d2f3cbd46196cb13896e3098a29' ]
+612 info git [ 'checkout', '544a5902879e46a9f9c4ec991812832330036204' ]
+613 verbose cloneResolved git+https://github.com/abpetkov/switchery.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-9f2ae7ce/778104eb5bd2579a24f4d9bd124592dcdb8598aa'...
+613 verbose cloneResolved done.
+614 verbose cloneResolved git+https://github.com/VinceG/twitter-bootstrap-wizard.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-6e89fab4/f36ef63157ed3984a187156da6de0f8724d58a93'...
+614 verbose cloneResolved done.
+615 info git [ 'checkout', 'c2642568603dfa8bbf7f256c76997f38e3762ace' ]
+616 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-5f71125b/32e2533a63d2d8447d043cce4fd1dc0bd0fd0919
+617 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+617 silly fetchPackageMetaData  error for acc-wizard@git+https://github.com/sathomas/acc-wizard.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+618 verbose addLocalDirectory /home/injector/.npm/tc-angular-chartjs/2.1.4/package.tgz not in flight; packing
+619 info git [ 'clone',
+619 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-alexwolfe-Buttons-git-bfec147c',
+619 info git   '/tmp/npm-8090-f6a14140/git-cache-cdbac09c/0a91b65bc9e3a8bbbefbe1af20047dabed0d742e' ]
+620 verbose checkoutTreeish git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git checkout Note: checking out '544a5902879e46a9f9c4ec991812832330036204'.
+620 verbose checkoutTreeish
+620 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+620 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+620 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+620 verbose checkoutTreeish
+620 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+620 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+620 verbose checkoutTreeish
+620 verbose checkoutTreeish   git checkout -b <new-branch-name>
+620 verbose checkoutTreeish
+620 verbose checkoutTreeish HEAD is now at 544a590 added dependencies
+621 info git [ 'checkout', '351d071d49fa404235de2542097abd5299a34a83' ]
+622 info git [ 'checkout', '323ec932556362034326bf5258f17ccbc93cba63' ]
+623 info git [ 'checkout', '3c256c0183d713fd3bf41d04417873928eb1a751' ]
+624 verbose addLocalDirectory /home/injector/.npm/bootstrapValidator/0.5.3/package.tgz not in flight; packing
+625 verbose checkoutTreeish git+https://github.com/adnantopal/slimmenu.git checkout Note: checking out 'c2642568603dfa8bbf7f256c76997f38e3762ace'.
+625 verbose checkoutTreeish
+625 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+625 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+625 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+625 verbose checkoutTreeish
+625 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+625 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+625 verbose checkoutTreeish
+625 verbose checkoutTreeish   git checkout -b <new-branch-name>
+625 verbose checkoutTreeish
+625 verbose checkoutTreeish HEAD is now at c264256 Started over. Refactored variables, fixed some issues, optimized the code, and this is version 1.0.
+626 verbose cloneResolved git+https://github.com/noap/rangy-1.3.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-436ee2a3/d2b26285b83a1d2f3cbd46196cb13896e3098a29'...
+626 verbose cloneResolved done.
+627 verbose tar pack [ '/home/injector/.npm/tc-angular-chartjs/2.1.4/package.tgz',
+627 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-fa977783/c8ddd075c82ce26624a05faca4e648a9eb6710e8' ]
+628 verbose tarball /home/injector/.npm/tc-angular-chartjs/2.1.4/package.tgz
+629 verbose folder /tmp/npm-8090-f6a14140/git-cache-fa977783/c8ddd075c82ce26624a05faca4e648a9eb6710e8
+630 verbose checkoutTreeish git+https://github.com/Codicode/flotanimator.git checkout Note: checking out '3c256c0183d713fd3bf41d04417873928eb1a751'.
+630 verbose checkoutTreeish
+630 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+630 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+630 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+630 verbose checkoutTreeish
+630 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+630 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+630 verbose checkoutTreeish
+630 verbose checkoutTreeish   git checkout -b <new-branch-name>
+630 verbose checkoutTreeish
+630 verbose checkoutTreeish HEAD is now at 3c256c0 Update index.html
+631 verbose checkoutTreeish git+https://github.com/marcaube/bootstrap-magnify.git checkout Note: checking out '323ec932556362034326bf5258f17ccbc93cba63'.
+631 verbose checkoutTreeish
+631 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+631 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+631 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+631 verbose checkoutTreeish
+631 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+631 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+631 verbose checkoutTreeish
+631 verbose checkoutTreeish   git checkout -b <new-branch-name>
+631 verbose checkoutTreeish
+631 verbose checkoutTreeish HEAD is now at 323ec93 Merge pull request #7 from incraigulous/patch-1
+632 verbose checkoutTreeish git+https://github.com/petkaantonov/jQuery-autogrow.git checkout Note: checking out '351d071d49fa404235de2542097abd5299a34a83'.
+632 verbose checkoutTreeish
+632 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+632 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+632 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+632 verbose checkoutTreeish
+632 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+632 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+632 verbose checkoutTreeish
+632 verbose checkoutTreeish   git checkout -b <new-branch-name>
+632 verbose checkoutTreeish
+632 verbose checkoutTreeish HEAD is now at 351d071 ajax prefilter
+633 info git [ 'clone',
+633 info git   '/home/injector/.npm/_git-remotes/git-https-github-com-krzysu-flot-tooltip-git-0c6a805c',
+633 info git   '/tmp/npm-8090-f6a14140/git-cache-836ae24c/a4ae1ae23e3ac3379c8c506295ea193d8139b2f5' ]
+634 verbose tar pack [ '/home/injector/.npm/bootstrapValidator/0.5.3/package.tgz',
+634 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-c04f01bc/0c96659eda586269c02a45948744ac135676ff0d' ]
+635 verbose tarball /home/injector/.npm/bootstrapValidator/0.5.3/package.tgz
+636 verbose folder /tmp/npm-8090-f6a14140/git-cache-c04f01bc/0c96659eda586269c02a45948744ac135676ff0d
+637 verbose addLocalDirectory /home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package.tgz not in flight; packing
+638 info git [ 'checkout', '778104eb5bd2579a24f4d9bd124592dcdb8598aa' ]
+639 info git [ 'checkout', 'f36ef63157ed3984a187156da6de0f8724d58a93' ]
+640 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-b90498e9/544a5902879e46a9f9c4ec991812832330036204
+641 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+641 silly fetchPackageMetaData  error for bower-jquery-easyPieChart@git+https://github.com/nicolabortignon/bower-jquery-easyPieChart.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+642 verbose cloneResolved git+https://github.com/alexwolfe/Buttons.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-cdbac09c/0a91b65bc9e3a8bbbefbe1af20047dabed0d742e'...
+642 verbose cloneResolved done.
+643 verbose tar pack [ '/home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package.tgz',
+643 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-64fe0d20/7a37beb971b1e5d8de2b784f58614b7a85ed125a' ]
+644 verbose tarball /home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package.tgz
+645 verbose folder /tmp/npm-8090-f6a14140/git-cache-64fe0d20/7a37beb971b1e5d8de2b784f58614b7a85ed125a
+646 verbose checkoutTreeish git+https://github.com/VinceG/twitter-bootstrap-wizard.git checkout Note: checking out 'f36ef63157ed3984a187156da6de0f8724d58a93'.
+646 verbose checkoutTreeish
+646 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+646 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+646 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+646 verbose checkoutTreeish
+646 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+646 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+646 verbose checkoutTreeish
+646 verbose checkoutTreeish   git checkout -b <new-branch-name>
+646 verbose checkoutTreeish
+646 verbose checkoutTreeish HEAD is now at f36ef63 Update README.md
+647 verbose checkoutTreeish git+https://github.com/abpetkov/switchery.git checkout Note: checking out '778104eb5bd2579a24f4d9bd124592dcdb8598aa'.
+647 verbose checkoutTreeish
+647 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+647 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+647 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+647 verbose checkoutTreeish
+647 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+647 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+647 verbose checkoutTreeish
+647 verbose checkoutTreeish   git checkout -b <new-branch-name>
+647 verbose checkoutTreeish
+647 verbose checkoutTreeish HEAD is now at 778104e Revert component.json main file back
+648 verbose cloneResolved git+https://github.com/krzysu/flot.tooltip.git clone Cloning into '/tmp/npm-8090-f6a14140/git-cache-836ae24c/a4ae1ae23e3ac3379c8c506295ea193d8139b2f5'...
+648 verbose cloneResolved done.
+649 info git [ 'checkout', 'd2b26285b83a1d2f3cbd46196cb13896e3098a29' ]
+650 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-c1aafd73/3c256c0183d713fd3bf41d04417873928eb1a751
+651 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+651 silly fetchPackageMetaData  error for animatechart@git+https://github.com/Codicode/flotanimator.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+652 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-d0ea84de/323ec932556362034326bf5258f17ccbc93cba63
+653 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+653 silly fetchPackageMetaData  error for bootstrap-magnify@git+https://github.com/marcaube/bootstrap-magnify.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+654 verbose checkoutTreeish git+https://github.com/noap/rangy-1.3.git checkout Note: checking out 'd2b26285b83a1d2f3cbd46196cb13896e3098a29'.
+654 verbose checkoutTreeish
+654 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+654 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+654 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+654 verbose checkoutTreeish
+654 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+654 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+654 verbose checkoutTreeish
+654 verbose checkoutTreeish   git checkout -b <new-branch-name>
+654 verbose checkoutTreeish
+654 verbose checkoutTreeish HEAD is now at d2b2628 deleted dangling comma from json
+655 verbose addLocalDirectory /home/injector/.npm/bower-jvectormap/1.2.2/package.tgz not in flight; packing
+656 verbose addLocalDirectory /home/injector/.npm/jquery.spinner/0.2.1/package.tgz not in flight; packing
+657 info git [ 'checkout', '0a91b65bc9e3a8bbbefbe1af20047dabed0d742e' ]
+658 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-6e89fab4/f36ef63157ed3984a187156da6de0f8724d58a93
+659 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+659 silly fetchPackageMetaData  error for twitter-bootstrap-wizard@git+https://github.com/VinceG/twitter-bootstrap-wizard.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+660 verbose tar pack [ '/home/injector/.npm/bower-jvectormap/1.2.2/package.tgz',
+660 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-30cca00e/691130899d606d1470e90f8e83b821d425176f8e' ]
+661 verbose tarball /home/injector/.npm/bower-jvectormap/1.2.2/package.tgz
+662 verbose folder /tmp/npm-8090-f6a14140/git-cache-30cca00e/691130899d606d1470e90f8e83b821d425176f8e
+663 info git [ 'checkout', 'a4ae1ae23e3ac3379c8c506295ea193d8139b2f5' ]
+664 verbose tar pack [ '/home/injector/.npm/jquery.spinner/0.2.1/package.tgz',
+664 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-2de5a979/94b51a9d4c2648dffadecfc929bf8112ebe099b8' ]
+665 verbose tarball /home/injector/.npm/jquery.spinner/0.2.1/package.tgz
+666 verbose folder /tmp/npm-8090-f6a14140/git-cache-2de5a979/94b51a9d4c2648dffadecfc929bf8112ebe099b8
+667 error addLocal Could not install /tmp/npm-8090-f6a14140/git-cache-436ee2a3/d2b26285b83a1d2f3cbd46196cb13896e3098a29
+668 silly fetchPackageMetaData Error: EISDIR: illegal operation on a directory, read
+668 silly fetchPackageMetaData  error for rangy-1.3@git+https://github.com/noap/rangy-1.3.git { Error: EISDIR: illegal operation on a directory, read errno: -21, code: 'EISDIR', syscall: 'read' }
+669 verbose addLocalDirectory /home/injector/.npm/slimmenu/1.0.0/package.tgz not in flight; packing
+670 verbose checkoutTreeish git+https://github.com/krzysu/flot.tooltip.git checkout Note: checking out 'a4ae1ae23e3ac3379c8c506295ea193d8139b2f5'.
+670 verbose checkoutTreeish
+670 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+670 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+670 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+670 verbose checkoutTreeish
+670 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+670 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+670 verbose checkoutTreeish
+670 verbose checkoutTreeish   git checkout -b <new-branch-name>
+670 verbose checkoutTreeish
+670 verbose checkoutTreeish HEAD is now at a4ae1ae Update README.md
+671 verbose checkoutTreeish git+https://github.com/alexwolfe/Buttons.git checkout Note: checking out '0a91b65bc9e3a8bbbefbe1af20047dabed0d742e'.
+671 verbose checkoutTreeish
+671 verbose checkoutTreeish You are in 'detached HEAD' state. You can look around, make experimental
+671 verbose checkoutTreeish changes and commit them, and you can discard any commits you make in this
+671 verbose checkoutTreeish state without impacting any branches by performing another checkout.
+671 verbose checkoutTreeish
+671 verbose checkoutTreeish If you want to create a new branch to retain commits you create, you may
+671 verbose checkoutTreeish do so (now or later) by using -b with the checkout command again. Example:
+671 verbose checkoutTreeish
+671 verbose checkoutTreeish   git checkout -b <new-branch-name>
+671 verbose checkoutTreeish
+671 verbose checkoutTreeish HEAD is now at 0a91b65 Merge pull request #77 from meteorlxy/patch-1
+672 verbose addLocalDirectory /home/injector/.npm/jQuery-autogrow/0.2.0/package.tgz not in flight; packing
+673 verbose tar pack [ '/home/injector/.npm/slimmenu/1.0.0/package.tgz',
+673 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-bd038a07/c2642568603dfa8bbf7f256c76997f38e3762ace' ]
+674 verbose tarball /home/injector/.npm/slimmenu/1.0.0/package.tgz
+675 verbose folder /tmp/npm-8090-f6a14140/git-cache-bd038a07/c2642568603dfa8bbf7f256c76997f38e3762ace
+676 verbose tar pack [ '/home/injector/.npm/jQuery-autogrow/0.2.0/package.tgz',
+676 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-a5943ee1/351d071d49fa404235de2542097abd5299a34a83' ]
+677 verbose tarball /home/injector/.npm/jQuery-autogrow/0.2.0/package.tgz
+678 verbose folder /tmp/npm-8090-f6a14140/git-cache-a5943ee1/351d071d49fa404235de2542097abd5299a34a83
+679 verbose addLocalDirectory /home/injector/.npm/switchery/0.8.2/package.tgz not in flight; packing
+680 verbose tar pack [ '/home/injector/.npm/switchery/0.8.2/package.tgz',
+680 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-9f2ae7ce/778104eb5bd2579a24f4d9bd124592dcdb8598aa' ]
+681 verbose tarball /home/injector/.npm/switchery/0.8.2/package.tgz
+682 verbose folder /tmp/npm-8090-f6a14140/git-cache-9f2ae7ce/778104eb5bd2579a24f4d9bd124592dcdb8598aa
+683 verbose addLocalDirectory /home/injector/.npm/jquery.flot.tooltip/0.9.0/package.tgz not in flight; packing
+684 verbose addLocalDirectory /home/injector/.npm/Buttons/2.0.0/package.tgz not in flight; packing
+685 verbose tar pack [ '/home/injector/.npm/jquery.flot.tooltip/0.9.0/package.tgz',
+685 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-836ae24c/a4ae1ae23e3ac3379c8c506295ea193d8139b2f5' ]
+686 verbose tarball /home/injector/.npm/jquery.flot.tooltip/0.9.0/package.tgz
+687 verbose folder /tmp/npm-8090-f6a14140/git-cache-836ae24c/a4ae1ae23e3ac3379c8c506295ea193d8139b2f5
+688 verbose tar pack [ '/home/injector/.npm/Buttons/2.0.0/package.tgz',
+688 verbose tar pack   '/tmp/npm-8090-f6a14140/git-cache-cdbac09c/0a91b65bc9e3a8bbbefbe1af20047dabed0d742e' ]
+689 verbose tarball /home/injector/.npm/Buttons/2.0.0/package.tgz
+690 verbose folder /tmp/npm-8090-f6a14140/git-cache-cdbac09c/0a91b65bc9e3a8bbbefbe1af20047dabed0d742e
+691 verbose addLocalTarball adding from inside cache /home/injector/.npm/tc-angular-chartjs/2.1.4/package.tgz
+692 verbose addRemoteGit data._from: git+https://github.com/carlcraig/tc-angular-chartjs.git
+693 verbose addRemoteGit data._resolved: git+https://github.com/carlcraig/tc-angular-chartjs.git#c8ddd075c82ce26624a05faca4e648a9eb6710e8
+694 silly cache afterAdd tc-angular-chartjs@2.1.4
+695 verbose afterAdd /home/injector/.npm/tc-angular-chartjs/2.1.4/package/package.json not in flight; writing
+696 verbose afterAdd /home/injector/.npm/tc-angular-chartjs/2.1.4/package/package.json written
+697 silly resolveWithNewModule tc-angular-chartjs@2.1.4 checking installable status
+698 verbose addLocalTarball adding from inside cache /home/injector/.npm/slimmenu/1.0.0/package.tgz
+699 verbose addLocalTarball adding from inside cache /home/injector/.npm/jquery.spinner/0.2.1/package.tgz
+700 verbose addRemoteGit data._from: git+https://github.com/adnantopal/slimmenu.git
+701 verbose addRemoteGit data._resolved: git+https://github.com/adnantopal/slimmenu.git#c2642568603dfa8bbf7f256c76997f38e3762ace
+702 verbose addRemoteGit data._from: git+https://github.com/vsn4ik/jquery.spinner.git
+703 verbose addRemoteGit data._resolved: git+https://github.com/vsn4ik/jquery.spinner.git#94b51a9d4c2648dffadecfc929bf8112ebe099b8
+704 silly cache afterAdd slimmenu@1.0.0
+705 verbose afterAdd /home/injector/.npm/slimmenu/1.0.0/package/package.json not in flight; writing
+706 verbose afterAdd /home/injector/.npm/slimmenu/1.0.0/package/package.json written
+707 silly resolveWithNewModule slimmenu@1.0.0 checking installable status
+708 silly cache afterAdd jquery.spinner@0.2.1
+709 verbose afterAdd /home/injector/.npm/jquery.spinner/0.2.1/package/package.json not in flight; writing
+710 verbose afterAdd /home/injector/.npm/jquery.spinner/0.2.1/package/package.json written
+711 silly resolveWithNewModule jquery.spinner@0.2.1 checking installable status
+712 verbose addLocalTarball adding from inside cache /home/injector/.npm/jQuery-autogrow/0.2.0/package.tgz
+713 verbose addRemoteGit data._from: git+https://github.com/petkaantonov/jQuery-autogrow.git
+714 verbose addRemoteGit data._resolved: git+https://github.com/petkaantonov/jQuery-autogrow.git#351d071d49fa404235de2542097abd5299a34a83
+715 silly cache afterAdd jQuery-autogrow@0.2.0
+716 verbose afterAdd /home/injector/.npm/jQuery-autogrow/0.2.0/package/package.json not in flight; writing
+717 verbose afterAdd /home/injector/.npm/jQuery-autogrow/0.2.0/package/package.json written
+718 silly resolveWithNewModule jQuery-autogrow@0.2.0 checking installable status
+719 verbose addLocalTarball adding from inside cache /home/injector/.npm/switchery/0.8.2/package.tgz
+720 verbose addRemoteGit data._from: git+https://github.com/abpetkov/switchery.git
+721 verbose addRemoteGit data._resolved: git+https://github.com/abpetkov/switchery.git#778104eb5bd2579a24f4d9bd124592dcdb8598aa
+722 silly cache afterAdd switchery@0.8.2
+723 verbose afterAdd /home/injector/.npm/switchery/0.8.2/package/package.json not in flight; writing
+724 verbose afterAdd /home/injector/.npm/switchery/0.8.2/package/package.json written
+725 silly resolveWithNewModule switchery@0.8.2 checking installable status
+726 verbose addLocalTarball adding from inside cache /home/injector/.npm/bower-jvectormap/1.2.2/package.tgz
+727 verbose addRemoteGit data._from: git+https://github.com/tlvince/bower-jvectormap.git
+728 verbose addRemoteGit data._resolved: git+https://github.com/tlvince/bower-jvectormap.git#691130899d606d1470e90f8e83b821d425176f8e
+729 silly cache afterAdd bower-jvectormap@1.2.2
+730 verbose afterAdd /home/injector/.npm/bower-jvectormap/1.2.2/package/package.json not in flight; writing
+731 verbose afterAdd /home/injector/.npm/bower-jvectormap/1.2.2/package/package.json written
+732 silly resolveWithNewModule bower-jvectormap@1.2.2 checking installable status
+733 verbose addLocalTarball adding from inside cache /home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package.tgz
+734 verbose addRemoteGit data._from: git+https://github.com/likt0r/Gallery.git
+735 verbose addRemoteGit data._resolved: git+https://github.com/likt0r/Gallery.git#7a37beb971b1e5d8de2b784f58614b7a85ed125a
+736 silly cache afterAdd blueimp-gallery-with-desc@2.16.4
+737 verbose afterAdd /home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package/package.json not in flight; writing
+738 verbose afterAdd /home/injector/.npm/blueimp-gallery-with-desc/2.16.4/package/package.json written
+739 silly resolveWithNewModule blueimp-gallery-with-desc@2.16.4 checking installable status
+740 verbose addLocalTarball adding from inside cache /home/injector/.npm/jquery.flot.tooltip/0.9.0/package.tgz
+741 verbose addRemoteGit data._from: git+https://github.com/krzysu/flot.tooltip.git
+742 verbose addRemoteGit data._resolved: git+https://github.com/krzysu/flot.tooltip.git#a4ae1ae23e3ac3379c8c506295ea193d8139b2f5
+743 silly cache afterAdd jquery.flot.tooltip@0.9.0
+744 verbose afterAdd /home/injector/.npm/jquery.flot.tooltip/0.9.0/package/package.json not in flight; writing
+745 verbose afterAdd /home/injector/.npm/jquery.flot.tooltip/0.9.0/package/package.json written
+746 silly resolveWithNewModule jquery.flot.tooltip@0.9.0 checking installable status
+747 verbose addLocalTarball adding from inside cache /home/injector/.npm/gridmanager/0.3.1/package.tgz
+748 verbose addRemoteGit data._from: git+https://github.com/neokoenig/jQuery-gridmanager.git
+749 verbose addRemoteGit data._resolved: git+https://github.com/neokoenig/jQuery-gridmanager.git#2a8d629e4d177dd359939f38d5e299e21941de62
+750 silly cache afterAdd gridmanager@0.3.1
+751 verbose afterAdd /home/injector/.npm/gridmanager/0.3.1/package/package.json not in flight; writing
+752 verbose afterAdd /home/injector/.npm/gridmanager/0.3.1/package/package.json written
+753 silly resolveWithNewModule gridmanager@0.3.1 checking installable status
+754 verbose addLocalTarball adding from inside cache /home/injector/.npm/Buttons/2.0.0/package.tgz
+755 verbose addRemoteGit data._from: git+https://github.com/alexwolfe/Buttons.git
+756 verbose addRemoteGit data._resolved: git+https://github.com/alexwolfe/Buttons.git#0a91b65bc9e3a8bbbefbe1af20047dabed0d742e
+757 silly cache afterAdd Buttons@2.0.0
+758 verbose afterAdd /home/injector/.npm/Buttons/2.0.0/package/package.json not in flight; writing
+759 verbose afterAdd /home/injector/.npm/Buttons/2.0.0/package/package.json written
+760 silly resolveWithNewModule Buttons@2.0.0 checking installable status
+761 verbose addLocalTarball adding from inside cache /home/injector/.npm/@geedmo/yamm3/1.3.1/package.tgz
+762 verbose addRemoteGit data._from: git+https://github.com/geedmo/yamm3.git
+763 verbose addRemoteGit data._resolved: git+https://github.com/geedmo/yamm3.git#86ff1356d0b2a06310e51440a414dd6f25e51c07
+764 silly cache afterAdd @geedmo/yamm3@1.3.1
+765 verbose afterAdd /home/injector/.npm/@geedmo/yamm3/1.3.1/package/package.json not in flight; writing
+766 verbose afterAdd /home/injector/.npm/@geedmo/yamm3/1.3.1/package/package.json written
+767 silly resolveWithNewModule @geedmo/yamm3@1.3.1 checking installable status
+768 verbose addLocalTarball adding from inside cache /home/injector/.npm/bootstrapValidator/0.5.3/package.tgz
+769 verbose addRemoteGit data._from: git+https://github.com/nghuuphuoc/bootstrapvalidator.git
+770 verbose addRemoteGit data._resolved: git+https://github.com/nghuuphuoc/bootstrapvalidator.git#0c96659eda586269c02a45948744ac135676ff0d
+771 silly cache afterAdd bootstrapValidator@0.5.3
+772 verbose afterAdd /home/injector/.npm/bootstrapValidator/0.5.3/package/package.json not in flight; writing
+773 verbose afterAdd /home/injector/.npm/bootstrapValidator/0.5.3/package/package.json written
+774 silly resolveWithNewModule bootstrapValidator@0.5.3 checking installable status
+775 silly rollbackFailedOptional Starting
+776 silly rollbackFailedOptional Finishing
+777 silly runTopLevelLifecycles Starting
+778 silly runTopLevelLifecycles Finishing
+779 silly install printInstalled
+780 verbose stack Error: EISDIR: illegal operation on a directory, read
+781 verbose cwd /var/www/html/nala
+782 error Linux 5.0.0-27-generic
+783 error argv "/usr/bin/node" "/usr/bin/npm" "i"
+784 error node v8.10.0
+785 error npm  v3.5.2
+786 error code EISDIR
+787 error errno -21
+788 error syscall read
+789 error eisdir EISDIR: illegal operation on a directory, read
+790 error eisdir This is most likely not a problem with npm itself
+790 error eisdir and is related to npm not being able to find a package.json in
+790 error eisdir a package you are trying to install.
+791 verbose exit [ -21, true ]

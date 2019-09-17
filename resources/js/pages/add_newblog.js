@@ -1,9 +1,19 @@
 $(document).ready(function() {
     $('.form-group input[type=file]').attr('accept', 'image/*');
-    $('.textarea').summernote({
-        placeholder: 'write content here...',
-        fontNames: ['Lato', 'Arial', 'Courier New'],
+    // TinyMCE Full
+    tinymce.init({
+        selector: '.textarea',
+        theme: 'modern',
+        plugins: [
+            'advlist autolink lists link charmap print preview hr anchor pagebreak',
+            'searchreplace wordcount visualblocks visualchars code fullscreen',
+            'insertdatetime media nonbreaking save table contextmenu directionality',
+            'template paste textcolor',
+        ],
+        toolbar1:
+            'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor',
     });
+
     $('body').on('click', '.btn-codeview', function(e) {
         if ($('.note-editor').hasClass('fullscreen')) {
             var windowHeight = $(window).height();

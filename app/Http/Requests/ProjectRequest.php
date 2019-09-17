@@ -27,23 +27,12 @@ class ProjectRequest extends FormRequest
         return [
             'title' => 'required|min:3,unique:projects,title',
             'category_id' => 'nullable|exists:project_categories,id',
-            'author.firstname' => 'nullable',
-            'author.lastname' => 'nullable',
-            'author.email' => 'nullable|email',
-            'author.mobiles' => 'nullable|array',
-            'author.about' => 'nullable',
             'short_description' => 'nullable',
             'municipality_id' => 'nullable|exists:municipalities,id',
-            'detailed_description' => 'nullable',
-            'goal' => 'nullable',
-            'experience' => 'nullable',
-            'council_contribution' => 'nullable',
-            'future_plans' => 'nullable',
-            'contact_info.firstname' => 'nullable',
-            'contact_info.lastname' => 'nullable',
-            'contact_info.email' => 'nullable|email',
-            'contact_info.mobiles' => 'nullable|array',
-            'contact_info.about' => 'nullable',
+            'picture' => 'nullable|mimes:png,jpg,gif,bmp,jpeg',
+            'documents' => 'nullable|array',
+            // TODO 'documents.*' => 'nullable|max:20MB|mimes:docx,doc,xlsx,xls,pdf,csv',
+            'project_date' => 'nullable|date_format:"Y-m-d"'
         ];
     }
 }

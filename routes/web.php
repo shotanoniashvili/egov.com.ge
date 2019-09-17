@@ -101,7 +101,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
 
     # User Management
     Route::group([ 'prefix' => 'users'], function () {
-        Route::get('data', 'UsersController@data')->name('users.data');
+        Route::get('data/{role?}', 'UsersController@data')->name('users.data');
         Route::get('{user}/delete', 'UsersController@destroy')->name('users.delete');
         Route::get('{user}/confirm-delete', 'UsersController@getModalDelete')->name('users.confirm-delete');
         Route::get('{user}/restore', 'UsersController@getRestore')->name('restore.user');
@@ -109,7 +109,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::post('passwordreset', 'UsersController@passwordreset')->name('passwordreset');
     });
     Route::resource('users', 'UsersController');
-/************ bulk import ****************************/
+
+    /************ bulk import ****************************/
     Route::get('bulk_import_users', 'UsersController@import');
     Route::post('bulk_import_users', 'UsersController@importInsert');
     /****************bulk download **************************/
@@ -164,6 +165,29 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('{projectCategory}/delete', 'ProjectCategoryController@destroy')->name('project-categories.delete');
         Route::get('{projectCategory}/confirm-delete', 'ProjectCategoryController@getModalDelete')->name('project-categories.confirm-delete');
         Route::get('{projectCategory}/restore', 'ProjectCategoryController@getRestore')->name('project-categories.restore');
+    });
+    Route::resource('regions', 'RegionController');
+
+
+    /*routes for projects in admin panel*/
+    Route::group(['prefix' => 'projects'], function () {
+        Route::get('/', 'ProjectController@index')->name('projects.index');
+        Route::get('archive', 'ProjectController@archive')->name('projects.archive');
+        Route::get('create', 'ProjectController@create')->name('projects.create');
+        Route::post('create', 'ProjectController@store')->name('projects.store');
+        Route::get('edit/{project}', 'ProjectController@create')->name('projects.edit');
+        Route::put('edit/{project}', 'ProjectController@update')->name('projects.update');
+        Route::get('delete/{project}', 'ProjectController@destroy')->name('projects.delete');
+        Route::get('confirm-delete/{project}', 'ProjectController@getModalDelete')->name('projects.confirm-delete');
+        Route::get('documents/{id}/delete', 'ProjectController@deleteDocument')->name('projects.delete-document');
+        Route::patch('documents/{id}', 'ProjectController@renameDocument')->name('projects.rename-document');
+    });
+
+    /*routes for regions */
+    Route::group(['prefix' => 'regions'], function () {
+        Route::get('{region}/delete', 'RegionController@destroy')->name('project-categories.delete');
+        Route::get('{region}/confirm-delete', 'RegionController@getModalDelete')->name('project-categories.confirm-delete');
+        Route::get('{region}/restore', 'RegionController@getRestore')->name('project-categories.restore');
     });
     Route::resource('project-categories', 'ProjectCategoryController');
 
@@ -259,6 +283,14 @@ Route::post('register','FrontEndController@postRegister')->name('register');
 Route::get('activate/{userId}/{activationCode}','FrontEndController@getActivate')->name('activate');
 Route::get('forgot-password','FrontEndController@getForgotPassword')->name('forgot-password');
 Route::post('forgot-password', 'FrontEndController@postForgotPassword');
+
+#Projects
+Route::get('best-practice', 'ProjectController@bestPractice')->name('projects.best-practice');
+Route::get('projects/{project}', 'ProjectController@show')->name('projects.show');
+
+#Municipalities
+Route::get('municipalities', 'MunicipalityController@index')->name('municipalities.index');
+Route::get('municipalities/{municipality}', 'MunicipalityController@show')->name('municipalities.show');
 
 #Social Logins
 Route::get('facebook', 'Admin\FacebookAuthController@redirectToProvider');

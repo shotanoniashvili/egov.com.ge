@@ -36,7 +36,7 @@ class UserRequest extends FormRequest
                     'email' => 'required|email|unique:users,email',
                     'password' => 'required|between:3,32',
                     'password_confirm' => 'required|same:password',
-                    'pic_file' => 'mimes:jpg,jpeg,bmp,png,gif|max:10000'
+                    'project_category_id' => 'nullable|exists:project_categories,id'
                 ];
 
             case 'PUT':
@@ -46,7 +46,7 @@ class UserRequest extends FormRequest
                     'last_name' => 'required|min:3',
                     'email' => 'required|unique:users,email,' . $this->user->id,
                     'password_confirm' => 'sometimes|same:password',
-                    'pic_file' => 'image|mimes:jpg,jpeg,bmp,png|max:10000'
+                    'project_category_id' => 'nullable|exists:project_categories,id'
                 ];
 
             default:

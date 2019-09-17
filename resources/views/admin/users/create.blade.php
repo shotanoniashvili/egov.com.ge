@@ -270,6 +270,25 @@
                                             </div>
                                             <span class="help-block">{{ $errors->first('group', ':message') }}</span>
                                         </div>
+
+                                        <div class="form-group project-category-container hide">
+                                            <div class="row">
+                                                <label for="project_category_id" class="col-sm-2 control-label">თემატიკა / კატეგორია *</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control" title="აირჩეთ თემატიკა / კატეგორია..." name="project_category_id"
+                                                            id="project_category_id">
+                                                        <option value="">აირჩიეთ</option>
+                                                        @foreach($projectCategories as $projectCategory)
+                                                            <option value="{{ $projectCategory->id }}"
+                                                                    @if($projectCategory->id == old('project_category_id')) selected="selected" @endif >{{ $projectCategory->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    {!! $errors->first('project_category_id', '<span class="help-block">:message</span>') !!}
+                                                </div>
+                                            </div>
+                                            <span class="help-block">{{ $errors->first('project_category_id', ':message') }}</span>
+                                        </div>
+
                                         <div class="form-group">
                                             <div class="row">
                                             <label for="activate" class="col-sm-2 control-label"> მომხმარებლის სტატუსის აქტივაცია *</label>

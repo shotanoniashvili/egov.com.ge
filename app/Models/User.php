@@ -44,8 +44,25 @@ class User extends EloquentUser
     {
         return str_limit($this->first_name . ' ' . $this->last_name, 30);
     }
+
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function projects() {
+        return $this->hasMany(Project::class, 'user_id');
+    }
+
+    public function getEvaluatedProjects() {
+        $projects = $this->projects()->evaluated()->get();
+
+        return $projects;
+    }
+
+    public function getProjectsToEvaluate() {
+        $projects = $this->projects()->toEvaluate()->get();
+
+        return $projects;
     }
 }

@@ -39,80 +39,55 @@ $('body').on('click', '.btn-remove-mobile', function (e) {
     $(this).parent().parent().remove();
 });
 $('#projectForm').bootstrapValidator({
-    // fields: {
-    //     title: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ პრაკტიკის/ინიციატივის სათაური',
-    //             },
-    //         },
-    //         required: true,
-    //         minlength: 3,
-    //     },
-    //     category_id: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ აირჩიოთ თემატიკა',
-    //             },
-    //         },
-    //         required: true,
-    //         minlength: 3,
-    //     },
-    //     short_description: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ მოკლე აღწერა',
-    //             },
-    //         },
-    //     },
-    //     municipality_id: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ აირჩიოთ მუნიციპალიტეტი',
-    //             },
-    //         },
-    //     },
-    //     detailed_description: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ დეტალური აღწერა',
-    //             },
-    //         },
-    //     },
-    //     goal: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ მიღწეული შედეგი',
-    //             },
-    //         },
-    //     },
-    //     experience: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ მიღებული გამოცდილება და გაკეთებული დასკვნები',
-    //             },
-    //         },
-    //     },
-    //     council_contribution: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ აღწეროთ საკრებულოს როლი',
-    //             },
-    //         },
-    //     },
-    //     future_plans: {
-    //         validators: {
-    //             notEmpty: {
-    //                 message: 'გთხოვთ მიუთითოთ სამომავლო გეგმები',
-    //             },
-    //         },
-    //     },
-    //     documents: {
-    //         validators: {
-    //
-    //         }
-    //     }
-    // },
+    fields: {
+        title: {
+            validators: {
+                notEmpty: {
+                    message: 'გთხოვთ მიუთითოთ პრაკტიკის/ინიციატივის სათაური',
+                },
+            },
+            required: true,
+            minlength: 3,
+        },
+        category_id: {
+            validators: {
+                notEmpty: {
+                    message: 'გთხოვთ აირჩიოთ თემატიკა',
+                },
+            },
+            required: true,
+        },
+        short_description: {
+            validators: {
+                notEmpty: {
+                    message: 'გთხოვთ მიუთითოთ მოკლე აღწერა',
+                },
+            },
+            required: true,
+            minlength: 50
+        },
+        picture: {
+            validators: {
+                notEmpty: {
+                    message: 'გთხოვთ აირჩიოთ სურათი'
+                },
+                required: true,
+            }
+        },
+        municipality_id: {
+            validators: {
+                notEmpty: {
+                    message: 'გთხოვთ აირჩიოთ მუნიციპალიტეტი',
+                },
+            },
+            required: true,
+        },
+        documents: {
+            validators: {
+
+            }
+        }
+    },
 });
 
 $('#rootwizard').bootstrapWizard({
@@ -167,4 +142,18 @@ $('#projectForm').keypress(function(event) {
     if (event.which == '13') {
         event.preventDefault();
     }
+});
+
+// TinyMCE Full
+tinymce.init({
+    selector: '#short_description',
+    theme: 'modern',
+    plugins: [
+        'advlist autolink lists link charmap print preview hr anchor pagebreak',
+        'searchreplace wordcount visualblocks visualchars code fullscreen',
+        'insertdatetime media nonbreaking save table contextmenu directionality',
+        'template paste textcolor',
+    ],
+    toolbar1:
+        'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor',
 });

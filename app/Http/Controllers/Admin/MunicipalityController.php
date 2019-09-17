@@ -6,6 +6,7 @@ use App\Http\Controllers\JoshController;
 use App\Http\Requests\MunicipalityRequest;
 use App\Models\Municipality;
 use App\Models\ProjectCategory;
+use App\Models\Region;
 use Illuminate\Http\Request;
 
 class MunicipalityController extends JoshController
@@ -30,7 +31,9 @@ class MunicipalityController extends JoshController
      */
     public function create()
     {
-        return view('admin.municipalities.create');
+        $regions = Region::all();
+
+        return view('admin.municipalities.create', compact('regions'));
     }
 
     /**
@@ -41,7 +44,20 @@ class MunicipalityController extends JoshController
      */
     public function store(MunicipalityRequest $request)
     {
-        $municipality = new Municipality($request->all());
+        $data = $request->all();
+        if($request->image) {
+            $destinationPath = 'storage/municipalities/';
+            $file = $request->image;
+            $fileName = $file->getClientOriginalName();
+            if(file_exists(public_path($destinationPath).$fileName)) {
+                $fileName = time().'-'.$file->getClientOriginalName();
+            }
+            $file->move(public_path($destinationPath), $fileName);
+
+            $data['image'] = $destinationPath.$fileName;
+        }
+
+        $municipality = new Municipality($data);
 
         if ($municipality->save()) {
             return redirect('admin/municipalities')->with('success', 'მუნიციპალიტეტი წარმატებით დაემატა');
@@ -60,21 +76,38 @@ class MunicipalityController extends JoshController
     {
         $municipality = Municipality::findOrFail($municipality);
 
-        return view('admin.municipalities.edit', compact('municipality'));
+        $regions = Region::all();
+
+        return view('admin.municipalities.edit', compact('municipality', 'regions'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param MunicipalityRequest $request
-     * @param Municipality $municipality
+     * @param int $municipality
      * @return \Illuminate\Http\RedirectResponse
      */
     public function update(MunicipalityRequest $request, int $municipality)
     {
         $municipality = Municipality::findOrFail($municipality);
 
-        if ($municipality->update($request->all())) {
+        $data = $request->all();
+        if($request->image) {
+            $destinationPath = 'storage/municipalities/';
+            $file = $request->image;
+            $fileName = $file->getClientOriginalName();
+            if(file_exists(public_path($destinationPath).$fileName)) {
+                $fileName = time().'-'.$file->getClientOriginalName();
+            }
+            $file->move(public_path($destinationPath), $fileName);
+
+            $data['image'] = $destinationPath.$fileName;
+        } else {
+            unset($data['image']);
+        }
+
+        if ($municipality->update($data)) {
             return redirect('admin/municipalities')->with('success', 'მუნიციპალიტეტი წარმატებით განახლდა');
         } else {
             return Redirect::route('admin/municipalities')->withInput()->with('error', 'დაფიქსირდა შეცდომა მუნიციპალიტეტის განახლების დროს');

@@ -40,7 +40,7 @@
                         </h4>
                     </div>
                     <div class="card-body">
-                        {!! Form::open(array('url' => URL::to('admin/municipalities'), 'method' => 'post', 'class' => 'form-horizontal', 'files'=> true)) !!}
+                        {!! Form::open(array('url' => URL::to('admin/municipalities'), 'method' => 'post', 'enctype' => 'multipart/form-data', 'class' => 'form-horizontal', 'files'=> true)) !!}
                         <div class="form-group {{ $errors->first('name', 'has-error') }}">
                             <div class="row">
                                 <label for="name" class="col-sm-4 control-label">
@@ -52,6 +52,36 @@
                                 <div class="col-sm-4">
                                     {!! $errors->first('name', '<span class="help-block">:message</span> ') !!}
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->first('region_id', 'has-error') }}">
+                            <div class="row">
+                                <label for="region_id" class="col-sm-4 control-label">
+                                    რეგიონი
+                                </label>
+                                <div class="col-sm-4">
+                                    <select name="region_id" id="region_id" class="form-control">
+                                        <option value="">აირჩიეთ რეგიონი</option>
+                                        @foreach($regions as $region)
+                                            <option value="{{ $region->id }}" {{ old('region_id') == $region->id ? 'selected' : '' }}>{{ $region->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-sm-4">
+                                    {!! $errors->first('region_id', '<span class="help-block">:message</span> ') !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->first('image', 'has-error') }}">
+                            <div class="row">
+                                <label for="image" class="col-sm-4 control-label">სურათი</label>
+                                <div class="col-sm-4">
+                                    <input type="file" class="custom-file-input required" id="image" name="image">
+                                    <label class="custom-file-label mx-3" for="image">აირჩიეთ სურათი...</label>
+                                </div>
+                                <span class="col-sm-4">{!! $errors->first('image', '<span class="help-block">:message</span>') !!}</span>
                             </div>
                         </div>
 

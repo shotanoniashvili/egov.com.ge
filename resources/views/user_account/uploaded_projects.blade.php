@@ -20,94 +20,32 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-lg-4 col-12 my-2">
-                    <!-- BEGIN FEATURED POST -->
-                    <div class="featured-post-wide thumbnail">
-                        <img src="https://cdn0.iconfinder.com/data/icons/mixer-2019/128/mixer-83-512.png" class="img-fluid" alt="Image">
-                        <div class="featured-text relative-left">
-                            <h4 class="primary">
-                                <a href="#">პროექტის დასახელება</a>
-                            </h4>
-                            <p>მოკლე აღწერა, მოკლე აღწერა, მოკლე აღწერა მოკლე აღწერა, მოკლე აღწერა</p>
+                @forelse($projects as $project)
+                    <div class="col-md-6 col-lg-4 col-12 my-2">
+                        <!-- BEGIN FEATURED POST -->
+                        <div class="featured-post-wide thumbnail">
+                            <a href="{{ route('projects.show', $project->id) }}"><img src="{{ asset($project->picture) }}" class="img-fluid project-thumbnail" alt="{{ $project->title }}"></a>
+                            <div class="featured-text relative-left">
+                                <h4 class="primary mt-1">
+                                    <a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a>
+                                </h4>
+                                <p class="project-content">{{ $project->getShortDescription() }}</p>
 
-                            <p class="additional-post-wrap">
-                                <span class="d-block">თემატიკა: გენდერული თანასწორობა</span>
-                                <span class="d-block">სტატუსი: შეფასების პროცესში</span>
-                            </p>
-                            <hr>
-                            <p class="text-right">
-                                <a href="#" class="btn btn-primary text-white">მეტის ნახვა</a>
-                            </p>
+                                <p class="additional-post-wrap">
+                                    <span class="d-block">თემატიკა: {{ $project->category->name }}</span>
+                                    <span class="d-block">სტატუსი: {{ $project->getStatus() }}</span>
+                                </p>
+                                <hr>
+                                <p class="text-right">
+                                    <a href="{{ route('projects.show', $project->id) }}" class="btn btn-primary text-white">მეტის ნახვა</a>
+                                </p>
+                            </div>
+                            <!-- /.featured-text -->
                         </div>
-                        <!-- /.featured-text -->
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-12 my-2">
-                    <!-- BEGIN FEATURED POST -->
-                    <div class="featured-post-wide thumbnail">
-                        <img src="https://cdn0.iconfinder.com/data/icons/mixer-2019/128/mixer-83-512.png" class="img-fluid" alt="Image">
-                        <div class="featured-text relative-left">
-                            <h4 class="primary">
-                                <a href="#">პროექტის დასახელება</a>
-                            </h4>
-                            <p>მოკლე აღწერა, მოკლე აღწერა, მოკლე აღწერა მოკლე აღწერა, მოკლე აღწერა</p>
-
-                            <p class="additional-post-wrap">
-                                <span class="d-block">თემატიკა: გენდერული თანასწორობა</span>
-                                <span class="d-block">სტატუსი: შეფასების პროცესში</span>
-                            </p>
-                            <hr>
-                            <p class="text-right">
-                                <a href="#" class="btn btn-primary text-white">მეტის ნახვა</a>
-                            </p>
-                        </div>
-                        <!-- /.featured-text -->
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-12 my-2">
-                    <!-- BEGIN FEATURED POST -->
-                    <div class="featured-post-wide thumbnail">
-                        <img src="https://cdn0.iconfinder.com/data/icons/mixer-2019/128/mixer-83-512.png" class="img-fluid" alt="Image">
-                        <div class="featured-text relative-left">
-                            <h4 class="primary">
-                                <a href="#">პროექტის დასახელება</a>
-                            </h4>
-                            <p>მოკლე აღწერა, მოკლე აღწერა, მოკლე აღწერა მოკლე აღწერა, მოკლე აღწერა</p>
-
-                            <p class="additional-post-wrap">
-                                <span class="d-block">თემატიკა: გენდერული თანასწორობა</span>
-                                <span class="d-block">სტატუსი: შეფასების პროცესში</span>
-                            </p>
-                            <hr>
-                            <p class="text-right">
-                                <a href="#" class="btn btn-primary text-white">მეტის ნახვა</a>
-                            </p>
-                        </div>
-                        <!-- /.featured-text -->
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 col-12 my-2">
-                    <!-- BEGIN FEATURED POST -->
-                    <div class="featured-post-wide thumbnail">
-                        <img src="https://cdn0.iconfinder.com/data/icons/mixer-2019/128/mixer-83-512.png" class="img-fluid" alt="Image">
-                        <div class="featured-text relative-left">
-                            <h4 class="primary">
-                                <a href="#">პროექტის დასახელება</a>
-                            </h4>
-                            <p>მოკლე აღწერა, მოკლე აღწერა, მოკლე აღწერა მოკლე აღწერა, მოკლე აღწერა</p>
-
-                            <p class="additional-post-wrap">
-                                <span class="d-block">თემატიკა: გენდერული თანასწორობა</span>
-                                <span class="d-block">სტატუსი: შეფასების პროცესში</span>
-                            </p>
-                            <hr>
-                            <p class="text-right">
-                                <a href="#" class="btn btn-primary text-white">მეტის ნახვა</a>
-                            </p>
-                        </div>
-                        <!-- /.featured-text -->
-                    </div>
-                </div>
+                    @empty
+                    <div class="col-sm-12">ატვირთული პრაქტიკა / ინიციატივა არ არსებობს</div>
+                @endforelse
             </div>
         </div>
     </div>

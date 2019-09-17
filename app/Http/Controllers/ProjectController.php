@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\Municipality;
 use App\Models\Person;
 use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Sentinel;
 
 class ProjectController extends Controller
 {
@@ -15,9 +19,15 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function bestPractice()
     {
-        //
+        // TODO only winner and activeForWeb projects
+        $projects = Project::activeForWeb()->get();
+
+        $municipalities = Municipality::all();
+        $categories = ProjectCategory::all();
+
+        return view('projects/best-practice', compact('projects', 'municipalities', 'categories'));
     }
 
     /**
@@ -40,32 +50,19 @@ class ProjectController extends Controller
     {
         DB::beginTransaction();
         try {
-            $authorPersonData = $request->author;
-            $authorPersonData['mobiles'] = json_encode($authorPersonData['mobiles']);
-            $authorPerson = Person::create($authorPersonData);
-
-            $contactPersonData = $request->contact_person;
-            $contactPersonData['mobiles'] = json_encode($contactPersonData['mobiles']);
-            $contactPerson = Person::create($contactPersonData);
-
             Project::createProject(
                 $request->title,
                 $request->category_id,
                 $request->short_description,
                 $request->municipality_id,
-                $request->detailed_description,
-                $request->goal,
-                $request->experience,
-                $request->council_contribution,
-                $request->future_plans,
-                $authorPerson->id,
-                $contactPerson->id,
-                auth()->user()->id,
+                $request->picture,
+                Sentinel::getUser()->id,
                 $request->documents);
             DB::commit();
-            return redirect()->route('my-account.uploaded')->withSuccess('პროექტი წარმატებით აიტვირთა');
+            return redirect()->route('my-account.uploaded')->withSuccess('პრაქტიკა/ინიციატივე წარმატებით დაემატა');
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error("ProjectController->store::$request -> ".json_encode($request->all()) . ". \n\rMessage: ".$e->getMessage());
             return redirect()->back()->withInput()->withError('დაფიქსირდა შეცდომა პრაქტიკის/ინიციატივის დამატების დროს');
         }
     }
@@ -76,9 +73,17 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $project)
+    public function show(int $project)
     {
-        //
+        $project = Project::findOrFail($project);
+
+        $user = Sentinel::getUser();
+
+        if((!$project->is_active_for_web && !$user) || (!$project->is_active_for_web && $user && $user->id !== $project->user_id)) {
+            return redirect()->to(url()->to('/best-practice'));
+        }
+
+        return view('projects.show', compact('project'));
     }
 
     /**

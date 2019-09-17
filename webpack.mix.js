@@ -1090,6 +1090,9 @@ mix.copy(srcCss + 'frontend/timeline1.css', destCss + 'frontend');
 //price
 mix.copy(srcCss + 'frontend/price.css', destCss + 'frontend');
 
+//home
+mix.copy(srcJs + 'frontend/home.js', destJs + 'frontend');
+
 //404
 mix.copy(srcCss + 'frontend/404.css', destCss + 'frontend');
 mix.copy(srcJs + 'frontend/404.js', destJs + 'frontend');

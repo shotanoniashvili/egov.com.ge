@@ -3,6 +3,7 @@
 use App\Http\Controllers\JoshController;
 use App\Http\Requests\UserRequest;
 use App\Mail\Register;
+use App\Models\ProjectCategory;
 use App\Models\User;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use File;
@@ -28,8 +29,23 @@ class UsersController extends JoshController
      */
     private $user_activation = false;
 
-    public function index()
+    public function index(string $role = '')
     {
+        $users = User::query();
+
+        if($role = 'experts') {
+            $users->whereHas('roles', function($query) {
+                $query->where('name', 'expert');
+            });
+        }
+
+        if($role = 'users') {
+            $users->whereHas('roles', function($query) {
+                $query->where('name', 'user');
+            });
+        }
+
+        $users = $users->get();
 
         // Show the page
         return view('admin.users.index', compact('users'));
@@ -39,11 +55,26 @@ class UsersController extends JoshController
      * Pass data through ajax call
      */
     /**
+     * @param string $role
      * @return mixed
+     * @throws \Exception
      */
-    public function data()
+    public function data($role = '')
     {
-        $users = User::get(['id', 'first_name', 'last_name', 'email','created_at']);
+        $users = User::query();
+
+        if($role == 'experts') {
+            $users->whereHas('roles', function($query) {
+                $query->where('slug', 'expert');
+            });
+        }
+
+        if($role == 'users') {
+            $users->whereHas('roles', function($query) {
+                $query->where('slug', 'user');
+            });
+        }
+        $users = $users->get(['id', 'first_name', 'last_name', 'email','created_at']);
 
         return DataTables::of($users)
             ->editColumn(
@@ -89,8 +120,10 @@ class UsersController extends JoshController
         $groups = Sentinel::getRoleRepository()->all();
 
         $countries = $this->countries;
+
+        $projectCategories = ProjectCategory::all();
         // Show the page
-        return view('admin.users.create', compact('groups', 'countries'));
+        return view('admin.users.create', compact('groups', 'countries', 'projectCategories'));
     }
 
     /**
@@ -100,15 +133,6 @@ class UsersController extends JoshController
      */
     public function store(UserRequest $request)
     {
-
-        //upload image
-        if ($file = $request->file('pic_file')) {
-            $extension = $file->extension()?: 'png';
-            $destinationPath = public_path() . '/uploads/users/';
-            $safeName = str_random(10) . '.' . $extension;
-            $file->move($destinationPath, $safeName);
-            $request['pic'] =url('/').'/uploads/users/'.$safeName;
-        }
         //check whether use should be activated by default or not
         $activate = $request->get('activate') ? true : false;
 
@@ -132,6 +156,12 @@ class UsersController extends JoshController
                 Mail::to($user->email)
                     ->send(new Register($data));
             }
+
+            if($request->get('project_category_id')) {
+                $user->project_category_id = $request->get('project_category_id');
+                $user->save();
+            }
+
             // Activity log for New user create
             activity($user->full_name)
                 ->performedOn($user)
@@ -169,8 +199,12 @@ class UsersController extends JoshController
 
         $countries = $this->countries;
 
+        $projectCategories = ProjectCategory::all();
+
+        // TODO view
+
         // Show the page
-        return view('admin.users.edit', compact('user', 'roles', 'userRoles', 'countries', 'status'));
+        return view('admin.users.edit', compact('user', 'roles', 'userRoles', 'countries', 'status', 'projectCategories'));
     }
 
     /**
@@ -205,6 +239,10 @@ class UsersController extends JoshController
                 $user->pic =url('/').'/uploads/users/'.$safeName;
             }
 
+
+            if($request->get('project_category_id')) {
+                $user->project_category_id = $request->get('project_category_id');
+            }
             //save record
             $user->save();
 

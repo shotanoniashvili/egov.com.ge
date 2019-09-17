@@ -1,3 +1,15 @@
+$('#group').on('change', function(e) {
+    let select = document.getElementById("group");
+
+    let group = select.options[select.selectedIndex].text;
+
+    if(group === 'ექსპერტი') {
+        $('.project-category-container').removeClass('hide');
+    } else {
+        $('.project-category-container').find('select').val('');
+        $('.project-category-container').addClass('hide');
+    }
+});
 // bootstrap wizard//
 $('#gender, #gender1').select2({
     theme: 'bootstrap',

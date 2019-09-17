@@ -107,8 +107,7 @@ class FrontEndController extends JoshController
     {
         $user = Sentinel::getUser();
 
-        // TODO
-        $projects = collect();
+        $projects = $user->projects()->with('category')->get();
 
         return view('user_account.uploaded_projects', compact('user', 'projects'));
     }
@@ -120,8 +119,9 @@ class FrontEndController extends JoshController
     {
         $categories = ProjectCategory::all();
         $municipalities = Municipality::all();
+        $user = Sentinel::getUser();
 
-        return view('user_account.upload_form', compact('categories', 'municipalities'));
+        return view('user_account.upload_form', compact('categories', 'municipalities', 'user'));
     }
 
     /**

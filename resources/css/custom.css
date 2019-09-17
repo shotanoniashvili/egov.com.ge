@@ -333,3 +333,70 @@ a.btn, #rootwizard .nav-link.active {
 .upload-project-form {
     margin-bottom: 80px;
 }
+
+.project-thumbnail {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover;
+}
+
+.project-image {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.project-content {
+    min-height: 80px;
+}
+
+.project-files li {
+    align-items: center;
+}
+
+.project-file-icon {
+    width: 24px !important;
+    height: 24px !important;
+}
+
+.additional-post-wrap {
+    margin-bottom: 14px;
+}
+
+.municipality-image {
+    width: 130px;
+    height: 180px;
+}
+
+.abc-link {
+    margin-left: 6px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.abc-link:hover, .abc-link:active, .abc-link:focus, .abc-link.active {
+    border-bottom: 2px solid #418bca;
+}
+
+.font-lg {
+    font-size: 20px;
+}
+
+.tooltip_templates {
+    display: none;
+}
+
+.region-window {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hide {
+    display: none;
+}
+
+.faq-accordion h4 {
+    margin-bottom: 0 !important;
+}

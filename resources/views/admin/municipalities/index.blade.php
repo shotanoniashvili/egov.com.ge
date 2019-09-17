@@ -45,6 +45,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>დასახელება</th>
+                                    <th>რეგიონი</th>
                                     <th>ვებსაიტის მისამართი</th>
                                     <th>პროექტების რაოდენობა</th>
                                     <th>დამატების თარიღი</th>
@@ -55,13 +56,14 @@
                                 @if(!empty($municipalities))
                                     @foreach ($municipalities as $municipality)
                                         <tr>
-                                            <td>{{{ $municipality->id }}}</td>
-                                            <td>{{{ $municipality->name }}}</td>
-                                            <td>{{{ $municipality->website }}}</td>
-                                            <td>{{{ $municipality->projects()->count() }}}</td>
-                                            <td>{{{ $municipality->created_at->diffForHumans() }}}</td>
+                                            <td>{{ $municipality->id }}</td>
+                                            <td>{{ $municipality->name }}</td>
+                                            <td>{{ $municipality->region ? $municipality->region->name : '-' }}</td>
+                                            <td>{{ $municipality->website }}</td>
+                                            <td>{{ $municipality->projects()->count() }}</td>
+                                            <td>{{ $municipality->created_at->diffForHumans() }}</td>
                                             <td>
-                                                <a href="{{{ URL::to('admin/municipalities/' . $municipality->id . '/edit' ) }}}"><i
+                                                <a href="{{ URL::to('admin/municipalities/' . $municipality->id . '/edit' ) }}"><i
                                                             class="livicon" data-name="edit" data-size="18" data-loop="true"
                                                             data-c="#428BCA" data-hc="#428BCA"
                                                             title="რედაქტირება"></i></a>

@@ -78,7 +78,7 @@
         var table = $('#table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: '{!! route('admin.users.data') !!}',
+            ajax: '{!! route('admin.users.data') !!}/{{ request()->type }}',
             columns: [
                 { data: 'id', name: 'id' },
                 { data: 'first_name', name: 'first_name' },

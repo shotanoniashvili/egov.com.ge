@@ -107,7 +107,7 @@
 @section('footer_scripts')
 <!-- begining of page level js -->
 <!--edit blog-->
-<script src="{{ asset('vendors/summernote/js/summernote-bs4.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('vendors/tinymce/js/tinymce.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/select2/js/select2.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendors/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}" type="text/javascript" ></script>
 <script type="text/javascript" src="{{ asset('vendors/jasny-bootstrap/js/jasny-bootstrap.js') }}"></script>

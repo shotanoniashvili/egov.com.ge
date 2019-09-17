@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Municipality extends Model
 {
-    protected $fillable = ['name', 'website'];
+    protected $fillable = ['name', 'region_id', 'website', 'image'];
 
     public function projects() {
-        // TODO
-        return Municipality::where('id', 11111111);
+        return $this->hasMany(Project::class, 'municipality_id');
+    }
+
+    public function region() {
+        return $this->belongsTo(Region::class, 'region_id');
+    }
+
+    public function getSimilar($project) {
+        return $this->projects()->activeForWeb()->where('id', '!=', $project->id)->inRandomOrder()->take(5)->get();
     }
 }
