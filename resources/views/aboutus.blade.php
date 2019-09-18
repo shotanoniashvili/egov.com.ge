@@ -52,33 +52,33 @@ About us
         <!-- Slider Section Start -->
         <div class="row my-3">
             <!-- Left Heading Section Start -->
-            <div class="col-md-7 col-sm-12  col-md-12 col-lg-8 wow bounceInLeft" data-wow-duration="5s">
-                <h2><label>Welcome to Josh</label></h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem
-                </p>
-            </div>
-            <!-- //Left Heaing Section End -->
-            <!-- Slider Start -->
-            <div class="col-md-12 col-sm-12  col-lg-4 slider wow fadeInRightBig" data-wow-duration="5s">
-                <div id="owl-demo" class="owl-carousel owl-theme">
-                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                    <div class="item"><img src="{{ asset('images/image_17.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <!-- //Slider End -->
-        </div>
-        <!-- //Slider Section End -->
+{{--            <div class="col-md-7 col-sm-12  col-md-12 col-lg-8 wow bounceInLeft" data-wow-duration="5s">--}}
+{{--                <h2><label>Welcome to Josh</label></h2>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--            <!-- //Left Heaing Section End -->--}}
+{{--            <!-- Slider Start -->--}}
+{{--            <div class="col-md-12 col-sm-12  col-lg-4 slider wow fadeInRightBig" data-wow-duration="5s">--}}
+{{--                <div id="owl-demo" class="owl-carousel owl-theme">--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_17.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- //Slider End -->--}}
+{{--        </div>--}}
+{{--        <!-- //Slider Section End -->--}}
         <!-- Services Section Start -->
         <div class="text-center">
             <h3><span class="heading_border bg-success" >Services</span></h3>
