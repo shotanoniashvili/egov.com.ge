@@ -64,21 +64,21 @@
                         <tbody>
                         @if(count($projects) > 0)
                             @foreach ($projects as $project)
-                                <tr>
+                                <tr data-id="{{ $project->id }}">
                                     <td>{{ $project->id }}</td>
-                                    <td>{{ $project->title }}</td>
+                                    <td><a target="_blank" href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a></td>
                                     <td>{{ $project->category->name }}</td>
-                                    <td>{{ $project->municipality->name }}</td>
-                                    <td class="text-center">{!! $project->is_archive ? '<i class="livicon" data-name="check-circle-alt" data-size="18"
-                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon" data-name="remove-alt" data-size="18"
+                                    <td><a target="_blank" href="{{ route('municipalities.show', $project->municipality->id) }}">{{ $project->municipality->name }}</a></td>
+                                    <td class="text-center">{!! $project->is_archive ? '<i class="livicon toggle-is-archive cursor-pointer" data-name="check-circle-alt" data-size="18"
+                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-is-archive cursor-pointer" data-name="remove-alt" data-size="18"
                                                    data-c="#f56954" data-hc="#f56954" data-loop="true"></i>' !!}</td>
                                     <td>{{ $project->created_at->format('Y') }}</td>
                                     <td>{{ $project->getRating() }}</td>
-                                    <td class="text-center">{!! $project->is_active_for_experts ? '<i class="livicon" data-name="check-circle-alt" data-size="18"
-                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon" data-name="remove-alt" data-size="18"
+                                    <td class="text-center">{!! $project->is_active_for_experts ? '<i class="livicon toggle-activation-for-experts cursor-pointer" data-name="check-circle-alt" data-size="18"
+                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-activation-for-experts cursor-pointer" data-name="remove-alt" data-size="18"
                                                    data-c="#f56954" data-hc="#f56954" data-loop="true"></i>' !!}</td>
-                                    <td class="text-center">{!! $project->is_active_for_web ? '<i class="livicon" data-name="check-circle-alt" data-size="18"
-                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon" data-name="remove-alt" data-size="18"
+                                    <td class="text-center">{!! $project->is_active_for_web ? '<i class="livicon toggle-activation-for-web cursor-pointer" data-name="check-circle-alt" data-size="18"
+                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-activation-for-web cursor-pointer" data-name="remove-alt" data-size="18"
                                                    data-c="#f56954" data-hc="#f56954" data-loop="true"></i>' !!}</td>
                                     <td>
                                         <a href="{{ URL::to('admin/projects/edit/' . $project->id) }}"><i
@@ -136,6 +136,29 @@
         $(function () {
             $('body').on('hidden.bs.modal', '.modal', function () {
                 $(this).removeData('bs.modal');
+            }).on('click', '.toggle-activation-for-experts', function() {
+                let icon = $(this);
+                let projectId = icon.parent().parent().data('id');
+
+                $.get('{{ url()->to('/admin/projects/toggle/is-active-for-experts') }}/'+projectId, function() {
+                    toggleIcon(icon);
+                });
+            }).on('click', '.toggle-activation-for-web', function() {
+                let icon = $(this);
+                let projectId = icon.parent().parent().data('id');
+
+                $.get('{{ url()->to('/admin/projects/toggle/is-active-for-web') }}/'+projectId, function() {
+                    toggleIcon(icon);
+                });
+            });
+
+            $('.toggle-is-archive').on('click', function() {
+                let row = $(this).parent().parent();
+                let projectId = row.data('id');
+
+                $.get('{{ url()->to('/admin/projects/toggle/is-archive') }}/'+projectId, function() {
+                    row.remove();
+                });
             });
         });
 
@@ -153,6 +176,21 @@
             var $recipient = button.data('id');
             var modal = $(this);
             modal.find('.modal-footer a').prop("href",$url_path+"/admin/projects/delete/"+$recipient);
-        })
+        });
+
+        function toggleIcon(icon) {
+            let successIcon = '<i class="livicon" data-name="check-circle-alt" data-size="18" data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>';
+            let warningIcon = '<i class="livicon" data-name="remove-alt" data-size="18" data-c="#f56954" data-hc="#f56954" data-loop="true"></i>';
+
+            if(icon.data('name') === 'check-circle-alt') {
+                $(warningIcon).attr('class', icon.attr('class')).insertAfter(icon);
+                icon.remove();
+            } else {
+                $(successIcon).attr('class', icon.attr('class')).insertAfter(icon);
+                icon.remove();
+            }
+
+            $('.livicon').addLivicon();
+        }
     </script>
 @stop

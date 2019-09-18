@@ -93,7 +93,7 @@
 </section>
 <div class="tooltip_templates">
     <div id="tooltip_content">
-
+        იტვირთება...
     </div>
 </div>
 <!-- //Layout Section Start -->

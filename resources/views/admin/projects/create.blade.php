@@ -128,6 +128,26 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="checkbox col-md-8 col-sm-12 offset-md-4">
+                                                    <label>
+                                                        <input type="checkbox" class="custom-checkbox toggle-date"> დაემატოს როგორც არქივი
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group date-field-container hide">
+                                            <div class="row">
+                                                <label for="date" class="col-sm-12 col-md-4 control-label">პროექტის განთავსების წელი *</label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <input id="date" name="date" class="form-control required datetimepicker year" value="{{ old('date') }}">
+
+                                                    {!! $errors->first('date', '<span class="help-block">:message</span>') !!}
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="tab-pane" id="tab2" disabled="disabled">
                                         <div class="form-group {{ $errors->first('documents.*', 'has-error') }}">

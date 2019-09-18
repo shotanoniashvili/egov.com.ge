@@ -67,7 +67,7 @@ class ProjectController extends JoshController
                 true,
                 true,
                 true,
-                $request->project_date);
+                $request->date);
             DB::commit();
             return redirect()->route('admin.projects.index')->withSuccess('პროექტი წარმატებით დაემატა');
         } catch (\Exception $e) {
@@ -161,12 +161,10 @@ class ProjectController extends JoshController
     {
         $project = Project::findOrFail($project);
 
-        $project->documents()->delete();
-
         if ($project->delete()) {
             return redirect('admin/projects')->with('success', 'პროექტის კატეგორია წარმატებით წაიშალა');
         } else {
-            return Redirect::route('admin/projects')->withInput()->with('error', 'დაფიქსირდა შეცდომა პროექტის წაშლის დროს');
+            return Redirect::route('admin.projects.index')->withInput()->with('error', 'დაფიქსირდა შეცდომა პროექტის წაშლის დროს');
         }
     }
 
@@ -192,6 +190,68 @@ class ProjectController extends JoshController
             return redirect()->back()->with('success', 'დოკუმენტის სახელი წარმატებით შეიცვალა');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა დოკუმენტის სახელის შეცვლის დროს');
+        }
+    }
+
+    public function toggleDocumentVisibility(int $id) {
+        try {
+            $document = ProjectDocument::findOrFail($id);
+
+            $document->is_visible = !$document->is_visible;
+
+            $document->save();
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
+        }
+    }
+
+    public function toggleActivationForWeb(int $id) {
+        try {
+            $project = Project::findOrFail($id);
+
+            $project->is_active_for_web = !$project->is_active_for_web;
+
+            $project->save();
+
+            return redirect()->back()->with('success', 'პროექტს წარმატებით შეეცვალა სტატუსი');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
+        }
+    }
+
+    public function toggleActivationForExperts(int $id) {
+        try {
+            $project = Project::findOrFail($id);
+
+            $project->is_active_for_experts = !$project->is_active_for_experts;
+
+            $project->save();
+
+            return redirect()->back()->with('success', 'პროექტს წარმატებით შეეცვალა სტატუსი');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
+        }
+    }
+
+    public function toggleIsArchive(int $id) {
+        try {
+            $project = Project::findOrFail($id);
+
+            if($project->is_archive) {
+                $message = 'პროექტს წარმატებით გაუუქმდა არქივის სტატუსი';
+                $project->is_archive = false;
+            } else {
+                $message = 'პროექტი წარმატებით გადავიდა აქრივში';
+                $project->is_archive = true;
+            }
+
+            $project->save();
+
+            return redirect()->back()->with('success', $message);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
         }
     }
 }

@@ -79,11 +79,21 @@ class ProjectController extends Controller
 
         $user = Sentinel::getUser();
 
-        if( $user->roles()->where('slug', 'admin')
+        $isAdmin = $user && $user->roles()->where('slug', 'admin')->count() > 0;
+        $isAuthor = $user && $user->id === $project->user_id;
+        $isExpert = $user && $project->is_active_for_experts && $user->project_category_id == $project->category->id;
+        if( $isAdmin
             || $project->is_active_for_web
-            || (!$project->is_active_for_web && $user && $user->id === $project->user_id)
-            || ($user && $project->is_active_for_experts && $user->project_category_id == $project->category->id)) {
-            return view('projects.show', compact('project'));
+            || $isAuthor
+            || $isExpert) {
+
+            if($isAdmin || $isExpert || $isAuthor || $project->is_archive) {
+                $projectDocuments = $project->documents()->get();
+            } else {
+                $projectDocuments = $project->documents()->visible()->get();
+            }
+
+            return view('projects.show', compact('project', 'projectDocuments'));
         }
 
         return redirect()->to(url()->to('/best-practice'));

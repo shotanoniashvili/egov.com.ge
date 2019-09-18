@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="row vertical-offset-100">
+    <div class="row vertical-offset-50">
         <!-- Notifications -->
         <div class="col-sm-6 col-sm-offset-3  col-md-5 col-md-offset-4 col-lg-4 col-lg-offset-4 mx-auto">
 
@@ -54,18 +54,18 @@
                     <div id="login" class="animate form">
                         <form action="{{ route('signin') }}" autocomplete="on" method="post" role="form" id="login_form"
                               class="my-3">
-                            <h3 class="black_bg">
-                                <img src="{{ asset('img/logo.png') }}" alt="josh logo">
-                                <br>Log In</h3>
+                            <h3 class="none_bg">
+                                <img src="{{ asset('img/nalaicon.png') }}" alt="josh logo">
+                                <br>ავტორიზაცია</h3>
                             <!-- CSRF Token -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <div class="form-group {{ $errors->first('email', 'has-error') }}">
                                 <label style="margin-bottom:0px;" for="email" class="uname control-label"> <i
                                             class="livicon" data-name="mail" data-size="16" data-loop="true"
                                             data-c="#3c8dbc" data-hc="#3c8dbc"></i>
-                                    E-mail
+                                   ელ-ფოსტა
                                 </label>
-                                <input id="email" name="email" type="email" placeholder="E-mail"
+                                <input id="email" name="email" type="email" placeholder="ელ-ფოსტა"
                                        value="{!! old('email') !!}"/>
                                 <div class="col-sm-12">
                                     {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
@@ -78,9 +78,9 @@
                                                                                                        data-loop="true"
                                                                                                        data-c="#3c8dbc"
                                                                                                        data-hc="#3c8dbc"></i>
-                                    Password
+                                   პაროლი
                                 </label>
-                                <input id="password" name="password" type="password" placeholder="Enter a password"/>
+                                <input id="password" name="password" type="password" placeholder="პაროლი"/>
                                 <div class="col-sm-12">
                                     {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                                 </div>
@@ -89,39 +89,14 @@
                                 <label>
                                     <input type="checkbox" name="remember-me" id="remember-me" value="remember-me"
                                            class="square-blue"/>
-                                    Keep me logged in
+                                    დამახსოვრება
                                 </label>
                             </div>
                             <p class="login button">
-                                <input type="submit" value="Log In" class="btn btn-success"/>
+                                <input type="submit" value="შესვლა" class="btn btn-success btn-login"/>
                             </p>
-                            <p class="change_link">
-                                <a href="#toforgot">
-                                    <button type="button"
-                                            class="btn btn-responsive botton-alignment btn-warning btn-sm">Forgot
-                                        password
-                                    </button>
-                                </a>
-                                <a href="#toregister">
-                                    <button type="button" id="signup"
-                                            class="btn btn-responsive botton-alignment btn-success btn-sm"
-                                            style="float:right;">Sign Up
-                                    </button>
-                                </a>
-                            </p>
-                            <div class="row">
-                                <div class="col-lg-12 text-center social_login mb-3">
-                                    <a class="btn btn-block btn-social btn-facebook" href="{{ url('/facebook') }}">
-                                        <i class="fab fa-facebook-f"></i> Sign in with Facebook
-                                    </a>
-                                    <a class="btn btn-block btn-social btn-google-plus" href="{{ url('/google') }}">
-                                        <i class="fab fa-google-plus-g"></i> Sign in with Google
-                                    </a>
-                                    <a class="btn btn-block btn-social btn-linkedin" href="{{ url('/linkedin') }}">
-                                        <i class="fab fa-linkedin-in"></i> Sign in with LinkedIn
-                                    </a>
-                                </div>
-                            </div>
+
+
                         </form>
                     </div>
                     <div id="register" class="animate form">
@@ -163,7 +138,7 @@
                                 <label style="margin-bottom:0px;" for="email1" class="youmail">
                                     <i class="livicon" data-name="mail" data-size="16" data-loop="true" data-c="#3c8dbc"
                                        data-hc="#3c8dbc"></i>
-                                    E-mail
+                                    ელ-ფოსტა
                                 </label>
                                 <input id="email1" name="email" value="{!! old('email') !!}" required type="email"
                                        placeholder="mysupermail@mail.com"/>
@@ -189,9 +164,9 @@
                                 <label style="margin-bottom:0px;" for="password1" class="youpasswd">
                                     <i class="livicon" data-name="key" data-size="16" data-loop="true" data-c="#3c8dbc"
                                        data-hc="#3c8dbc"></i>
-                                    Password
+                                    პაროლი
                                 </label>
-                                <input id="password1" name="password" required type="password" placeholder="Password"/>
+                                <input id="password1" name="password" required type="password" placeholder="პაროლი"/>
                                 <div class="col-sm-12">
                                     {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                                 </div>
@@ -222,43 +197,7 @@
                             </p>
                         </form>
                     </div>
-                    <div id="forgot" class="animate form">
-                        <form action="{{ url('admin/forgot-password') }}" autocomplete="on" method="post" role="form"
-                              id="reset_pw">
-                            <h3 class="black_bg my-3">
-                                <img src="{{ asset('img/logo.png') }}" alt="josh logo"><br>Forgot Password</h3>
-                            <p style="font-size:14px !important;">
-                                Enter your email address below and we'll send a special reset password link to your
-                                inbox.
-                            </p>
 
-                            <!-- CSRF Token -->
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
-
-                            <div class="form-group {{ $errors->first('email', 'has-error') }}">
-                                <label style="margin-bottom:0px;" for="email2" class="youmai">
-                                    <i class="livicon" data-name="mail" data-size="16" data-loop="true" data-c="#3c8dbc"
-                                       data-hc="#3c8dbc"></i>
-                                    Your email
-                                </label>
-                                <input id="email2" name="email" required type="email" placeholder="your@mail.com"
-                                       value="{!! old('email') !!}"/>
-                                <div class="col-sm-12">
-                                    {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
-                                </div>
-                            </div>
-                            <p class="login button">
-                                <input type="submit" value="Reset Password" class="btn btn-success"/>
-                            </p>
-                            <p class="change_link">
-                                <a href="#tologin" class="to_register">
-                                    <button type="button"
-                                            class="btn btn-responsive botton-alignment btn-warning btn-sm">Back
-                                    </button>
-                                </a>
-                            </p>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

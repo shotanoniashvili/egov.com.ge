@@ -183,7 +183,11 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('delete/{project}', 'ProjectController@destroy')->name('projects.delete');
         Route::get('confirm-delete/{project}', 'ProjectController@getModalDelete')->name('projects.confirm-delete');
         Route::get('documents/{id}/delete', 'ProjectController@deleteDocument')->name('projects.delete-document');
+        Route::get('documents/{id}/toggle-visibility', 'ProjectController@toggleDocumentVisibility')->name('projects.toggle-document-visibility');
         Route::patch('documents/{id}', 'ProjectController@renameDocument')->name('projects.rename-document');
+        Route::get('toggle/is-archive/{id}', 'ProjectController@toggleIsArchive')->name('projects.toggle-is-archive');
+        Route::get('toggle/is-active-for-web/{id}', 'ProjectController@toggleActivationForWeb')->name('projects.toggle-activation-for-web');
+        Route::get('toggle/is-active-for-experts/{id}', 'ProjectController@toggleActivationForExperts')->name('projects.toggle-activation-for-experts');
     });
 
     /*routes for regions */
