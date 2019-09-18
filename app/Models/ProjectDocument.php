@@ -11,6 +11,10 @@ class ProjectDocument extends Pivot
 
     protected $fillable = ['id', 'project_id', 'name', 'path'];
 
+    public function scopeVisible($query) {
+        return $query->where('is_visible', true);
+    }
+
     public function getTitle() {
         if(is_null($this->name) || empty($this->name)) {
             $pathInfo = pathinfo($this->path);

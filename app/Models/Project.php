@@ -44,11 +44,11 @@ class Project extends Model
     }
 
     public function scopeEvaluated($query) {
-        // TODO
+        return $query;
     }
 
     public function scopeToEvaluate($query) {
-        // TODO
+        return $query;
     }
 
     public function getShortDescriptionAttribute() {
@@ -92,7 +92,7 @@ class Project extends Model
             $project->is_active_for_experts = $isActiveForExperts;
             $project->is_active_for_web = $isActiveForWeb;
             if($projectDate !== null && $projectDate !== '') {
-                $project->created_at = \DateTime::createFromFormat('Y-m-d', $projectDate);
+                $project->created_at = \DateTime::createFromFormat('Y', $projectDate);
             }
 
             if($picture) {
@@ -168,9 +168,9 @@ class Project extends Model
 
     public function delete() {
         try {
-            $this->documents()->delet();
+            $this->documents()->delete();
 
-            parent::delete();
+            return parent::delete();
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }

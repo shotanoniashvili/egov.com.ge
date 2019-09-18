@@ -144,6 +144,25 @@ $('#projectForm').keypress(function(event) {
     }
 });
 
+
+$('.datetimepicker.year').datetimepicker({
+    format: 'YYYY',
+    icons: {
+        time: 'fa fa-clock-o',
+        date: 'fa fa-calendar',
+        up: 'fa fa-chevron-up',
+        down: 'fa fa-chevron-down',
+        previous: 'fa fa-chevron-left',
+        next: 'fa fa-chevron-right',
+    },
+});
+
+$('.toggle-date').on('ifChecked', function() {
+    $('.date-field-container').removeClass('hide');
+}).on('ifUnchecked', function() {
+    $('.date-field-container').addClass('hide');
+});
+
 // TinyMCE Full
 tinymce.init({
     selector: '#short_description',

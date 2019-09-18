@@ -18,7 +18,7 @@ class MunicipalityResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'website' => $this->website,
-            'project_count' => $this->projects()->count(),
+            'project_count' => $this->projects()->activeForWeb()->count(),
             'region' => new RegionResource($this->whenLoaded('region'))
         ];
     }

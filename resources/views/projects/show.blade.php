@@ -73,17 +73,23 @@
                         <p class="text-justify">
                             {!! $project->short_description !!}
                         </p>
-                        @if($project->documents()->count() > 0)
+                        @if(count($projectDocuments) > 0)
                         <h3 class="comments">თანდართული დოკუმენტები/მასალები</h3><br />
                         <ul class="media-list project-files p-0 m-0">
-                            @foreach($project->documents as $document)
+                            @foreach($projectDocuments as $document)
                                 <li class="media" data-id="{{ $document->id }}">
                                     <img class="project-file-icon" src="{{ $document->getIconSrc() }}" />
                                     <a class="document-name" href="{{ asset($document->path) }}">{{$document->getTitle()}}</a>
                                     <small class="text-danger ml-2"> {{ $document->getSize() }}</small>
                                     @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
                                         <button data-toggle="modal" data-target="#renameDocument" class="btn btn-primary btn-rename-document mr-2 ml-3" title="სახელის შეცვლა"><i class="fa fa-edit"></i></button>
-                                        <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger btn-delete-document" title="დოკუმენტის წაშლა"><i class="fa fa-minus"></i></button>
+                                        <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger btn-delete-document mr-2" title="დოკუმენტის წაშლა"><i class="fa fa-trash"></i></button>
+
+                                        @if(!$document->is_visible)
+                                            <a href="{{ route('admin.projects.toggle-document-visibility', $document->id) }}" class="btn btn-success mr-2" title="ყველა მომხმარებლისთვის გამოჩენა"><i class="fa fa-check"></i></a>
+                                        @else
+                                            <a href="{{ route('admin.projects.toggle-document-visibility', $document->id) }}" class="btn btn-warning mr-2" title="დამალვა მომხმარებლებისთვის"><i class="fa fa-ban"></i></a>
+                                        @endif
                                     @endif
                                 </li>
                             @endforeach

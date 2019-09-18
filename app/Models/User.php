@@ -59,14 +59,13 @@ class User extends EloquentUser
     }
 
     public function getEvaluatedProjects() {
-        $projects = $this->category()->projects()->evaluated()->get();
+        $projects = $this->category->projects()->evaluated()->get();
 
         return $projects;
     }
 
     public function getProjectsToEvaluate() {
-        dd($this->category->projects()->toEvaluate());
-        $projects = $this->category()->projects()->to_evaluate()->get();
+        $projects = $this->category->projects()->toEvaluate()->get();
 
         return $projects;
     }
