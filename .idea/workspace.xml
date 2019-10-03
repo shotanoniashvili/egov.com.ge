@@ -3,8 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="21558fb5-418d-4533-93e4-70bec8317e56" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/frontend/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/frontend/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/css/pages/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/pages/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/plugins/buttons/buttons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/plugins/buttons/buttons.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/aboutus.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/aboutus.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/contact.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/contact.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/default.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -228,7 +233,11 @@
       <workItem from="1567527709017" duration="10179000" />
       <workItem from="1567686650617" duration="4782000" />
       <workItem from="1568704594455" duration="3008000" />
-      <workItem from="1568709212116" duration="2175000" />
+      <workItem from="1568709212116" duration="3431000" />
+      <workItem from="1568909782865" duration="96000" />
+      <workItem from="1568983218781" duration="53000" />
+      <workItem from="1569744429864" duration="6000" />
+      <workItem from="1570048181436" duration="3992000" />
     </task>
     <task id="LOCAL-00001" summary="login UI CHANGE">
       <created>1568708930702</created>
@@ -244,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1568709438065</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="liitle changes on front">
+      <created>1568805741219</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1568805741219</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,6 +282,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="login UI CHANGE" />
     <MESSAGE value="Merge branch 'master' of https://bitbucket.org/shotanoniashvili/nala&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit." />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://bitbucket.org/shotanoniashvili/nala&#10;&#10;# Please enter a commit message to explain why this merge is necessary,&#10;# especially if it merges an updated upstream into a topic branch.&#10;#&#10;# Lines starting with '#' will be ignored, and an empty message aborts&#10;# the commit." />
+    <MESSAGE value="liitle changes on front" />
+    <option name="LAST_COMMIT_MESSAGE" value="liitle changes on front" />
   </component>
 </project>
