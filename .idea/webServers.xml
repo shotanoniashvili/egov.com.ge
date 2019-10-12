@@ -2,10 +2,10 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="8a06dd3c-defe-4cff-bd79-47262827d927" name="egov.com.ge" url="http://egov.com.ge">
-        <fileTransfer host="egov.com.ge" port="21">
+      <webServer id="982f851b-7ead-4803-96a0-413a7d13816f" name="egov.com.ge" url="http://egov.com.ge/">
+        <fileTransfer host="egov.com.ge" port="21" rootFolder="/web">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" shareSSLContext="true" />
           </advancedOptions>
           <option name="port" value="21" />
         </fileTransfer>
