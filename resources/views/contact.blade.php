@@ -79,12 +79,11 @@ Contact
                     </a>
                     <div class="media-body ml-3">
                         <h4 class="media-heading">მისამართი:</h4>
-                        <div class="danger">Jyostna</div>
+{{--                        <div class="danger">Jyostna</div>--}}
                         <address>
-                        Pediatric Surgeons of Alaska
-                        <br> 3340 Providence Drive #565
-                        <br> Anchorage, AK(Alaska)
-                        <br> North Las Vegas, NV
+                            <p>ელექტრონული მისამართი : bp@nala.ge</p>
+                            <p>ტელეფონი:    595 57 77 34</p>
+
                         </address>
                     </div>
                 </div>
