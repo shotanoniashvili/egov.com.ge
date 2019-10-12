@@ -30,7 +30,9 @@ Route::get('clear', function () {
 Route::pattern('slug', '[a-z0-9- _]+');
 
 Route::group(['middleware' => 'expert'], function() {
-    Route::get('my-account/to-be-evaluated', 'ProjectController@showProjectsToEvaluate')->name('my-account.show-projects-to-evaluate');
+    Route::get('my-account/evaluated', 'ProjectController@showEvaluatedProjects')->name('my-account.show-evaluated-projects');
+    Route::get('my-account/to-evaluate', 'ProjectController@showProjectsToEvaluate')->name('my-account.show-projects-to-evaluate');
+    Route::get('projects/{id}/evaluate', 'ProjectController@showEvaluateForm')->name('projects.evaluate');
 });
 
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin'], function () {
@@ -83,7 +85,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin', 'as' => 'admin.'], f
     Route::post('modelCheck', 'ModelcheckController@modelCheck');
 
     # Dashboard / Index
-    Route::get('/', 'JoshController@showHome')->name('dashboard');
+//    Route::get('/', 'JoshController@showHome')->name('dashboard');
+    Route::get('/', function() {
+        return redirect()->route('admin.projects.index');
+    })->name('dashboard');
+
     # crop demo
     Route::post('crop_demo', 'JoshController@cropDemo')->name('crop_demo');
     //Log viewer routes
@@ -170,7 +176,15 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('{projectCategory}/confirm-delete', 'ProjectCategoryController@getModalDelete')->name('project-categories.confirm-delete');
         Route::get('{projectCategory}/restore', 'ProjectCategoryController@getRestore')->name('project-categories.restore');
     });
-    Route::resource('regions', 'RegionController');
+    Route::resource('project-categories', 'ProjectCategoryController');
+
+    /*routes for faq*/
+    Route::group(['prefix' => 'faq'], function () {
+        Route::get('{faq}/delete', 'FaqController@destroy')->name('faq.delete');
+        Route::get('{faq}/confirm-delete', 'FaqController@getModalDelete')->name('faq.confirm-delete');
+        Route::get('{faq}/restore', 'FaqController@getRestore')->name('faq.restore');
+    });
+    Route::resource('faq', 'FaqController');
 
     /*routes for projects in admin panel*/
     Route::group(['prefix' => 'projects'], function () {
@@ -192,11 +206,11 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
 
     /*routes for regions */
     Route::group(['prefix' => 'regions'], function () {
-        Route::get('{region}/delete', 'RegionController@destroy')->name('project-categories.delete');
-        Route::get('{region}/confirm-delete', 'RegionController@getModalDelete')->name('project-categories.confirm-delete');
-        Route::get('{region}/restore', 'RegionController@getRestore')->name('project-categories.restore');
+        Route::get('{region}/delete', 'RegionController@destroy')->name('regions.delete');
+        Route::get('{region}/confirm-delete', 'RegionController@getModalDelete')->name('regions.confirm-delete');
+        Route::get('{region}/restore', 'RegionController@getRestore')->name('regions.restore');
     });
-    Route::resource('project-categories', 'ProjectCategoryController');
+    Route::resource('regions', 'RegionController');
 
     /*routes for municipalities*/
     Route::group(['prefix' => 'municipalities'], function () {
@@ -293,6 +307,7 @@ Route::post('forgot-password', 'FrontEndController@postForgotPassword');
 
 #Projects
 Route::get('best-practice', 'ProjectController@bestPractice')->name('projects.best-practice');
+Route::get('archive', 'ProjectController@archive')->name('projects.archive');
 Route::get('projects/{project}', 'ProjectController@show')->name('projects.show');
 
 #Municipalities
@@ -351,4 +366,6 @@ Route::get('news', 'NewsController@index')->name('news');
 Route::get('news/{news}', 'NewsController@show')->name('news.show');
 
 Route::get('{name?}', 'FrontEndController@showFrontEndView');
+
+Route::get('search/{keyword?}', 'FrontEndController@search')->name('search');
 # End of frontend views

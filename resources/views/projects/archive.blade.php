@@ -1,9 +1,8 @@
-@extends('layouts/default')
+@extends('layouts.default')
 
 {{-- Page title --}}
 @section('title')
-    {{ $municipality->name }}
-    @parent
+    არქივი
 @stop
 
 {{-- breadcrumb --}}
@@ -19,11 +18,11 @@
                         </li>
                         <li>
                             <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
-                            <a href="{{ route('municipalities.show', $municipality->id) }}">{{ $municipality->name }}</a>
+                            <a href="{{ url()->to('/best-practice') }}">არქივი</a>
                         </li>
                     </ol>
                     <div class="float-right mt-1">
-                        <i class="livicon icon3" data-name="doc-landscape" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> {{ $municipality->name }}
+                        <i class="livicon icon3" data-name="doc-landscape" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> არქივი
                     </div>
                 </div>
             </div>
@@ -37,18 +36,10 @@
     <hr class="content-header-sep">
     <div class="container mb-5">
         <div class="welcome">
-            <h3>{{ $municipality->name }}</h3>
+            <h3>არქივი</h3>
         </div>
         <hr>
-            <div class="municipality-description">
-                მუნიციპალიტეტის ვებგვერდი: <a href="{{ $municipality->website }}" target="_blank">{{ $municipality->website }}</a>
-            </div>
-        <hr>
         <div class="row">
-            <div class="col-sm-12">
-                <h3 class="font-lg">{{ $municipality->name }}ს პროექტები</h3>
-            </div>
-
             <div class="col-12">
                 @include('projects.filter-form')
             </div>
@@ -66,6 +57,7 @@
                                     <p class="project-content">{{ $project->getShortDescription() }}</p>
 
                                     <p class="additional-post-wrap">
+                                        <span class="d-block">მუნიციპალიტეტი: {{ $project->municipality->name }}</span>
                                         <span class="d-block">თემატიკა: {{ $project->category->name }}</span>
                                         <span class="d-block">სტატუსი: {{ $project->getStatus() }}</span>
                                     </p>
@@ -80,8 +72,18 @@
                     @empty
                         <div class="col-sm-12">ატვირთული პრაქტიკა / ინიციატივა არ არსებობს</div>
                     @endforelse
+                    <div class="col-sm-12">
+                        <div class="mx-auto w-auto">
+                            {{ $projects->appends(['years' => request()->years, 'categories' => request()->categories, 'municipalities' => request()->municipalities])->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
     </div>
 @stop

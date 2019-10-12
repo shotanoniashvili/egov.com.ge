@@ -22,7 +22,7 @@
     <hr class="content-header-sep">
     <div class="container">
         <div class="welcome">
-            <h3>My Account</h3>
+            <h3>პროფილი</h3>
         </div>
         <hr>
         <div class="row">

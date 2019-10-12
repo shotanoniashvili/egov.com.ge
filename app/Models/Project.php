@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Project extends Model
+class Project extends Model implements \App\Interfaces\Searchable
 {
+    use Searchable;
+
     protected $fillable = [
         'title',
         'category_id',
         'short_description',
         'municipality_id',
-        'picture',
+        'image',
         'user_id',
         'is_archive',
         'is_active_for_experts',
@@ -51,8 +54,20 @@ class Project extends Model
         return $query;
     }
 
+    public function scopeArchive($query) {
+        return $query->where('is_archive', true);
+    }
+
+    public function scopeNotArchive($query) {
+        return $query->where('is_archive', false);
+    }
+
     public function getShortDescriptionAttribute() {
         return stripslashes($this->attributes['short_description']);
+    }
+
+    public function getPictureAttribute() {
+        return $this->image;
     }
 
     /**
@@ -60,7 +75,7 @@ class Project extends Model
      * @param $categoryId
      * @param $shortDescription
      * @param $municipalityId
-     * @param $picture
+     * @param $image
      * @param $userId
      * @param $documents
      * @param bool $isArchive
@@ -73,7 +88,7 @@ class Project extends Model
                                          $categoryId,
                                          $shortDescription,
                                          $municipalityId,
-                                         $picture,
+                                         $image,
                                          $userId,
                                          $documents,
                                          $isArchive = false,
@@ -95,17 +110,17 @@ class Project extends Model
                 $project->created_at = \DateTime::createFromFormat('Y', $projectDate);
             }
 
-            if($picture) {
+            if($image) {
                 $destinationPath = 'storage/projects/pictures/';
-                $fileName = $picture->getClientOriginalName();
+                $fileName = $image->getClientOriginalName();
                 if(file_exists(public_path($destinationPath).$fileName)) {
                     $fileName = time().'-'.$fileName;
                 }
-                $picture->move(public_path($destinationPath), $fileName);
+                $image->move(public_path($destinationPath), $fileName);
 
                 $path = $destinationPath.$fileName;
 
-                $project->picture = $path;
+                $project->image = $path;
             }
 
             $project->save();
@@ -150,7 +165,7 @@ class Project extends Model
     public function getStatus() {
         if($this->is_active_for_experts && !$this->is_active_for_web) return 'შეფასების პროცესშია';
 
-        if($this->is_active_for_experts && !$this->is_active_for_web) return 'უარყოფილია';
+        if(!$this->is_active_for_experts && !$this->is_active_for_web) return 'უარყოფილია';
 
         return 'მიღებულია';
     }
@@ -174,5 +189,40 @@ class Project extends Model
         } catch (\Exception $e) {
             throw new \Exception($e->getMessage());
         }
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getLink()
+    {
+        return route('projects.show', $this->id);
+    }
+
+    public function getDate()
+    {
+        return $this->created_at->format('Y-m-d H:i');
+    }
+
+    public function getModelName()
+    {
+        return 'პრაქტიკა / ინიციატივა';
+    }
+
+    public function getSearchableColumns()
+    {
+        return ['title', 'short_description'];
+    }
+
+    public function getDescription()
+    {
+        return $this->getShortDescription();
     }
 }

@@ -41,17 +41,12 @@ Contact
 
 {{-- Page content --}}
 @section('content')
-    <!-- Map Section Start -->
-    <div class="">
-        <div id="map" style="width:100%; height:400px;"></div>
-    </div>
-    <!-- //map Section End -->
     <!-- Container Section Start -->
     <div class="container">
         <div class="row">
             <!-- Contact form Section Start -->
             <div class="col-md-6 col-lg-6 col-12 my-3">
-                <h2>Contact Form</h2>
+                <h2>კონტაქტი</h2>
                 <!-- Notifications -->
                 <div id="notific">
                 @include('notifications')
@@ -59,17 +54,17 @@ Contact
                 <form class="contact" id="contact" action="{{route('contact')}}" method="POST">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     <div class="form-group">
-                        <input type="text" name="contact-name" class="form-control input-lg" placeholder="Your name" required>
+                        <input type="text" name="contact-name" class="form-control input-lg" placeholder="თქვენი სახელი" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" name="contact-email" class="form-control input-lg" placeholder="Your email address" required>
+                        <input type="email" name="contact-email" class="form-control input-lg" placeholder="ელ-ფოსტა" required>
                     </div>
                     <div class="form-group">
-                        <textarea name="contact-msg" class="form-control input-lg no-resize resize_vertical" rows="6" placeholder="Your comment" required></textarea>
+                        <textarea name="contact-msg" class="form-control input-lg no-resize resize_vertical" rows="6" placeholder="ტექსტი" required></textarea>
                     </div>
                     <div class="input-group">
-                        <button class="btn btn-primary mr-1" type="submit">submit</button>
-                        <button class="btn btn-danger" type="reset">Reset</button>
+                        <button class="btn btn-primary mr-1" type="submit">გაგზავნა</button>
+
                     </div>
                 </form>
             </div>
@@ -83,7 +78,7 @@ Contact
                     </div>
                     </a>
                     <div class="media-body ml-3">
-                        <h4 class="media-heading">Address:</h4>
+                        <h4 class="media-heading">მისამართი:</h4>
                         <div class="danger">Jyostna</div>
                         <address>
                         Pediatric Surgeons of Alaska
@@ -91,17 +86,6 @@ Contact
                         <br> Anchorage, AK(Alaska)
                         <br> North Las Vegas, NV
                         </address>
-                    </div>
-                </div>
-                <div class="media media-top">
-                    <a href="#">
-                    <div class="box-icon">
-                    <i class="livicon" data-name="phone" data-size="22" data-loop="true" data-c="#fff" data-hc="#fff"></i>
-                    </div>
-                    </a>
-                    <div class="media-body ml-3">
-                        <h4 class="media-heading">Telephone:</h4> (703) 717-4200
-                        <br /> Fax:400 423 1456
                     </div>
                 </div>
             </div>
@@ -117,20 +101,6 @@ Contact
     <script src="http://maps.google.com/maps/api/js?libraries=places&key={{ env('GOOGLE_MAPS_API_KEY') }}"></script>
     <script type="text/javascript" src="{{ asset('vendors/gmaps/js/gmaps.min.js') }}" ></script>
     <!--page level js ends-->
-    <script>
 
-        $(document).ready(function() {
-            var map = new GMaps({
-                el: '#map',
-                lat: 38.8921021,
-                lng: -77.0260358
-            });
-            map.addMarker({
-                lat: 38.8921021,
-                lng: -77.0260358,
-                title: 'Washington'
-            });
-        });
-    </script>
 
 @stop

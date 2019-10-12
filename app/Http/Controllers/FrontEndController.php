@@ -8,6 +8,8 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\FrontendRequest;
 use App\Mail\Register;
 use App\Models\Municipality;
+use App\Models\News;
+use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\User;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
@@ -48,7 +50,7 @@ class FrontEndController extends JoshController
             return Redirect::route('my-account');
         }
         // Show the login page
-        return view('login');
+        return view('admin.login');
     }
 
     /**
@@ -376,6 +378,20 @@ class FrontEndController extends JoshController
 
         //Redirect to contact page
         return redirect('contact')->with('success', trans('auth/message.contact.success'));
+    }
+
+    public function search(string $keyword = '') {
+        if($keyword !== '') {
+            $resultsM = Municipality::search($keyword)->get();
+            $resultsN = News::search($keyword)->get();
+            $resultsP = Project::search($keyword)->get();
+
+            $results = collect($resultsN)->merge($resultsM)->merge($resultsP)->sortByDesc('relevance_score')->paginate(10);
+
+            return view('search', compact('results'));
+        }
+
+        return redirect()->back();
     }
 
     public function showFrontEndView($name = null)

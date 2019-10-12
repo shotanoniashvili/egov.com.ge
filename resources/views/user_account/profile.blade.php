@@ -26,7 +26,7 @@
             <div class="row">
                 <div class="col-lg-2 col-12">
                     <label class="control-label">
-                        First Name:
+                        სახელი:
                         <span class='require'>*</span>
                     </label>
                 </div>
@@ -48,7 +48,7 @@
             <div class="row">
                 <div class="col-lg-2 col-12">
                     <label class="control-label">
-                        Last Name:
+                        გვარი:
                         <span class='require'>*</span>
                     </label>
                 </div>
@@ -71,7 +71,7 @@
             <div class="row">
                 <div class="col-lg-2 col-12">
                     <label class="control-label">
-                        Email:
+                        ელ-ფოსტა:
                         <span class='require'>*</span>
                     </label>
                 </div>
@@ -89,11 +89,11 @@
         </div>
 
         <div class="form-group {{ $errors->first('password', 'has-error') }}">
-            <p class="text-warning col-md-offset-2"><strong>If you don't want to change password... please leave them empty</strong></p>
+            <p class="text-warning col-md-offset-2"><strong>თუ არ გსურთ პაროლის შეცვლა, დატოვეთ ცარიელი</strong></p>
             <div class="row">
                 <div class="col-lg-2 col-12">
                     <label class="control-label">
-                        Password:
+                        პაროლი:
                         <span class='require'>*</span>
                     </label>
                 </div>
@@ -112,7 +112,7 @@
         <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
             <div class="row">
                 <label class="col-lg-2  col-12 control-label">
-                    Confirm Password:
+                    გაიმეორეთ პაროლი:
                     <span class='require'>*</span>
                 </label>
                 <div class="col-lg-10 col-12">
@@ -128,7 +128,7 @@
 
         <div class="form-group">
             <div class="col-lg-10 col-12 ml-auto">
-                <button class="btn btn-primary" type="submit">Save</button>
+                <button class="btn btn-primary" type="submit">შენახვა</button>
             </div>
         </div>
 

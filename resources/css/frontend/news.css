@@ -83,4 +83,18 @@ small {
     margin-top: -5px;
     margin-bottom: 0px;
 }
-/*** ---------- //News Item Css End ---------- ***/
+
+.search-body {
+    border-bottom: 1px solid #cecece;
+}
+
+.search-body .result-image {
+    width: 100px;
+    height: 100px;
+}
+
+.search-body .result-image .thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: scale-down;
+}

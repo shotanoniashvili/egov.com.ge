@@ -1,8 +1,8 @@
 <?php namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\MessageBag;
-use Illuminate\View\View;
 use Sentinel;
 use Analytics;
 use Spatie\Activitylog\Models\Activity;

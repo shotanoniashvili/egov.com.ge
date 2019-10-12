@@ -105,7 +105,7 @@
                                 <div class="custom-file">
                                     <label for="documents" class="col-sm-12 control-label">თანდართული დოკუმენტები/მასალები</label>
                                     <div class="col-sm-12">
-                                        <input type="file" class="custom-file-input required" id="documents" name="documents[]">
+                                        <input type="file" class="custom-file-input required" multiple id="documents" name="documents[]">
                                         <label class="custom-file-label px-3" for="documents">აირჩიეთ დოკუმენტები/მასალები...</label>
                                     </div>
                                     <span class="help-block">{{ $errors->first('documents.*', ':message') }}</span>

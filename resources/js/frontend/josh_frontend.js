@@ -42,4 +42,19 @@ $(document).ready(function() {
                 .slideUp('fast');
         }
     );
+
+    $(".select2").each(function(){
+        $(this).select2({
+            placeholder: $(this).attr("data-placeholder"),
+        });
+    });
+
+    $('input[type="file"]').change(function(e){
+        let fileNames = [];
+
+        for(let file of e.target.files) {
+            fileNames.push(file.name);
+        }
+        $(e.target).parent().find('.custom-file-label').html(fileNames.join(', '));
+    });
 });

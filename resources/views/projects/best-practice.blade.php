@@ -72,6 +72,11 @@
                     @empty
                         <div class="col-sm-12">ატვირთული პრაქტიკა / ინიციატივა არ არსებობს</div>
                     @endforelse
+                    <div class="col-sm-12">
+                        <div class="mx-auto w-auto">
+                            {{ $projects->appends(['years' => request()->years, 'categories' => request()->categories, 'municipalities' => request()->municipalities])->links() }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -86,6 +86,28 @@
         </ul>
     </li>
 
+    <li {!! (Request::is('admin/faq*')) ? 'class="active"' : '' !!}>
+        <a href="#">
+            <i class="livicon" data-name="question" data-size="18" data-c="#ccbcf5" data-hc="#ccbcf5"
+               data-loop="true"></i> კითხვა - პასუხი
+            <span class="fa arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li {!! (Request::is('admin/faq') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/faq') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    სია
+                </a>
+            </li>
+            <li {!! (Request::is('admin/faq/create') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/faq/create') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    დამატება
+                </a>
+            </li>
+        </ul>
+    </li>
+
     <!--<li {!! (Request::is('admin/generator_builder') ? 'class="active"' : '') !!}>
         <a href="{{ URL('admin/generator_builder') }}">
             <i class="livicon" data-name="shield" data-size="18" data-c="#F89A14" data-hc="#F89A14"

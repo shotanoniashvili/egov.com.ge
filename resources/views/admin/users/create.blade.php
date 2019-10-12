@@ -273,20 +273,36 @@
 
                                         <div class="form-group project-category-container hide">
                                             <div class="row">
-                                                <label for="project_category_id" class="col-sm-2 control-label">თემატიკა / კატეგორია *</label>
+                                                <label for="project_category_ids" class="col-sm-2 control-label">თემატიკა / კატეგორია *</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control" title="აირჩეთ თემატიკა / კატეგორია..." name="project_category_id"
-                                                            id="project_category_id">
-                                                        <option value="">აირჩიეთ</option>
+                                                    <select class="form-control select2" multiple title="აირჩეთ თემატიკა / კატეგორია..." name="project_category_ids[]"
+                                                            id="project_category_ids">
                                                         @foreach($projectCategories as $projectCategory)
                                                             <option value="{{ $projectCategory->id }}"
-                                                                    @if($projectCategory->id == old('project_category_id')) selected="selected" @endif >{{ $projectCategory->name}}</option>
+                                                                    @if(is_array(old('project_category_ids')) && in_array($projectCategory->id, old('project_category_ids'))) selected="selected" @endif >{{ $projectCategory->name}}</option>
                                                         @endforeach
                                                     </select>
-                                                    {!! $errors->first('project_category_id', '<span class="help-block">:message</span>') !!}
+                                                    {!! $errors->first('project_category_ids', '<span class="help-block">:message</span>') !!}
                                                 </div>
                                             </div>
-                                            <span class="help-block">{{ $errors->first('project_category_id', ':message') }}</span>
+                                            <span class="help-block">{{ $errors->first('project_category_ids', ':message') }}</span>
+                                        </div>
+
+                                        <div class="form-group municipality-container hide">
+                                            <div class="row">
+                                                <label for="municipality_ids" class="col-sm-2 control-label">მუნიციპალიტეტები *</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control select2" multiple title="აირჩეთ მუნიციპალიტეტები..." name="municipality_ids[]"
+                                                            id="municipality_ids">
+                                                        @foreach($municipalities as $municipality)
+                                                            <option value="{{ $municipality->id }}"
+                                                                    @if(is_array(old('municipality_ids')) && in_array($municipality->id, old('municipality_ids'))) selected="selected" @endif >{{ $municipality->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    {!! $errors->first('municipality_ids', '<span class="help-block">:message</span>') !!}
+                                                </div>
+                                            </div>
+                                            <span class="help-block">{{ $errors->first('municipality_ids', ':message') }}</span>
                                         </div>
 
                                         <div class="form-group">
@@ -337,10 +353,7 @@
             return $state;
 
         }
-        $("#countries").select2({
-            templateResult: formatState,
-            templateSelection: formatState,
-            placeholder: "select a country",
+        $(".select2").select2({
             theme:"bootstrap"
         });
 

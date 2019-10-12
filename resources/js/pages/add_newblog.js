@@ -13,7 +13,7 @@ $(document).ready(function() {
         toolbar1:
             'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor',
     });
-
+    
     $('body').on('click', '.btn-codeview', function(e) {
         if ($('.note-editor').hasClass('fullscreen')) {
             var windowHeight = $(window).height();

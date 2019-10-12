@@ -17,17 +17,62 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param Request $request
      * @return \Illuminate\Http\Response
      */
-    public function bestPractice()
+    public function bestPractice(Request $request)
     {
         // TODO only winner and activeForWeb projects
-        $projects = Project::activeForWeb()->get();
+        $projects = Project::activeForWeb()->notArchive();
+
+        $this->applyFilters($projects, $request);
+
+        $projects = $projects->paginate(15);
 
         $municipalities = Municipality::all();
         $categories = ProjectCategory::all();
 
         return view('projects/best-practice', compact('projects', 'municipalities', 'categories'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function archive(Request $request)
+    {
+        $projects = Project::archive();
+
+        $this->applyFilters($projects, $request);
+
+        $projects = $projects->paginate(15);
+
+        $municipalities = Municipality::all();
+        $categories = ProjectCategory::all();
+
+        return view('projects/archive', compact('projects', 'municipalities', 'categories'));
+    }
+
+    private function applyFilters($projectsQuery, $request) {
+        if($request->years && is_array($request->years)) {
+            $projectsQuery->where(function($q) use ($request) {
+                foreach ($request->years as $year) {
+                    $q->whereYear('created_at', '=', $year, 'or');
+                }
+            });
+        }
+
+        if($request->categories && is_array($request->categories)) {
+            $projectsQuery->whereIn('category_id', $request->categories);
+        }
+
+        if($request->municipalities && is_array($request->municipalities)) {
+            $projectsQuery->whereIn('municipality_id', $request->municipalities);
+        }
+
+        return $projectsQuery;
     }
 
     /**
@@ -81,7 +126,7 @@ class ProjectController extends Controller
 
         $isAdmin = $user && $user->roles()->where('slug', 'admin')->count() > 0;
         $isAuthor = $user && $user->id === $project->user_id;
-        $isExpert = $user && $project->is_active_for_experts && $user->project_category_id == $project->category->id;
+        $isExpert = $user && $project->is_active_for_experts && $user->categories()->where('id', $project->category->id)->count() > 0;
         if( $isAdmin
             || $project->is_active_for_web
             || $isAuthor
@@ -131,5 +176,25 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    public function showEvaluatedProjects() {
+        $user = Sentinel::getUser();
+
+        $projects = $user->getEvaluatedProjects();
+
+        return view('user_account.uploaded_projects', compact('projects'));
+    }
+
+    public function showProjectsToEvaluate() {
+        $user = Sentinel::getUser();
+
+        $projects = $user->getProjectsToEvaluate();
+
+        return view('user_account.uploaded_projects', compact('projects'));
+    }
+
+    public function showEvaluateForm(int $id) {
+
     }
 }

@@ -29,9 +29,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">Users</a>
+                <a href="#">მომხმარებლები</a>
             </li>
-            <li class="active">User Profile</li>
+            <li class="active">მომხმარებლის პროფილი</li>
         </ol>
     </section>
     <!--section ends-->
@@ -42,18 +42,14 @@
                     <li class="nav-item">
                         <a href="#tab1" data-toggle="tab" class="nav-link active">
                             <i class="livicon" data-name="user" data-size="16" data-c="#777"  data-hc="#000" data-loop="true"></i>
-                            User Profile</a>
+                            პროფილი</a>
                     </li>
                     <li class="nav-item">
                         <a href="#tab2" data-toggle="tab" class="nav-link">
                             <i class="livicon" data-name="key" data-size="16" data-loop="true" data-c="#000" data-hc="#000"></i>
-                            Change Password</a>
+                            პაროლის შეცვლა</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="{{ URL::to('admin/user_profile') }}" class=" nav-link" >
-                            <i class="livicon" data-name="gift" data-size="16" data-loop="true" data-c="#000" data-hc="#000"></i>
-                            Advanced User Profile</a>
-                    </li>
+                    
 
                 </ul>
                 <div  class="tab-content mar-top" id="clothing-nav-content">
@@ -64,7 +60,7 @@
                                     <div class="card-header">
                                         <h3 class="card-title">
 
-                                            User Profile
+                                           მომხმარებლის პროფილი
                                         </h3>
 
                                     </div>

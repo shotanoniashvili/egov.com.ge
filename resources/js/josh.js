@@ -101,6 +101,16 @@ $(function() {
             .first();
         box.slideUp();
     });
+
+    $('input[type="file"]').change(function(e){
+        let fileNames = [];
+
+        console.log($(e.target).parent().find('.custom-file-label'));
+        for(let file of e.target.files) {
+            fileNames.push(file.name);
+        }
+        $(e.target).parent().find('.custom-file-label').text(fileNames.join(', '));
+    });
 });
 function fix_sidebar() {
     //Make sure the body tag has the .fixed class

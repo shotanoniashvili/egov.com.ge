@@ -65,7 +65,7 @@ class NewsController extends Controller
             $picture = str_random(10) . '.' . $extension;
             $destinationPath = public_path() . '/uploads/news/';
             $file->move($destinationPath, $picture);
-            $news->image = $picture;
+            $news->image = $destinationPath.$picture;
         }
         $news->save();
 

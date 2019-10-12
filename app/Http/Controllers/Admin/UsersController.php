@@ -3,6 +3,7 @@
 use App\Http\Controllers\JoshController;
 use App\Http\Requests\UserRequest;
 use App\Mail\Register;
+use App\Models\Municipality;
 use App\Models\ProjectCategory;
 use App\Models\User;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
@@ -122,8 +123,9 @@ class UsersController extends JoshController
         $countries = $this->countries;
 
         $projectCategories = ProjectCategory::all();
+        $municipalities = Municipality::all();
         // Show the page
-        return view('admin.users.create', compact('groups', 'countries', 'projectCategories'));
+        return view('admin.users.create', compact('groups', 'countries', 'projectCategories', 'municipalities'));
     }
 
     /**
@@ -138,7 +140,7 @@ class UsersController extends JoshController
 
         try {
             // Register the user
-            $user = Sentinel::register($request->except('_token', 'password_confirm', 'group', 'activate', 'pic_file', 'g-recaptcha-response'), $activate);
+            $user = Sentinel::register($request->except('_token', 'password_confirm', 'group', 'activate', 'pic_file', 'g-recaptcha-response', 'project_category_ids', 'municipality_ids'), $activate);
 
             //add user to 'User' group
             $role = Sentinel::findRoleById($request->get('group'));
@@ -157,9 +159,12 @@ class UsersController extends JoshController
                     ->send(new Register($data));
             }
 
-            if($request->get('project_category_id')) {
-                $user->project_category_id = $request->get('project_category_id');
-                $user->save();
+            if($request->get('project_category_ids')) {
+                $user->categories()->sync($request->get('project_category_ids'));
+            }
+
+            if($request->get('municipality_ids')) {
+                $user->municipalities()->sync($request->get('municipality_ids'));
             }
 
             // Activity log for New user create
@@ -219,7 +224,7 @@ class UsersController extends JoshController
 
 
         try {
-            $user->update($request->except('pic_file', 'password', 'password_confirm', 'groups', 'activate'));
+            $user->update($request->except('pic_file', 'password', 'password_confirm', 'groups', 'activate', 'project_category_ids', 'municipality_ids'));
 
             if (!empty($request->password)) {
                 $user->password = Hash::make($request->password);
@@ -240,9 +245,14 @@ class UsersController extends JoshController
             }
 
 
-            if($request->get('project_category_id')) {
-                $user->project_category_id = $request->get('project_category_id');
+            if($request->get('project_category_ids')) {
+                $user->categories()->sync($request->get('project_category_ids'));
             }
+
+            if($request->get('municipality_ids')) {
+                $user->municipalities()->sync($request->get('municipality_ids'));
+            }
+
             //save record
             $user->save();
 

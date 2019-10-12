@@ -13,11 +13,12 @@
     <![endif]-->
     <title>
         @section('title')
-        | Welcome to Josh Frontend
+        | NALA
         @show
     </title>
     <!--global css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/lib.css') }}">
+    <link href="https://free.bboxtype.com/embedfonts/?family=FiraGO:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <style>
       .dropdown-item:active{
@@ -34,6 +35,7 @@
 </head>
 
 <body>
+<div class="body">
 <!-- Header Start -->
 <header>
     <div class="container indexpage py-3">
@@ -109,136 +111,136 @@
 @yield('top')
 
 <!-- Content -->
-@yield('content')
-
+    @yield('content')
 <!-- Footer Section Start -->
+</div>
 <footer>
-    <div class=" container">
-        <div class="footer-text">
-            <!-- About Us Section Start -->
-            <div class="row">
-                <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                    <h4>About Us</h4>
-                    <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the industryzzzz's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        of type and scrambled it to make a type specimen book.It has survived not only five centuries,
-                        but also the leap into electronic typesetting, remaining essentially unchanged.
-                    </p>
-                    <hr id="hr_border2">
-                    <h4 class="menu">Follow Us</h4>
-                    <ul class="list-inline mb-2">
-                        <li>
-                            <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"
-                                            data-c="#ccc" data-hc="#ccc"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true"
-                                            data-c="#ccc" data-hc="#ccc"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"
-                                            data-c="#ccc" data-hc="#ccc"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true"
-                                            data-c="#ccc" data-hc="#ccc"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"> <i class="livicon" data-name="rss" data-size="18" data-loop="true"
-                                            data-c="#ccc" data-hc="#ccc"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- //About us Section End -->
-                <!-- Contact Section Start -->
-                <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                    <h4>Contact Us</h4>
-                    <ul class="list-unstyled">
-                        <li>35,Lorem Lis Street, Park Ave</li>
-                        <li>Lis Street, India.</li>
-                        <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"
-                               data-c="#ccc" data-hc="#ccc"></i>Phone:9140 123 4588
-                        </li>
-                        <li><i class="livicon icon4 icon3" data-name="printer" data-size="18" data-loop="true"
-                               data-c="#ccc" data-hc="#ccc"></i> Fax:400 423 1456
-                        </li>
-                        <li><i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true" data-c="#ccc"
-                               data-hc="#ccc"></i> Email:<span class="text-success" style="cursor: pointer;">
-                        info@joshadmin.com</span>
-                        </li>
-                        <li><i class="livicon icon4 icon3" data-name="skype" data-size="18" data-loop="true"
-                               data-c="#ccc" data-hc="#ccc"></i> Skype:
-                            <span class="text-success" style="cursor: pointer;">Joshadmin</span>
-                        </li>
-                    </ul>
-                    <hr id="hr_border">
-                    <div class="news menu">
-                        <h4>News letter</h4>
-                        <p>subscribe to our newsletter and stay up to date with the latest news and deals</p>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="yourmail@mail.com"
-                                   aria-describedby="basic-addon2">
-                            <a href="#" class="btn btn-primary text-white" role="button">Subscribe</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- //Contact Section End -->
-                <!-- Recent post Section Start -->
-                <div class="col-sm-4 col-lg-4 col-md-4 col-12">
-                    <h4>Recent Posts</h4>
-                    <div class="media">
-                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_14.jpg') }}"
-                             alt="image">
-                        <div class="media-body">
-                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
-                                industry dummy.</p>
-                            <p class="text-right"><i>Sam Bellows</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_15.jpg') }}"
-                             alt="image">
+{{--    <div class=" container">--}}
+{{--        <div class="footer-text">--}}
+{{--            <!-- About Us Section Start -->--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
+{{--                    <h4>პროექტის შესახებ</h4>--}}
+{{--                    <p>--}}
+{{--                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been--}}
+{{--                        the industryzzzz's standard dummy text ever since the 1500s, when an unknown printer took a galley--}}
+{{--                        of type and scrambled it to make a type specimen book.It has survived not only five centuries,--}}
+{{--                        but also the leap into electronic typesetting, remaining essentially unchanged.--}}
+{{--                    </p>--}}
+{{--                    <hr id="hr_border2">--}}
+{{--                    <h4 class="menu">Follow Us</h4>--}}
+{{--                    <ul class="list-inline mb-2">--}}
+{{--                        <li>--}}
+{{--                            <a href="#"> <i class="livicon" data-name="facebook" data-size="18" data-loop="true"--}}
+{{--                                            data-c="#ccc" data-hc="#ccc"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#"> <i class="livicon" data-name="twitter" data-size="18" data-loop="true"--}}
+{{--                                            data-c="#ccc" data-hc="#ccc"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#"> <i class="livicon" data-name="google-plus" data-size="18" data-loop="true"--}}
+{{--                                            data-c="#ccc" data-hc="#ccc"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#"> <i class="livicon" data-name="linkedin" data-size="18" data-loop="true"--}}
+{{--                                            data-c="#ccc" data-hc="#ccc"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="#"> <i class="livicon" data-name="rss" data-size="18" data-loop="true"--}}
+{{--                                            data-c="#ccc" data-hc="#ccc"></i>--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <!-- //About us Section End -->--}}
+{{--                <!-- Contact Section Start -->--}}
+{{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
+{{--                    <h4>Contact Us</h4>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li>35,Lorem Lis Street, Park Ave</li>--}}
+{{--                        <li>Lis Street, India.</li>--}}
+{{--                        <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"--}}
+{{--                               data-c="#ccc" data-hc="#ccc"></i>Phone:9140 123 4588--}}
+{{--                        </li>--}}
+{{--                        <li><i class="livicon icon4 icon3" data-name="printer" data-size="18" data-loop="true"--}}
+{{--                               data-c="#ccc" data-hc="#ccc"></i> Fax:400 423 1456--}}
+{{--                        </li>--}}
+{{--                        <li><i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true" data-c="#ccc"--}}
+{{--                               data-hc="#ccc"></i> Email:<span class="text-success" style="cursor: pointer;">--}}
+{{--                        info@joshadmin.com</span>--}}
+{{--                        </li>--}}
+{{--                        <li><i class="livicon icon4 icon3" data-name="skype" data-size="18" data-loop="true"--}}
+{{--                               data-c="#ccc" data-hc="#ccc"></i> Skype:--}}
+{{--                            <span class="text-success" style="cursor: pointer;">Joshadmin</span>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                    <hr id="hr_border">--}}
+{{--                    <div class="news menu">--}}
+{{--                        <h4>News letter</h4>--}}
+{{--                        <p>subscribe to our newsletter and stay up to date with the latest news and deals</p>--}}
+{{--                        <div class="form-group">--}}
+{{--                            <input type="text" class="form-control" placeholder="yourmail@mail.com"--}}
+{{--                                   aria-describedby="basic-addon2">--}}
+{{--                            <a href="#" class="btn btn-primary text-white" role="button">Subscribe</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <!-- //Contact Section End -->--}}
+{{--                <!-- Recent post Section Start -->--}}
+{{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
+{{--                    <h4>Recent Posts</h4>--}}
+{{--                    <div class="media">--}}
+{{--                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_14.jpg') }}"--}}
+{{--                             alt="image">--}}
+{{--                        <div class="media-body">--}}
+{{--                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting--}}
+{{--                                industry dummy.</p>--}}
+{{--                            <p class="text-right"><i>Sam Bellows</i></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="media">--}}
+{{--                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_15.jpg') }}"--}}
+{{--                             alt="image">--}}
 
-                        <div class="media-body">
-                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
-                                industry dummy.</p>
-                            <p class="text-right"><i>Emilly Barbosa Cunha</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_13.jpg') }}"
-                             alt="image">
-                        <div class="media-body">
-                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
-                                industry dummy.</p>
-                            <p class="text-right"><i>Sinikka Oramo</i></p>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/c1.jpg') }}"
-                             alt="image">
+{{--                        <div class="media-body">--}}
+{{--                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting--}}
+{{--                                industry dummy.</p>--}}
+{{--                            <p class="text-right"><i>Emilly Barbosa Cunha</i></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="media">--}}
+{{--                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/image_13.jpg') }}"--}}
+{{--                             alt="image">--}}
+{{--                        <div class="media-body">--}}
+{{--                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting--}}
+{{--                                industry dummy.</p>--}}
+{{--                            <p class="text-right"><i>Sinikka Oramo</i></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="media">--}}
+{{--                        <img class="media-object rounded-circle mr-3" src="{{ asset('images/c1.jpg') }}"--}}
+{{--                             alt="image">--}}
 
-                        <div class="media-body">
-                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting
-                                industry dummy.</p>
-                            <p class="text-right"><i>Samsa Parras</i></p>
-                        </div>
-                    </div>
-                    <!-- //Recent Post Section End -->
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                        <div class="media-body">--}}
+{{--                            <p class="media-heading text-justify">Lorem Ipsum is simply dummy text of the printing and type setting--}}
+{{--                                industry dummy.</p>--}}
+{{--                            <p class="text-right"><i>Samsa Parras</i></p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <!-- //Recent Post Section End -->--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 <!-- //Footer Section End -->
 <div class=" col-12 copyright">
     <div class="container">
-        <p>Copyright &copy; Josh Admin Template, 2017</p>
+        <p>Copyright &copy; EGOV.com.ge 2019</p>
     </div>
 </div>
 </footer>
@@ -264,6 +266,7 @@
         $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
     })
 </script>
+
 </body>
 
 </html>

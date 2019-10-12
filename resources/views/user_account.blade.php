@@ -49,7 +49,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-primary" id="title">პროფილი</h3>
+                        <h3 class="text-primary" id="title">Personal Information</h3>
                     </div>
                     {!! Form::model($user, ['url' => URL::to('my-account'), 'method' => 'put', 'class' => 'form-horizontal','enctype'=>"multipart/form-data"]) !!}
 

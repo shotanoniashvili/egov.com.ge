@@ -10,6 +10,13 @@ $('#group').on('change', function(e) {
         $('.project-category-container').find('select').val('');
         $('.project-category-container').addClass('hide');
     }
+
+    if(group === 'მუნიციპალიტეტის თანამშრომელი') {
+        $('.municipality-container').removeClass('hide');
+    } else {
+        $('.municipality-container').find('select').val('');
+        $('.municipality-container').addClass('hide');
+    }
 });
 
 // bootstrap wizard//

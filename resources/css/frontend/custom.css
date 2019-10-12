@@ -719,6 +719,11 @@ footer .btn-primary.text-white {
     border-color: #ef6f6c;
 }
 
+
+.pagination {
+    justify-content: center;
+}
+
 .pager li > a,
 .pager li > span {
     border-radius: 0;

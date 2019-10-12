@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-About us
+ჩვენ შესახებ
 @parent
 @stop
 
@@ -26,16 +26,16 @@ About us
                 <div class="col-12">
             <ol class="breadcrumb">
                 <li>
-                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>Dashboard
+                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>მთავარი
                     </a>
                 </li>
                 <li class="d-none d-sm-block">
                     <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
-                    <a href="#">About Us</a>
+                    <a href="#">ჩვენ შესახებ</a>
                 </li>
             </ol>
             <div class="float-right mt-1">
-                <i class="livicon icon3" data-name="users" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> About Us
+                <i class="livicon icon3" data-name="users" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> ჩვენ შესახებ
             </div>
         </div>
     </div>
@@ -52,33 +52,33 @@ About us
         <!-- Slider Section Start -->
         <div class="row my-3">
             <!-- Left Heading Section Start -->
-            <div class="col-md-7 col-sm-12  col-md-12 col-lg-8 wow bounceInLeft" data-wow-duration="5s">
-                <h2><label>Welcome to Josh</label></h2>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem
-                </p>
-            </div>
-            <!-- //Left Heaing Section End -->
-            <!-- Slider Start -->
-            <div class="col-md-12 col-sm-12  col-lg-4 slider wow fadeInRightBig" data-wow-duration="5s">
-                <div id="owl-demo" class="owl-carousel owl-theme">
-                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                    <div class="item"><img src="{{ asset('images/image_17.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-            <!-- //Slider End -->
-        </div>
-        <!-- //Slider Section End -->
+{{--            <div class="col-md-7 col-sm-12  col-md-12 col-lg-8 wow bounceInLeft" data-wow-duration="5s">--}}
+{{--                <h2><label>Welcome to Josh</label></h2>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.--}}
+{{--                </p>--}}
+{{--                <p>--}}
+{{--                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem--}}
+{{--                </p>--}}
+{{--            </div>--}}
+{{--            <!-- //Left Heaing Section End -->--}}
+{{--            <!-- Slider Start -->--}}
+{{--            <div class="col-md-12 col-sm-12  col-lg-4 slider wow fadeInRightBig" data-wow-duration="5s">--}}
+{{--                <div id="owl-demo" class="owl-carousel owl-theme">--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_17.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                    <div class="item"><img src="{{ asset('images/image_16.jpg') }}" alt="slider-image" class="img-fluid">--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <!-- //Slider End -->--}}
+{{--        </div>--}}
+{{--        <!-- //Slider Section End -->--}}
         <!-- Services Section Start -->
         <div class="text-center">
             <h3><span class="heading_border bg-success" >Services</span></h3>
@@ -95,7 +95,7 @@ About us
                         </div>
                         <div class="info">
                             <h3 class="success text-center mt-3">Responsive</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+                            <p>ლორემ იპსუმ სასიამოვნოა გვიწოდა ვიკონტ დაგეხეოდეს სიცოცხლესაც, ლოზუნგებით ნამეტანს. საწყალ კინოობიექტივი მფლობელებს, პირსახის დაუჭერია, ბოხჩით მოგვიგონეთ წიგნებით დახერხვასა, ჰპოვა წიგნზე. ტრაპი გათეთრებული მფლობელებს წიგნებით წიგნზე ტრიერზე გამოგზავნა გადაათრია დაუჭერია, ვიდეობაზრის ავტოსადგომის ჩუდეს ღერბებმოხატული კინოობიექტივი დაემართაო. ერთმანერთს არახალია მარცვალ მარაზმატიკებმა მფლობელებს სანახობის.</p>
                             <div class="text-right primary"><a href="#">Read more</a>
                             </div>
                         </div>
@@ -110,7 +110,7 @@ About us
                         </div>
                         <div class="info">
                             <h3 class="primary text-center mt-3">Easy to Use</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti atque, tenetur quam aspernatur corporis at explicabo nulla dolore necessitatibus doloremque exercitationem sequi dolorem architecto perferendis quas aperiam debitis dolor soluta!</p>
+                            <p>ლორემ იპსუმ სასიამოვნოა გვიწოდა ვიკონტ დაგეხეოდეს სიცოცხლესაც, ლოზუნგებით ნამეტანს. საწყალ კინოობიექტივი მფლობელებს, პირსახის დაუჭერია, ბოხჩით მოგვიგონეთ წიგნებით დახერხვასა, ჰპოვა წიგნზე. ტრაპი გათეთრებული მფლობელებს წიგნებით წიგნზე ტრიერზე გამოგზავნა გადაათრია დაუჭერია, ვიდეობაზრის ავტოსადგომის ჩუდეს ღერბებმოხატული კინოობიექტივი დაემართაო. ერთმანერთს არახალია მარცვალ მარაზმატიკებმა მფლობელებს სანახობის.</p>
                             <div class="text-right primary"><a href="#">Read more</a>
                             </div>
                         </div>
