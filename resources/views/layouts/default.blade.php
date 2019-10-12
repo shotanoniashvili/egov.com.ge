@@ -19,7 +19,6 @@
     <!--global css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/lib.css') }}">
     <link href="https://free.bboxtype.com/embedfonts/?family=FiraGO:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css') }}">
     <style>
       .dropdown-item:active{
             background-color: transparent !important;
@@ -35,6 +34,7 @@
 </head>
 
 <body>
+<div class="body">
 <!-- Header Start -->
 <header>
     <div class="container indexpage py-3">
@@ -110,13 +110,14 @@
 @yield('top')
 
 <!-- Content -->
-@yield('content')
-
+    @yield('content')
 <!-- Footer Section Start -->
+</div>
+
 <footer>
-    <div class=" container">
-        <div class="footer-text">
-            <!-- About Us Section Start -->
+{{--    <div class=" container">--}}
+{{--        <div class="footer-text">--}}
+{{--            <!-- About Us Section Start -->--}}
 {{--            <div class="row">--}}
 {{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
 {{--                    <h4>პროექტის შესახებ</h4>--}}
@@ -156,8 +157,8 @@
 {{--                        </li>--}}
 {{--                    </ul>--}}
 {{--                </div>--}}
-                <!-- //About us Section End -->
-                <!-- Contact Section Start -->
+{{--                <!-- //About us Section End -->--}}
+{{--                <!-- Contact Section Start -->--}}
 {{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
 {{--                    <h4>Contact Us</h4>--}}
 {{--                    <ul class="list-unstyled">--}}
@@ -189,8 +190,8 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
-                <!-- //Contact Section End -->
-                <!-- Recent post Section Start -->
+{{--                <!-- //Contact Section End -->--}}
+{{--                <!-- Recent post Section Start -->--}}
 {{--                <div class="col-sm-4 col-lg-4 col-md-4 col-12">--}}
 {{--                    <h4>Recent Posts</h4>--}}
 {{--                    <div class="media">--}}
@@ -232,10 +233,10 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                    <!-- //Recent Post Section End -->--}}
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 <!-- //Footer Section End -->
 <div class=" col-12 copyright">
     <div class="container">
@@ -265,6 +266,7 @@
         $('[data-toggle="tooltip"]').tooltip().css('font-size', '14px');
     })
 </script>
+
 </body>
 
 </html>

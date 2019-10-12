@@ -21,16 +21,16 @@ Contact
                 <div class="col-12">
             <ol class="breadcrumb">
                 <li>
-                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>Dashboard
+                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>მთავარი
                     </a>
                 </li>
                 <li class="d-none d-lg-block d-sm-block d-md-block">
                     <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
-                    <a href="#">Contact</a>
+                    <a href="#">კონტაქტი</a>
                 </li>
             </ol>
             <div class="float-right mt-1">
-                <i class="livicon icon3" data-name="cellphone" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> Contact
+                <i class="livicon icon3" data-name="cellphone" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> კონტაქტი
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@ Contact
 @section('content')
     <!-- Container Section Start -->
     <div class="container">
-        <div class="row">
+        <div class="row mt-5">
             <!-- Contact form Section Start -->
             <div class="col-md-6 col-lg-6 col-12 my-3">
                 <h2>კონტაქტი</h2>
