@@ -18,6 +18,6 @@ class BlogCategory extends Model
 
     public function blog()
     {
-        return $this->hasMany(Blog::class, 'blog_category_id');
+        return $this->hasMany(Blog::class);
     }
 }

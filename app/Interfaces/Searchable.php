@@ -9,7 +9,7 @@ interface Searchable
     public function getImage();
 
     public function getTitle();
-
+    
     public function getDescription();
 
     public function getLink();
