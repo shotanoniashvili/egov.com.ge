@@ -132,7 +132,7 @@
                                             <div class="row">
                                                 <div class="checkbox col-md-8 col-sm-12 offset-md-4">
                                                     <label>
-                                                        <input type="checkbox" class="custom-checkbox toggle-date"> დაემატოს როგორც არქივი
+                                                        <input type="checkbox" name="is_archive" {{ old('is_archive') ? 'checked' : '' }} class="custom-checkbox toggle-date"> დაემატოს როგორც არქივი
                                                     </label>
                                                 </div>
                                             </div>
