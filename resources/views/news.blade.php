@@ -13,6 +13,8 @@
     <link href="{{ asset('vendors/animate/animate.min.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/timeline.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}" />
+    <link href="{{ asset('vendors/select2/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendors/select2/css/select2-bootstrap.css') }}" rel="stylesheet" />
 
     <link href="{{ asset('vendors/owl_carousel/css/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendors/owl_carousel/css/owl.theme.css') }}" rel="stylesheet" type="text/css">
@@ -98,16 +100,16 @@
                 <div class="col-12">
             <ol class="breadcrumb">
                 <li>
-                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>Dashboard
+                    <a href="{{ route('home') }}"> <i class="livicon icon3 icon4" data-name="home" data-size="18" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i>მთავარი
                     </a>
                 </li>
                 <li class="d-none d-lg-block d-sm-block d-md-block">
                     <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
-                    <a href="#">News</a>
+                    <a href="#">სიახლეები</a>
                 </li>
             </ol>
             <div class="float-right">
-                <i class="livicon icon3" data-name="responsive-menu" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> News
+                <i class="livicon icon3" data-name="responsive-menu" data-size="20" data-loop="true" data-c="#3d3d3d" data-hc="#3d3d3d"></i> სიახლეები
             </div>
         </div>
     </div>
@@ -120,11 +122,25 @@
 @section('content')
     <!-- Container Section Start -->
     <div class="container news mt-4">
+        <div class="row">
+        <div class="form-group col-sm-6 col-xs-12 col-md-3">
+            <select class="form-control select2" data-placeholder="წლები" name="years[]" multiple>
+                @for($i = 2015; $i < (new DateTime())->format('Y'); $i++)
+                    <option value="{{ $i }}" {{ (is_array(request()->years) && in_array($i, request()->years)) ? 'selected' : '' }}>{{ $i }}</option>
+                @endfor
+            </select>
+
+        </div>
+            <div class="form-group col-sm-12 col-xs-12 col-md-1">
+                <button class="btn btn-outline-success"><i class="fa fa-search"></i> </button>
+            </div>
+        </div>
         <div class="row news">
-            <div class="col-md-8">
+
+            <div class="col-md-12">
                 <div class="row">
                     @if( $popular->count() != 0)
-                    <div class="col-sm-6 news-body">
+
                         <div class="text-left">
                             <div>
                                 <h4><span class="heading_border bg-warning">Popular News</span>
@@ -148,34 +164,58 @@
                             </div>
 
                         @endforeach
-                    </div>
+
                     @endif
                     @if( $hotnews->count() != 0)
-                    <div class="col-sm-6 news-body">
-                        <div class="text-left">
-                            <div>
-                                <h4><span class="heading_border bg-success">Hot News</span></h4>
-                            </div>
-                        </div>
+
+{{--                        <div class="text-left">--}}
+{{--                            <div>--}}
+{{--                                <h4><span class="heading_border bg-success">Hot News</span></h4>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                         @foreach($hotnews as $item)
-                            <div class="media my-2">
-                                <div class="media-left">
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <img class="media-object mr-3" src="{{ URL::to('/uploads/news/'.$item->image)  }}"
-                                             alt="image">
-                                    </a>
+{{--                            <div class="media my-2">--}}
+{{--                                <div class="media-left">--}}
+{{--                                    <a href="{{ route('news.show',$item->id) }}">--}}
+{{--                                        <img class="media-object mr-3" src="{{ URL::to('/uploads/news/'.$item->image)  }}"--}}
+{{--                                             alt="image">--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                                <div class="media-body">--}}
+{{--                                    <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>--}}
+{{--                                    <a href="{{ route('news.show',$item->id) }}">--}}
+{{--                                        <h5 class="media-heading ">{{ $item->title }}</h5>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <div class="col-md-6 col-lg-4 col-12 my-2">
+                            <!-- BEGIN FEATURED POST -->
+                            <div class="featured-post-wide thumbnail">
+                                <a href="{{ route('news.show',$item->id) }}"><img src="{{ asset($item->image) }}" class="img-fluid project-thumbnail" alt="ელექტრონული პეტიციის სისტემის ამოქმედება"></a>
+                                <div class="featured-text relative-left">
+                                    <h4 class="primary mt-1">
+                                        <a href="{{ route('news.show',$item->id) }}">{{ $item->title }}</a>
+                                    </h4>
+                                    <p class="news-content">
+                                        {!! $item->getDate() !!}
+                                    </p>
+
+                                    <p class="additional-post-wrap">
+                                        <span class="d-block">{!! $item->getDescription()  !!}</span>
+
+                                    </p>
+                                    <hr>
+                                    <p class="text-right">
+                                        <a href="{{ route('news.show',$item->id) }}" class="btn btn-primary text-white">მეტის ნახვა</a>
+                                    </p>
                                 </div>
-                                <div class="media-body">
-                                    <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <h5 class="media-heading ">{{ $item->title }}</h5>
-                                    </a>
-                                </div>
+                                <!-- /.featured-text -->
                             </div>
+                    </div>
 
                         @endforeach
 
-                    </div>
+
                     @endif
                         @if($lifestyle->count() !=0 )
 
@@ -362,148 +402,8 @@
                 </div>
 
             </div>
-            <div class="col-md-4 ">
-                <!-- Tabbable-Panel Start -->
-                <div class="tabbable-panel">
-                    <!-- Tabbablw-line Start -->
-                    <div class="tabbable-line">
-                        <!-- Nav Nav-tabs Start -->
-                        <ul class="nav nav-tabs ">
-                            <li class=" nav-item ">
-                                <a href="#tab_default_1" data-toggle="tab" class="nav-link active">
-                                    Popular </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#tab_default_2" data-toggle="tab" class="nav-link">
-                                    Recent </a>
-                            </li>
-                        </ul>
-                        <hr class="horizontalline">
-                        <!-- //Nav Nav-tabs End -->
-                        <!-- Tab-content Start -->
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="tab_default_1">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_13.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a><span class="text-danger">May 10, 2015</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_14.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a><span
-                                                class="text-danger">May 8, 2015</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_15.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a><span
-                                                class="text-danger">May5, 2015</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="tab_default_2">
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_15.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a><span class="text-danger">May 13, 2015</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_13.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a><span class="text-danger">May 12, 2015</span>
-                                    </div>
-                                </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object mr-3" src="{{ asset('images/image_14.jpg') }}" alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <a href="#">
-                                            <h5 class="media-heading ">Efficiently unleash cross-media information
-                                                without cross-media value.</h5></a>
-                                        <span class="text-danger">Feb 28, 2015</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="comments">
-                    <h3>Comments</h3>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object mr-3" src="{{ asset('images/image_13.jpg') }}" alt="image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h5 class="media-heading ">Efficiently unleash cross-media information without
-                                    cross-media value.</h5></a>
-                            <span class="text-danger">Feb 28, 2015</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object mr-3" src="{{ asset('images/image_14.jpg') }}" alt="image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h5 class="media-heading ">Efficiently unleash cross-media information without
-                                    cross-media value.</h5></a><span class="text-danger">May 11, 2015</span>
-                        </div>
-                    </div>
-                    <div class="media">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object mr-3" src="{{ asset('images/image_15.jpg') }}" alt="image">
-                            </a>
-                        </div>
-                        <div class="media-body">
-                            <a href="#">
-                                <h5 class="media-heading ">Efficiently unleash cross-media information without
-                                    cross-media value.</h5></a><span class="text-danger">Feb 28, 2015</span>
-                        </div>
-                    </div>
-                </div>
+
+
             </div>
             <!-- Tab-content End -->
         </div>
@@ -520,6 +420,8 @@
     <script src="{{ asset('vendors/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('vendors/jquery_newsTicker/js/jquery.newsTicker.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendors/owl_carousel/js/owl.carousel.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendors/select2/js/select2.js') }}" type="text/javascript"></script>
+
     <script>
 
         $('.newsticker').newsTicker({
