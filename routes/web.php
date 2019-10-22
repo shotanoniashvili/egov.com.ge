@@ -204,6 +204,16 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('toggle/is-active-for-experts/{id}', 'ProjectController@toggleActivationForExperts')->name('projects.toggle-activation-for-experts');
     });
 
+
+    /*rates in admin panel*/
+    Route::group(['prefix' => 'rates'], function () {
+        Route::get('/', 'RatesController@index')->name('rates.index');
+        Route::get('/create', 'RatesController@create')->name('rates.create');
+//        Route::post('/', 'ProjectController@store')->name('projects.store');
+//        Route::patch('/{id}', 'ProjectController@update')->name('projects.update');
+//        Route::delete('/{id}');
+    });
+
     /*routes for regions */
     Route::group(['prefix' => 'regions'], function () {
         Route::get('{region}/delete', 'RegionController@destroy')->name('regions.delete');
