@@ -53,7 +53,7 @@
                                     {!! $errors->first('name', '<span class="help-block">:message</span> ') !!}
                                 </div>
                             </div>
-                            <div class="row mb-3">
+                            <div class="row">
                                 <label for="project_category_id" class="col-sm-4 control-label text-right">
                                     პროექტის კატეგორია
                                 </label>
@@ -65,23 +65,56 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
+                                    <button class="btn btn-success btn-add-criteria mb-3">კრიტერიუმის დამატება</button>
+                                </div>
+                                <div class="col-sm-12">
                                     {!! $errors->first('project_category_id', '<span class="help-block">:message</span> ') !!}
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-sm-4 offset-4">
-                                    <button class="btn btn-success btn-add-criteria mb-3">კრიტერიუმის დამატება</button>
-                                </div>
                                 <div class="col-sm-12">
                                     <div class="row criteria-container">
                                         <label class="control-label col-sm-4 text-right">
                                             კრიტერიუმის დასახელება
                                         </label>
                                         <div class="col-sm-4">
-                                            <input class="form-control" placeholder="კრიტერიუმის დასახელება" type="text" name="criteria[]" />
+                                            <input class="form-control mb-1" placeholder="კრიტერიუმის დასახელება" type="text" name="criteria[1][name]" />
+                                            <input class="form-control" placeholder="საერთო ქულის პროცენტი" type="number" name="criteria[1][percent_in_total]" />
                                         </div>
                                         <div class="col-md-4">
-                                            <button class="btn btn-info">მნიშვნელობის დამატება</button>
+                                            <button class="btn btn-info">ქვე-კრიტერიუმის დამატება</button>
+                                        </div>
+                                        <div class="col-sm-4 offset-4">
+                                            <ul class="sub-criteria-container mt-3" style="list-style: none;">
+                                                <li class="mb-2">
+                                                    <input class="text form-control" type="text" placeholder="კრიტერიუმის დასახლება" name="subcriteria[1][name]" />
+                                                </li>
+                                                <li class="mb-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="subcriteria[1][number_field]" value="1">
+                                                        <label class="form-check-label">ციფრული მნიშვნელობა</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" type="radio" name="subcriteria[1][number_field]" value="0">
+                                                        <label class="form-check-label">კი ან არა</label>
+                                                    </div>
+                                                </li>
+                                                <li class="mb-2">
+                                                    <div class="number-field-container">
+                                                        <input type="number" placeholder="მაქსიმალური ქულა" class="form-control" name="subcriteria[1][max_point]" />
+                                                    </div>
+                                                    <div class="yes-or-no-field-container">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <input type="number" placeholder="კის მინშვნელობა" class="form-control" name="subcriteria[1][yes_point]" />
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <input type="number" placeholder="არას მნიშვნელობა" class="form-control" name="subcriteria[1][no_point]" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>

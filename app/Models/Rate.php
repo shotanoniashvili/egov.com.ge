@@ -11,4 +11,8 @@ class Rate extends Model
     public function projectCategory() {
         return $this->belongsTo(ProjectCategory::class, 'project_category_id');
     }
+
+    public function criterias() {
+        return $this->hasMany(Criteria::class, 'rate_id');
+    }
 }
