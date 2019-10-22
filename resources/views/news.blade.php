@@ -13,6 +13,8 @@
     <link href="{{ asset('vendors/animate/animate.min.css') }}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/timeline.css') }}">
     <link rel="stylesheet" href="{{ asset('vendors/bootstrap-tagsinput/css/bootstrap-tagsinput.css') }}" />
+    <link href="{{ asset('vendors/select2/css/select2.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('vendors/select2/css/select2-bootstrap.css') }}" rel="stylesheet" />
 
     <link href="{{ asset('vendors/owl_carousel/css/owl.carousel.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendors/owl_carousel/css/owl.theme.css') }}" rel="stylesheet" type="text/css">
@@ -120,6 +122,19 @@
 @section('content')
     <!-- Container Section Start -->
     <div class="container news mt-4">
+        <div class="row">
+        <div class="form-group col-sm-6 col-xs-12 col-md-3">
+            <select class="form-control select2" data-placeholder="წლები" name="years[]" multiple>
+                @for($i = 2015; $i < (new DateTime())->format('Y'); $i++)
+                    <option value="{{ $i }}" {{ (is_array(request()->years) && in_array($i, request()->years)) ? 'selected' : '' }}>{{ $i }}</option>
+                @endfor
+            </select>
+
+        </div>
+            <div class="form-group col-sm-12 col-xs-12 col-md-1">
+                <button class="btn btn-outline-success"><i class="fa fa-search"></i> </button>
+            </div>
+        </div>
         <div class="row news">
 
             <div class="col-md-12">
@@ -405,6 +420,8 @@
     <script src="{{ asset('vendors/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}"></script>
     <script src="{{ asset('vendors/jquery_newsTicker/js/jquery.newsTicker.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendors/owl_carousel/js/owl.carousel.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('vendors/select2/js/select2.js') }}" type="text/javascript"></script>
+
     <script>
 
         $('.newsticker').newsTicker({
