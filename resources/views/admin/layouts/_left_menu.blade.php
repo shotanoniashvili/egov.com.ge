@@ -42,6 +42,28 @@
             </li>
         </ul>
     </li>
+    <li {!! Request::is('admin/rates*') ? 'class="active"' : '' !!}>
+        <a href="#">
+            <i class="livicon" data-name="bulb" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"
+               data-loop="true"></i>
+            <span class="title">შეფასებები</span>
+            <span class="fa arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li {!! (Request::is('admin/rates') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/rates') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    შეფასებების სია
+                </a>
+            </li>
+            <li {!! (Request::is('admin/rates/create') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/rates/create') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    შეფასების აწყობა
+                </a>
+            </li>
+        </ul>
+    </li>
     <li {!! (Request::is('admin/municipalities*')) ? 'class="active"' : '' !!}>
         <a href="#">
             <i class="livicon" data-name="bulb" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"

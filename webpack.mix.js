@@ -903,6 +903,7 @@ mix.copy(srcJs + 'pages/edituser.js', destJs + 'pages');
 
 //upload project page
 mix.copy(srcJs + 'pages/uploadproject.js', destJs + 'pages');
+mix.copy(srcJs + 'pages/editproject.js', destJs + 'pages');
 //mix.copy(srcJs + 'pages/edituser.js', destJs + 'pages');
 
 // carousel page

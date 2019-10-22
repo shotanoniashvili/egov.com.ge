@@ -64,7 +64,7 @@ class ProjectController extends JoshController
                 $request->picture,
                 Sentinel::getUser()->id,
                 $request->documents,
-                true,
+                $request->is_archive ? true : false,
                 true,
                 true,
                 $request->date);
@@ -105,11 +105,11 @@ class ProjectController extends JoshController
      */
     public function edit(int $project)
     {
+        $categories = ProjectCategory::all();
+        $municipalities = Municipality::all();
         $project = Project::findOrFail($project);
 
-        // TODO view
-
-        return view('admin.project.edit', compact('project'));
+        return view('admin.projects.edit', compact('project', 'categories', 'municipalities'));
     }
 
     /**
@@ -121,14 +121,29 @@ class ProjectController extends JoshController
      */
     public function update(ProjectRequest $request, int $project)
     {
-        $project = ProjectCategory::findOrFail($project);
+        $project = Project::findOrFail($project);
 
-        // TODO update
 
-        if ($project->update($request->all())) {
+        DB::beginTransaction();
+        try {
+            $project->updateProject(
+                $request->title,
+                $request->category_id,
+                $request->short_description,
+                $request->municipality_id,
+                $request->picture,
+                Sentinel::getUser()->id,
+                $request->documents,
+                $request->is_archive ? true : false,
+                true,
+                true,
+                $request->date);
+            DB::commit();
             return redirect('admin/projects')->with('success', 'პროექტი წარმატებით განახლდა');
-        } else {
-            return Redirect::route('admin/project-categories')->withInput()->with('error', 'დაფიქსირდა შეცდომა პროექტის განახლების დროს');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error("Admin\ProjectController->update::$request -> ".json_encode($request->all()) . ". \n\rMessage: ".$e->getMessage());
+            return redirect()->back()->withInput()->with('error', 'დაფიქსირდა შეცდომა პროექტის განახლების დროს');
         }
     }
 

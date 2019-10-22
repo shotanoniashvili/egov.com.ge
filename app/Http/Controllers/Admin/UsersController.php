@@ -192,24 +192,26 @@ class UsersController extends JoshController
      * @param  int $id
      * @return View
      */
-    public function edit(User $user)
+    public function edit(int $id)
     {
+        $targetUser = User::findOrFail($id);
 
         // Get this user groups
-        $userRoles = $user->getRoles()->pluck('name', 'id')->all();
+        $userRoles = $targetUser->getRoles()->pluck('name', 'id')->all();
         // Get a list of all the available groups
-        $roles = Sentinel::getRoleRepository()->all();
+        $groups = Sentinel::getRoleRepository()->all();
 
-        $status = Activation::completed($user);
+        $status = Activation::completed($targetUser);
 
         $countries = $this->countries;
 
         $projectCategories = ProjectCategory::all();
+        $municipalities = Municipality::all();
 
-        // TODO view
+        $isActive = Activation::completed($targetUser)->completed;
 
         // Show the page
-        return view('admin.users.edit', compact('user', 'roles', 'userRoles', 'countries', 'status', 'projectCategories'));
+        return view('admin.users.edit', compact('targetUser', 'groups', 'userRoles', 'countries', 'status', 'projectCategories', 'municipalities', 'isActive'));
     }
 
     /**
@@ -224,26 +226,11 @@ class UsersController extends JoshController
 
 
         try {
-            $user->update($request->except('pic_file', 'password', 'password_confirm', 'groups', 'activate', 'project_category_ids', 'municipality_ids'));
+            $user->update($request->except('pic_file', 'password', 'password_confirm', 'group', 'activate', 'project_category_ids', 'municipality_ids'));
 
             if (!empty($request->password)) {
                 $user->password = Hash::make($request->password);
             }
-
-            // is new image uploaded?
-            if ($file = $request->file('pic_file')) {
-                $extension = $file->extension()?: 'png';
-                $destinationPath = public_path() . '/uploads/users/';
-                $safeName = str_random(10) . '.' . $extension;
-                $file->move($destinationPath, $safeName);
-                //delete old pic if exists
-                if (File::exists($destinationPath . $user->pic)) {
-                    File::delete($destinationPath . $user->pic);
-                }
-                //save new file path into db
-                $user->pic =url('/').'/uploads/users/'.$safeName;
-            }
-
 
             if($request->get('project_category_ids')) {
                 $user->categories()->sync($request->get('project_category_ids'));
@@ -256,30 +243,7 @@ class UsersController extends JoshController
             //save record
             $user->save();
 
-            // Get the current user groups
-            $userRoles = $user->roles()->pluck('id')->all();
-
-            // Get the selected groups
-
-            $selectedRoles = $request->get('groups');
-
-            // Groups comparison between the groups the user currently
-            // have and the groups the user wish to have.
-            $rolesToAdd = array_diff($selectedRoles, $userRoles);
-            $rolesToRemove = array_diff($userRoles, $selectedRoles);
-
-            // Assign the user to groups
-
-            foreach ($rolesToAdd as $roleId) {
-                $role = Sentinel::findRoleById($roleId);
-                $role->users()->attach($user);
-            }
-
-            // Remove the user from groups
-            foreach ($rolesToRemove as $roleId) {
-                $role = Sentinel::findRoleById($roleId);
-                $role->users()->detach($user);
-            }
+            $user->roles()->sync([$request->group]);
 
             // Activate / De-activate user
 

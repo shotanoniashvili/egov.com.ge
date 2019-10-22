@@ -192,8 +192,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('archive', 'ProjectController@archive')->name('projects.archive');
         Route::get('create', 'ProjectController@create')->name('projects.create');
         Route::post('create', 'ProjectController@store')->name('projects.store');
-        Route::get('edit/{project}', 'ProjectController@create')->name('projects.edit');
-        Route::put('edit/{project}', 'ProjectController@update')->name('projects.update');
+        Route::patch('edit/{project}', 'ProjectController@update')->name('projects.update');
+        Route::get('edit/{project}', 'ProjectController@edit')->name('projects.edit');
         Route::get('delete/{project}', 'ProjectController@destroy')->name('projects.delete');
         Route::get('confirm-delete/{project}', 'ProjectController@getModalDelete')->name('projects.confirm-delete');
         Route::get('documents/{id}/delete', 'ProjectController@deleteDocument')->name('projects.delete-document');
@@ -202,6 +202,16 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('toggle/is-archive/{id}', 'ProjectController@toggleIsArchive')->name('projects.toggle-is-archive');
         Route::get('toggle/is-active-for-web/{id}', 'ProjectController@toggleActivationForWeb')->name('projects.toggle-activation-for-web');
         Route::get('toggle/is-active-for-experts/{id}', 'ProjectController@toggleActivationForExperts')->name('projects.toggle-activation-for-experts');
+    });
+
+
+    /*rates in admin panel*/
+    Route::group(['prefix' => 'rates'], function () {
+        Route::get('/', 'RatesController@index')->name('rates.index');
+        Route::get('/create', 'RatesController@create')->name('rates.create');
+//        Route::post('/', 'ProjectController@store')->name('projects.store');
+//        Route::patch('/{id}', 'ProjectController@update')->name('projects.update');
+//        Route::delete('/{id}');
     });
 
     /*routes for regions */

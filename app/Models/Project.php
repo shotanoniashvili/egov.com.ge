@@ -132,6 +132,67 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     /**
+     * @param $title
+     * @param $categoryId
+     * @param $shortDescription
+     * @param $municipalityId
+     * @param $image
+     * @param $userId
+     * @param $documents
+     * @param bool $isArchive
+     * @param bool $isActiveForExperts
+     * @param bool $isActiveForWeb
+     * @param null $projectDate
+     * @throws \Exception
+     */
+    public function updateProject($title,
+                                         $categoryId,
+                                         $shortDescription,
+                                         $municipalityId,
+                                         $image,
+                                         $userId,
+                                         $documents,
+                                         $isArchive = false,
+                                         $isActiveForExperts = true,
+                                         $isActiveForWeb = false,
+                                         $projectDate = null) {
+        try {
+            $this->title = $title;
+            $this->category_id = $categoryId;
+            $this->short_description = addslashes($shortDescription);
+            $this->municipality_id = $municipalityId;
+            $this->is_archive = $isArchive;
+            $this->user_id = $userId;
+            $this->is_active_for_experts = $isActiveForExperts;
+            $this->is_active_for_web = $isActiveForWeb;
+            if($projectDate !== null && $projectDate !== '') {
+                $this->created_at = \DateTime::createFromFormat('Y', $projectDate);
+            }
+
+            if($image) {
+                $destinationPath = 'storage/projects/pictures/';
+                $fileName = $image->getClientOriginalName();
+                if(file_exists(public_path($destinationPath).$fileName)) {
+                    $fileName = time().'-'.$fileName;
+                }
+                $image->move(public_path($destinationPath), $fileName);
+
+                $path = $destinationPath.$fileName;
+
+                $this->image = $path;
+            }
+
+            $this->save();
+
+            if($documents && is_array($documents)) {
+                $this->uploadDocuments($documents);
+            }
+        } catch (\Exception $e) {
+            throw new \Exception($e->getMessage());
+        }
+    }
+
+    /**
      * @param $documents
      * @throws \Exception
      */

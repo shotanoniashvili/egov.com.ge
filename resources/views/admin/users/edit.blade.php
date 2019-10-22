@@ -49,10 +49,11 @@
                     </div>
                     <div class="card-body">
                         <!--main content-->
-                        <form id="commentForm" action="{{ route('admin.users.update') }}"
+                        <form id="commentForm" action="{{ route('admin.users.update', $targetUser->id) }}"
                               method="POST" enctype="multipart/form-data" class="form-horizontal">
                             <!-- CSRF Token -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <input type="hidden" name="_method" value="patch" />
 
                             <div id="rootwizard">
                                 <ul>
@@ -70,7 +71,7 @@
                                                 <div class="col-sm-10">
                                                     <input id="first_name" name="first_name" type="text"
                                                            placeholder="სახელი" class="form-control required"
-                                                           value="{!! $item->first_name !!}"/>
+                                                           value="{!! $targetUser->first_name !!}"/>
 
                                                     {!! $errors->first('first_name', '<span class="help-block">:message</span>') !!}
                                                 </div>
@@ -82,7 +83,7 @@
                                                 <label for="last_name" class="col-sm-2 control-label">გვარი *</label>
                                                 <div class="col-sm-10">
                                                     <input id="last_name" name="last_name" type="text" placeholder="გვარი"
-                                                           class="form-control required" value="{!! $item->last_name !!}"/>
+                                                           class="form-control required" value="{!! $targetUser->last_name !!}"/>
 
                                                     {!! $errors->first('last_name', '<span class="help-block">:message</span>') !!}
                                                 </div>
@@ -95,19 +96,19 @@
                                                 <label for="email" class="col-sm-2 control-label">ელ-ფოსტა *</label>
                                                 <div class="col-sm-10">
                                                     <input id="email" name="email" placeholder="ელ-ფოსტა" type="text"
-                                                           class="form-control required email" value="{!! $item->email !!}"/>
+                                                           class="form-control required email" value="{!! $targetUser->email !!}"/>
                                                     {!! $errors->first('email', '<span class="help-block">:message</span>') !!}
                                                 </div>
                                             </div>
                                         </div>
 
+                                        <p class="text-warning col-md-offset-2"><strong>თუ არ გსურთ პაროლის შეცვლა, დატოვეთ ცარიელი</strong></p>
                                         <div class="form-group {{ $errors->first('password', 'has-error') }}">
-                                            <p class="text-warning col-md-offset-2"><strong>თუ არ გსურთ პაროლის შეცვლა, დატოვეთ ცარიელი</strong></p>
                                             <div class="row">
-                                                <label for="password" class="col-sm-2 control-label">პაროლი</label>
+                                                <label for="password" class="col-sm-2 control-label">პაროლი *</label>
                                                 <div class="col-sm-10">
                                                     <input id="password" name="password" type="password" placeholder="პაროლი"
-                                                           class="form-control required" value="{!! old('password') !!}"/>
+                                                           class="form-control" value="{!! old('password') !!}"/>
                                                     {!! $errors->first('password', '<span class="help-block">:message</span>') !!}
                                                 </div>
                                             </div>
@@ -115,10 +116,10 @@
 
                                         <div class="form-group {{ $errors->first('password_confirm', 'has-error') }}">
                                             <div class="row">
-                                                <label for="password_confirm" class="col-sm-2 control-label">დაადასტურეთ პაროლი</label>
+                                                <label for="password_confirm" class="col-sm-2 control-label">დაადასტურეთ პაროლი *</label>
                                                 <div class="col-sm-10">
                                                     <input id="password_confirm" name="password_confirm" type="password"
-                                                           placeholder="დაადასტურეთ პაროლი " class="form-control required"/>
+                                                           placeholder="დაადასტურეთ პაროლი " class="form-control"/>
                                                     {!! $errors->first('password_confirm', '<span class="help-block">:message</span>') !!}
                                                 </div>
                                             </div>
@@ -263,7 +264,7 @@
                                                         <option value="">აირჩიეთ</option>
                                                         @foreach($groups as $group)
                                                             <option value="{{ $group->id }}"
-                                                                    @if(count($item->roles->where('id', $group->id)) > 0) selected="selected" @endif >{{ $group->name}}</option>
+                                                                    @if($targetUser->getRoles()->where('id', $group->id)->count() > 0) selected="selected" @endif >{{ $group->name}}</option>
                                                         @endforeach
                                                     </select>
                                                     {!! $errors->first('group', '<span class="help-block">:message</span>') !!}
@@ -272,7 +273,7 @@
                                             <span class="help-block">{{ $errors->first('group', ':message') }}</span>
                                         </div>
 
-                                        <div class="form-group project-category-container hide">
+                                        <div class="form-group project-category-container {{ $targetUser->getRoles()->where('name', 'ექსპერტი')->count() > 0 ? '' : 'hide' }}">
                                             <div class="row">
                                                 <label for="project_category_ids" class="col-sm-2 control-label">თემატიკა / კატეგორია *</label>
                                                 <div class="col-sm-10">
@@ -280,7 +281,7 @@
                                                             id="project_category_ids">
                                                         @foreach($projectCategories as $projectCategory)
                                                             <option value="{{ $projectCategory->id }}"
-                                                                    @if(count($item->categories->where('id', $projectCategory->id)) > 0) selected="selected" @endif >{{ $projectCategory->name}}</option>
+                                                                    @if($targetUser->categories()->where('id', $projectCategory->id)->count() > 0) selected="selected" @endif >{{ $projectCategory->name}}</option>
                                                         @endforeach
                                                     </select>
                                                     {!! $errors->first('project_category_ids', '<span class="help-block">:message</span>') !!}
@@ -289,7 +290,7 @@
                                             <span class="help-block">{{ $errors->first('project_category_ids', ':message') }}</span>
                                         </div>
 
-                                        <div class="form-group municipality-container hide">
+                                        <div class="form-group municipality-container {{ $targetUser->getRoles()->where('name', 'მუნიციპალიტეტის თანამშრომელი')->count() > 0 ? '' : 'hide' }}">
                                             <div class="row">
                                                 <label for="municipality_ids" class="col-sm-2 control-label">მუნიციპალიტეტები *</label>
                                                 <div class="col-sm-10">
@@ -297,7 +298,7 @@
                                                             id="municipality_ids">
                                                         @foreach($municipalities as $municipality)
                                                             <option value="{{ $municipality->id }}"
-                                                                    @if(count($item->municipalities->where('id', $municipality->id)) > 0) selected="selected" @endif >{{ $municipality->name}}</option>
+                                                                    @if($targetUser->municipalities()->where('id', $municipality->id)->count() > 0) selected="selected" @endif >{{ $municipality->name}}</option>
                                                         @endforeach
                                                     </select>
                                                     {!! $errors->first('municipality_ids', '<span class="help-block">:message</span>') !!}
@@ -312,7 +313,7 @@
                                                 <div class="col-sm-10">
                                                     <input id="activate" name="activate" type="checkbox"
                                                            class="pos-rel p-l-30 custom-checkbox"
-                                                           value="1" @if(old('activate')) checked="checked" @endif >
+                                                           value="1" @if($isActive) checked="checked" @endif >
                                                     <span>მონიშნეთ თუ გსურთ მომხმარებლის სტატუსი ავტომატურად გახდეს აქტიური</span></div>
 
                                             </div>
@@ -343,7 +344,7 @@
     <script src="{{ asset('vendors/select2/js/select2.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendors/bootstrapwizard/jquery.bootstrap.wizard.js') }}" type="text/javascript"></script>
     <script src="{{ asset('vendors/datetimepicker/js/bootstrap-datetimepicker.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('js/pages/adduser.js') }}"></script>
+    <script src="{{ asset('js/pages/edituser.js') }}"></script>
     <script>
         function formatState (state) {
             if (!state.id) { return state.text; }
