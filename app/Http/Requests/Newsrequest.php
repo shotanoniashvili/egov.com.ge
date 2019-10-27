@@ -34,7 +34,7 @@ class Newsrequest extends FormRequest
                     'title' => 'required',
                     'image' => 'required|mimes:jpg,jpeg,bmp,png,gif|max:10000',
                     'content' => 'required',
-                    'category' => 'required'
+                    //'category' => 'required'
                 ];
             
             case 'PUT':
@@ -42,7 +42,7 @@ class Newsrequest extends FormRequest
                 return [
                     'title' => 'required',
                     'content' => 'required',
-                    'category' => 'required',
+                    //'category' => 'required',
                     'image' => 'required|mimes:jpg,jpeg,bmp,png,gif|max:10000'
 
                 ];

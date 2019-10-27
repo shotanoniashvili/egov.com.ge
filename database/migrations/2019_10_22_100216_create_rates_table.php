@@ -14,10 +14,10 @@ class CreateRatesTable extends Migration
     public function up()
     {
         Schema::create('rates', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('name')->unique();
             $table->unsignedBigInteger('project_category_id')->unique();
 
-            $table->primary(['name', 'project_category_id']);
             $table->foreign('project_category_id')->references('id')->on('project_categories');
         });
     }

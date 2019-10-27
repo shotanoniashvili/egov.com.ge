@@ -52,13 +52,13 @@
 {{-- Page content --}}
 @section('content')
     <!-- Container Section Start -->
-    <div class="container">
+    <div class="container mt-5">
+        <div class="welcome">
+            <h3>საუკეთესო პრაქტიკის პროგრამის შესახებ</h3>
+        </div>
+        <hr />
         <!-- Slider Section Start -->
         <div class="row my-3 h-100">
-
-            <div class="text-center">
-                <h3><span class="heading_border bg-success">საუკეთესო პრაქტიკის პროგრამის შესახებ</span></h3>
-            </div>
             <div class="row">
                 <div class="col-md-10 col-xs-10 col-sm-10">
                     <div class="aboutus">

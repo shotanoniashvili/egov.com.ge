@@ -33,8 +33,7 @@
 
 {{-- Page content --}}
 @section('content')
-    <hr class="content-header-sep">
-    <div class="container mb-5">
+    <div class="container mb-5 mt-5">
         <div class="welcome">
             <h3>მუნიციპალიტეტები</h3>
         </div>

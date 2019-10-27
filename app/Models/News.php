@@ -2,16 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\ViewCountable;
 use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model implements \App\Interfaces\Searchable
+class News extends Model implements \App\Interfaces\Searchable, \App\Interfaces\ViewCountable
 {
-    use Searchable;
+    use Searchable, ViewCountable;
 
     protected $table = 'news';
 
     protected $guarded = ['id'];
+
+    public function scopeNotDraft($query) {
+        return $query->where('is_draft', false);
+    }
 
     public function getImage()
     {

@@ -56,6 +56,7 @@ class NewsController extends Controller
             } // <!--endif
         } // <!-
         $news->content = $dom->saveHTML();
+        $news->is_draft = $request->is_draft;
 
         $picture = "";
 
@@ -165,13 +166,20 @@ class NewsController extends Controller
     //Table Data to index page
     public function data()
     {
-        $news = News::get(['id', 'title', 'created_at']);
+        $news = News::get(['id', 'title', 'created_at', 'is_draft']);
 
         return DataTables::of($news)
             ->editColumn(
                 'created_at',
                 function (News $createtime) {
                     return $createtime->created_at->diffForHumans();
+                }
+            )->editColumn(
+                'is_draft',
+                function ($news) {
+                    return ($news->is_draft) ? '<i class="livicon toggle-draft cursor-pointer" data-id="'.$news->id.'" data-name="check-circle-alt" data-size="18"
+                                                   data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-draft cursor-pointer" data-id="'.$news->id.'" data-name="remove-alt" data-size="18"
+                                                   data-c="#f56954" data-hc="#f56954" data-loop="true"></i>';
                 }
             )
             ->addColumn(
@@ -184,7 +192,21 @@ class NewsController extends Controller
                     return $actions;
                 }
             )
-            ->rawColumns(['actions'])
+            ->rawColumns(['actions', 'is_draft'])
             ->make(true);
+    }
+
+    public function toggleIsDraft(int $id) {
+        try {
+            $news = News::findOrFail($id);
+
+            $news->is_draft = !$news->is_draft;
+
+            $news->save();
+
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
+        }
     }
 }

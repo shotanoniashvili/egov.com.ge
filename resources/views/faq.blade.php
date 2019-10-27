@@ -42,7 +42,11 @@
     {{-- Page content --}}
     @section('content')
             <!-- Container Section Start -->
-    <div class="container">
+    <div class="container mt-5">
+        <div class="welcome">
+            <h3>კითხვა-პასუხი</h3>
+        </div>
+        <hr />
         <div class="row my-3">
             <div class="col-md-12 col-12 col-lg-12 col-sm-12">
 {{--                <div class="control-bar sandbox-control-bar mt10">--}}

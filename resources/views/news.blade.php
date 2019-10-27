@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    News
+    სიახლეები
     @parent
 @stop
 
@@ -121,59 +121,35 @@
 {{-- Page content --}}
 @section('content')
     <!-- Container Section Start -->
-    <div class="container news mt-4">
-        <div class="row">
-        <div class="form-group col-sm-6 col-xs-12 col-md-3">
-            <select class="form-control select2" data-placeholder="წლები" name="years[]" multiple>
-                @for($i = 2015; $i < (new DateTime())->format('Y'); $i++)
-                    <option value="{{ $i }}" {{ (is_array(request()->years) && in_array($i, request()->years)) ? 'selected' : '' }}>{{ $i }}</option>
-                @endfor
-            </select>
-
+    <div class="container news mt-5">
+        <div class="welcome">
+            <h3>სიახლეები</h3>
         </div>
-            <div class="form-group col-sm-12 col-xs-12 col-md-1">
-                <button class="btn btn-outline-success"><i class="fa fa-search"></i> </button>
+        <hr />
+        <form id="sortForm" action="" method="get">
+            <div class="row">
+                <div class="form-group col-sm-12 col-md-4">
+                    <label class="control-label d-inline-block" for="sortBy">დალაგება</label>
+                    <select class="form-control d-inline-block w-auto" id="sortBy" name="sort_by">
+                        <option value="date" {{ (!request()->sort_by || request()->sort_by == 'date') ? 'selected' : '' }}>დამატების თარიღის მიხედვით</option>
+                        <option value="views" {{ request()->sort_by == 'views' ? 'selected' : '' }}>ნახვების მიხედვით</option>
+                    </select>
+                </div>
             </div>
-        </div>
+        </form>
+
         <div class="row news">
 
             <div class="col-md-12">
                 <div class="row">
-                    @if( $popular->count() != 0)
-
-                        <div class="text-left">
-                            <div>
-                                <h4><span class="heading_border bg-warning">Popular News</span>
-                                </h4>
-                            </div>
-                        </div>
-                        @foreach($popular as $item)
-                            <div class="media my-2">
-                                <div class="media-left">
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <img class="media-object mr-3" src="{{ URL::to('/uploads/news/'.$item->image)  }}"
-                                             alt="image">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <h5 class="media-heading ">{{ $item->title }}</h5>
-                                    </a>
-                                </div>
-                            </div>
-
-                        @endforeach
-
-                    @endif
-                    @if( $hotnews->count() != 0)
+                    @if( $news->count() != 0)
 
 {{--                        <div class="text-left">--}}
 {{--                            <div>--}}
 {{--                                <h4><span class="heading_border bg-success">Hot News</span></h4>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}
-                        @foreach($hotnews as $item)
+                        @foreach($news as $item)
 {{--                            <div class="media my-2">--}}
 {{--                                <div class="media-left">--}}
 {{--                                    <a href="{{ route('news.show',$item->id) }}">--}}
@@ -197,7 +173,8 @@
                                         <a href="{{ route('news.show',$item->id) }}">{{ $item->title }}</a>
                                     </h4>
                                     <p class="news-content">
-                                        {!! $item->getDate() !!}
+                                        <span class="d-block">{!! $item->getDate() !!}</span>
+                                        <span class="d-block"><i class="fa fa-eye"></i> {!! $item->getViewCount() !!}</span>
                                     </p>
 
                                     <p class="additional-post-wrap">
@@ -212,192 +189,7 @@
                                 <!-- /.featured-text -->
                             </div>
                     </div>
-
                         @endforeach
-
-
-                    @endif
-                        @if($lifestyle->count() !=0 )
-
-
-                    <div class="col-sm-12  mt-20">
-                        <div class="text-left">
-                            <div>
-                                <h4><span class="heading_border bg-danger">Life Style</span></h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 lifestyle">
-                            <img class="img-fluid mr-3"
-                                 src="{{ URL::to('/uploads/news/'.$lifestyle->first()['image']) }}" alt="image">
-                            <div class="sports-height">
-                                <a href="{{ route('news.show',$lifestyle->first()['id']) }}">
-                                    <h4>{{ $lifestyle->first()['title'] }}</h4>
-                                </a>
-                                <span class="text-danger">{!! date('d-m-Y', strtotime($lifestyle->first()['created_at'])) !!}</span>
-                                <p>{!!  $lifestyle->first()['content']  !!}</p>
-
-                            </div>
-                    </div>
-                    <div class="col-sm-6 news-body">
-                        <ul class="newsticker">
-                            @foreach( $lifestyle as $item)
-                                <li>
-                                    <div class="media my-2">
-                                        <div class="media-left">
-                                            <a href="{{ route('news.show',$item->id) }}">
-                                                <img class="media-object mr-3"
-                                                     src="{{ URL::to('/uploads/news/'.$item->image)  }}" alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="media-body">
-                                            <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                            <a href="{{ route('news.show', $item->id) }}">
-                                                <h5 class="media-heading ">{{ $item->title }}</h5>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                        @endif
-
-                        @if($world_news->count() !=0)
-                            <div class="col-sm-12 mt-20">
-                            <div class="text-left">
-                                <div>
-                                    <h4 class="border-primary"><span class="heading_border bg-primary">World News</span>
-                                    </h4>
-                                </div>
-                            </div>
-                        </div>
-                            <div class="col-sm-12 worlnews">
-                            <div class="owl-carousel owl-theme" id="carousel">
-                                @foreach($world_carousel as $item)
-                                    <div class="item">
-                                        <div class="row">
-                                            <div class="col-sm-6">
-                                                <img src="{{ URL::to('/uploads/news/'.$item->image)  }}" alt="image">
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                                <a href="{{ route('news.show', $item->id) }}">
-                                                    <h5 class="media-heading ">{{ $item->title }}</h5>
-                                                </a>
-                                                <div class="slider-content">
-                                                    <p>{!! $item->content  !!} </p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                            <div class="row">
-                                @foreach($world_news as $item)
-                                    <div class="col-sm-6 news-body">
-                                        <div class="media my-2">
-                                            <div class="media-left">
-                                                <a href="{{ route('news.show',$item->id) }}">
-                                                    <img class="media-object mr-3"
-                                                         src="{{ URL::to('/uploads/news/'.$item->image)  }}"
-                                                         alt="image">
-                                                </a>
-                                            </div>
-                                            <div class="media-body">
-                                                <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                                <a href="{{ route('news.show', $item->id) }}">
-                                                    <h5 class="media-heading ">{{ $item->title }}</h5>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-
-                            </div>
-                        </div>
-                        @endif
-
-                    @if($business->count() !=0)
-                        <div class="col-sm-6 news-body mt-20">
-                            <h4><span class="heading_border bg-danger">Business News</span></h4>
-                            <a href="{{route('news.show', $business->first()['id'])  }}">
-                                <img class="img-fluid height_180"
-                                     src="{{ URL::to('/uploads/news/'.$business->first()['image'])  }}" alt="image"/>
-                            </a>
-                            <div class="sports-height">
-                                <a href="{{ route('news.show', $business->first()['id']) }}">
-                                    <h4>{{ $business->first()['title'] }}</h4>
-                                </a>
-
-                                <span class="text-danger">{!! date('d-m-Y', strtotime($business->first()['created_at'])) !!}</span>
-                                <div class="sports-content">
-                                    <p> {!! $business->first()['content'] !!}</p>
-                                </div>
-                            </div>
-                            @foreach( $business as $item)
-                                <div class="media my-2">
-                                    <div class="media-left">
-                                        <a href="{{ route('news.show',$item->id) }}">
-                                            <img class="media-object mr-3"
-                                                 src="{{ URL::to('/uploads/news/'.$item->image)  }}"
-                                                 alt="image">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                        <a href="{{ route('news.show',$item->id) }}">
-                                            <h5 class="media-heading">{{ $item->title }}</h5>
-                                        </a>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    @endif
-                    @if($sports->count() !=0)
-                        <div class="col-sm-6 news-body  mt-20">
-
-                        <div class="text-left">
-                            <div>
-                                <h4><span class="heading_border bg-success">Sports NEWS</span>
-                                </h4>
-                            </div>
-                        </div>
-                        <a href="{{ route('news.show',$sports->first()['id']) }}">
-                            <img class="img-fluid height_180"
-                                 src="{{ URL::to('/uploads/news/'.$sports->first()['image'])  }}" alt="image">
-
-                        </a>
-                        <div class="sports-height">
-                            <a href="{{ route('news.show',$item->id) }}">
-                                <h4>{{ $sports->first()['title'] }}</h4>
-                            </a>
-                            <span class="text-danger">{!! date('d-m-Y', strtotime($sports->first()['created_at'])) !!}</span>
-                            <div class="sports-content">
-                                <p> {!! $sports->first()['content'] !!}</p>
-                            </div>
-                        </div>
-                        @foreach( $sports as $item)
-                            <div class="media my-2">
-                                <div class="media-left">
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <img class="media-object mr-3" src="{{ URL::to('/uploads/news/'.$item->image)  }}"
-                                             alt="image">
-                                    </a>
-                                </div>
-                                <div class="media-body">
-                                    <span class="text-danger">{!! date('d-m-Y', strtotime($item->created_at)) !!}</span>
-                                    <a href="{{ route('news.show',$item->id) }}">
-                                        <h5 class="media-heading">{{ $item->title }}</h5>
-                                    </a>
-                                </div>
-                            </div>
-                        @endforeach
-
-                    </div>
                     @endif
                 </div>
 
@@ -440,6 +232,9 @@
 
         });
 
+        $('#sortBy').on('change', function () {
+            $('#sortForm').submit();
+        });
 
     </script>
     <!-- end of page level js -->

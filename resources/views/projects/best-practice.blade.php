@@ -33,8 +33,8 @@
 
 {{-- Page content --}}
 @section('content')
-    <hr class="content-header-sep">
-    <div class="container mb-5">
+{{--    <hr class="content-header-sep">--}}
+    <div class="container mb-5 mt-5">
         <div class="welcome">
             <h3>საუკეთესო პრაქტიკა</h3>
         </div>

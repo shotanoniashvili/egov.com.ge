@@ -245,6 +245,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('data', 'NewsController@data')->name('news.data');
         Route::get('{news}/delete', 'NewsController@destroy')->name('news.delete');
         Route::get('{news}/confirm-delete', 'NewsController@getModalDelete')->name('news.confirm-delete');
+
+        Route::get('toggle/is-draft/{id}', 'NewsController@toggleIsDraft')->name('news.toggle-is-draft');
     });
     Route::resource('news', 'NewsController');
 
