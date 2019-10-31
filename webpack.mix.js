@@ -1232,6 +1232,9 @@ mix.copy(paths.slimmenu + 'css/slimmenu.min.css', destVendors + 'slimmenu/css/')
 mix.copy(paths.slimmenu + 'js/jquery.slimmenu.min.js', destVendors + 'slimmenu/js/');
 mix.copy(srcCss + 'horizontal_menu.css', destCss + 'horizontal_menu.css');
 
+//vue components
+mix.js(srcJs + 'vue/app.js', destJs + 'vue/app.js');
+
 //buttons css
 mix.sass(srcSass + 'plugins/buttons/buttons.scss', destCss);
 mix.sass(resourcesAssets + 'sass/bootstrap.scss', destCss + 'bootstrap.css');

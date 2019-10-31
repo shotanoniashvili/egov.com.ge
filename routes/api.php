@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('regions/{id}', 'Api\RegionController@show');
+Route::get('project-categories', 'Api\ProjectCategoryController@index');
