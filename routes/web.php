@@ -209,9 +209,12 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
     Route::group(['prefix' => 'rates'], function () {
         Route::get('/', 'RatesController@index')->name('rates.index');
         Route::get('/create', 'RatesController@create')->name('rates.create');
+        Route::post('/create', 'RatesController@store');
+        Route::get('/{id}/edit', 'RatesController@edit')->name('rates.edit');
+        Route::get('/{id}/json', 'RatesController@getRate')->name('rates.getJson');
 //        Route::post('/', 'ProjectController@store')->name('projects.store');
 //        Route::patch('/{id}', 'ProjectController@update')->name('projects.update');
-//        Route::delete('/{id}');
+        Route::get('/{id}/delete', 'RatesController@destroy');
     });
 
     /*routes for regions */

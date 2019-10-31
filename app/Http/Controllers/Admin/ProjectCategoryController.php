@@ -47,7 +47,7 @@ class ProjectCategoryController extends JoshController
         if ($projectCategory->save()) {
             return redirect('admin/project-categories')->with('success', 'კატეგორია წარმატებით დაემატა');
         } else {
-            return Redirect::route('admin/project-categories')->withInput()->with('error', 'დაფიქსირდა შეცდომა კატეგორიის დამატების დროს');
+            return redirect('admin/project-categories')->withInput()->with('error', 'დაფიქსირდა შეცდომა კატეგორიის დამატების დროს');
         }
     }
 

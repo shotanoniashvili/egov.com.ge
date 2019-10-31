@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Criteria extends Model
 {
+    public $timestamps = [];
     protected $fillable = ['name', 'rate_id', 'parent_criteria_id', 'percent_in_total', 'max_point', 'yes_point', 'no_point'];
 
     public function rate() {
@@ -18,5 +19,9 @@ class Criteria extends Model
 
     public function subCriterias() {
         return $this->hasMany(Criteria::class, 'parent_criteria_id');
+    }
+
+    public function getIsNumberFormatAttribute() {
+        return $this->max_point != null && $this->yes_point == null;
     }
 }

@@ -40,7 +40,7 @@
                         </h4>
                     </div>
                     <div class="card-body" id="app">
-                        <rate-form></rate-form>
+                        <rate-form csrf="{{ csrf_token() }}"></rate-form>
                         {{--{!! Form::open(array('url' => URL::to('admin/rates'), 'method' => 'post', 'class' => 'form-horizontal', 'files'=> true)) !!}--}}
                         {{--<div class="form-group {{ $errors->first('name', 'has-error') }}">--}}
                             {{--<div class="row mb-3">--}}
@@ -145,5 +145,5 @@
 @stop
 {{-- page level scripts --}}
 @section('footer_scripts')
-    <script src="{{ asset('js/vue/app.js') }}"></script>
+    <script src="{{ asset('js/vue/app.js') }}" defer></script>
 @stop

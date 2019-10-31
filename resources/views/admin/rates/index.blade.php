@@ -48,36 +48,32 @@
                                     <th>ID</th>
                                     <th>დასახელება</th>
                                     <th>პროექტების კატეგორია</th>
-                                    <th>დამატების თარიღი</th>
+                                    <th>მოქმედებები</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @forelse($rates as $rate)
                                     <tr>
-                                        <td>1</td>
-                                        <td>ტესტ</td>
-                                        <td>გენდერული თანასწორობა</td>
-                                        <td>2019-10-10</td>
+                                        <td>{{ $rate->id }}</td>
+                                        <td>{{ $rate->name }}</td>
+                                        <td>{{ $rate->projectCategory->name }}</td>
                                         <td>
-                                            <a href="#"><i
+                                            <a href="{{ route('admin.rates.edit', $rate->id) }}"><i
                                                         class="livicon" data-name="edit" data-size="18" data-loop="true"
                                                         data-c="#428BCA" data-hc="#428BCA"
                                                         title="რედაქტირება"></i></a>
-
-                                            @if(1 == 1)
-                                                <a href="#" data-toggle="modal" data-target="#blogcategory_exists" data-name="ტესტ" class="blogcategory_exists">
-                                                    <i class="livicon" data-name="warning-alt" data-size="18"
-                                                       data-loop="true" data-c="#f56954" data-hc="#f56954"
-                                                       title="კატეგორიაში პროექტები უკვე არსებობს"></i>
-                                                </a>
-                                            @else
-                                                <a href="#" data-toggle="modal" data-id="1" data-target="#delete_confirm">
-                                                    <i class="livicon" data-name="remove-alt" data-size="18"
-                                                       data-loop="true" data-c="#f56954" data-hc="#f56954"
-                                                       title="წაშლა"></i>
-                                                </a>
-                                            @endif
+                                            <a href="#" data-toggle="modal" data-id="{{ $rate->id }}" data-target="#delete_confirm">
+                                                <i class="livicon" data-name="remove-alt" data-size="18"
+                                                   data-loop="true" data-c="#f56954" data-hc="#f56954"
+                                                   title="წაშლა"></i>
+                                            </a>
                                         </td>
                                     </tr>
+                                    @empty
+                                    <tr>
+                                        <td colspan="4">შეფასებები არ არსებობს</td>
+                                    </tr>
+                                @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -102,11 +98,11 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="deleteLabel">კატეგორიის წაშლა</h4>
+                    <h4 class="modal-title" id="deleteLabel">შეფასების წაშლა</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    დარწმუნებული ხართ ხომ გსურთ წაშალოთ პროექტის კატეგორია?
+                    დარწმუნებული ხართ ხომ გსურთ წაშალოთ შეფასება?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
@@ -114,20 +110,6 @@
                 </div>
             </div>
             <!-- /.modal-content -->
-        </div>
-    </div>
-    <div class="modal fade" id="blogcategory_exists" tabindex="-2" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">კატეგორიის წაშლა</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                </div>
-                <div class="modal-body">
-                    პროექტის კატეგორია უკვე მოიცავს ერთ ან რამდენიმე პროექტს
-                </div>
-            </div>
         </div>
     </div>
     <script>
@@ -150,7 +132,7 @@
             var button = $(event.relatedTarget);
             var $recipient = button.data('id');
             var modal = $(this);
-            modal.find('.modal-footer a').prop("href",$url_path+"/admin/project-categories/"+$recipient+"/delete");
+            modal.find('.modal-footer a').prop("href",$url_path+"/admin/rates/"+$recipient+"/delete");
         })
     </script>
 @stop
