@@ -157,7 +157,7 @@
 
         methods: {
             loadProjectCategories() {
-                axios.get('/api/project-categories')
+                axios.get('/api/project-categories/for-rate')
                     .then(response => {
                         this.categories = response.data.data;
                     })

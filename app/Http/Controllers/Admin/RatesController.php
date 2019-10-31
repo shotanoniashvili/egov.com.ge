@@ -70,13 +70,23 @@ class RatesController extends JoshController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Project  $project
+     * @param  \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Project $project)
+    public function update(Request $request, int $id)
     {
-        //
+        $rate = Rate::findOrFail($id);
+
+        $rateData = json_decode($request->data);
+
+        try {
+            $rate->updateRate($rateData->name, $rateData->project_category_id, $rateData->criterias);
+
+            return redirect('admin/rates')->with('success', 'შეფასება წარმატებით დარედაქტირდა');
+        } catch (\Exception $e) {
+            return redirect()->back()->withInput()->with('error', 'დაფიქსირდა შეცდომა შეფასების რედაქტირების დროს.');
+        }
     }
 
     /**

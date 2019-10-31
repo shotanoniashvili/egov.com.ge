@@ -9,6 +9,7 @@ use App\Models\Municipality;
 use App\Models\Person;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\Rate;
 use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +22,11 @@ class ProjectCategoryController extends JoshController
     /**
      * Display the specified resource.
      */
-    public function index()
+    public function getCategoriesForRates()
     {
-        $projectCategories = ProjectCategory::all();
+        $rates = Rate::all()->pluck('project_category_id')->toArray();
+
+        $projectCategories = ProjectCategory::whereNotIn('id', $rates)->get();
 
         return response()->json(['data' => $projectCategories]);
     }
