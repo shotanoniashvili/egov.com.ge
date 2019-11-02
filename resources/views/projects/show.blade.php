@@ -47,14 +47,16 @@
             <!-- Business Deal Section Start -->
             <div class="col-sm-8 col-md-8">
                 @include('notifications')
-                <h2 class="primary marl12 my-3">
+                <h2 class="primary marl12 my-3 position-relative">
                     {{ $project->title }}
-                    @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
-                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="float-right btn btn-primary"><i class="fa fa-edit"></i> რედაქტირება</a>
-                    @endif
-                    @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასების პროცესშია')
-                        <a href="{{ route('projects.evaluate', $project->id) }}" class="float-right btn btn-success"><i class="fa fa-check"></i> შეფასება</a>
-                    @endif
+                    <div class="project-actions">
+                        @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
+                            <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i> რედაქტირება</a>
+                        @endif
+                        @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასების პროცესშია')
+                            <a href="{{ route('projects.evaluate', $project->id) }}" class="btn btn-success"><i class="fa fa-check"></i> შეფასება</a>
+                        @endif
+                    </div>
                 </h2>
                 <div class=" thumbnail featured-post-wide img">
                     @if($project->picture)

@@ -195,6 +195,8 @@ class ProjectController extends Controller
     }
 
     public function showEvaluateForm(int $id) {
+        $project = Project::findOrFail($id);
 
+        return view('projects.evaluate', compact('project'));
     }
 }

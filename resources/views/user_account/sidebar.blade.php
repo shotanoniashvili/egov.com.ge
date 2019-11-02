@@ -16,13 +16,13 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link{{ Request::is('my-account/to-be-evaluated') ? ' text-primary' : '' }}" href="{{ URL::to('my-account/to-evaluate') }}">შესაფასებელი პროექტები
+                <a class="nav-link{{ Request::is('my-account/to-evaluate') ? ' text-primary' : '' }}" href="{{ URL::to('my-account/to-evaluate') }}">შესაფასებელი პროექტები
                     <span class="badge badge-warning">{{ count($user->getProjectsToEvaluate()) }}</span>
                 </a>
             </li>
         @endif
         <li class="nav-item">
-            <a class="nav-link{{ Request::is('my-account') ? ' text-primary' : '' }}" href="#">პროფილი</a>
+            <a class="nav-link{{ Request::is('my-account') ? ' text-primary' : '' }}" href="{{ URL::to('my-account') }}">პროფილი</a>
         </li>
     </ul>
 </div>

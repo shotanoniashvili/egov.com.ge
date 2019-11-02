@@ -47,11 +47,11 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function scopeEvaluated($query) {
-        return $query;
+        return $query->whereNotNull('rating_points');
     }
 
     public function scopeToEvaluate($query) {
-        return $query;
+        return $query->whereNull('rating_points');
     }
 
     public function scopeArchive($query) {

@@ -417,3 +417,11 @@ html, body {
 .body {
     min-height: calc(100vh - 50px);
 }
+
+.text-muted {
+    color: #959b9f !important;
+}
+
+.small-1 {
+    font-size: 70%;
+}

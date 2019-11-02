@@ -18,6 +18,7 @@ class RateResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'project_category_id' => $this->project_category_id,
+            'project_category' => $this->projectCategory,
             'criterias' => CriteriaResource::collection($this->criterias)
         ];
     }

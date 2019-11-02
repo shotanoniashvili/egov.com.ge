@@ -142,3 +142,16 @@ a[target] {
 .media_list1 {
     padding: 0;
 }
+
+
+.project-actions {
+    position: absolute;
+    right: -250px;
+    top: 0;
+    width: 150px;
+}
+
+.project-actions button {
+    width: 100%;
+    display: block;
+}

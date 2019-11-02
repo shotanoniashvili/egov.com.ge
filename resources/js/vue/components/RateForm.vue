@@ -170,6 +170,8 @@
                 axios.get('/admin/rates/'+this.rateId+'/json')
                     .then(response => {
                         this.rate = response.data.data;
+
+                        this.categories.unshift(this.rate.project_category);
                     })
                     .catch(error => {
                         console.log(error.message);
