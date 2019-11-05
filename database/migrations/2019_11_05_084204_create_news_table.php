@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateNewsTable extends Migration
 {
@@ -18,7 +18,9 @@ class CreateNewsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('image');
-            $table->string('category');
+            $table->string('category')->default('');
+            $table->boolean('is_draft')->default(0);
+            $table->unsignedInteger('views')->default(0);
             $table->timestamps();
         });
     }

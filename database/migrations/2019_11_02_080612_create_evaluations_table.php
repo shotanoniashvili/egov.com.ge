@@ -21,7 +21,6 @@ class CreateEvaluationsTable extends Migration
             $table->string('evaluation')->nullable();
             $table->integer('point')->nullable();
             $table->integer('percent_in_total')->nullable();
-            $table->integer('total_points')->nullable();
             $table->timestamps();
 
             $table->foreign('project_id')->references('id')->on('projects');

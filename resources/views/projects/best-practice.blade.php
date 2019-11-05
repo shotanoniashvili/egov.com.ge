@@ -54,7 +54,7 @@
                                     <h4 class="primary mt-1">
                                         <a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a>
                                     </h4>
-                                    <p class="project-content">{{ $project->getShortDescription() }}</p>
+                                    <p class="project-content">{!! $project->getShortDescription() !!}</p>
 
                                     <p class="additional-post-wrap">
                                         <span class="d-block">მუნიციპალიტეტი: {{ $project->municipality->name }}</span>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
+use App\Models\Criteria;
+use App\Models\Evaluation;
 use App\Models\Municipality;
 use App\Models\Person;
 use App\Models\Project;
@@ -104,7 +106,7 @@ class ProjectController extends Controller
                 Sentinel::getUser()->id,
                 $request->documents);
             DB::commit();
-            return redirect()->route('my-account.uploaded')->withSuccess('პრაქტიკა/ინიციატივე წარმატებით დაემატა');
+            return redirect()->route('my-account.uploaded')->withSuccess('პრაქტიკა/ინიციატივა წარმატებით დაემატა');
         } catch (\Exception $e) {
             DB::rollBack();
             Log::error("ProjectController->store::$request -> ".json_encode($request->all()) . ". \n\rMessage: ".$e->getMessage());
@@ -195,8 +197,93 @@ class ProjectController extends Controller
     }
 
     public function showEvaluateForm(int $id) {
+        $user = Sentinel::getUser();
+
+        if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
+
         $project = Project::findOrFail($id);
+        if($project->rating_points != null) return abort(404);
 
         return view('projects.evaluate', compact('project'));
+    }
+
+    public function evaluate(Request $request, int $id) {
+        $user = Sentinel::getUser();
+
+        if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
+
+        $project = Project::findOrFail($id);
+        if($project->rating_points != null) return abort(404);
+
+        DB::beginTransaction();
+        try {
+            $parentCriteriaPercents = 0;
+            foreach ($request->criterias as $criteriaId => $value) {
+                $criteria = Criteria::findOrFail($criteriaId);
+
+                $parentEvaluation = Evaluation::create([
+                    'project_id' => $id,
+                    'criteria' => $criteria->name,
+                    'percent_in_total' => $criteria->percent_in_total,
+                ]);
+
+                $totalPoints = 0;
+                foreach ($value as $subCriteriaId => $evaluatedValue) {
+                    $subCriteria = Criteria::findOrFail($subCriteriaId);
+
+                    $point = $evaluatedValue;
+                    $evaluation = null;
+                    if(is_array($evaluatedValue) && array_key_exists('yesno', $evaluatedValue)) {
+                        if($evaluatedValue['yesno'] == 1) {
+                            $point = $subCriteria->yes_point;
+                            $evaluation = 'კი';
+                        }
+                        if($evaluatedValue['yesno'] == 0) {
+                            $point =  $subCriteria->no_point;
+                            $evaluation = 'არა';
+                        }
+                    }
+
+                    if($subCriteria->max_point != null && $point > $subCriteria->max_point) {
+                        return redirect()->back()->withInput()->withError('შეფასების ქულა არ უნდა აღემატებოდეს შესაბამისი კრიტერიუმის მაქსიმალურ ქულას');
+                    }
+
+                    $subEvaluation = Evaluation::create([
+                        'parent_id' => $parentEvaluation->id,
+                        'project_id' => $id,
+                        'criteria' => $subCriteria->name,
+                        'evaluation' => $evaluation,
+                        'point' => $point,
+                    ]);
+
+                    $totalPoints += $point;
+                }
+
+                $parentEvaluation->total_points = $totalPoints;
+                $parentEvaluation->save();
+                $totalPointsPercent = number_format($parentEvaluation->total_points / $criteria->getMaxTotalPoints() * 100, 2);
+
+                $parentCriteriaPercents += number_format($totalPointsPercent * $criteria->percent_in_total / 100, 2);
+            }
+
+            $project->rating_points = $parentCriteriaPercents != 0 ? number_format($parentCriteriaPercents / 10, 2) : 0;
+            $project->save();
+
+            DB::commit();
+            return redirect()->route('projects.rating', $id);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect()->back()->withInput()->withError('დაფიქსირდა შეცდომა პრაქტიკის/ინიციატივის შეფასების დროს');
+        }
+    }
+
+    public function rating(int $id) {
+        $project = Project::with('evaluations')->where('id', $id)->firstOrFail();
+
+        if($project->getStatus() != 'შეფასებულია') {
+            abort(404);
+        }
+
+        return view('projects.evaluated', compact('project'));
     }
 }

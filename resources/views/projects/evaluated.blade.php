@@ -42,58 +42,46 @@
     </div>
 @stop
 
-
 {{-- Page content --}}
 @section('content')
     <!-- Container Section Start -->
     <div class="container mt-5 mb-5">
         <div class="welcome">
-            <h3>საუკეთესო პრაქტიკა / ინიციატივის შეფასება</h3>
+            <h3>{{ $project->title }} / შეფასება</h3>
+            <span class="text-muted">საერთო რეიტინგი: {{ $project->rating_points }}</span>
+            @if($user->roles()->where('slug', 'admin')->count() > 0)
+                <a class="ml-3 btn btn-danger btn-sm" href="{{ route('admin.projects.delete-evaluation', $project->id) }}"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>
+            @endif
         </div>
         <hr>
         <div class="row content mt-5">
             <!-- Business Deal Section Start -->
             <div class="col-sm-12 col-md-8">
                 @include('notifications')
-                <form action="{{ route('projects.evaluate', $project->id) }}" method="post">
-                    @csrf
-                    @foreach($project->category->rates->criterias as $criteria)
-                        <div class="criteria-container mb-5">
-                            <h3><strong>{{ $criteria->name }}</strong> <span class="text-muted small-1 d-block font-weight-normal">საერთო ქულის პროცენტი: <u>{{ $criteria->percent_in_total }}%</u></span></h3>
-                            <hr>
-                            @foreach($criteria->subCriterias as $subCriteria)
-                                <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
-                                    <div class="subcriteria-name"><h4>{{ $subCriteria->name }}</h4></div>
-                                    @if($subCriteria->isNumberFormat)
-                                        <div class="subcriteria-value mt-1">
-                                            ქულა:
-                                            <input name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}]" type="text" class="form-control d-inline-block w-auto" />
-                                            <span class="text-muted small">მან: 0; მაქს: {{ $subCriteria->max_point }}</span>
-                                        </div>
-                                    @else
-                                        <div class="subcriteria-value mt-1">
-                                            <span class="mr-2">პასუხი:</span>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][yesno]" id="sub_yes{{$subCriteria->id}}" type="radio" value="1">
-                                                <label class="form-check-label" for="sub_yes{{$subCriteria->id}}">კი</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][yesno]" id="sub_no{{$subCriteria->id}}" type="radio" value="0">
-                                                <label class="form-check-label" for="sub_no{{$subCriteria->id}}">არა</label>
-                                            </div>
-                                            <span class="text-muted small d-block">კი: {{ $subCriteria->yes_point }} ქ.; არა: {{ $subCriteria->no_point }} ქ.</span>
-                                        </div>
-                                    @endif
-                                </div>
-                            @endforeach
-                        </div>
-                    @endforeach
-
-                    <div class="text-center">
-                        <button class="btn btn-success">შეფასება</button>
-                        <a href="{{ URL::to('my-account/to-evaluate') }}" class="btn btn-warning">უარყოფა</a>
+                @foreach($project->evaluations as $evaluation)
+                    <div class="criteria-container mb-5">
+                        <h3>
+                            <strong>{{ $evaluation->criteria }}</strong>
+                            <span class="text-muted small-1 d-block font-weight-normal">საერთო ქულის პროცენტი: <u>{{ $evaluation->percent_in_total }}%</u></span>
+                            <span class="text-muted small-1 d-block font-weight-normal">ქულების ჯამი: {{ $evaluation->total_points }}</span>
+                        </h3>
+                        <hr>
+                        @foreach($evaluation->subEvaluations as $subEvaluation)
+                            <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
+                                <div class="subcriteria-name"><h4>{{ $subEvaluation->criteria }}</h4></div>
+                                @if(!$subEvaluation->evaluation)
+                                    <div class="subcriteria-value mt-1">
+                                        ქულა: <span>{{ $subEvaluation->point }}</span>
+                                    </div>
+                                @else
+                                    <div class="subcriteria-value mt-1">
+                                        <span class="mr-2">პასუხი: {{ $subEvaluation->evaluation }}. {{ $subEvaluation->point }} ქულა</span>
+                                    </div>
+                                @endif
+                            </div>
+                        @endforeach
                     </div>
-                </form>
+                @endforeach
             </div>
             <div class="col-sm-12 col-md-4">
                 <div class=" thumbnail featured-post-wide img">

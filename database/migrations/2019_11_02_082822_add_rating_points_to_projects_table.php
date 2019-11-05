@@ -14,7 +14,7 @@ class AddRatingPointsToProjectsTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->integer('rating_points')->after('is_active_for_web')->nullable();
+            $table->decimal('rating_points')->after('is_active_for_web')->nullable();
         });
     }
 

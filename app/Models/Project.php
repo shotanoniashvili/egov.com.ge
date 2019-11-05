@@ -19,8 +19,10 @@ class Project extends Model implements \App\Interfaces\Searchable
         'user_id',
         'is_archive',
         'is_active_for_experts',
-        'is_active_for_web'
+        'is_active_for_web',
+        'rating_points'
         ];
+
 
     public function category() {
         return $this->belongsTo(ProjectCategory::class, 'category_id');
@@ -36,6 +38,10 @@ class Project extends Model implements \App\Interfaces\Searchable
 
     public function documents() {
         return $this->hasMany(ProjectDocument::class, 'project_id');
+    }
+
+    public function evaluations() {
+        return $this->hasMany(Evaluation::class, 'project_id')->whereNull('parent_id');
     }
 
     public function scopeActiveForWeb($query) {
@@ -82,6 +88,7 @@ class Project extends Model implements \App\Interfaces\Searchable
      * @param bool $isActiveForExperts
      * @param bool $isActiveForWeb
      * @param null $projectDate
+     * @param null $ratingPoint
      * @throws \Exception
      */
     public static function createProject($title,
@@ -94,7 +101,8 @@ class Project extends Model implements \App\Interfaces\Searchable
                                          $isArchive = false,
                                          $isActiveForExperts = true,
                                          $isActiveForWeb = false,
-                                         $projectDate = null) {
+                                         $projectDate = null,
+                                         $ratingPoint = null) {
         try {
             $project = new Project();
 
@@ -108,6 +116,7 @@ class Project extends Model implements \App\Interfaces\Searchable
             $project->is_active_for_web = $isActiveForWeb;
             if($projectDate !== null && $projectDate !== '') {
                 $project->created_at = \DateTime::createFromFormat('Y', $projectDate);
+                $project->rating_points = $ratingPoint;
             }
 
             if($image) {
@@ -143,6 +152,7 @@ class Project extends Model implements \App\Interfaces\Searchable
      * @param bool $isActiveForExperts
      * @param bool $isActiveForWeb
      * @param null $projectDate
+     * @param null $ratingPoint
      * @throws \Exception
      */
     public function updateProject($title,
@@ -155,7 +165,8 @@ class Project extends Model implements \App\Interfaces\Searchable
                                          $isArchive = false,
                                          $isActiveForExperts = true,
                                          $isActiveForWeb = false,
-                                         $projectDate = null) {
+                                         $projectDate = null,
+                                         $ratingPoint = null) {
         try {
             $this->title = $title;
             $this->category_id = $categoryId;
@@ -167,6 +178,7 @@ class Project extends Model implements \App\Interfaces\Searchable
             $this->is_active_for_web = $isActiveForWeb;
             if($projectDate !== null && $projectDate !== '') {
                 $this->created_at = \DateTime::createFromFormat('Y', $projectDate);
+                $this->rating_points = $ratingPoint;
             }
 
             if($image) {
@@ -224,7 +236,9 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function getStatus() {
-        if($this->is_active_for_experts && !$this->is_active_for_web) return 'შეფასების პროცესშია';
+        if($this->rating_points !== null) return 'შეფასებულია';
+
+        if(($this->is_active_for_experts && !$this->is_active_for_web) || $this->rating_points == null) return 'შეფასების პროცესშია';
 
         if(!$this->is_active_for_experts && !$this->is_active_for_web) return 'უარყოფილია';
 
@@ -238,8 +252,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function getRating() {
-        // TODO
-        return '-';
+        return $this->rating_points;
     }
 
     public function delete() {

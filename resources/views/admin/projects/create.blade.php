@@ -147,6 +147,15 @@
                                                     {!! $errors->first('date', '<span class="help-block">:message</span>') !!}
                                                 </div>
                                             </div>
+
+                                            <div class="row mt-2">
+                                                <label for="rating_points" class="col-sm-12 col-md-4 control-label">შეფასების ქულა *</label>
+                                                <div class="col-sm-12 col-md-8">
+                                                    <input id="rating_points" name="rating_points" class="form-control required" value="{{ old('rating_points') }}">
+
+                                                    {!! $errors->first('rating_points', '<span class="help-block">:message</span>') !!}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="tab-pane" id="tab2" disabled="disabled">

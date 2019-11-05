@@ -32,7 +32,8 @@ class ProjectRequest extends FormRequest
             'picture' => 'nullable|mimes:png,jpg,gif,bmp,jpeg',
             'documents' => 'nullable|array',
             // TODO 'documents.*' => 'nullable|max:20MB|mimes:docx,doc,xlsx,xls,pdf,csv',
-            'project_date' => 'nullable|date_format:"Y-m-d"'
+            'project_date' => 'nullable|date_format:"Y-m-d"',
+            'rating_points' => 'nullable|numeric'
         ];
     }
 }

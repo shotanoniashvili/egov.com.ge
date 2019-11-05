@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['parent_id', 'project_id', 'criteria', 'evaluation', 'point', 'percent_in_total'];
+    protected $fillable = ['parent_id', 'project_id', 'criteria', 'evaluation', 'point', 'percent_in_total', 'total_points'];
 
     public function parentEvaluation() {
         return $this->belongsTo(Evaluation::class, 'parent_id');

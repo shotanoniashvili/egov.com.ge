@@ -56,6 +56,9 @@
                         @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასების პროცესშია')
                             <a href="{{ route('projects.evaluate', $project->id) }}" class="btn btn-success"><i class="fa fa-check"></i> შეფასება</a>
                         @endif
+                        @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასებულია')
+                            <a href="{{ route('projects.rating', $project->id) }}" class="btn btn-success"><i class="fa fa-check"></i> შეფასების ნახვა</a>
+                        @endif
                     </div>
                 </h2>
                 <div class=" thumbnail featured-post-wide img">

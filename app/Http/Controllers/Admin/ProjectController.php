@@ -269,4 +269,23 @@ class ProjectController extends JoshController
             return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
         }
     }
+
+    public function deleteEvaluation(int $id) {
+        try {
+            $project = Project::with('evaluations')->where('id', $id)->firstOrFail();
+
+            $project->rating_points = null;
+            $project->save();
+
+            foreach ($project->evaluations as $evaluation) {
+                $evaluation->subEvaluations()->delete();
+            }
+
+            $project->evaluations()->delete();
+
+            return redirect()->route('projects.show', $id);
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა შეფასების წაშლის დროს. '.$e->getMessage());
+        }
+    }
 }
