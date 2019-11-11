@@ -24,8 +24,7 @@ class ProjectController extends Controller
      */
     public function bestPractice(Request $request)
     {
-        // TODO only winner and activeForWeb projects
-        $projects = Project::activeForWeb()->notArchive();
+        $projects = Project::activeForWeb()->notArchive()->bestPractise();
 
         $this->applyFilters($projects, $request);
 

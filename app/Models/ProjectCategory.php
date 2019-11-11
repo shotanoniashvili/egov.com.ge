@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectCategory extends Model
 {
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'year'];
 
     public function projects() {
         return $this->hasMany(Project::class, 'category_id');
@@ -18,5 +18,9 @@ class ProjectCategory extends Model
 
     public function rates() {
         return $this->hasOne(Rate::class, 'project_category_id');
+    }
+
+    public function scopeCurrentYear($query) {
+        return $query->where('year', (new \DateTime())->format('Y-m-d'));
     }
 }

@@ -44,13 +44,27 @@
                         <div class="form-group {{ $errors->first('name', 'has-error') }}">
                             <div class="row">
                                 <label for="title" class="col-sm-4 control-label">
-                                    პროექტის კატეგორიის დამატება
+                                    დასახელება
                                 </label>
                                 <div class="col-sm-4">
                                     {!! Form::text('name', old('name'), array('class' => 'form-control', 'placeholder'=>'დასახელება')) !!}
                                 </div>
                                 <div class="col-sm-4">
                                     {!! $errors->first('name', '<span class="help-block">:message</span> ') !!}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group {{ $errors->first('year', 'has-error') }}">
+                            <div class="row">
+                                <label for="title" class="col-sm-4 control-label">
+                                    წელი
+                                </label>
+                                <div class="col-sm-4">
+                                    {!! Form::text('year', old('year') !== null ? old('year') : (new \DateTime)->format('Y'), array('class' => 'form-control', 'placeholder'=>'წელი')) !!}
+                                </div>
+                                <div class="col-sm-4">
+                                    {!! $errors->first('year', '<span class="help-block">:message</span> ') !!}
                                 </div>
                             </div>
                         </div>

@@ -41,7 +41,7 @@
                         {!! Form::model($projectcategory, ['url' => URL::to('admin/project-categories') . '/' . $projectcategory->id, 'method' => 'put', 'class' => 'form-horizontal']) !!}
                         <div class="form-group {{ $errors->first('name', 'has-error') }}">
                             <label for="name" class="col-sm-4 control-label">
-                                პროექტის კატეგორიის რედაქტირება
+                                დასახელება
                             </label>
                             <div class="col-sm-4">
                                 {!! Form::text('name', $projectcategory->name, array('class' => 'form-control', 'placeholder'=>'დასახელება')) !!}
@@ -50,6 +50,19 @@
                                 {!! $errors->first('name', '<span class="help-block">:message</span>') !!}
                             </div>
                         </div>
+
+                        <div class="form-group {{ $errors->first('year', 'has-error') }}">
+                            <label for="title" class="col-sm-4 control-label">
+                                წელი
+                            </label>
+                            <div class="col-sm-4">
+                                {!! Form::text('year', $projectcategory->year, array('class' => 'form-control', 'placeholder'=>'წელი')) !!}
+                            </div>
+                            <div class="col-sm-4">
+                                {!! $errors->first('year', '<span class="help-block">:message</span> ') !!}
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4">
                                 <a class="btn btn-danger" href="{{ URL::to('admin/project-categories') }}">

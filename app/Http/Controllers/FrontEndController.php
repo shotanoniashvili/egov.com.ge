@@ -119,7 +119,7 @@ class FrontEndController extends JoshController
      */
     public function showUploadForm()
     {
-        $categories = ProjectCategory::all();
+        $categories = ProjectCategory::currentYear()->get();
         $municipalities = Municipality::all();
         $user = Sentinel::getUser();
 

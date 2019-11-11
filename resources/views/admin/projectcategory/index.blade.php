@@ -47,6 +47,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>დასახელება</th>
+                                    <th>წელი</th>
                                     <th>პროექტების რაოდენობა</th>
                                     <th>დამატების თარიღი</th>
                                     <th>მოქმედებები</th>
@@ -58,6 +59,7 @@
                                         <tr>
                                             <td>{{{ $pcategory->id }}}</td>
                                             <td>{{{ $pcategory->name }}}</td>
+                                            <td>{{{ $pcategory->year }}}</td>
                                             <td>{{{ $pcategory->projects()->count() }}}</td>
                                             <td>{{{ $pcategory->created_at->diffForHumans() }}}</td>
                                             <td>

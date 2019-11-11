@@ -11,7 +11,7 @@
             <div class="form-group col-sm-6 col-xs-12 col-md-4">
                 <select class="form-control select2" data-placeholder="კატეგორიები" name="categories[]" multiple>
                     @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ (is_array(request()->categories) && in_array($category->id, request()->categories)) ? 'selected' : '' }}>{{ $category->name }}</option>
+                        <option value="{{ $category->id }}" {{ (is_array(request()->categories) && in_array($category->id, request()->categories)) ? 'selected' : '' }}>{{ $category->name }} - {{ $category->year }}</option>
                     @endforeach
                 </select>
             </div>

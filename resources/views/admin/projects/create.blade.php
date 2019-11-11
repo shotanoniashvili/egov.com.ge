@@ -132,6 +132,16 @@
                                             <div class="row">
                                                 <div class="checkbox col-md-8 col-sm-12 offset-md-4">
                                                     <label>
+                                                        <input type="checkbox" name="is_best_practise" {{ old('is_best_practise') ? 'checked' : '' }} class="custom-checkbox"> დაემატოს როგორც საუკეთესო პრაქტიკა
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="checkbox col-md-8 col-sm-12 offset-md-4">
+                                                    <label>
                                                         <input type="checkbox" name="is_archive" {{ old('is_archive') ? 'checked' : '' }} class="custom-checkbox toggle-date"> დაემატოს როგორც არქივი
                                                     </label>
                                                 </div>

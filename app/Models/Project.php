@@ -17,10 +17,11 @@ class Project extends Model implements \App\Interfaces\Searchable
         'municipality_id',
         'image',
         'user_id',
+        'is_best_practise',
         'is_archive',
         'is_active_for_experts',
         'is_active_for_web',
-        'rating_points'
+        'rating_points',
         ];
 
 
@@ -68,6 +69,10 @@ class Project extends Model implements \App\Interfaces\Searchable
         return $query->where('is_archive', false);
     }
 
+    public function scopeBestPractise($query) {
+        return $query->where('is_best_practise', true);
+    }
+
     public function getShortDescriptionAttribute() {
         return stripslashes($this->attributes['short_description']);
     }
@@ -84,6 +89,7 @@ class Project extends Model implements \App\Interfaces\Searchable
      * @param $image
      * @param $userId
      * @param $documents
+     * @param bool $isBestPractise
      * @param bool $isArchive
      * @param bool $isActiveForExperts
      * @param bool $isActiveForWeb
@@ -98,6 +104,7 @@ class Project extends Model implements \App\Interfaces\Searchable
                                          $image,
                                          $userId,
                                          $documents,
+                                         $isBestPractise = false,
                                          $isArchive = false,
                                          $isActiveForExperts = true,
                                          $isActiveForWeb = false,
@@ -112,6 +119,7 @@ class Project extends Model implements \App\Interfaces\Searchable
             $project->municipality_id = $municipalityId;
             $project->is_archive = $isArchive;
             $project->user_id = $userId;
+            $project->is_best_practise = $isBestPractise;
             $project->is_active_for_experts = $isActiveForExperts;
             $project->is_active_for_web = $isActiveForWeb;
             if($projectDate !== null && $projectDate !== '') {
@@ -148,6 +156,7 @@ class Project extends Model implements \App\Interfaces\Searchable
      * @param $image
      * @param $userId
      * @param $documents
+     * @param bool $isBestPractise
      * @param bool $isArchive
      * @param bool $isActiveForExperts
      * @param bool $isActiveForWeb
@@ -162,6 +171,7 @@ class Project extends Model implements \App\Interfaces\Searchable
                                          $image,
                                          $userId,
                                          $documents,
+                                         $isBestPractise = false,
                                          $isArchive = false,
                                          $isActiveForExperts = true,
                                          $isActiveForWeb = false,
@@ -174,6 +184,7 @@ class Project extends Model implements \App\Interfaces\Searchable
             $this->municipality_id = $municipalityId;
             $this->is_archive = $isArchive;
             $this->user_id = $userId;
+            $this->is_best_practise = $isBestPractise;
             $this->is_active_for_experts = $isActiveForExperts;
             $this->is_active_for_web = $isActiveForWeb;
             if($projectDate !== null && $projectDate !== '') {

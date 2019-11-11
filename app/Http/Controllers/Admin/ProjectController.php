@@ -64,6 +64,7 @@ class ProjectController extends JoshController
                 $request->picture,
                 Sentinel::getUser()->id,
                 $request->documents,
+                $request->is_best_practise ? true : false,
                 $request->is_archive ? true : false,
                 true,
                 true,
@@ -134,6 +135,7 @@ class ProjectController extends JoshController
                 $request->picture,
                 Sentinel::getUser()->id,
                 $request->documents,
+                $request->is_best_practise ? true : false,
                 $request->is_archive ? true : false,
                 true,
                 true,
@@ -227,6 +229,20 @@ class ProjectController extends JoshController
             $project = Project::findOrFail($id);
 
             $project->is_active_for_web = !$project->is_active_for_web;
+
+            $project->save();
+
+            return redirect()->back()->with('success', 'პროექტს წარმატებით შეეცვალა სტატუსი');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა');
+        }
+    }
+
+    public function toggleBestPractise(int $id) {
+        try {
+            $project = Project::findOrFail($id);
+
+            $project->is_best_practise = !$project->is_best_practise;
 
             $project->save();
 
