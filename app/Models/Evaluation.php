@@ -6,22 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['parent_id', 'project_id', 'criteria', 'evaluation', 'point', 'percent_in_total', 'total_points'];
+    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria', 'evaluation', 'point', 'point_type'];
 
     public function parentEvaluation() {
-        return $this->belongsTo(Evaluation::class, 'parent_id');
+        return $this->belongsTo(Evaluation::class, 'parent_evaluation_id');
     }
 
     public function subEvaluations() {
-        return $this->hasMany(Evaluation::class, 'parent_id');
+        return $this->hasMany(Evaluation::class, 'parent_evaluation_id');
     }
 
     public function project() {
         return $this->belongsTo(Project::class, 'project_id');
-    }
-
-    public function getIsNumberFormatAttribute() {
-        return $this->evaluation == null;
     }
 
     public function getIsSubcriteriaAttribute() {
