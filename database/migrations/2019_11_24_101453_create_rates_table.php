@@ -15,8 +15,8 @@ class CreateRatesTable extends Migration
     {
         Schema::create('rates', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->unsignedBigInteger('project_category_id')->unique();
+            $table->string('name', 191)->unique();
+            $table->unsignedBigInteger('project_category_id');
 
             $table->foreign('project_category_id')->references('id')->on('project_categories');
         });

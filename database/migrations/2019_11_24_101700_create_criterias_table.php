@@ -15,16 +15,12 @@ class CreateCriteriasTable extends Migration
     {
         Schema::create('criterias', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->text('name');
             $table->unsignedBigInteger('rate_id');
+            $table->text('name');
             $table->unsignedBigInteger('parent_criteria_id')->nullable();
-            $table->unsignedInteger('percent_in_total')->nullable();
-            $table->unsignedInteger('max_point')->nullable();
-            $table->unsignedInteger('yes_point')->nullable();
-            $table->unsignedInteger('no_point')->nullable();
-
-            $table->foreign('rate_id')->references('id')->on('rates');
-            $table->foreign('parent_criteria_id')->references('id')->on('criterias');
+            $table->integer('yes_point')->nullable();
+            $table->integer('no_point')->nullable();
+            $table->boolean('is_percentable')->nullable();
         });
     }
 
