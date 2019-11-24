@@ -18,13 +18,12 @@ class CriteriaResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'rate_id' => $this->rate_id,
-            'percent_in_total' => $this->percent_in_total,
             'parent_criteria_id' => $this->parent_criteria_id,
             'subcriterias' => CriteriaResource::collection($this->subCriterias),
-            'max_point' => $this->max_point,
             'yes_point' => $this->yes_point,
             'no_point' => $this->no_point,
-            'number_field' => (int)($this->max_point !== null && $this->yes_point == null)
+            'is_percentable' => $this->isPercentable,
+            'point_type' => $this->getPointType()
         ];
     }
 }

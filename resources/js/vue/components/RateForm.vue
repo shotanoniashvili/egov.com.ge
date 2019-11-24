@@ -43,7 +43,6 @@
                             </label>
                             <div class="col-sm-4">
                                 <input class="form-control mb-1" placeholder="კრიტერიუმის დასახელება" type="text" v-model="criteria.name" />
-                                <input class="form-control" placeholder="საერთო ქულის პროცენტი" type="number" v-model="criteria.percent_in_total" />
                             </div>
                             <div class="col-md-4">
                                 <a class="btn btn-danger" @click="removeCriteria(i)">კრიტერიუმის წაშლა</a>
@@ -58,19 +57,20 @@
                                     </li>
                                     <li class="mb-2">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" :id="'sub_number'+j" type="radio" v-model="subcriteria.number_field" value="1">
-                                            <label class="form-check-label" :for="'sub_number'+j">ციფრული მნიშვნელობა</label>
+                                            <input class="form-check-input" :id="'sub_free'+j" type="radio" v-model="subcriteria.point_type" value="free_point">
+                                            <label class="form-check-label" :for="'sub_free'+j">საექსპერტო შეფასება</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" :id="'sub_yes_no'+j" type="radio" v-model="subcriteria.number_field" value="0">
+                                            <input class="form-check-input" :id="'sub_percent'+j" type="radio" v-model="subcriteria.point_type" value="percentable">
+                                            <label class="form-check-label" :for="'sub_percent'+j">პროცენტული მაჩვენებელი</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" :id="'sub_yes_no'+j" type="radio" v-model="subcriteria.point_type" value="yes_no">
                                             <label class="form-check-label" :for="'sub_yes_no'+j">კი ან არა</label>
                                         </div>
                                     </li>
                                     <li class="mb-2">
-                                        <div class="number-field-container" v-if="parseInt(subcriteria.number_field) === 1">
-                                            <input type="number" placeholder="მაქსიმალური ქულა" class="form-control" v-model="subcriteria.max_point" />
-                                        </div>
-                                        <div class="yes-or-no-field-container" v-if="parseInt(subcriteria.number_field) === 0">
+                                        <div class="yes-or-no-field-container" v-if="subcriteria.point_type === 'yes_no'">
                                             <div class="row">
                                                 <div class="col-sm-6">
                                                     <input type="number" placeholder="კის მინშვნელობა" class="form-control" v-model="subcriteria.yes_point" />
@@ -126,11 +126,9 @@
                     criterias: [
                         {
                             name: '',
-                            percent_in_total: '',
                             subcriterias: [{
                                 name: '',
-                                number_field: '1',
-                                max_point: '',
+                                point_type: 'free_point',
                                 yes_point: '',
                                 no_point: ''
                             }]

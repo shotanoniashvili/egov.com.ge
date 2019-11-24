@@ -7,9 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Criteria extends Model
 {
     public $timestamps = [];
-    protected $fillable = ['name', 'rate_id', 'parent_criteria_id', 'percent_in_total', 'max_point', 'yes_point', 'no_point'];
-
-    protected $appends = ['total_max_points'];
+    protected $fillable = ['name', 'rate_id', 'parent_criteria_id', 'yes_point', 'no_point', 'is_percentable'];
 
     public function rate() {
         return $this->belongsTo(Rate::class, 'rate_id');
@@ -23,23 +21,21 @@ class Criteria extends Model
         return $this->hasMany(Criteria::class, 'parent_criteria_id');
     }
 
-    public function getIsNumberFormatAttribute() {
-        return $this->max_point != null && $this->yes_point == null;
+    public function getIsYesNoPointAttribute() {
+        return $this->yes_point !== null && $this->no_point !== null;
     }
 
-    public function getMaxTotalPoints() {
-        if(!$this->total_max_points) {
-            $this->total_max_points = 0;
-            foreach ($this->subCriterias as $criteria) {
-                if($criteria->max_point != null) {
-                    $this->total_max_points += $criteria->max_point;
-                } else {
-                    if($criteria->yes_point > $criteria->no_point) $this->total_max_points += $criteria->yes_point;
-                    if($criteria->yes_point < $criteria->no_point) $this->total_max_points += $criteria->no_point;
-                }
-            }
-        }
+    public function getIsPercentableAttribute() {
+        return (bool)$this->attributes['is_percentable'];
+    }
 
-        return $this->total_max_points;
+    public function getIsFreePointAttribute() {
+        return !$this->isYesNoPoint && !$this->isPercentable;
+    }
+
+    public function getPointType() {
+        if($this->isYesNoPoint) return 'yes_no';
+        if($this->isPercentable) return 'percentable';
+        if($this->isFreePoint) return 'free_point';
     }
 }

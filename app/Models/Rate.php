@@ -37,23 +37,24 @@ class Rate extends Model
             ]);
 
             foreach ($criterias as $criteriaData) {
-                //'name', 'rate_id', 'parent_criteria_id', 'percent_in_total', 'max_point', 'yes_point', 'no_point'
+                //'name', 'rate_id', 'parent_criteria_id', 'yes_point', 'no_point', 'is_percentable
                 $criteria = Criteria::create([
                     'name' => $criteriaData->name,
                     'rate_id' => $rate->id,
-                    'percent_in_total' => $criteriaData->percent_in_total,
                 ]);
 
                 foreach ($criteriaData->subcriterias as $subcriteriaData) {
                     $subcriteria = new Criteria([
                         'name' => $subcriteriaData->name,
                         'rate_id' => $rate->id,
-                        'parent_criteria_id' => $criteria->id,
+                        'parent_criteria_id' => $criteria->id
                     ]);
 
-                    if($subcriteriaData->number_field == 1) {
-                        $subcriteria->max_point = $subcriteriaData->max_point;
-                    } else {
+                    if($subcriteriaData->point_type == 'percentable') {
+                        $subcriteria->is_percentable = true;
+                    }
+
+                    if($subcriteriaData->point_type == 'yes_no') {
                         $subcriteria->yes_point = $subcriteriaData->yes_point;
                         $subcriteria->no_point = $subcriteriaData->no_point;
                     }
@@ -88,19 +89,20 @@ class Rate extends Model
                 $criteria = Criteria::create([
                     'name' => $criteriaData->name,
                     'rate_id' => $this->id,
-                    'percent_in_total' => $criteriaData->percent_in_total,
                 ]);
 
                 foreach ($criteriaData->subcriterias as $subcriteriaData) {
                     $subcriteria = new Criteria([
                         'name' => $subcriteriaData->name,
                         'rate_id' => $this->id,
-                        'parent_criteria_id' => $criteria->id,
+                        'parent_criteria_id' => $criteria->id
                     ]);
 
-                    if($subcriteriaData->number_field == 1) {
-                        $subcriteria->max_point = $subcriteriaData->max_point;
-                    } else {
+                    if($subcriteriaData->point_type == 'percentable') {
+                        $subcriteria->is_percentable = true;
+                    }
+
+                    if($subcriteriaData->point_type == 'yes_no') {
                         $subcriteria->yes_point = $subcriteriaData->yes_point;
                         $subcriteria->no_point = $subcriteriaData->no_point;
                     }
