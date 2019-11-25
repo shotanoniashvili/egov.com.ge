@@ -35,7 +35,7 @@
             <div class="col-sm-11 col-md-12 col-full-width-right">
                 <div class="blog-detail-image mrg_btm15">
                     @if(!empty($news->image))
-                        <img src="{{URL::to('uploads/news/'.$news->image)}}" class="img-responsive" alt="Image">
+                        <img src="{{URL::to($news->image)}}" class="img-responsive" alt="Image">
                     @else
                         <img data-src="holder.js/791x380/#6cc66c:#fff" class="img-responsive" alt="Image">
                     @endif

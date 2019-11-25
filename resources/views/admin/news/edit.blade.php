@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    @lang('news/title.edit')
+    სიახლის რედაქტირება
     @parent
 @stop
 
@@ -24,18 +24,18 @@
 @section('content')
     <section class="content-header">
         <!--section starts-->
-        <h1>@lang('news/title.edit')</h1>
+        <h1>სიახლის რედაქტირება</h1>
         <ol class="breadcrumb">
             <li>
                 <a href="{{ route('admin.dashboard') }}"> <i class="livicon" data-name="home" data-size="14"
                                                              data-c="#000" data-loop="true"></i>
-                    @lang('general.home')
+                    მთავარი
                 </a>
             </li>
             <li>
-                <a href="#">@lang('news/title.news')</a>
+                <a href="#">სიახლეები</a>
             </li>
-            <li class="active">@lang('news/title.edit')</li>
+            <li class="active">რედაქტირება</li>
         </ol>
     </section>
     <!--section ends-->
@@ -48,30 +48,25 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="form-group {{ $errors->first('title', 'has-error') }}">
-                            {!! Form::text('title', null, array('class' => 'form-control input-lg', 'placeholder'=>trans('blog/form.ph-title'))) !!}
+                            {!! Form::text('title', null, array('class' => 'form-control input-lg', 'placeholder'=>'სათაური')) !!}
                             <span class="help-block">{{ $errors->first('title', ':message') }}</span>
                         </div>
                         <div class='box-body pad {{ $errors->first('content', 'has-error') }}'>
-                            {!! Form::textarea('content',null, array('class' => 'textarea form-control','rows'=>'5','placeholder'=>trans('blog/form.ph-content'), 'style'=>'style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"')) !!}
+                            {!! Form::textarea('content',null, array('class' => 'textarea form-control','rows'=>'5','placeholder'=>'სიახლის ტექსტი', 'id' => 'content')) !!}
                             <span class="help-block">{{ $errors->first('content', ':message') }}</span>
                         </div>
 
                     </div>
                     <!-- /.col-sm-8 -->
                     <div class="col-sm-4">
-                        <div class="form-group {{ $errors->first('category', 'has-error') }}">
-                            <label for="blog_category" class="">News Category</label>
-                            {!! Form::select('category',['popular'=>'popular','hotnews'=>'Hot News','world'=>'Wolrd News','lifestyle'=>'Life Style','business'=>'Business','sports'=>'Sports'], null, ['class' => 'form-control select2', 'id'=>'blog_category' ,'placeholder'=>trans('blog/form.select-category')]) !!}
-                            <span class="help-block">{{ $errors->first('category', ':message') }}</span>
-                        </div>
 
                         <div class="form-group {{ $errors->first('image', 'has-error') }}">
-                            <label class="control-label col-12">@lang('news/form.lb-featured-img')</label>
+                            <label class="control-label col-12">სურათი</label>
                             <div class="fileinput fileinput-new" data-provides="fileinput">
                                 <div class="fileinput-new thumbnail" style="max-width: 200px; max-height: 200px;">
                                     @if(!empty($news->image))
 
-                                        <img src="{{URL::to('uploads/news/'.$news->image)}}" class="img-responsive"
+                                        <img src="{{URL::to($news->image)}}" class="img-responsive"
                                              alt="Image">
                                     @else
                                         <img src="{{ asset('images/authors/no_avatar.jpg') }}" alt="..."
@@ -83,20 +78,20 @@
                                      style="max-width: 200px; max-height: 150px;"></div>
                                 <div>
                                             <span class="btn btn-primary btn-file">
-                                                <span class="fileinput-new">Change image</span>
-                                                <span class="fileinput-exists">Change</span>
+                                                <span class="fileinput-new">შეცვალეთ სურათი</span>
+                                                <span class="fileinput-exists">შეცვლა</span>
                                                 <input type="file" name="image" id="pic" accept="image/*"/>
                                             </span>
                                     <span class="btn btn-primary fileinput-exists"
-                                          data-dismiss="fileinput">Remove</span>
+                                          data-dismiss="fileinput">წაშლა</span>
                                 </div>
                                 <span class="help-block">{{ $errors->first('image', ':message') }}</span>
 
                             </div>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success blog_submit">@lang('news/form.update')</button>
-                            <a href="{{ URL::to('admin/news') }}" class="btn btn-danger">@lang('news/form.cancel')</a>
+                            <button type="submit" class="btn btn-success blog_submit">განახლება</button>
+                            <a href="{{ URL::to('admin/news') }}" class="btn btn-danger">უარყოფა</a>
                         </div>
                     </div>
                     <!-- /.col-sm-4 --> </div>
@@ -118,4 +113,21 @@
             type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('vendors/jasny-bootstrap/js/jasny-bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/pages/add_newblog.js') }}"></script>
+    <script src="{{ asset('vendors/tinymce/js/tinymce.min.js') }}" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        // TinyMCE Full
+        tinymce.init({
+            selector: '#content',
+            theme: 'modern',
+            plugins: [
+                'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'template paste textcolor',
+            ],
+            toolbar1:
+                'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor',
+        });
+    </script>
 @stop

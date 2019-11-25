@@ -54,7 +54,7 @@
                             <span class="help-block">{{ $errors->first('title', ':message') }}</span>
                         </div>
                         <div class='box-body pad form-group {{ $errors->first('content', 'has-error') }}'>
-                            {!! Form::textarea('content', NULL, array('placeholder'=>'სიახლის ტექსტი','rows'=>'5','class'=>'textarea form-control','style'=>'style="width: 100%; height: 200px !important; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"')) !!}
+                            {!! Form::textarea('content', NULL, array('placeholder'=>'სიახლის ტექსტი','rows'=>'5','class'=>'textarea form-control','id'=>'content')) !!}
                             <span class="help-block">{{ $errors->first('content', ':message') }}</span>
                         </div>
                     </div>
@@ -112,12 +112,29 @@
     <script src="{{ asset('vendors/bootstrap-tagsinput/js/bootstrap-tagsinput.js') }}"
             type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('vendors/jasny-bootstrap/js/jasny-bootstrap.js') }}"></script>
+    <script src="{{ asset('vendors/tinymce/js/tinymce.min.js') }}" type="text/javascript"></script>
+
     <script src="{{ asset('js/pages/add_newblog.js') }}" type="text/javascript"></script>
     <script type="text/javascript">
         $(function() {
             $('.btn-save-draft').on('click', function() {
                 $('#isDraft').val('1');
                 $('#newsForm').submit();
+            });
+
+
+            // TinyMCE Full
+            tinymce.init({
+                selector: '#content',
+                theme: 'modern',
+                plugins: [
+                    'advlist autolink lists link charmap print preview hr anchor pagebreak',
+                    'searchreplace wordcount visualblocks visualchars code fullscreen',
+                    'insertdatetime media nonbreaking save table contextmenu directionality',
+                    'template paste textcolor',
+                ],
+                toolbar1:
+                    'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link | print preview | forecolor backcolor',
             });
         });
     </script>

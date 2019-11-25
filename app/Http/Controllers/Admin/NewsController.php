@@ -56,7 +56,7 @@ class NewsController extends Controller
             } // <!--endif
         } // <!-
         $news->content = $dom->saveHTML();
-        $news->is_draft = $request->is_draft;
+        $news->is_draft = $request->is_draft ?? '0';
 
         $picture = "";
 
@@ -66,7 +66,7 @@ class NewsController extends Controller
             $picture = str_random(10) . '.' . $extension;
             $destinationPath = public_path() . '/uploads/news/';
             $file->move($destinationPath, $picture);
-            $news->image = $destinationPath.$picture;
+            $news->image = '/uploads/news/'.$picture;
         }
         $news->save();
 
@@ -128,7 +128,7 @@ class NewsController extends Controller
             $picture = str_random(10) . '.' . $extension;
             $destinationPath = public_path() . '/uploads/news';
             $file->move($destinationPath, $picture);
-            $news->image = $picture;
+            $news->image = '/uploads/news/'.$picture;
         }
 
 
