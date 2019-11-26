@@ -61,21 +61,20 @@
                 @foreach($project->evaluations as $evaluation)
                     <div class="criteria-container mb-5">
                         <h3>
-                            <strong>{{ $evaluation->criteria }}</strong>
-                            <span class="text-muted small-1 d-block font-weight-normal">საერთო ქულის პროცენტი: <u>{{ $evaluation->percent_in_total }}%</u></span>
-                            <span class="text-muted small-1 d-block font-weight-normal">ქულების ჯამი: {{ $evaluation->total_points }}</span>
+                            <strong>{{ $evaluation->criteria_name }}</strong>
+                            <span class="text-muted small-1 d-block font-weight-normal">ქულების ჯამი: {{ $evaluation->getTotalPoints() }}</span>
                         </h3>
                         <hr>
                         @foreach($evaluation->subEvaluations as $subEvaluation)
                             <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
-                                <div class="subcriteria-name"><h4>{{ $subEvaluation->criteria }}</h4></div>
+                                <div class="subcriteria-name"><h4>{{ $subEvaluation->criteria_name }}</h4></div>
                                 @if(!$subEvaluation->evaluation)
                                     <div class="subcriteria-value mt-1">
                                         ქულა: <span>{{ $subEvaluation->point }}</span>
                                     </div>
                                 @else
                                     <div class="subcriteria-value mt-1">
-                                        <span class="mr-2">პასუხი: {{ $subEvaluation->evaluation }}. {{ $subEvaluation->point }} ქულა</span>
+                                        <span class="mr-2">{{ $subEvaluation->evaluation }}. {{ $subEvaluation->point }} ქულა</span>
                                     </div>
                                 @endif
                             </div>

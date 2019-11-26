@@ -51,13 +51,24 @@
                     {{ $project->title }}
                     <div class="project-actions">
                         @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
-                            <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i> რედაქტირება</a>
+                            <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary mb-3">
+                                <i class="fa fa-edit"></i> რედაქტირება
+                            </a>
                         @endif
-                        @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასების პროცესშია')
-                            <a href="{{ route('projects.evaluate', $project->id) }}" class="btn btn-success"><i class="fa fa-check"></i> შეფასება</a>
+                        @if($user && $user->roles()->where('slug', 'expert')->count() > 0
+                         && $user->categories()->where('id', $project->category_id)->count() > 0
+                          && $project->getStatus() == 'შეფასების პროცესშია')
+                            <a href="{{ route('projects.evaluate', $project->id) }}" class="btn btn-success mb-3">
+                                <i class="fa fa-check"></i> შეფასება
+                            </a>
                         @endif
-                        @if($user && $user->roles()->where('slug', 'expert')->count() > 0 && $user->categories()->where('id', $project->category_id)->count() > 0 && $project->getStatus() == 'შეფასებულია')
-                            <a href="{{ route('projects.rating', $project->id) }}" class="btn btn-success"><i class="fa fa-check"></i> შეფასების ნახვა</a>
+                        @if($user && $project->getStatus() == 'შეფასებულია'
+                         && ($user->municipalities()->where('id', $project->municipality_id)->count() > 0
+                         || $user->roles()->where('slug', 'admin')->count() > 0
+                         || $user->categories()->where('id', $project->category_id)->count() > 0))
+                            <a href="{{ route('projects.rating', $project->id) }}" class="btn btn-success mb-3">
+                                <i class="fa fa-check"></i> შეფასების ნახვა
+                            </a>
                         @endif
                     </div>
                 </h2>

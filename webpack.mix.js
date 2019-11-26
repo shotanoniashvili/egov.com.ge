@@ -1056,6 +1056,10 @@ mix.copy(srcCss + 'frontend/custom.css', destCss + 'frontend');
 mix.copy(srcJs + 'frontend/josh_frontend.js', destJs + 'frontend');
 mix.copy(srcJs + 'frontend/style-switcher.js', destJs + 'frontend');
 
+// rangeslider
+mix.copy(srcCss + 'frontend/rangeslider.css', destCss + 'frontend');
+mix.copy(srcJs + 'frontend/rangeslider.min.js', destJs + 'frontend');
+
 // index page
 mix.copy(srcCss + 'frontend/tabbular.css', destCss + 'frontend');
 mix.copy(srcCss + 'frontend/jquery.circliful.css', destCss + 'frontend');

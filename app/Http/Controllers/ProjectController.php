@@ -216,22 +216,23 @@ class ProjectController extends Controller
 
         DB::beginTransaction();
         try {
-            $parentCriteriaPercents = 0;
+            $totalPoints = 0;
             foreach ($request->criterias as $criteriaId => $value) {
                 $criteria = Criteria::findOrFail($criteriaId);
 
                 $parentEvaluation = Evaluation::create([
                     'project_id' => $id,
-                    'criteria' => $criteria->name,
-                    'percent_in_total' => $criteria->percent_in_total,
+                    'criteria_name' => $criteria->name,
                 ]);
 
-                $totalPoints = 0;
                 foreach ($value as $subCriteriaId => $evaluatedValue) {
                     $subCriteria = Criteria::findOrFail($subCriteriaId);
 
-                    $point = $evaluatedValue;
                     $evaluation = null;
+                    if(is_array($evaluatedValue) && array_key_exists('free_point', $evaluatedValue)) {
+                        $point = $evaluatedValue['free_point'];
+                    }
+
                     if(is_array($evaluatedValue) && array_key_exists('yesno', $evaluatedValue)) {
                         if($evaluatedValue['yesno'] == 1) {
                             $point = $subCriteria->yes_point;
@@ -243,36 +244,31 @@ class ProjectController extends Controller
                         }
                     }
 
-                    if($subCriteria->max_point != null && $point > $subCriteria->max_point) {
-                        return redirect()->back()->withInput()->withError('შეფასების ქულა არ უნდა აღემატებოდეს შესაბამისი კრიტერიუმის მაქსიმალურ ქულას');
+                    if(is_array($evaluatedValue) && array_key_exists('percent', $evaluatedValue)) {
+                        $point = (int)($evaluatedValue['percent']/10);
+                        $evaluation = $evaluatedValue['percent'] . ' პროცენტი';
                     }
 
                     $subEvaluation = Evaluation::create([
-                        'parent_id' => $parentEvaluation->id,
+                        'parent_evaluation_id' => $parentEvaluation->id,
                         'project_id' => $id,
-                        'criteria' => $subCriteria->name,
+                        'criteria_name' => $subCriteria->name,
                         'evaluation' => $evaluation,
                         'point' => $point,
                     ]);
 
                     $totalPoints += $point;
                 }
-
-                $parentEvaluation->total_points = $totalPoints;
-                $parentEvaluation->save();
-                $totalPointsPercent = number_format($parentEvaluation->total_points / $criteria->getMaxTotalPoints() * 100, 2);
-
-                $parentCriteriaPercents += number_format($totalPointsPercent * $criteria->percent_in_total / 100, 2);
             }
 
-            $project->rating_points = $parentCriteriaPercents != 0 ? number_format($parentCriteriaPercents / 10, 2) : 0;
+            $project->rating_points = $totalPoints;
             $project->save();
 
             DB::commit();
             return redirect()->route('projects.rating', $id);
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect()->back()->withInput()->withError('დაფიქსირდა შეცდომა პრაქტიკის/ინიციატივის შეფასების დროს');
+            return redirect()->back()->withInput()->withError('დაფიქსირდა შეცდომა პრაქტიკის/ინიციატივის შეფასების დროს'. $e->getMessage());
         }
     }
 

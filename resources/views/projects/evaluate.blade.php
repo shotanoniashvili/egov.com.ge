@@ -10,6 +10,7 @@
 @section('header_styles')
     <!--page level css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/blog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/rangeslider.css') }}">
     <!--end of page level css-->
 @stop
 
@@ -59,18 +60,23 @@
                     @csrf
                     @foreach($project->category->rates->criterias as $criteria)
                         <div class="criteria-container mb-5">
-                            <h3><strong>{{ $criteria->name }}</strong> <span class="text-muted small-1 d-block font-weight-normal">საერთო ქულის პროცენტი: <u>{{ $criteria->percent_in_total }}%</u></span></h3>
+                            <h3><strong>{{ $criteria->name }}</strong></h3>
                             <hr>
                             @foreach($criteria->subCriterias as $subCriteria)
                                 <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
                                     <div class="subcriteria-name"><h4>{{ $subCriteria->name }}</h4></div>
-                                    @if($subCriteria->isNumberFormat)
+                                    @if($subCriteria->isFreePoint)
                                         <div class="subcriteria-value mt-1">
                                             ქულა:
-                                            <input name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}]" type="text" class="form-control d-inline-block w-auto" />
-                                            <span class="text-muted small">მან: 0; მაქს: {{ $subCriteria->max_point }}</span>
+                                            <input name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="text" class="form-control d-inline-block w-auto" />
                                         </div>
-                                    @else
+                                    @elseif($subCriteria->isPercentable)
+                                        <div class="subcriteria-value mt-1">
+                                            <span class="mr-2">პროცენტული შეფასება:</span>
+                                            <input value="0" type="range" min="0" max="100" step="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
+                                            <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
+                                        </div>
+                                    @elseif($subCriteria->isYesNoPoint)
                                         <div class="subcriteria-value mt-1">
                                             <span class="mr-2">პასუხი:</span>
                                             <div class="form-check form-check-inline">
@@ -84,7 +90,7 @@
                                             <span class="text-muted small d-block">კი: {{ $subCriteria->yes_point }} ქ.; არა: {{ $subCriteria->no_point }} ქ.</span>
                                         </div>
                                     @endif
-                                </div>
+                            </div>
                             @endforeach
                         </div>
                     @endforeach
@@ -144,6 +150,7 @@
     </div>
 @stop
 @section('footer_scripts')
+    <script type="text/javascript" src="{{ asset('js/frontend/rangeslider.min.js') }}"></script>
     <script type="text/javascript">
         let $url_path = '{!! url('/') !!}';
         $('#confirmDelete').on('show.bs.modal', function (event) {
@@ -165,6 +172,18 @@
 
         $('body').on('hidden.bs.modal', '.modal', function () {
             $(this).removeData('bs.modal');
+        });
+
+        $(function() {
+            $('input[type="range"]').rangeslider({
+                polyfill: false,
+
+                // Callback function
+                onSlide: function(position, value) {
+                    $(this.$element).parent().find('.percent-point').text(value);
+                }
+
+            });
         });
     </script>
 @stop

@@ -42,7 +42,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function evaluations() {
-        return $this->hasMany(Evaluation::class, 'project_id')->whereNull('parent_id');
+        return $this->hasMany(Evaluation::class, 'project_id')->whereNull('parent_evaluation_id');
     }
 
     public function scopeActiveForWeb($query) {

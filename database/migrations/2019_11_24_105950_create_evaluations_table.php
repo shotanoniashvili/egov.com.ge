@@ -15,7 +15,15 @@ class CreateEvaluationsTable extends Migration
     {
         Schema::create('evaluations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('parent_evaluation_id')->nullable();
+            $table->text('criteria_name');
+            $table->integer('point')->nullable();
+            $table->string('evaluation')->nullable();
             $table->timestamps();
+
+            $table->foreign('project_id')->references('id')->on('projects');
+            $table->foreign('parent_evaluation_id')->references('id')->on('evaluations');
         });
     }
 

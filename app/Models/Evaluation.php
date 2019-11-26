@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria', 'evaluation', 'point', 'point_type'];
+    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria_name', 'evaluation', 'point'];
 
     public function parentEvaluation() {
         return $this->belongsTo(Evaluation::class, 'parent_evaluation_id');
@@ -21,7 +21,7 @@ class Evaluation extends Model
     }
 
     public function getIsSubcriteriaAttribute() {
-        return $this->parent_id !== null;
+        return $this->parent_evaluation_id !== null;
     }
 
     public function getTotalPoints() {

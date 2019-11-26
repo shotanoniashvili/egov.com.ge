@@ -113,7 +113,6 @@
     @yield('content')
 <!-- Footer Section Start -->
 </div>
-
 <footer>
 {{--    <div class=" container">--}}
 {{--        <div class="footer-text">--}}
