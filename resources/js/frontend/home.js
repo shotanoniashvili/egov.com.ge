@@ -5,50 +5,51 @@ $(function () {
         contentAsHTML: true,
         interactive: true,
         functionBefore(instance, helper) {
-
             let $origin = $(helper.origin);
-            let regionId = $origin.attr('id');
+            let municipalityId = $origin.attr('data-id');
 
-                $.getJSON( "/api/regions/"+regionId, function( data ) {
-                    let municipalities = data.data.municipalities;
+            $.getJSON( "/api/municipalities/"+municipalityId, function( data ) {
+                let municipality = data.data;
 
-                    let str = '';
-                    for(let municipality of municipalities) {
-                        str += '<div class="map-tooltip-item"><a target="_blank" href="'+municipality.website+'">'+municipality.name+'</a> (<a href="/municipalities/'+municipality.id+'">'+municipality.project_count+' პროექტი</a>)</div>';
-                    }
+                let str = '<div class="map-tooltip-item">' +
+                    '   <a id="municipalityLink" target="_blank" href="/municipalities/'+municipality.id+'">' + municipality.name + '</a>' +
+                    '   <div class="municipality-image"><img src="'+municipality.image+'" /></div> ' +
+                    '</div>';
 
-                    if(municipalities.length === 0) {
-                        str = 'მუნიციპალიტეტები არ არსებობს';
-                    }
+                instance.content(str);
+            });
 
-                    instance.content(str);
-                });
-
-                $origin.data('ajax', 'cached');
+            $origin.data('ajax', 'cached');
         },
-        functionAfter(origin) {
-            let regionName = $(origin._$origin).attr('name');
-        }
     });
+
+    // $('.tooltipster').tooltipster({
+    //     contentAsHTML: true,
+    //     interactive: true,
+    //     functionBefore(instance, helper) {
     //
-    // function loadRegionData(id) {
-    //     $('#tooltip_content').html('');
+    //         let $origin = $(helper.origin);
+    //         let regionId = $origin.attr('id');
     //
-    //     $.getJSON( "/api/regions/"+id, function( data ) {
-    //         let municipalities = data.data.municipalities;
+    //         $.getJSON( "/api/regions/"+regionId, function( data ) {
+    //             let municipalities = data.data.municipalities;
     //
-    //         let str = '';
-    //         for(let municipality of municipalities) {
-    //             str += '<a class="d-block" target="_blank" href="'+municipality.website+'">'+municipality.name+'</a> (<a href="/municipalities/'+municipality.id+'">'+municipality.project_count+' პროექტი</a>)';
-    //         }
+    //             let str = '';
+    //             for(let municipality of municipalities) {
+    //                 str += '<div class="map-tooltip-item"><a target="_blank" href="'+municipality.website+'">'+municipality.name+'</a> (<a href="/municipalities/'+municipality.id+'">'+municipality.project_count+' პროექტი</a>)</div>';
+    //             }
     //
-    //         if(municipalities.length === 0) {
-    //             str = 'მუნიციპალიტეტები არ არსებობს';
-    //         }
+    //             if(municipalities.length === 0) {
+    //                 str = 'მუნიციპალიტეტები არ არსებობს';
+    //             }
     //
-    //         $('#tooltip_content').html(str);
+    //             instance.content(str);
+    //         });
     //
-    //         // TODO not working
-    //     });
-    // }
+    //         $origin.data('ajax', 'cached');
+    //     },
+    //     functionAfter(origin) {
+    //         let regionName = $(origin._$origin).attr('name');
+    //     }
+    // });
 });
