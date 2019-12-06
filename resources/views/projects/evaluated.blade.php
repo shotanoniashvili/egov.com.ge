@@ -10,6 +10,7 @@
 @section('header_styles')
     <!--page level css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/blog.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/jquery-confirm/jquery-confirm.min.css') }}">
     <!--end of page level css-->
 @stop
 
@@ -50,7 +51,7 @@
             <h3>{{ $project->title }} / შეფასება</h3>
             <span class="text-muted">საერთო რეიტინგი: {{ $project->rating_points }}</span>
             @if($user->roles()->where('slug', 'admin')->count() > 0)
-                <a class="ml-3 btn btn-danger btn-sm" href="{{ route('admin.projects.delete-evaluation', $project->id) }}"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>
+                <a class="ml-3 btn btn-danger btn-sm btn-remove-evalution" href="#"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>
             @endif
         </div>
         <hr>
@@ -96,14 +97,14 @@
                                     <i class="livicon" data-name="category" data-size="13" data-loop="true" data-c="#5bc0de" data-hc="#5bc0de"></i> {{ $project->category->name }}
                                 </span>
                             <span class="additional-post">
-                                    <i class="livicon" data-name="clock" data-size="13" data-loop="true" data-c="#5bc0de" data-hc="#5bc0de"></i><a href="#"> {{$project->created_at->diffForHumans()}} </a>
+                                    <i class="livicon" data-name="clock" data-size="13" data-loop="true" data-c="#5bc0de" data-hc="#5bc0de"></i><a href="#"> {{$project->created_at->format('d-m-Y')}} </a>
                                 </span>
                         </div>
                         <p class="text-justify">
                             {!! $project->short_description !!}
                         </p>
                         @if(count($project->documents) > 0)
-                            <h3 class="comments">თანდართული დოკუმენტები/მასალები</h3><br />
+                            <h5 class="comments">თანდართული დოკუმენტები/მასალები</h5><br />
                             <ul class="media-list project-files p-0 m-0">
                                 @foreach($project->documents as $document)
                                     <li class="media" data-id="{{ $document->id }}">
@@ -129,10 +130,72 @@
             </div>
         </div>
     </div>
+    <!-- //container Section End -->
+    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">დოკუმენტის წაშლა</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    დარწმუნებული ხართ რომ გსურთ წაშალოთ მითითებული დოკუმენტი?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
+                    <a type="button" class="btn btn-danger">დადასტურება</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <div class="modal fade" id="renameDocument" tabindex="-2" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">დოკუმენტის სახელის შეცვლა</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post" id="renameForm">
+                        @csrf
+                        @method('patch')
+                        <div class="form-group">
+                            <label for="renameText">დოკუმენტის სახელი</label>
+                            <input id="renameText" type="text" value="" name="name" class="form-control" />
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
+                    <button type="submit" onclick="document.getElementById('renameForm').submit()" class="btn btn-primary">დადასტურება</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @stop
 @section('footer_scripts')
+    <script type="text/javascript" src="{{ asset('vendors/jquery-confirm/jquery-confirm.min.js') }}"></script>
     <script type="text/javascript">
         let $url_path = '{!! url('/') !!}';
+        $('.btn-remove-evalution').on('click', function() {
+            $.confirm({
+                title: 'შეფასების წაშლა',
+                content: 'ნამდვილად გსურთ შეფასების წაშლა?',
+                buttons: {
+                    confirm: {
+                        text: 'წაშლა',
+                        action: function() {
+                            window.location.href = '{{ route('admin.projects.delete-evaluation', $project->id) }}';
+                        }
+                    },
+                    cancel: {
+                        text: 'უარყოფა'
+                    }
+                }
+            });
+        });
+
         $('#confirmDelete').on('show.bs.modal', function (event) {
             let button = $(event.relatedTarget);
             let $recipient = button.parent().data('id');

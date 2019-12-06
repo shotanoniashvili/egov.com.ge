@@ -1,8 +1,8 @@
 .municipality-image img {
-    max-width: 100%;
-    height: auto;
+    width: auto;
+    max-height: 160px;
 }
 
 .municipality-image {
-    width: 160px;
+    width: 100%;
 }

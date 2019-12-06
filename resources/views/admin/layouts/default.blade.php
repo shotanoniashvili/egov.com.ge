@@ -42,8 +42,8 @@
             </div>
             <div class="navbar-right toggle">
                 <ul class="nav navbar-nav  list-inline">
-                    @include('admin.layouts._messages')
-                    @include('admin.layouts._notifications')
+{{--                    @include('admin.layouts._messages')--}}
+{{--                    @include('admin.layouts._notifications')--}}
                     <li class=" nav-item dropdown user user-menu">
                         <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                             @if(Sentinel::getUser()->pic)

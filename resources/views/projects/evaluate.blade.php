@@ -67,8 +67,8 @@
                                     <div class="subcriteria-name"><h4>{{ $subCriteria->name }}</h4></div>
                                     @if($subCriteria->isFreePoint)
                                         <div class="subcriteria-value mt-1">
-                                            ქულა:
-                                            <input name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="text" class="form-control d-inline-block w-auto" />
+                                            ქულა (0-დან 10-მდე):
+                                            <input min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="text" class="form-control d-inline-block w-auto" />
                                         </div>
                                     @elseif($subCriteria->isPercentable)
                                         <div class="subcriteria-value mt-1">
@@ -122,7 +122,7 @@
                             {!! $project->short_description !!}
                         </p>
                         @if(count($project->documents) > 0)
-                            <h3 class="comments">თანდართული დოკუმენტები/მასალები</h3><br />
+                            <h5 class="comments">თანდართული დოკუმენტები/მასალები</h5><br />
                             <ul class="media-list project-files p-0 m-0">
                                 @foreach($project->documents as $document)
                                     <li class="media" data-id="{{ $document->id }}">

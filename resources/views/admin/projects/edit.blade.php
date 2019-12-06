@@ -56,12 +56,12 @@
                             <input type="hidden" name="_method" value="patch" />
 
                             <div id="rootwizard">
-                                <ul>
-                                    <li class="nav-item"><a href="#tab1" data-toggle="tab" class="nav-link">პროექტის შესახებ</a></li>
-                                    <li class="nav-item"><a href="#tab2" data-toggle="tab" class="nav-link ml-2">დოკუმენტები</a></li>
+                                <ul role="tablist">
+                                    <li class="nav-item"><a role="tab" href="#tab1" data-toggle="tab" class="nav-link">პროექტის შესახებ</a></li>
+                                    <li class="nav-item"><a role="tab" href="#tab2" data-toggle="tab" class="nav-link ml-2">დოკუმენტები</a></li>
                                 </ul>
                                 <div class="tab-content col-sm-12 col-md-8 col-lg-6 offset-sm-0 offset-md-2 offset-lg-3">
-                                    <div class="tab-pane " id="tab1">
+                                    <div class="tab-pane" id="tab1">
                                         <div class="form-group {{ $errors->first('title', 'has-error') }}">
                                             <div class="row">
                                                 <label for="title" class="col-sm-12 col-md-4 control-label">პროექტის სათაური *</label>
@@ -107,8 +107,8 @@
 
                                         <div class="form-group {{ $errors->first('short_description', 'has-error') }}">
                                             <div class="row">
-                                                <label for="short_description" class="col-sm-12 col-md-4 control-label">პროექტის მოკლე აღწერა *</label>
-                                                <div class="col-sm-12 col-md-8">
+                                                <label for="short_description" class="col-sm-12 col-md-12 control-label">პროექტის მოკლე აღწერა *</label>
+                                                <div class="col-sm-12 col-md-12">
                                                     <textarea id="short_description" name="short_description" class="form-control required">{{ $project->short_description }}</textarea>
 
                                                     {!! $errors->first('short_description', '<span class="help-block">:message</span>') !!}
@@ -172,7 +172,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="tab-pane" id="tab2" disabled="disabled">
+                                    <div class="tab-pane" id="tab2">
                                         <div class="form-group {{ $errors->first('documents.*', 'has-error') }}">
                                             <div class="row custom-file">
                                                 <label class="col-sm-12 col-md-12">თანდართული დოკუმენტები/მასალები</label>

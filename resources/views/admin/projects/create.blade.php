@@ -102,8 +102,8 @@
 
                                         <div class="form-group {{ $errors->first('short_description', 'has-error') }}">
                                             <div class="row">
-                                                <label for="short_description" class="col-sm-12 col-md-4 control-label">პროექტის მოკლე აღწერა *</label>
-                                                <div class="col-sm-12 col-md-8">
+                                                <label for="short_description" class="col-sm-12 col-md-12 control-label">პროექტის მოკლე აღწერა *</label>
+                                                <div class="col-sm-12 col-md-12">
                                                     <textarea id="short_description" name="short_description" class="form-control required">{{ old('short_description') }}</textarea>
 
                                                     {!! $errors->first('short_description', '<span class="help-block">:message</span>') !!}

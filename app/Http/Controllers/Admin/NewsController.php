@@ -30,7 +30,7 @@ class NewsController extends Controller
         $news = new News($request->except('files', 'image'));
         $message = $request->get('content');
         $dom = new DomDocument();
-        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>' . $message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
 
         // foreach <img> in the submited message
@@ -96,7 +96,7 @@ class NewsController extends Controller
         $message = $request->get('content');
         libxml_use_internal_errors(true);
         $dom = new DomDocument();
-        $dom->loadHtml($message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHtml('<?xml encoding="utf-8" ?>' . $message, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
         $images = $dom->getElementsByTagName('img');
         // foreach <img> in the submited message
         foreach ($images as $img) {
