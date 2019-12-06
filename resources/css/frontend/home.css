@@ -1,0 +1,8 @@
+.municipality-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.municipality-image {
+    width: 160px;
+}

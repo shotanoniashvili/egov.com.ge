@@ -1097,6 +1097,7 @@ mix.copy(srcCss + 'frontend/price.css', destCss + 'frontend');
 
 //home
 mix.copy(srcJs + 'frontend/home.js', destJs + 'frontend');
+mix.copy(srcCss + 'frontend/home.css', destCss + 'frontend');
 
 //404
 mix.copy(srcCss + 'frontend/404.css', destCss + 'frontend');
