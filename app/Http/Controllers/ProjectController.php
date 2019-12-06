@@ -128,11 +128,11 @@ class ProjectController extends Controller
         $isAdmin = $user && $user->roles()->where('slug', 'admin')->count() > 0;
         $isAuthor = $user && $user->id === $project->user_id;
         $isExpert = $user && $project->is_active_for_experts && $user->categories()->where('id', $project->category->id)->count() > 0;
+
         if( $isAdmin
             || $project->is_active_for_web
             || $isAuthor
             || $isExpert) {
-
             if($isAdmin || $isExpert || $isAuthor || $project->is_archive) {
                 $projectDocuments = $project->documents()->get();
             } else {

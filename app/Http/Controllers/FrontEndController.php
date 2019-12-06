@@ -380,8 +380,10 @@ class FrontEndController extends JoshController
         return redirect('contact')->with('success', trans('auth/message.contact.success'));
     }
 
-    public function search(string $keyword = '') {
-        if($keyword !== '') {
+    public function search(Request $request) {
+        $keyword = $request->q;
+
+        if($keyword !== '' && $keyword != null) {
             $resultsM = Municipality::search($keyword)->get();
             $resultsN = News::search($keyword)->get();
             $resultsP = Project::search($keyword)->get();
@@ -391,7 +393,7 @@ class FrontEndController extends JoshController
             return view('search', compact('results'));
         }
 
-        return redirect()->back();
+        return redirect()->route('home');
     }
 
     public function showFrontEndView($name = null)

@@ -39,8 +39,8 @@
 <header>
     <div class="container indexpage py-3">
         <div class="header-search mb-3">
-            <form class="form-inline my-2 my-lg-0 float-right">
-                <input class="form-control mr-sm-2" type="search" placeholder="ძიება" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0 float-right" action="{{ route('search') }}">
+                <input name="q" class="form-control mr-sm-2" type="search" placeholder="ძიება" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                     <i class="fa fa-search"></i>
                 </button>

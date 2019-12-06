@@ -3,11 +3,11 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="982f851b-7ead-4803-96a0-413a7d13816f" name="egov.com.ge" url="http://egov.com.ge/">
-        <fileTransfer host="egov.com.ge" port="21" rootFolder="/web">
+        <fileTransfer host="167.71.55.133" port="22" rootFolder="/home/admin/web" accessType="SFTP">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" shareSSLContext="true" />
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="21" />
+          <option name="port" value="22" />
         </fileTransfer>
       </webServer>
     </option>
