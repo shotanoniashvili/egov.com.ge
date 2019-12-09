@@ -57,16 +57,17 @@
                         @endif
                         @if($user && $user->roles()->where('slug', 'expert')->count() > 0
                          && $user->categories()->where('id', $project->category_id)->count() > 0
-                          && $project->getStatus() == 'შეფასების პროცესშია')
+                          && $project->getStatus() == 'შეფასების პროცესშია'
+                          && $project->getEvaluatedExperts()->where('id', $user->id)->count() == 0)
                             <a href="{{ route('projects.evaluate', $project->id) }}" class="btn btn-success mb-3">
                                 <i class="fa fa-check"></i> შეფასება
                             </a>
                         @endif
-                        @if($user && $project->getStatus() == 'შეფასებულია'
+                        @if($user && $project->evaluations()->count() > 0
                          && ($user->municipalities()->where('id', $project->municipality_id)->count() > 0
                          || $user->roles()->where('slug', 'admin')->count() > 0
                          || $user->categories()->where('id', $project->category_id)->count() > 0))
-                            <a href="{{ route('projects.rating', $project->id) }}" class="btn btn-success mb-3">
+                            <a data-toggle="modal" data-target="#choseExpert" class="btn btn-success mb-3">
                                 <i class="fa fa-check"></i> შეფასების ნახვა
                             </a>
                         @endif
@@ -199,6 +200,7 @@
             </div>
         </div>
     </div>
+    @include('projects.chose-expert-modal', ['project' => $project])
 @stop
 @section('footer_scripts')
 <script type="text/javascript">

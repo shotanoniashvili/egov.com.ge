@@ -48,8 +48,9 @@
     <!-- Container Section Start -->
     <div class="container mt-5 mb-5">
         <div class="welcome">
-            <h3>{{ $project->title }} / შეფასება</h3>
-            <span class="text-muted">საერთო რეიტინგი: {{ $project->rating_points }}</span>
+            <h3>{{ $project->title }} / შეფასება ({{ $expert->fullname }})</h3>
+            <span class="text-muted d-block">საერთო რეიტინგი: {{ $project->rating_points }}</span>
+            <span class="text-muted">{{ $expert->fullname }}ს რეიტინგი: {{ $project->getRatingSumByExpert($expert->id) }}</span>
             @if($user->roles()->where('slug', 'admin')->count() > 0)
                 <a class="ml-3 btn btn-danger btn-sm btn-remove-evalution" href="#"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>
             @endif
@@ -186,7 +187,7 @@
                     confirm: {
                         text: 'წაშლა',
                         action: function() {
-                            window.location.href = '{{ route('admin.projects.delete-evaluation', $project->id) }}';
+                            window.location.href = '{{ route('admin.projects.delete-evaluation', [$project->id, $expert->id]) }}';
                         }
                     },
                     cancel: {

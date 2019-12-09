@@ -34,7 +34,7 @@ Route::group(['middleware' => 'expert'], function() {
     Route::get('my-account/to-evaluate', 'ProjectController@showProjectsToEvaluate')->name('my-account.show-projects-to-evaluate');
     Route::get('projects/{id}/evaluate', 'ProjectController@showEvaluateForm')->name('projects.evaluate');
     Route::post('projects/{id}/evaluate', 'ProjectController@evaluate');
-    Route::get('projects/{id}/rating', 'ProjectController@rating')->name('projects.rating');
+    Route::get('projects/{id}/rating/{expertId}', 'ProjectController@rating')->name('projects.rating');
 });
 
 Route::group(['prefix' => 'admin', 'namespace'=>'Admin'], function () {
@@ -207,7 +207,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('toggle/is-active-for-experts/{id}', 'ProjectController@toggleActivationForExperts')->name('projects.toggle-activation-for-experts');
 
         Route::get('rating/{id}', '\App\Http\Controllers\ProjectController@rating')->name('projects.rating');
-        Route::get('rating/{id}/delete', 'ProjectController@deleteEvaluation')->name('projects.delete-evaluation');
+        Route::get('rating/{id}/delete/{expertId}', 'ProjectController@deleteEvaluation')->name('projects.delete-evaluation');
     });
 
 

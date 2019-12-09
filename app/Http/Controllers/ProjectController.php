@@ -10,6 +10,7 @@ use App\Models\Municipality;
 use App\Models\Person;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -204,7 +205,8 @@ class ProjectController extends Controller
         if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
 
         $project = Project::findOrFail($id);
-        if($project->rating_points != null) return abort(404);
+        if($project->getStatus() == 'შეფასებული') return abort(404);
+        if($project->evaluations()->where('expert_id', $user->id)->count() > 0) return abort(404);
 
         return view('projects.evaluate', compact('project'));
     }
@@ -215,7 +217,8 @@ class ProjectController extends Controller
         if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
 
         $project = Project::findOrFail($id);
-        if($project->rating_points != null) return abort(404);
+        if($project->getStatus() == 'შეფასებული') return abort(404);
+        if($project->evaluations()->where('expert_id', $user->id)->count() > 0) return abort(404);
 
         DB::beginTransaction();
         try {
@@ -226,6 +229,7 @@ class ProjectController extends Controller
                 $parentEvaluation = Evaluation::create([
                     'project_id' => $id,
                     'criteria_name' => $criteria->name,
+                    'expert_id' => Sentinel::getUser()->id,
                 ]);
 
                 foreach ($value as $subCriteriaId => $evaluatedValue) {
@@ -253,13 +257,14 @@ class ProjectController extends Controller
                         'criteria_name' => $subCriteria->name,
                         'evaluation' => $evaluation,
                         'point' => $point,
+                        'expert_id' => Sentinel::getUser()->id,
                     ]);
 
                     $totalPoints += $point;
                 }
             }
 
-            $project->rating_points = $totalPoints;
+            $project->rating_points += $totalPoints;
             $project->save();
 
             DB::commit();
@@ -270,13 +275,17 @@ class ProjectController extends Controller
         }
     }
 
-    public function rating(int $id) {
-        $project = Project::with('evaluations')->where('id', $id)->firstOrFail();
+    public function rating(int $id, int $expertId) {
+        $expert = User::findOrFail($expertId);
+
+        $project = Project::with(['evaluations' => function($q) use ($expertId) {
+            $q->where('expert_id', $expertId);
+        }])->where('id', $id)->firstOrFail();
 
         if($project->getStatus() != 'შეფასებულია') {
             abort(404);
         }
 
-        return view('projects.evaluated', compact('project'));
+        return view('projects.evaluated', compact('project', 'expert'));
     }
 }

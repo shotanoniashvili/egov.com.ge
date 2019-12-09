@@ -53,12 +53,30 @@ class Project extends Model implements \App\Interfaces\Searchable
         return $query->where('is_active_for_experts', true);
     }
 
-    public function scopeEvaluated($query) {
+    public function scopeEvaluated($query, $expertId = null) {
+        if($expertId != null) {
+            $query->whereHas('evaluations', function($q) use ($expertId) {
+                $q->where('expert_id', $expertId);
+            });
+        }
         return $query->whereNotNull('rating_points');
     }
 
-    public function scopeToEvaluate($query) {
-        return $query->whereNull('rating_points');
+    public function scopeToEvaluate($query, $expertId = null) {
+        $query->where(function($q) {
+            $q->whereNull('rating_points');
+            $q->orWhere('rating_points', 0);
+        });
+
+        if($expertId) {
+            $query->orWhere(function($q) use($expertId) {
+                $q->whereDoesntHave('evaluations', function($q2) use($expertId) {
+                    $q2->where('expert_id', $expertId);
+                });
+            });
+        }
+
+        return $query;
     }
 
     public function scopeArchive($query) {
@@ -247,9 +265,12 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function getStatus() {
-        if($this->rating_points !== null) return 'შეფასებულია';
+        // TODO როდის ხდება პროექტის სტატუსი შეფასებული
+        if($this->category->experts()->count() == $this->getEvaluatedExperts()->count()) return 'შეფასებულია';
 
-        if(($this->is_active_for_experts && !$this->is_active_for_web) || $this->rating_points == null) return 'შეფასების პროცესშია';
+        //if($this->rating_points !== null && $this->rating_points != 0) return 'შეფასებულია';
+
+        if(($this->is_active_for_experts && !$this->is_active_for_web) || $this->rating_points == null || $this->rating_points == 0) return 'შეფასების პროცესშია';
 
         if(!$this->is_active_for_experts && !$this->is_active_for_web) return 'უარყოფილია';
 
@@ -313,5 +334,17 @@ class Project extends Model implements \App\Interfaces\Searchable
     public function getDescription()
     {
         return $this->getShortDescription();
+    }
+
+    public function getEvaluatedExperts() {
+        $expertIds = $this->evaluations()->select('expert_id')->distinct()->get();
+
+        return User::whereIn('id', $expertIds)->get();
+    }
+
+    public function getRatingSumByExpert($expertId) {
+        $evaluations = DB::table('evaluations')->where('expert_id', $expertId)->where('project_id', $this->id)->whereNotNull('point');
+
+        return $evaluations->sum('point');
     }
 }

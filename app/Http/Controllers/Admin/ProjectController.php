@@ -286,18 +286,19 @@ class ProjectController extends JoshController
         }
     }
 
-    public function deleteEvaluation(int $id) {
+    public function deleteEvaluation(int $id, int $expertId) {
         try {
             $project = Project::with('evaluations')->where('id', $id)->firstOrFail();
 
-            $project->rating_points = null;
+            $project->rating_points = $project->rating_points - $project->getRatingSumByExpert($expertId);
             $project->save();
 
-            foreach ($project->evaluations as $evaluation) {
+            $evaluations = $project->evaluations()->where('expert_id', $expertId);
+            foreach ($evaluations->get() as $evaluation) {
                 $evaluation->subEvaluations()->delete();
             }
 
-            $project->evaluations()->delete();
+            $evaluations->delete();
 
             return redirect()->route('projects.show', $id);
         } catch (\Exception $e) {

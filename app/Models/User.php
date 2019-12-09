@@ -67,13 +67,13 @@ class User extends EloquentUser
     }
 
     public function getEvaluatedProjects() {
-        $projects = $this->projectsAsExpert()->evaluated()->orderByDesc('created_at')->get();
+        $projects = $this->projectsAsExpert()->evaluated($this->id)->orderByDesc('created_at')->get();
 
         return $projects;
     }
 
     public function getProjectsToEvaluate() {
-        $projects = $this->projectsAsExpert()->toEvaluate()->orderByDesc('created_at')->get();
+        $projects = $this->projectsAsExpert()->toEvaluate($this->id)->orderByDesc('created_at')->get();
 
         return $projects;
     }

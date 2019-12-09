@@ -7,7 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria_name', 'evaluation', 'point'];
+    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria_name', 'evaluation', 'point', 'expert_id'];
+
+    public function expert() {
+        return $this->belongsTo(User::class, 'expert_id');
+    }
 
     public function parentEvaluation() {
         return $this->belongsTo(Evaluation::class, 'parent_evaluation_id');
