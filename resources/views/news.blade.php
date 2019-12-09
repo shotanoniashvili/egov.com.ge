@@ -183,7 +183,7 @@
                                     </p>
                                     <hr>
                                     <p class="text-right">
-                                        <a href="{{ route('news.show',$item->id) }}" class="btn btn-primary text-white">მეტის ნახვა</a>
+                                        <a href="{{ route('news.show',$item->id) }}" class="btn btn-nala text-white">მეტის ნახვა</a>
                                     </p>
                                 </div>
                                 <!-- /.featured-text -->

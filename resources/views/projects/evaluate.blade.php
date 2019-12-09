@@ -68,7 +68,7 @@
                                     @if($subCriteria->isFreePoint)
                                         <div class="subcriteria-value mt-1">
                                             ქულა (0-დან 10-მდე):
-                                            <input min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="text" class="form-control d-inline-block w-auto" />
+                                            <input min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="number" class="form-control d-inline-block w-auto" />
                                         </div>
                                     @elseif($subCriteria->isPercentable)
                                         <div class="subcriteria-value mt-1">

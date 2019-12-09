@@ -43,38 +43,54 @@
 
 {{-- Page content --}}
 @section('content')
-    <!-- Container Section Start -->
-    <div class="container">
-        <div class="row">
-            <!-- Jelly-o sesame Section Strat -->
-            <div class="col-sm-12 col-md-12 " data-wow-duration="3.5s">
-                <div class="col-md-12">
-                    <div class="news_item_image thumbnail">
-                        <label>
-                            <h3 class="primary news_headings">{{ $news->title }}</h3>
-                        </label>
-                        @if($news->image)
-                            <img src="{{ URL::to($news->image)  }}" class="img-fluid" alt="Image">
-                        @endif
-                        <div class="news_item_text_1">
-                            <p>
-                                {!! $news->content !!}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                </div>
-            </div>
-
-                <!-- Recent Post Section End -->
-
-                </div>
-                <!-- /.the-box .no-border -->
-            </div>
-            <!-- //Jelly-o sesame Section End -->
+    <div class="container mt-5 mb-5">
+        <div class="welcome">
+            <h3>{{ $news->title }}</h3>
+        </div>
+        <hr>
+        @if($news->image)
+        <div class="news-image">
+            <img alt="{{ $news->title }}" title="{{ $news->title }}" src="{{ asset($news->image) }}" />
+        </div>
+        @endif
+        <div class="news_item_text_1">
+            <p>
+                {!! $news->content !!}
+            </p>
         </div>
     </div>
+    <!-- Container Section Start -->
+{{--    <div class="container">--}}
+{{--        <div class="row">--}}
+{{--            <!-- Jelly-o sesame Section Strat -->--}}
+{{--            <div class="col-sm-12 col-md-12 " data-wow-duration="3.5s">--}}
+{{--                <div class="col-md-12">--}}
+{{--                    <div class="news_item_image thumbnail">--}}
+{{--                        <label>--}}
+{{--                            <h3 class="primary news_headings">{{ $news->title }}</h3>--}}
+{{--                        </label>--}}
+{{--                        @if($news->image)--}}
+{{--                            <img src="{{ URL::to($news->image)  }}" class="img-fluid" alt="Image">--}}
+{{--                        @endif--}}
+{{--                        <div class="news_item_text_1">--}}
+{{--                            <p>--}}
+{{--                                {!! $news->content !!}--}}
+{{--                            </p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-12">--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+{{--                <!-- Recent Post Section End -->--}}
+
+{{--                </div>--}}
+{{--                <!-- /.the-box .no-border -->--}}
+{{--            </div>--}}
+{{--            <!-- //Jelly-o sesame Section End -->--}}
+{{--        </div>--}}
+{{--    </div>--}}
     
 @stop
 

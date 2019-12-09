@@ -40,66 +40,70 @@
         <div class="header-search mb-3">
             <form class="form-inline my-2 my-lg-0 float-right" action="{{ route('search') }}">
                 <input name="q" class="form-control mr-sm-2" type="search" placeholder="ძიება" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <button class="btn btn-nala my-2 my-sm-0" type="submit">
                     <i class="fa fa-search"></i>
                 </button>
             </form>
             <div class="clearfix"></div>
         </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            {{--<a class="navbar-brand" href="{{ route('home') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="logo">
-            </a>--}}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    </div>
+    <div class="navbar-container bg-nala">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                {{--<a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="{{ asset('images/logo.png') }}" alt="logo">
+                </a>--}}
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto  margin_right">
-                    <li  class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
-                        <a href="{{ route('home') }}" class="nav-link"> მთავარი</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('aboutus') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('aboutus') }}" class="nav-link"> ჩვენ შესახებ</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('best-practice') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('best-practice') }}" class="nav-link"> საუკეთესო პრაქტიკა</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('municipalities') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('municipalities') }}" class="nav-link"> მუნიციპალიტეტები</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('news') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('news') }}" class="nav-link"> სიახლეები</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('archive') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('archive') }}" class="nav-link"> არქივი</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('faq') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('faq') }}" class="nav-link"> კითხვა პასუხი</a>
-                    </li>
-                    <li  class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('contact') }}" class="nav-link"> კონტაქტი</a>
-                    </li>
-                    {{--<li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
-                        <a href="{{ URL::to('contact') }}" class="nav-link">კონტაქტი</a>
-                    </li>--}}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto  margin_right">
+                        <li  class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
+                            <a href="{{ route('home') }}" class="nav-link"> მთავარი</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('aboutus') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('aboutus') }}" class="nav-link"> ჩვენ შესახებ</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('best-practice') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('best-practice') }}" class="nav-link"> საუკეთესო პრაქტიკა</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('municipalities') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('municipalities') }}" class="nav-link"> მუნიციპალიტეტები</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('news') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('news') }}" class="nav-link"> სიახლეები</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('archive') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('archive') }}" class="nav-link"> არქივი</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('faq') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('faq') }}" class="nav-link"> კითხვა პასუხი</a>
+                        </li>
+                        <li  class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('contact') }}" class="nav-link"> კონტაქტი</a>
+                        </li>
+                        {{--<li class="nav-item {!! (Request::is('contact') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('contact') }}" class="nav-link">კონტაქტი</a>
+                        </li>--}}
 
-                    {{--based on anyone login or not display menu items--}}
-                    @if(!Sentinel::guest())
-                        <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}">
-                            <a href="{{ URL::to('my-account') }}" class="nav-link">ჩემი გვერდი</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ URL::to('logout') }}" class="nav-link" title="სისტემიდან გასვლა">
-                                <i class="livicon" data-name="sign-out" data-s="18"></i>
-                            </a>
-                        </li>
-                    @endif
-                </ul>
-            </div>
-        </nav>
-        <!-- Nav bar End -->
+                        {{--based on anyone login or not display menu items--}}
+                        @if(!Sentinel::guest())
+                            <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}">
+                                <a href="{{ URL::to('my-account') }}" class="nav-link">ჩემი გვერდი</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ URL::to('logout') }}" class="nav-link" title="სისტემიდან გასვლა">
+                                    <i class="livicon" data-name="sign-out" data-s="18"></i>
+                                </a>
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+            </nav>
+            <!-- Nav bar End -->
+        </div>
     </div>
 </header>
 
@@ -236,7 +240,7 @@
 {{--        </div>--}}
 {{--    </div>--}}
 <!-- //Footer Section End -->
-<div class=" col-12 copyright">
+<div class=" col-12 copyright bg-nala">
     <div class="container">
         <p>Copyright &copy; EGOV.com.ge 2019</p>
     </div>

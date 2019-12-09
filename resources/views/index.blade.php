@@ -399,10 +399,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 text-left">
-                    <a class="btn btn-secondary" href="{{ URL::to('/admin') }}">ადმინისტრატორის გვერდი</a>
+                    <a class="btn btn-nala" href="{{ URL::to('/admin') }}">ადმინისტრატორის გვერდი</a>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a class="btn btn-secondary" href="{{ URL::to('/contact') }}">კონტაქტი</a>
+                    <a class="btn btn-nala" href="{{ URL::to('/contact') }}">კონტაქტი</a>
                 </div>
             </div>
             <!-- Our skills Section End -->

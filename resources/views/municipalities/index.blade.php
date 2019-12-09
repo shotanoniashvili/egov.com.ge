@@ -58,7 +58,7 @@
                                         <a href="{{ route('municipalities.show', $municipality->id) }}">{{ $municipality->name }}</a>
                                     </h4>
                                     <hr>
-                                    <a href="{{ route('municipalities.show', $municipality->id) }}" class="btn btn-primary text-white">პროექტების ნახვა</a>
+                                    <a href="{{ route('municipalities.show', $municipality->id) }}" class="btn btn-nala text-white">პროექტების ნახვა</a>
                                 </div>
                                 <!-- /.featured-text -->
                             </div>

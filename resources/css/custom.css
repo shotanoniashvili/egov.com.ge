@@ -327,7 +327,7 @@ ul li {
 }
 
 a.btn, #rootwizard .nav-link.active {
-    color: #fff !important;
+    color: #fff;
 }
 
 .upload-project-form {

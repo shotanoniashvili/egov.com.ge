@@ -23,7 +23,7 @@
                 </select>
             </div>
             <div class="form-group col-sm-12 col-xs-12 col-md-1">
-                <button class="btn btn-outline-success"><i class="fa fa-search"></i> </button>
+                <button class="btn btn-nala"><i class="fa fa-search"></i> </button>
             </div>
         </div>
     </form>

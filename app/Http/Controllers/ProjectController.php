@@ -214,11 +214,11 @@ class ProjectController extends Controller
     public function evaluate(Request $request, int $id) {
         $user = Sentinel::getUser();
 
-        if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
+        //if($user->getProjectsToEvaluate()->where('id', $id)->count() == 0) return abort(404);
 
         $project = Project::findOrFail($id);
-        if($project->getStatus() == 'შეფასებული') return abort(404);
-        if($project->evaluations()->where('expert_id', $user->id)->count() > 0) return abort(404);
+        //if($project->getStatus() == 'შეფასებული') return abort(404);
+        //if($project->evaluations()->where('expert_id', $user->id)->count() > 0) return abort(404);
 
         DB::beginTransaction();
         try {
@@ -281,10 +281,6 @@ class ProjectController extends Controller
         $project = Project::with(['evaluations' => function($q) use ($expertId) {
             $q->where('expert_id', $expertId);
         }])->where('id', $id)->firstOrFail();
-
-        if($project->getStatus() != 'შეფასებულია') {
-            abort(404);
-        }
 
         return view('projects.evaluated', compact('project', 'expert'));
     }

@@ -34,15 +34,20 @@
 
 {{-- Page content --}}
 @section('content')
-    <hr class="content-header-sep">
-    <div class="container mb-5">
+    <div class="container mb-5 mt-5">
         <div class="welcome">
             <h3>{{ $municipality->name }}</h3>
         </div>
         <hr>
-            <div class="municipality-description">
-                მუნიციპალიტეტის ვებგვერდი: <a href="{{ $municipality->website }}" target="_blank">{{ $municipality->website }}</a>
+        <div class="municipality-description">
+            მუნიციპალიტეტის გერბი:
+            <div class="municipality-image">
+                <img alt="{{ $municipality->name }}" title="{{ $municipality->name }}" src="{{ asset($municipality->image) }}" />
             </div>
+        </div>
+        <div class="municipality-description">
+            მუნიციპალიტეტის ვებგვერდი: <a href="{{ $municipality->website }}" target="_blank">{{ $municipality->website }}</a>
+        </div>
         <hr>
         <div class="row">
             <div class="col-sm-12">
