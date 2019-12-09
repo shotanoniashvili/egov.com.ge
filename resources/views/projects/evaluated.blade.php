@@ -109,7 +109,7 @@
                                 @foreach($project->documents as $document)
                                     <li class="media" data-id="{{ $document->id }}">
                                         <img class="project-file-icon" src="{{ $document->getIconSrc() }}" />
-                                        <a class="document-name" href="{{ asset($document->path) }}">{{$document->getTitle()}}</a>
+                                        <a class="document-name" href="{{ asset($document->path) }}" title="{{$document->getTitle()}}">{{$document->getShortTitle()}}</a>
                                         <small class="text-danger ml-2"> {{ $document->getSize() }}</small>
                                         @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
                                             <button data-toggle="modal" data-target="#renameDocument" class="btn btn-primary btn-rename-document mr-2 ml-3" title="სახელის შეცვლა"><i class="fa fa-edit"></i></button>

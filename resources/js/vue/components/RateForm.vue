@@ -46,37 +46,45 @@
                             </div>
                             <div class="col-md-4">
                                 <a class="btn btn-danger" @click="removeCriteria(i)">კრიტერიუმის წაშლა</a>
-                                <a class="btn btn-info" @click="addSubcriteria(criteria)">ქვე-კრიტერიუმის დამატება</a>
+                                <a class="btn btn-info" @click="addSubcriteria(criteria)">ინდიკატორის დამატება</a>
                             </div>
                             <div class="col-sm-4 offset-4" v-if="criteria.subcriterias.length > 0">
                                 <ul class="sub-criteria-container mt-3" style="list-style: none;" v-for="(subcriteria, j) of criteria.subcriterias">
                                     <hr />
                                     <li class="mb-2 position-relative">
-                                        <input class="text form-control" type="text" placeholder="კრიტერიუმის დასახლება" v-model="subcriteria.name" />
-                                        <a class="btn btn-danger btn-remove-subcriteria" @click="removeSubcriteria(criteria, j)"><i class="fa fa-ban"></i> ქვე-კრიტერიუმის წაშლა</a>
+                                        <input class="text form-control" type="text" placeholder="ინდიკატორის დასახლება" v-model="subcriteria.name" />
+                                        <a class="btn btn-danger btn-remove-subcriteria" @click="removeSubcriteria(criteria, j)"><i class="fa fa-ban"></i> ინდიკატორის წაშლა</a>
                                     </li>
                                     <li class="mb-2">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" :id="'sub_free'+j" type="radio" v-model="subcriteria.point_type" value="free_point">
-                                            <label class="form-check-label" :for="'sub_free'+j">საექსპერტო შეფასება</label>
+                                            <input class="form-check-input" :name="'crit'+i+j" :id="'sub_free'+i+j" type="radio" v-model="subcriteria.point_type" value="free_point">
+                                            <label class="form-check-label" :for="'sub_free'+i+j">საექსპერტო შეფასება</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" :id="'sub_percent'+j" type="radio" v-model="subcriteria.point_type" value="percentable">
-                                            <label class="form-check-label" :for="'sub_percent'+j">პროცენტული მაჩვენებელი</label>
+                                            <input class="form-check-input" :name="'crit'+i+j" :id="'sub_percent'+i+j" type="radio" v-model="subcriteria.point_type" value="percentable">
+                                            <label class="form-check-label" :for="'sub_percent'+i+j">პროცენტული მაჩვენებელი</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" :id="'sub_yes_no'+j" type="radio" v-model="subcriteria.point_type" value="yes_no">
-                                            <label class="form-check-label" :for="'sub_yes_no'+j">კი ან არა</label>
+                                            <input class="form-check-input" :name="'crit'+i+j" :id="'sub_custom'+i+j" type="radio" v-model="subcriteria.point_type" value="custom_criteria">
+                                            <label class="form-check-label" :for="'sub_custom'+i+j">მორგერბული ვარიანტები</label>
                                         </div>
                                     </li>
                                     <li class="mb-2">
-                                        <div class="yes-or-no-field-container" v-if="subcriteria.point_type === 'yes_no'">
+                                        <div class="yes-or-no-field-container" v-if="subcriteria.point_type === 'custom_criteria'">
                                             <div class="row">
-                                                <div class="col-sm-6">
-                                                    <input type="number" placeholder="კის მინშვნელობა" class="form-control" v-model="subcriteria.yes_point" />
+                                                <div class="col-sm-12">
+                                                    <a class="btn btn-primary mb-2" @click="addCustom(subcriteria)">მნიშვნელობის დამატება</a>
                                                 </div>
-                                                <div class="col-sm-6">
-                                                    <input type="number" placeholder="არას მნიშვნელობა" class="form-control" v-model="subcriteria.no_point" />
+                                                <div class="value_container col-md-12" v-if="subcriteria.customs.length">
+                                                    <div class="row position-relative mb-2" v-for="(custom, k) of subcriteria.customs">
+                                                        <div class="col-md-6">
+                                                            <input class="text form-control" type="text" placeholder="დასახელება" v-model="custom.title" />
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="text form-control" type="text" placeholder="ქულა" v-model="custom.point" />
+                                                        </div>
+                                                        <a style="right: -198px;" class="btn btn-danger btn-remove-subcriteria" @click="removeCustomCriteria(subcriteria, k)"><i class="fa fa-ban"></i> მნიშვნელობის წაშლა</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,8 +137,10 @@
                             subcriterias: [{
                                 name: '',
                                 point_type: 'free_point',
-                                yes_point: '',
-                                no_point: ''
+                                customs: [{
+                                    title: '',
+                                    point: ''
+                                }]
                             }]
                         }
                     ]
@@ -176,12 +186,23 @@
                     });
             },
 
+            addCustom(subcriteria) {
+                subcriteria.customs.push({
+                    title: '',
+                    point: 0,
+               });
+            },
+
             removeCriteria(i) {
                 this.rate.criterias.splice(i, 1);
             },
 
             removeSubcriteria(criteria, i) {
                 criteria.subcriterias.splice(i, 1);
+            },
+
+            removeCustomCriteria(subcriteria, i) {
+                subcriteria.customs.splice(i, 1);
             },
 
             addCriteria() {
@@ -204,10 +225,11 @@
             getEmptySubcriteria() {
                 return {
                     name: '',
-                    number_field: '1',
-                    max_point: '',
-                    yes_point: '',
-                    no_point: ''
+                    point_type: 'free_point',
+                    customs: [{
+                        title: '',
+                        point: ''
+                    }]
                 }
             }
         },

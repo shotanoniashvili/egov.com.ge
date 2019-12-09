@@ -21,8 +21,12 @@ class Criteria extends Model
         return $this->hasMany(Criteria::class, 'parent_criteria_id');
     }
 
-    public function getIsYesNoPointAttribute() {
-        return $this->yes_point !== null && $this->no_point !== null;
+    public function customCriterias() {
+        return $this->hasMany(CustomCriteria::class, 'criteria_id');
+    }
+
+    public function getIsCustomPointAttribute() {
+        return $this->customCriterias()->count() > 0;
     }
 
     public function getIsPercentableAttribute() {
@@ -30,12 +34,19 @@ class Criteria extends Model
     }
 
     public function getIsFreePointAttribute() {
-        return !$this->isYesNoPoint && !$this->isPercentable;
+        return !$this->isCustomPoint && !$this->isPercentable;
     }
 
     public function getPointType() {
-        if($this->isYesNoPoint) return 'yes_no';
+        if($this->isCustomPoint) return 'custom_criteria';
         if($this->isPercentable) return 'percentable';
         if($this->isFreePoint) return 'free_point';
+    }
+
+    public function delete()
+    {
+        $this->customCriterias()->delete();
+
+        return parent::delete();
     }
 }

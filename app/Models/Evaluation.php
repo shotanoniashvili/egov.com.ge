@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Evaluation extends Model
 {
@@ -26,5 +27,14 @@ class Evaluation extends Model
 
     public function getTotalPoints() {
         return $this->subEvaluations()->sum('point');
+    }
+
+    public function delete()
+    {
+        foreach ($this->subEvaluations()->get() as $evaluation) {
+            $evaluation->delete();
+        }
+
+        return parent::delete();
     }
 }

@@ -18,7 +18,6 @@
     </title>
     <!--global css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/lib.css') }}">
-    <link href="https://free.bboxtype.com/embedfonts/?family=FiraGO:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <style>
       .dropdown-item:active{
             background-color: transparent !important;
@@ -27,7 +26,7 @@
           color: #01bc8c;
       }
     </style>
-    <!--end of global css-
+    <!--end of global css-->
     <!--page level css-->
     @yield('header_styles')
     <!--end of page level css-->
@@ -243,11 +242,6 @@
     </div>
 </div>
 </footer>
-<a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" data-original-title="Return to top"
-   data-toggle="tooltip" data-placement="left">
-    <i class="livicon" data-name="plane-up" data-size="18" data-loop="true" data-c="#fff" data-hc="white"></i>
-</a>
-
 
 
 <!--global js starts-->

@@ -23,4 +23,11 @@ class ProjectCategory extends Model
     public function scopeCurrentYear($query) {
         return $query->where('year', (new \DateTime())->format('Y-m-d'));
     }
+
+    public function delete()
+    {
+        $this->experts()->detach();
+
+        return parent::delete();
+    }
 }

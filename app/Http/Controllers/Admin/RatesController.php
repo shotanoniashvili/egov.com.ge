@@ -72,7 +72,7 @@ class RatesController extends JoshController
      *
      * @param  \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, int $id)
     {
@@ -85,7 +85,7 @@ class RatesController extends JoshController
 
             return redirect('admin/rates')->with('success', 'შეფასება წარმატებით დარედაქტირდა');
         } catch (\Exception $e) {
-            return redirect()->back()->withInput()->with('error', 'დაფიქსირდა შეცდომა შეფასების რედაქტირების დროს.');
+            return redirect()->back()->withInput()->with('error', 'დაფიქსირდა შეცდომა შეფასების რედაქტირების დროს.'.$e->getMessage());
         }
     }
 
@@ -93,7 +93,7 @@ class RatesController extends JoshController
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(int $id)
     {
@@ -101,7 +101,9 @@ class RatesController extends JoshController
 
         DB::beginTransaction();
         try {
-            $rate->criterias()->delete();
+            foreach ($rate->criterias as $criteria) {
+                $criteria->delete();
+            }
 
             $rate->delete();
 

@@ -25,6 +25,10 @@ class ProjectDocument extends Pivot
         return $this->name;
     }
 
+    public function getShortTitle() {
+        return mb_strlen($this->getTitle()) > 11 ? mb_substr($this->getTitle(), 0, 11).'...' : $this->getTitle();
+    }
+
     public function getSize() {
         $fileFullPath = public_path() . '/' . $this->path;
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProjectRequest;
 use App\Models\Criteria;
+use App\Models\CustomCriteria;
 use App\Models\Evaluation;
 use App\Models\Municipality;
 use App\Models\Person;
@@ -46,7 +47,9 @@ class ProjectController extends Controller
     {
         $projects = Project::archive();
 
-        $this->applyFilters($projects, $request);
+        $projects = $this->applyFilters($projects, $request);
+
+        $projects->orderByDesc('created_at');
 
         $projects = $projects->paginate(15);
 
@@ -233,15 +236,10 @@ class ProjectController extends Controller
                         $point = $evaluatedValue['free_point'];
                     }
 
-                    if(is_array($evaluatedValue) && array_key_exists('yesno', $evaluatedValue)) {
-                        if($evaluatedValue['yesno'] == 1) {
-                            $point = $subCriteria->yes_point;
-                            $evaluation = 'კი';
-                        }
-                        if($evaluatedValue['yesno'] == 0) {
-                            $point =  $subCriteria->no_point;
-                            $evaluation = 'არა';
-                        }
+                    if(is_array($evaluatedValue) && array_key_exists('custom_point', $evaluatedValue)) {
+                        $custom = CustomCriteria::findOrFail($evaluatedValue['custom_point']);
+                        $point = $custom->point;
+                        $evaluation = $custom->title;
                     }
 
                     if(is_array($evaluatedValue) && array_key_exists('percent', $evaluatedValue)) {

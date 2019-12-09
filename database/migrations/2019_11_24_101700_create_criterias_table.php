@@ -18,8 +18,7 @@ class CreateCriteriasTable extends Migration
             $table->unsignedBigInteger('rate_id');
             $table->text('name');
             $table->unsignedBigInteger('parent_criteria_id')->nullable();
-            $table->integer('yes_point')->nullable();
-            $table->integer('no_point')->nullable();
+            $table->integer('is_custom')->default(false);
             $table->boolean('is_percentable')->default(false);
 
             $table->foreign('rate_id')->references('id')->on('rates');

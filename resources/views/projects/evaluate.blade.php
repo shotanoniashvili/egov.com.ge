@@ -73,21 +73,18 @@
                                     @elseif($subCriteria->isPercentable)
                                         <div class="subcriteria-value mt-1">
                                             <span class="mr-2">პროცენტული შეფასება:</span>
-                                            <input value="0" type="range" min="0" max="100" step="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
+                                            <input value="0" type="range" min="0" max="100" step="1" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
                                             <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
                                         </div>
-                                    @elseif($subCriteria->isYesNoPoint)
+                                    @elseif($subCriteria->isCustomPoint)
                                         <div class="subcriteria-value mt-1">
                                             <span class="mr-2">პასუხი:</span>
+                                            @foreach($subCriteria->customCriterias as $custom)
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][yesno]" id="sub_yes{{$subCriteria->id}}" type="radio" value="1">
-                                                <label class="form-check-label" for="sub_yes{{$subCriteria->id}}">კი</label>
+                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][custom_point]" id="custom{{$subCriteria->id}}{{$custom->id}}" type="radio" value="{{$custom->id}}">
+                                                <label class="form-check-label" for="custom{{$subCriteria->id}}{{$custom->id}}">{{ $custom->title }} ({{ $custom->point }} ქ.)</label>
                                             </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][yesno]" id="sub_no{{$subCriteria->id}}" type="radio" value="0">
-                                                <label class="form-check-label" for="sub_no{{$subCriteria->id}}">არა</label>
-                                            </div>
-                                            <span class="text-muted small d-block">კი: {{ $subCriteria->yes_point }} ქ.; არა: {{ $subCriteria->no_point }} ქ.</span>
+                                            @endforeach
                                         </div>
                                     @endif
                             </div>
@@ -127,7 +124,7 @@
                                 @foreach($project->documents as $document)
                                     <li class="media" data-id="{{ $document->id }}">
                                         <img class="project-file-icon" src="{{ $document->getIconSrc() }}" />
-                                        <a class="document-name" href="{{ asset($document->path) }}">{{$document->getTitle()}}</a>
+                                        <a class="document-name" href="{{ asset($document->path) }}" title="{{$document->getTitle()}}">{{$document->getShortTitle()}}</a>
                                         <small class="text-danger ml-2"> {{ $document->getSize() }}</small>
                                         @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
                                             <button data-toggle="modal" data-target="#renameDocument" class="btn btn-primary btn-rename-document mr-2 ml-3" title="სახელის შეცვლა"><i class="fa fa-edit"></i></button>

@@ -22,6 +22,7 @@ class CriteriaResource extends JsonResource
             'subcriterias' => CriteriaResource::collection($this->subCriterias),
             'yes_point' => $this->yes_point,
             'no_point' => $this->no_point,
+            'customs' => $this->customCriterias,
             'is_percentable' => $this->isPercentable,
             'point_type' => $this->getPointType()
         ];

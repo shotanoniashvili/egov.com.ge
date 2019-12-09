@@ -52,6 +52,6 @@ class News extends Model implements \App\Interfaces\Searchable, \App\Interfaces\
     {
         $htmlFreeText = strip_tags($this->content);
 
-        return mb_strlen($htmlFreeText) > 184 ? substr($htmlFreeText, 0, 184).'...' : $htmlFreeText;
+        return mb_strlen($htmlFreeText) > 184 ? mb_substr($htmlFreeText, 0, 184).'...' : $htmlFreeText;
     }
 }

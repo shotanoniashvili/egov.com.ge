@@ -259,7 +259,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     public function getShortDescription() {
         $stripped = strip_tags($this->short_description);
 
-        return (strlen($stripped) > 160) ? substr($stripped, 0, 160).'...' : $stripped;
+        return (strlen($stripped) > 160) ? mb_substr($stripped, 0, 160).'...' : $stripped;
     }
 
     public function getRating() {
@@ -269,6 +269,10 @@ class Project extends Model implements \App\Interfaces\Searchable
     public function delete() {
         try {
             $this->documents()->delete();
+
+            foreach ($this->evaluations()->get() as $evaluation) {
+                $evaluation->delete();
+            }
 
             return parent::delete();
         } catch (\Exception $e) {

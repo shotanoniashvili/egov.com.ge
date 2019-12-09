@@ -60,6 +60,19 @@ class Rate extends Model
                     }
 
                     $subcriteria->save();
+
+                    if($subcriteriaData->point_type == 'custom_criteria') {
+                        $order = 0;
+                        foreach ($subcriteriaData->customs as $custom) {
+                            CustomCriteria::create([
+                                'criteria_id' => $subcriteria->id,
+                                'title' => $custom->title,
+                                'point' => $custom->point,
+                                'order' => $order
+                            ]);
+                            $order++;
+                        }
+                    }
                 }
             }
             DB::commit();
@@ -82,7 +95,9 @@ class Rate extends Model
             $this->project_category_id = $projectCategoryId;
             $this->save();
 
-            $this->subCriterias()->delete();
+            foreach ($this->subCriterias as $subCriteria) {
+                $subCriteria->delete();
+            }
             $this->criterias()->delete();
 
             foreach ($criterias as $criteriaData) {
@@ -108,6 +123,19 @@ class Rate extends Model
                     }
 
                     $subcriteria->save();
+
+                    if($subcriteriaData->point_type == 'custom_criteria') {
+                        $order = 0;
+                        foreach ($subcriteriaData->customs as $custom) {
+                            CustomCriteria::create([
+                                'criteria_id' => $subcriteria->id,
+                                'title' => $custom->title,
+                                'point' => $custom->point,
+                                'order' => $order
+                            ]);
+                            $order++;
+                        }
+                    }
                 }
             }
             DB::commit();

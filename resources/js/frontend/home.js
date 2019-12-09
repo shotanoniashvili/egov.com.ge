@@ -14,7 +14,7 @@ $(function () {
                 let str = '<div class="map-tooltip-item">' +
                     '   <div class="text-center"> <a id="municipalityLink" target="_blank" href="/municipalities/'+municipality.id+'">' + municipality.name + '</a></div>' +
                     '   <div class="municipality-image text-center"><a id="municipalityLink" target="_blank" href="/municipalities/'+municipality.id+'"><img src="'+municipality.image+'" /></a></div> ' +
-                    '   <div class="municipality-webpage mb-3"><a href="'+municipality.webpage+'">ვებგვერდი</a></div> ' +
+                    '   <div class="municipality-website mb-3"><a target="_blank" href="'+municipality.website+'">ვებგვერდი</a></div> ' +
                     '   <div class="municipality-projects"><a href="/best-practice?municipalities[]='+municipality.id+'">'+municipality.project_count+' პროექტი</a></div> ' +
                     '</div>';
 

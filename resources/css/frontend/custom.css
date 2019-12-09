@@ -1,9 +1,18 @@
 /*-----------------------------------------------------------------------------------*/
 /*  GENERAL STYLING
 /*-----------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'Nunito';
+    src: url("../webfonts/nunito-regular.ttf");
+}
+
+@font-face {
+    font-family: 'NinoMediumCaps';
+    src: url("../webfonts/bpg_nino_medium_caps.otf");
+}
 
 body {
-    font-family: 'FiraGO', sans-serif;
+    font-family: 'Nunito', 'NinoMediumCaps', sans-serif;
     height: 100%;
     color: #757b87;
     padding-bottom: 0 !important;
