@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 class Evaluation extends Model
 {
-    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria_name', 'evaluation', 'point', 'expert_id'];
+    protected $fillable = ['parent_evaluation_id', 'project_id', 'criteria_id', 'criteria_name', 'evaluation', 'point', 'expert_id'];
 
     public function expert() {
         return $this->belongsTo(User::class, 'expert_id');
@@ -31,6 +31,10 @@ class Evaluation extends Model
 
     public function getTotalPoints() {
         return $this->subEvaluations()->sum('point');
+    }
+
+    public function criteria() {
+        return $this->belongsTo(Criteria::class, 'criteria_id');
     }
 
     public function delete()

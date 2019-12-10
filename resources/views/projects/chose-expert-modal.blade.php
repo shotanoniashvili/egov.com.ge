@@ -8,7 +8,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        საერთო შეფასების საშუალო ქულა: {{ number_format($project->rating_points / $project->getEvaluatedExperts()->count(), 2) }}
+                        საერთო შეფასების საშუალო ქულა: {{ $project->getRating() }}
                     </div>
                     <div class="col-md-12">
                         საერთო შეფასების ჯამური ქულა: {{ $project->rating_points }}

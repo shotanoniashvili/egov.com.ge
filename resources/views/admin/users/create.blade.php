@@ -274,7 +274,7 @@
                                         <div class="form-group project-category-container hide">
                                             <div class="row">
                                                 <label for="project_category_ids" class="col-sm-2 control-label">თემატიკა / კატეგორია *</label>
-                                                <div class="col-sm-10">
+                                                <div class="col-sm-10 col-md-8">
                                                     <select class="form-control select2" multiple title="აირჩეთ თემატიკა / კატეგორია..." name="project_category_ids[]"
                                                             id="project_category_ids">
                                                         @foreach($projectCategories as $projectCategory)
@@ -283,6 +283,12 @@
                                                         @endforeach
                                                     </select>
                                                     {!! $errors->first('project_category_ids', '<span class="help-block">:message</span>') !!}
+                                                </div>
+                                                <div class="col-sm-12 col-md-2">
+                                                    <label>
+                                                        <input class="checkbox-fix mr-2" type="checkbox" id="toggleAll" />
+                                                        ყველას არჩევა
+                                                    </label>
                                                 </div>
                                             </div>
                                             <span class="help-block">{{ $errors->first('project_category_ids', ':message') }}</span>
@@ -356,7 +362,6 @@
         $(".select2").select2({
             theme:"bootstrap"
         });
-
 
     </script>
 @stop

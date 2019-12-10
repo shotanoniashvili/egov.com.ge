@@ -228,8 +228,9 @@ class ProjectController extends Controller
 
                 $parentEvaluation = Evaluation::create([
                     'project_id' => $id,
+                    'criteria_id' => $criteria->id,
                     'criteria_name' => $criteria->name,
-                    'expert_id' => Sentinel::getUser()->id,
+                    'expert_id' => $user->id,
                 ]);
 
                 foreach ($value as $subCriteriaId => $evaluatedValue) {
@@ -247,17 +248,18 @@ class ProjectController extends Controller
                     }
 
                     if(is_array($evaluatedValue) && array_key_exists('percent', $evaluatedValue)) {
-                        $point = (int)($evaluatedValue['percent']/10);
+                        $point = number_format($evaluatedValue['percent']/10, 2);
                         $evaluation = $evaluatedValue['percent'] . ' პროცენტი';
                     }
 
                     $subEvaluation = Evaluation::create([
                         'parent_evaluation_id' => $parentEvaluation->id,
                         'project_id' => $id,
+                        'criteria_id' => $subCriteria->id,
                         'criteria_name' => $subCriteria->name,
                         'evaluation' => $evaluation,
                         'point' => $point,
-                        'expert_id' => Sentinel::getUser()->id,
+                        'expert_id' => $user->id,
                     ]);
 
                     $totalPoints += $point;
@@ -268,7 +270,7 @@ class ProjectController extends Controller
             $project->save();
 
             DB::commit();
-            return redirect()->route('projects.rating', $id);
+            return redirect()->route('projects.rating', [$id, $user->id]);
         } catch (\Exception $e) {
             DB::rollBack();
             return redirect()->back()->withInput()->withError('დაფიქსირდა შეცდომა პრაქტიკის/ინიციატივის შეფასების დროს'. $e->getMessage());

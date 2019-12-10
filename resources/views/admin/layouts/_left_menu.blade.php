@@ -51,6 +51,12 @@
             <span class="fa arrow"></span>
         </a>
         <ul class="sub-menu">
+            <li {!! (Request::is('admin/reports/projects') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/reports/projects') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    პროექტების მიხედვით
+                </a>
+            </li>
             <li {!! (Request::is('admin/reports/categories') ? 'class="active" id="active"' : '') !!}>
                 <a href="{{ URL::to('admin/reports/categories') }}">
                     <i class="fa fa-angle-double-right"></i>

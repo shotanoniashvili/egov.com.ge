@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-    შეფასება - {{ $project->title }}
+    შეფასების რედაქტირება - {{ $project->title }}
     @parent
 @stop
 
@@ -11,6 +11,8 @@
     <!--page level css starts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/blog.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('vendors/jquery-confirm/jquery-confirm.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/frontend/rangeslider.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendors/toastr/css/toastr.css') }}">
     <!--end of page level css-->
 @stop
 
@@ -31,7 +33,11 @@
                         </li>
                         <li>
                             <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
-                            <a href="#">შეფასება</a>
+                            <a href="{{ route('projects.rating', [$project->id, $expert->id]) }}">შეფასება</a>
+                        </li>
+                        <li>
+                            <i class="livicon icon3" data-name="angle-double-right" data-size="18" data-loop="true" data-c="#01bc8c" data-hc="#01bc8c"></i>
+                            <a href="#">რედაქტირება</a>
                         </li>
                     </ol>
                     <div class="float-right mt-1">
@@ -48,12 +54,11 @@
     <!-- Container Section Start -->
     <div class="container mt-5 mb-5">
         <div class="welcome">
-            <h3>{{ $project->title }} / შეფასება ({{ $expert->fullname }})</h3>
-            <span class="text-muted d-block">საერთო რეიტინგი: {{ $project->rating_points }}</span>
-            <span class="text-muted">{{ $expert->fullname }}ს რეიტინგი: {{ $project->getRatingSumByExpert($expert->id) }}</span>
+            <h3>{{ $project->title }} / შეფასების რედაქტირება ({{ $expert->fullname }})</h3>
+            <span class="text-muted d-block">საერთო რეიტინგი: <span id="totalRating">{{ $project->rating_points }}</span></span>
+            <span class="text-muted">{{ $expert->fullname }}ს რეიტინგი: <span id="expertRating">{{ $project->getRatingSumByExpert($expert->id) }}</span></span>
             @if($user->roles()->where('slug', 'admin')->count() > 0)
                 <a class="ml-3 btn btn-danger btn-sm btn-remove-evalution" href="#"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>
-                <a class="ml-3 btn btn-primary btn-sm btn-edit-evalution" href="{{ route('admin.projects.edit-evaluation', [$project->id, $expert->id]) }}"><i class="fa fa-edit"></i> შეფასების რედაქტირება</a>
             @endif
         </div>
         <hr>
@@ -61,25 +66,58 @@
             <!-- Business Deal Section Start -->
             <div class="col-sm-12 col-md-8">
                 @include('notifications')
-                @foreach($project->evaluations as $evaluation)
+                @foreach($evaluations as $evaluation)
                     <div class="criteria-container mb-5">
-                        <h3>
-                            <strong>{{ $evaluation->criteria_name }}</strong>
-                            <span class="text-muted small-1 d-block font-weight-normal">ქულების ჯამი: {{ $evaluation->getTotalPoints() }}</span>
-                        </h3>
+                        <h3><strong>{{ $evaluation->criteria_name }}</strong></h3>
                         <hr>
                         @foreach($evaluation->subEvaluations as $subEvaluation)
                             <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
                                 <div class="subcriteria-name"><h4>{{ $subEvaluation->criteria_name }}</h4></div>
-                                @if(!$subEvaluation->evaluation)
+                                @if($subEvaluation->criteria)
+                                        @if($subEvaluation->criteria->isFreePoint)
+                                            <div class="subcriteria-value mt-1">
+                                                ქულა (0-დან 10-მდე):
+                                                <input min="0" max="10" name="evaluations[{{ $subEvaluation->id }}]" value="{{ $subEvaluation->point }}" type="number" class="form-control d-inline-block w-auto" />
+                                                <button class="btn btn-primary btn-edit-evaluation" data-id="{{ $subEvaluation->id }}">რედაქტირება</button>
+                                            </div>
+                                        @elseif($subEvaluation->criteria->isPercentable)
+                                            <div class="subcriteria-value mt-1">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <span class="mr-2">პროცენტული შეფასება:</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input value="{{ (int)($subEvaluation->point * 10) }}" type="range" min="0" max="100" step="1" name="evaluations[{{ $subEvaluation->id }}]" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="number" max="100" min="1" class="range-field form-control" value="{{ (int)($subEvaluation->point * 10) }}" data-range-id="{{$subEvaluation->id}}" />
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <button class="btn btn-primary btn-edit-evaluation" data-id="{{ $subEvaluation->id }}">რედაქტირება</button>
+                                                        <span class="text-muted small d-block">პროცენტი: <span class="percent-point">{{ (int)($subEvaluation->point * 10) }}</span> (ყოველი 10% არის 1 ქულა)</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        @elseif($subEvaluation->criteria->isCustomPoint)
+                                            <div class="subcriteria-value mt-1">
+                                                <span class="mr-2">პასუხი:</span>
+                                                @foreach($subEvaluation->criteria->customCriterias as $custom)
+                                                    <div class="form-check form-check-inline">
+                                                        <input class="form-check-input" name="evaluations[{{ $subEvaluation->id }}]" id="custom{{$subEvaluation->id}}" type="radio" value="{{$custom->id}}" {{ ($subEvaluation->evaluation == $custom->title) ? 'checked' : '' }}>
+                                                        <label class="form-check-label" for="custom{{$subEvaluation->id}}">{{ $custom->title }} ({{ $custom->point }} ქ.)</label>
+                                                    </div>
+                                                @endforeach
+                                                <button class="btn btn-primary btn-edit-evaluation" data-id="{{ $subEvaluation->id }}">რედაქტირება</button>
+                                            </div>
+                                        @endif
+                                    @else
                                     <div class="subcriteria-value mt-1">
-                                        ქულა: <span>{{ $subEvaluation->point }}</span>
-                                    </div>
-                                @else
-                                    <div class="subcriteria-value mt-1">
-                                        <span class="mr-2">{{ $subEvaluation->evaluation }}. {{ $subEvaluation->point }} ქულა</span>
+                                        ქულა:
+                                        <input name="evaluations[{{ $subEvaluation->id }}]" type="number" value="{{ $subEvaluation->point }}" class="form-control d-inline-block w-auto" /><button class="btn btn-primary btn-edit-evaluation" data-id="{{ $subEvaluation->id }}">რედაქტირება</button>
                                     </div>
                                 @endif
+
                             </div>
                         @endforeach
                     </div>
@@ -177,7 +215,10 @@
     </div>
 @stop
 @section('footer_scripts')
+    <script type="text/javascript" src="{{ asset('js/frontend/rangeslider.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendors/jquery-confirm/jquery-confirm.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('vendors/toastr/js/toastr.js') }}"></script>
+
     <script type="text/javascript">
         let $url_path = '{!! url('/') !!}';
         $('.btn-remove-evalution').on('click', function() {
@@ -217,6 +258,55 @@
 
         $('body').on('hidden.bs.modal', '.modal', function () {
             $(this).removeData('bs.modal');
+        });
+
+        $(function() {
+            $('input[type="range"]').rangeslider({
+                polyfill: false,
+
+                // Callback function
+                onSlide: function(position, value) {
+                    $(this.$element).parent().parent().find('.percent-point').text(value);
+                    $(this.$element).parent().parent().find('.range-field').val(value);
+                }
+            });
+
+            $('.range-field').on('keyup', function() {
+                let range = $(this).parent().parent().find('input[type="range"]');
+                range.val($(this).val()).change();
+            });
+
+            $('.btn-edit-evaluation').on('click', function() {
+                let id = $(this).data('id');
+
+                let that = $(this);
+                toggleLoading($(this));
+
+                $.post('{{ route('admin.projects.edit-evaluation', [$project->id, $expert->id]) }}', {
+                    evaluation: id,
+                    point: $('input[name="evaluations['+id+']"]').val(),
+                    _token: '{{ csrf_token() }}'
+                }).done((response) => {
+                    toastr.success('შეფასება წარმატებით დარედაქტირდა');
+
+                    $('#totalRating').text(''+response.data.rating_points);
+                    $('#expertRating').text(''+response.data.expert_points);
+                }).fail((e) => {
+                    toastr.error('დაფიქსირდა შეცდომა შეფასების რედაქტირების დროს');
+                }).always(() => {
+                    toggleLoading(that);
+                });
+            });
+
+            function toggleLoading($el) {
+                if($el.attr('disabled')) {
+                    $el.text('რედაქტირება');
+                    $el.removeAttr('disabled');
+                } else {
+                    $el.text('ტვირთება...');
+                    $el.attr('disabled', 'disabled');
+                }
+            }
         });
     </script>
 @stop

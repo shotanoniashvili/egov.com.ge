@@ -429,3 +429,8 @@ html, body {
 .action-with-text i {
     padding-top: 8px;
 }
+
+.checkbox-fix {
+    margin-top: 6px;
+    float: left;
+}

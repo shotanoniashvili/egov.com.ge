@@ -99,7 +99,7 @@ $('#rootwizard').bootstrapWizard({
         return $validator.isValid();
     },
     onTabClick: function(tab, navigation, index) {
-        return false;
+        return true;
     },
     onTabShow: function(tab, navigation, index) {
         var $total = navigation.find('li').length;

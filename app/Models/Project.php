@@ -284,7 +284,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function getRating() {
-        return $this->getEvaluatedExperts()->count() > 0 ? number_format($this->rating_points / $this->getEvaluatedExperts()->count(), 2) : 0;
+        return ($this->getEvaluatedExperts()->count() > 0) ? number_format($this->rating_points / $this->getEvaluatedExperts()->count(), 2) : 0;
     }
 
     public function delete() {
@@ -350,5 +350,10 @@ class Project extends Model implements \App\Interfaces\Searchable
 
     public function isEvaluatedByExpert($expertId) {
         return $this->evaluations()->where('expert_id', $expertId)->count() > 0;
+    }
+
+    public function reloadRatingPoints() {
+        $this->rating_points = DB::table('evaluations')->where('project_id', $this->id)->whereNotNull('point')->sum('point');
+        $this->save();
     }
 }

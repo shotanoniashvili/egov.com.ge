@@ -68,20 +68,31 @@
                                     @if($subCriteria->isFreePoint)
                                         <div class="subcriteria-value mt-1">
                                             ქულა (0-დან 10-მდე):
-                                            <input min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="number" class="form-control d-inline-block w-auto" />
+                                            <input required min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="number" class="form-control d-inline-block w-auto" />
                                         </div>
                                     @elseif($subCriteria->isPercentable)
                                         <div class="subcriteria-value mt-1">
-                                            <span class="mr-2">პროცენტული შეფასება:</span>
-                                            <input value="0" type="range" min="0" max="100" step="1" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
-                                            <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <span class="mr-2">პროცენტული შეფასება:</span>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <input required value="0" type="range" min="0" max="100" step="1" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="number" max="100" min="1" class="range-field form-control" value="0" />
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
+                                                </div>
+                                            </div>
                                         </div>
                                     @elseif($subCriteria->isCustomPoint)
                                         <div class="subcriteria-value mt-1">
                                             <span class="mr-2">პასუხი:</span>
                                             @foreach($subCriteria->customCriterias as $custom)
                                             <div class="form-check form-check-inline">
-                                                <input class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][custom_point]" id="custom{{$subCriteria->id}}{{$custom->id}}" type="radio" value="{{$custom->id}}">
+                                                <input required class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][custom_point]" id="custom{{$subCriteria->id}}{{$custom->id}}" type="radio" value="{{$custom->id}}">
                                                 <label class="form-check-label" for="custom{{$subCriteria->id}}{{$custom->id}}">{{ $custom->title }} ({{ $custom->point }} ქ.)</label>
                                             </div>
                                             @endforeach
@@ -171,13 +182,19 @@
             $(this).removeData('bs.modal');
         });
 
+        $('.range-field').on('keyup', function() {
+            let range = $(this).parent().parent().find('input[type="range"]');
+            range.val($(this).val()).change();
+        });
+
         $(function() {
             $('input[type="range"]').rangeslider({
                 polyfill: false,
 
                 // Callback function
                 onSlide: function(position, value) {
-                    $(this.$element).parent().find('.percent-point').text(value);
+                    $(this.$element).parent().parent().find('.percent-point').text(value);
+                    $(this.$element).parent().parent().find('.range-field').val(value);
                 }
 
             });

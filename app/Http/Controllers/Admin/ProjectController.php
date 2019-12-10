@@ -5,11 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\JoshController;
 use App\Http\Requests\ProjectCategoryRequest;
 use App\Http\Requests\ProjectRequest;
+use App\Models\CustomCriteria;
+use App\Models\Evaluation;
 use App\Models\Municipality;
 use App\Models\Person;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\ProjectDocument;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -303,6 +306,48 @@ class ProjectController extends JoshController
             return redirect()->route('projects.show', $id);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა შეფასების წაშლის დროს. '.$e->getMessage());
+        }
+    }
+
+    public function showEditEvaluationForm(int $project, int $expert) {
+        $project = Project::findOrFail($project);
+        $expert = User::findOrFail($expert);
+        $evaluations = $project->evaluations()->expert($expert->id)->get();
+
+        return view('projects.edit-evaluation', compact('project', 'expert', 'evaluations'));
+    }
+
+    public function editEvaluation(int $project, int $expert, Request $request) {
+        DB::beginTransaction();
+        try {
+            $project = Project::findOrFail($project);
+            $evaluation = Evaluation::where('project_id', $project->id)->where('expert_id', $expert)->where('id', $request->evaluation)->first();
+
+            if($evaluation->criteria) {
+                if($evaluation->criteria->isFreePoint) $evaluation->point = $request->point;
+
+                if($evaluation->criteria->isPercentable) {
+                    $evaluation->point = number_format($request->point/10, 2);
+                    $evaluation->evaluation = $request->point . ' პროცენტი';
+                }
+
+                if($evaluation->criteria->isCustomPoint) {
+                    $custom = CustomCriteria::findOrFail($request->point);
+                    $evaluation->point = $custom->point;
+                    $evaluation->evaluation = $custom->title;
+                }
+            } else {
+                $evaluation->piont = $request->point;
+            }
+
+            $evaluation->save();
+            $project->reloadRatingPoints();
+
+            DB::commit();
+            return response()->json(['message' => 'შეფასება წარმატებით დარედაქტირდა', 'data' => ['rating_points' => number_format($project->rating_points, 2), 'expert_points' => $project->getRatingSumByExpert($expert)]], 200);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return response()->json(['message' => 'დაფიქსირდა შეცდომა შეფასების რედაქტირების დროს. '.$e->getMessage()], 500);
         }
     }
 }

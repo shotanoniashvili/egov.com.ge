@@ -210,6 +210,9 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('rating/{id}/delete/{expertId}', 'ProjectController@deleteEvaluation')->name('projects.delete-evaluation');
     });
 
+    Route::get('rating/{id}/edit/{expertId}', 'ProjectController@showEditEvaluationForm')->name('projects.edit-evaluation');
+    Route::post('rating/{id}/edit/{expertId}', 'ProjectController@editEvaluation');
+
 
     /*rates in admin panel*/
     Route::group(['prefix' => 'rates'], function () {
@@ -236,6 +239,8 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
         Route::get('categories/{category}', 'ReportsController@showCategory')->name('reports.show-category');
         Route::get('experts', 'ReportsController@experts')->name('reports.categories');
         Route::get('experts/{expert}', 'ReportsController@showExpert')->name('reports.show-expert');
+        Route::get('projects', 'ReportsController@projects')->name('reports.projects');
+        Route::get('projects/{project}', 'ReportsController@showProject')->name('reports.show-project');
     });
 
     /*routes for municipalities*/

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\JoshController;
 use App\Http\Requests\RegionRequest;
+use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\Region;
 use App\Models\User;
@@ -42,5 +43,19 @@ class ReportsController extends JoshController
         $expert = User::findOrFail($expert);
 
         return view('admin.reports.show-expert', compact('expert'));
+    }
+
+    public function projects()
+    {
+        $projects = Project::notArchive()->evaluated()->get();
+
+        return view('admin.reports.project', compact('projects'));
+    }
+
+    public function showProject(int $project)
+    {
+        $project = Project::findOrFail($project);
+
+        return view('admin.reports.show-project', compact('project'));
     }
 }
