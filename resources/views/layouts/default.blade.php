@@ -91,7 +91,11 @@
                         {{--based on anyone login or not display menu items--}}
                         @if(!Sentinel::guest())
                             <li class="nav-item {{ (Request::is('my-account') ? 'active' : '') }}">
-                                <a href="{{ URL::to('my-account') }}" class="nav-link">ჩემი გვერდი</a>
+                                @if(Sentinel::getUser()->roles()->where('slug', 'admin')->count() > 0)
+                                    <a href="{{ URL::to('admin') }}" class="nav-link">ჩემი გვერდი</a>
+                                    @else
+                                    <a href="{{ URL::to('my-account') }}" class="nav-link">ჩემი გვერდი</a>
+                                @endif
                             </li>
                             <li class="nav-item">
                                 <a href="{{ URL::to('logout') }}" class="nav-link" title="სისტემიდან გასვლა">

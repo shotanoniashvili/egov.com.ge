@@ -41,4 +41,38 @@ class Evaluation extends Model
 
         return parent::delete();
     }
+
+    public function scopeSuccess($query) {
+        return $query->where('evaluations.criteria_name', 'წარმატებული')
+            ->select(['evaluations.expert_id', 'subevaluations.point', 'subevaluations.parent_evaluation_id'])
+            ->leftJoin('evaluations as subevaluations', 'evaluations.id', 'subevaluations.parent_evaluation_id');
+    }
+
+    public function scopeTransparent($query) {
+        return $query->where('evaluations.criteria_name', 'გამჭვირვალე')
+            ->select(['evaluations.expert_id', 'subevaluations.point', 'subevaluations.parent_evaluation_id'])
+            ->leftJoin('evaluations as subevaluations', 'evaluations.id', 'subevaluations.parent_evaluation_id');
+    }
+
+    public function scopeAdequate($query) {
+        return $query->where('evaluations.criteria_name', 'ადეკვატური')
+            ->select(['evaluations.expert_id', 'subevaluations.point', 'subevaluations.parent_evaluation_id'])
+            ->leftJoin('evaluations as subevaluations', 'evaluations.id', 'subevaluations.parent_evaluation_id');
+    }
+
+    public function scopeShareable($query) {
+        return $query->where('evaluations.criteria_name', 'გაზიარებადი')
+            ->select(['evaluations.expert_id', 'subevaluations.point', 'subevaluations.parent_evaluation_id'])
+            ->leftJoin('evaluations as subevaluations', 'evaluations.id', 'subevaluations.parent_evaluation_id');
+    }
+
+    public function scopeSustainable($query) {
+        return $query->where('evaluations.criteria_name', 'მდგრადი')
+            ->select(['evaluations.expert_id', 'subevaluations.point', 'subevaluations.parent_evaluation_id'])
+            ->leftJoin('evaluations as subevaluations', 'evaluations.id', 'subevaluations.parent_evaluation_id');
+    }
+
+    public function scopeExpert($query, $expertId) {
+        return $query->where('evaluations.expert_id', $expertId);
+    }
 }

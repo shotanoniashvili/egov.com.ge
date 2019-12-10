@@ -7,18 +7,22 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-md-9">
-                        <select class="form-control chose-experts">
-                            @foreach($project->getEvaluatedExperts() as $expert)
-                                <option value="{{ $expert->id }}">{{ $expert->fullname }}</option>
-                            @endforeach
-                        </select>
+                    <div class="col-md-12">
+                        საერთო შეფასების საშუალო ქულა: {{ number_format($project->rating_points / $project->getEvaluatedExperts()->count(), 2) }}
                     </div>
-
-                    <div class="col-md-3">
-                        <button class="btn btn-primary w-100 btn-chose">
-                            არჩევა
-                        </button>
+                    <div class="col-md-12">
+                        საერთო შეფასების ჯამური ქულა: {{ $project->rating_points }}
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        @foreach($project->category->experts as $expert)
+                            @if($project->isEvaluatedByExpert($expert->id))
+                                <a class="d-block" href="{{ route('projects.rating', [$project->id, $expert->id]) }}"><span class="success">{{ $expert->fullname }}</span>
+                                    <span class="text-muted small">({{ $project->getRatingSumByExpert($expert->id) }} ქულა)</span>
+                                </a>
+                            @else
+                                <span class="d-block danger">{{ $expert->fullname }} <span class="text-muted small">(არ არის შეფასებული)</span></span>
+                            @endif
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -29,14 +33,3 @@
         <!-- /.modal-content -->
     </div>
 </div>
-
-@section('footer_scripts')
-    <script type="text/javascript">
-        $(function() {
-             $('.btn-chose').on('click', function() {
-                 let expertId = $('.chose-experts').val();
-                 window.open('{{ url('/projects/'.$project->id.'/rating') }}/'+expertId, '_blank');
-             });
-        });
-    </script>
-@stop

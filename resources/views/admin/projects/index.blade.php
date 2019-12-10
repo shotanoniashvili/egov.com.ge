@@ -55,7 +55,7 @@
                                 <th>მუნიციპალიტეტი</th>
                                 <th>არქივი</th>
                                 <th>წელი</th>
-                                <th>რეიტინგი</th>
+                                <th>საშუალო რეიტინგი</th>
                                 <th>საუკეთესო პრაქტიკა</th>
                                 <th>გამოუჩნდეთ ექსპერტებს</th>
                                 <th>გამოჩნდეს საიზე</th>
@@ -74,7 +74,7 @@
                                                    data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-is-archive cursor-pointer" data-name="remove-alt" data-size="18"
                                                    data-c="#f56954" data-hc="#f56954" data-loop="true"></i>' !!}</td>
                                     <td>{{ $project->created_at->format('Y') }}</td>
-                                    <td>{{ $project->getRating() }}</td>
+                                    <td class="text-success">{{ $project->getRating() }}</td>
                                     <td class="text-center">{!! $project->is_best_practise ? '<i class="livicon toggle-best-practise cursor-pointer" data-name="check-circle-alt" data-size="18"
                                                    data-c="#6CC66C" data-hc="#6CC66C" data-loop="true"></i>' : '<i class="livicon toggle-best-practise cursor-pointer" data-name="remove-alt" data-size="18"
                                                    data-c="#f56954" data-hc="#f56954" data-loop="true"></i>' !!}</td>

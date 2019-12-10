@@ -651,6 +651,9 @@ svg {
     background-color: #f5f5f5;
     color: #262626;
 }
-/*panel css end*/
 
 
+.action-with-text i {
+    padding-top: 8px;
+    vertical-align: middle;
+}

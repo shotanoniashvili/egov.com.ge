@@ -91,32 +91,18 @@
                                 @endif
                                 <p class="topprofiletext">{{ Sentinel::getUser()->first_name }} {{ Sentinel::getUser()->last_name }}</p>
                             </li>
-                            <!-- Menu Body -->
-                            <li>
-                                <a href="{{ URL::route('admin.users.show',Sentinel::getUser()->id) }}">
-                                    <i class="livicon" data-name="user" data-s="18"></i>
-                                    My Profile
-                                </a>
-                            </li>
-                            <li role="presentation"></li>
                             <li>
                                 <a href="{{ route('admin.users.edit', Sentinel::getUser()->id) }}">
                                     <i class="livicon" data-name="gears" data-s="18"></i>
-                                    Account Settings
+                                    პარამეტრები
                                 </a>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="float-left">
-                                    <a href="{{ URL::route('lockscreen',Sentinel::getUser()->id) }}">
-                                        <i class="livicon" data-name="lock" data-size="16" data-c="#555555" data-hc="#555555" data-loop="true"></i>
-                                        Lock
-                                    </a>
-                                </div>
                                 <div class="float-right">
                                     <a href="{{ URL::to('admin/logout') }}">
                                         <i class="livicon" data-name="sign-out" data-s="18"></i>
-                                        Logout
+                                        გასვლა
                                     </a>
                                 </div>
                             </li>

@@ -220,7 +220,7 @@ class BaseCommand extends Command
             ['save', null, InputOption::VALUE_NONE, 'Save model schema to file'],
             ['primary', null, InputOption::VALUE_REQUIRED, 'Custom primary key'],
             ['prefix', null, InputOption::VALUE_REQUIRED, 'Prefix for all files'],
-            ['paginate', null, InputOption::VALUE_REQUIRED, 'Pagination for index.blade.php'],
+            ['paginate', null, InputOption::VALUE_REQUIRED, 'Pagination for category.blade.php'],
             ['skip', null, InputOption::VALUE_REQUIRED, 'Skip Specific Items to Generate (migration,model,controllers,api_controller,scaffold_controller,repository,requests,api_requests,scaffold_requests,routes,api_routes,scaffold_routes,views,tests,menu,dump-autoload)'],
             ['datatables', null, InputOption::VALUE_REQUIRED, 'Override datatables settings'],
             ['views', null, InputOption::VALUE_REQUIRED, 'Specify only the views you want generated: index,create,edit,show'],

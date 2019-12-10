@@ -68,7 +68,7 @@
                          || $user->roles()->where('slug', 'admin')->count() > 0
                          || $user->categories()->where('id', $project->category_id)->count() > 0))
                             <a data-toggle="modal" data-target="#choseExpert" class="btn btn-success mb-3">
-                                <i class="fa fa-check"></i> შეფასების ნახვა
+                                <i class="fa fa-check"></i> რეპორტების ნახვა
                             </a>
                         @endif
                     </div>

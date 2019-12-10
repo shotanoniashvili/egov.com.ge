@@ -425,3 +425,7 @@ html, body {
 .small-1 {
     font-size: 70%;
 }
+
+.action-with-text i {
+    padding-top: 8px;
+}

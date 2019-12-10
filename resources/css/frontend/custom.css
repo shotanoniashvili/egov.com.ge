@@ -989,3 +989,7 @@ svg {
     max-height: 100%;
     width: auto
 }
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+    line-height: 1.7;
+}

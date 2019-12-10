@@ -235,9 +235,9 @@ class ViewGenerator extends BaseGenerator
             }
         }
 
-        FileUtil::createFile($this->path, 'index.blade.php', $templateData);
+        FileUtil::createFile($this->path, 'category.blade.php', $templateData);
 
-        $this->commandData->commandInfo('index.blade.php created');
+        $this->commandData->commandInfo('category.blade.php created');
     }
 
     private function generateFields()
@@ -433,7 +433,7 @@ class ViewGenerator extends BaseGenerator
     {
         $files = [
             'table.blade.php',
-            'index.blade.php',
+            'category.blade.php',
             'fields.blade.php',
             'create.blade.php',
             'edit.blade.php',

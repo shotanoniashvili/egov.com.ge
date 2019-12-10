@@ -230,6 +230,14 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
     });
     Route::resource('regions', 'RegionController');
 
+    /*routes for reports */
+    Route::group(['prefix' => 'reports'], function () {
+        Route::get('categories', 'ReportsController@categories')->name('reports.categories');
+        Route::get('categories/{category}', 'ReportsController@showCategory')->name('reports.show-category');
+        Route::get('experts', 'ReportsController@experts')->name('reports.categories');
+        Route::get('experts/{expert}', 'ReportsController@showExpert')->name('reports.show-expert');
+    });
+
     /*routes for municipalities*/
     Route::group(['prefix' => 'municipalities'], function () {
         Route::get('{municipality}/delete', 'MunicipalityController@destroy')->name('municipalities.delete');

@@ -42,6 +42,29 @@
             </li>
         </ul>
     </li>
+
+    <li {!! Request::is('admin/reports*') ? 'class="active"' : '' !!}>
+        <a href="#">
+            <i class="livicon" data-name="bulb" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"
+               data-loop="true"></i>
+            <span class="title">რეპორტები</span>
+            <span class="fa arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li {!! (Request::is('admin/reports/categories') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/reports/categories') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    კატეგორიის მიხედვით
+                </a>
+            </li>
+            <li {!! (Request::is('admin/reports/experts') ? 'class="active" id="active"' : '') !!}>
+                <a href="{{ URL::to('admin/reports/experts') }}">
+                    <i class="fa fa-angle-double-right"></i>
+                    ექსპერტების მიხედვით
+                </a>
+            </li>
+        </ul>
+    </li>
     <li {!! Request::is('admin/rates*') ? 'class="active"' : '' !!}>
         <a href="#">
             <i class="livicon" data-name="bulb" data-size="18" data-c="#6CC66C" data-hc="#6CC66C"

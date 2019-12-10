@@ -42,7 +42,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function evaluations() {
-        return $this->hasMany(Evaluation::class, 'project_id')->whereNull('parent_evaluation_id');
+        return $this->hasMany(Evaluation::class, 'project_id')->whereNull('evaluations.parent_evaluation_id');
     }
 
     public function scopeActiveForWeb($query) {
@@ -284,7 +284,7 @@ class Project extends Model implements \App\Interfaces\Searchable
     }
 
     public function getRating() {
-        return $this->rating_points;
+        return $this->getEvaluatedExperts()->count() > 0 ? number_format($this->rating_points / $this->getEvaluatedExperts()->count(), 2) : 0;
     }
 
     public function delete() {
@@ -346,5 +346,9 @@ class Project extends Model implements \App\Interfaces\Searchable
         $evaluations = DB::table('evaluations')->where('expert_id', $expertId)->where('project_id', $this->id)->whereNotNull('point');
 
         return $evaluations->sum('point');
+    }
+
+    public function isEvaluatedByExpert($expertId) {
+        return $this->evaluations()->where('expert_id', $expertId)->count() > 0;
     }
 }
