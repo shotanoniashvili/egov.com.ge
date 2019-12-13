@@ -387,7 +387,7 @@ blockquote {
 
 .box-icon {
     background-color: transparent;
-    border: 1px solid #01bc8c;
+    border: 1px solid #CDB55A;
     border-radius: 50%;
     display: table;
     height: 80px;
@@ -449,7 +449,7 @@ blockquote {
 
 .feature-main {
     padding: 50px 0;
-    background-color: #f2eded;
+    background-color: #fdfcfc;
 }
 
 .feature-main1 {
@@ -993,3 +993,68 @@ svg {
 .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
     line-height: 1.7;
 }
+
+.logos .european-union img {
+    height: 110px;
+}
+.logos .nala img {
+    height: 90px;
+}
+.logos .nala a {
+    line-height: 7;
+}
+
+.header-search form {
+    padding-top: 38px;
+}
+
+.media-top .box-icon {
+    border: 1px solid #CDB55A !important;
+    background-color: #CDB55A !important;;
+}
+
+
+.float-left {
+    float: left !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.float-none {
+    float: none !important;
+}
+
+@media (min-width: 576px) {
+    .float-sm-left {
+        float: left !important;
+    }
+    .float-sm-right {
+        float: right !important;
+    }
+    .float-sm-none {
+        float: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .float-md-left {
+        float: left !important;
+    }
+    .float-md-right {
+        float: right !important;
+    }
+    .float-md-none {
+        float: none !important;
+    }
+}
+
+
+@media (min-width: 576px) {
+    .mt-sm-2,
+    .my-sm-2 {
+        margin-top: 0.5rem !important;
+    }
+}
+

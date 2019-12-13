@@ -55,7 +55,7 @@
                         <form action="{{ route('signin') }}" autocomplete="on" method="post" role="form" id="login_form"
                               class="my-3">
                             <h3 class="none_bg">
-                                <img src="{{ asset('img/nalaicon.png') }}" alt="josh logo">
+                                <img src="{{ asset('nala.png') }}" alt="josh logo">
                                 <br>ავტორიზაცია</h3>
                             <!-- CSRF Token -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>

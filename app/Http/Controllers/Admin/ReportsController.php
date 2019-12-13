@@ -3,15 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\JoshController;
-use App\Http\Requests\RegionRequest;
 use App\Models\Project;
 use App\Models\ProjectCategory;
-use App\Models\Region;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Redirect;
-use PhpOffice\PhpSpreadsheet\Calculation\Category;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ReportsController extends JoshController
 {
@@ -57,5 +54,43 @@ class ReportsController extends JoshController
         $project = Project::findOrFail($project);
 
         return view('admin.reports.show-project', compact('project'));
+    }
+
+    public function exportCategory(int $id) {
+        $category = ProjectCategory::findOrFail($id);
+
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        //$abc = ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+        $sheet->setCellValue('A1', 'ID');
+
+        $rows = 2;
+        foreach($category->projects()->evaluated()->get() as $project){
+            $sheet->setCellValue('A' . $rows, $project->id);
+
+            $rows++;
+        }
+//        foreach(range('A','T') as $columnID) {
+//            $sheet->getColumnDimension($columnID)
+//                ->setAutoSize(true);
+//        }
+
+        $writer = new Xlsx($spreadsheet);
+
+        $date = (new \DateTime())->format('d-m-Y_H_i_s');
+
+        $writer->save('storage/exports/category_report_'.$date.'.xlsx');
+
+        return redirect()->to('storage/exports/category_report_'.$date.'.xlsx');
+    }
+
+    public function exportProject(int $id) {
+
+    }
+
+    public function exportExpert(int $id) {
+
     }
 }

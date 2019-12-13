@@ -235,12 +235,18 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
 
     /*routes for reports */
     Route::group(['prefix' => 'reports'], function () {
+        Route::get('categories/{category}/export', 'ReportsController@exportCategory')->name('reports.categories.export');
+        Route::get('experts/{expert}/export', 'ReportsController@exportExport')->name('reports.experts.export');
+        Route::get('projects/{project}/export', 'ReportsController@exportProject')->name('reports.projects.export');
+
         Route::get('categories', 'ReportsController@categories')->name('reports.categories');
         Route::get('categories/{category}', 'ReportsController@showCategory')->name('reports.show-category');
         Route::get('experts', 'ReportsController@experts')->name('reports.categories');
         Route::get('experts/{expert}', 'ReportsController@showExpert')->name('reports.show-expert');
         Route::get('projects', 'ReportsController@projects')->name('reports.projects');
         Route::get('projects/{project}', 'ReportsController@showProject')->name('reports.show-project');
+
+
     });
 
     /*routes for municipalities*/

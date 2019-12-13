@@ -398,10 +398,10 @@
         <!-- Our skill Section start -->
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 text-left">
+                <div class="col-sm-12 col-md-6 text-sm-center text-md-left">
                     <a class="btn btn-nala" href="{{ URL::to('/admin') }}">ადმინისტრატორის გვერდი</a>
                 </div>
-                <div class="col-sm-6 text-right">
+                <div class="col-sm-12 col-md-6 text-sm-center text-md-right mt-sm-2">
                     <a class="btn btn-nala" href="{{ URL::to('/contact') }}">კონტაქტი</a>
                 </div>
             </div>

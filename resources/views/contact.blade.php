@@ -2,7 +2,7 @@
 
 {{-- Page title --}}
 @section('title')
-Contact
+კონტაქტი
 @parent
 @stop
 
@@ -73,16 +73,21 @@ Contact
             <div class="col-md-6 col-sm-6" id="address_margt">
                 <div class="media media-top media-right">
                     <a href="#">
-                    <div class="box-icon">
-                    <i class="livicon" data-name="home" data-size="22" data-loop="true" data-c="#fff" data-hc="#fff"></i>
-                    </div>
+                        <div class="box-icon">
+                            <i class="livicon" data-name="mail-alt" data-size="22" data-loop="true" data-c="#fff" data-hc="#fff"></i>
+                        </div>
                     </a>
-                    <div class="media-body ml-3">
-                        <h4 class="media-heading">მისამართი:</h4>
+                    {{--<a href="#">--}}
+                        {{--<div class="box-icon">--}}
+                            {{--<i class="livicon" data-name="cellphone" data-size="22" data-loop="true" data-c="#fff" data-hc="#fff"></i>--}}
+                        {{--</div>--}}
+                    {{--</a>--}}
+                    <div class="media-body ml-3 mt-2">
+                        {{--<h4 class="media-heading">მისამართი:</h4>--}}
 {{--                        <div class="danger">Jyostna</div>--}}
                         <address>
-                            <p>ელექტრონული მისამართი : bp@nala.ge</p>
-                            <p>ტელეფონი:    595 57 77 34</p>
+                            <p class="mb-4">ელექტრონული მისამართი: bp@nala.ge</p>
+                            <p>ტელეფონი: 595 57 77 34</p>
 
                         </address>
                     </div>

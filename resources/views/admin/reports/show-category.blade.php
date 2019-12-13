@@ -32,9 +32,12 @@
             <div class="col-lg-12">
                 <div class="card ">
                     <div class="card-header bg-primary text-white clearfix">
-                    <span class="float-left"> <i class="livicon" data-name="users" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
-                        რეპორტები კატეგორიის მიხედვით - {{ $category->name }}
-                    </span>
+                        <span class="float-left"> <i class="livicon" data-name="users" data-size="16" data-loop="true" data-c="#fff" data-hc="white"></i>
+                            რეპორტები კატეგორიის მიხედვით - {{ $category->name }}
+                        </span>
+                        <div class="float-right">
+                            <a href="{{ route('admin.reports.categories.export', $category->id) }}" class="btn btn-sm btn-light"><span class="fa fa-file-excel"></span> ექსპორტი</a>
+                        </div>
                     </div>
                     <br />
                     <div class="card-body">
