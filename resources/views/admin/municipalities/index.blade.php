@@ -59,7 +59,7 @@
                                             <td>{{ $municipality->id }}</td>
                                             <td>{{ $municipality->name }}</td>
                                             <td>{{ $municipality->region ? $municipality->region->name : '-' }}</td>
-                                            <td>{{ $municipality->website }}</td>
+                                            <td><a href="{{ $municipality->website }}"> {{ $municipality->website }}</a></td>
                                             <td>{{ $municipality->projects()->count() }}</td>
                                             <td>{{ $municipality->created_at->diffForHumans() }}</td>
                                             <td>

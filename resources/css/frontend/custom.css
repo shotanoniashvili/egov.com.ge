@@ -959,6 +959,7 @@ svg {
 
 .navbar-light .navbar-nav .nav-link {
     color: #fff !important;
+    line-height: 1.7;
 }
 
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus,
@@ -1056,6 +1057,22 @@ svg {
 }
 
 
+.header-search .float-none {
+    float: none !important;
+}
+
+.header-search .form-inline {
+    width: 100%;
+}
+
+.header-search .form-inline input {
+    width: calc(90% - 0.5rem);
+}
+
+.header-search .form-inline button {
+    width: 10%;
+}
+
 @media (min-width: 576px) {
     .mt-sm-2,
     .my-sm-2 {
@@ -1063,3 +1080,27 @@ svg {
     }
 }
 
+@media (min-width: 1336px) {
+    .header-search {
+        right: 30px;
+        position: absolute;
+    }
+
+
+    .header-search .float-none {
+        float: right !important;
+    }
+
+    .header-search .form-inline {
+        width: auto;
+    }
+
+    .header-search .form-inline input {
+        width: auto;
+    }
+
+    .header-search .form-inline button {
+        width: auto;
+    }
+
+}

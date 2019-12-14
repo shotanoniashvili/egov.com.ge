@@ -36,9 +36,9 @@
 <div class="body">
 <!-- Header Start -->
 <header>
-    <div class="container indexpage py-3">
+    <div class="container-fluid indexpage py-3">
         <div class="row">
-            <div class="header-logos col-sm-9">
+            <div class="header-logos col-sm-12">
                 <div class="logos">
                     <div class="european-union float-left">
                         <a href="{{ url('/') }}"><img alt="EU4Georgia" title="EU4Georgia" src="{{ asset('public/images/eu4georgia.jpg') }}" /> </a>
@@ -48,14 +48,20 @@
                     </div>
                 </div>
             </div>
-            <div class="header-search col-sm-3">
-                <form class="form-inline my-2 my-lg-0 float-none float-md-right" action="{{ route('search') }}">
-                    <input name="q" class="form-control mr-sm-2 search-input" type="search" placeholder="ძიება" aria-label="Search">
-                    <button class="btn btn-nala my-2 my-sm-0" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
-                <div class="clearfix"></div>
+            <div class="header-search col-sm-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form class="form-inline my-2 my-lg-0 float-none float-md-right" action="{{ route('search') }}">
+                                <input name="q" class="form-control mr-sm-2 search-input" type="search" placeholder="ძიება" aria-label="Search">
+                                <button class="btn btn-nala my-2 my-sm-0" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </form>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -150,7 +156,7 @@
                     <h4>საკონტაქტო ინფრომაცია</h4>
                     <ul class="list-unstyled">
                         <li><i class="livicon icon4 icon3" data-name="cellphone" data-size="18" data-loop="true"
-                               data-c="#ccc" data-hc="#ccc"></i>ტელეფონი: 595 57 77 34
+                               data-c="#ccc" data-hc="#ccc"></i>ტელეფონი: 0322726734
                         </li>
                         <li><i class="livicon icon3" data-name="mail-alt" data-size="20" data-loop="true" data-c="#ccc"
                                data-hc="#ccc"></i> ელ. ფოსტა:<span class="color-nala" style="cursor: pointer;">

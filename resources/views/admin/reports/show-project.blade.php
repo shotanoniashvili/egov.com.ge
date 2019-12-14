@@ -41,6 +41,7 @@
                     </div>
                     <br />
                     <div class="card-body">
+                        <h3 class="text-primary">საშუალო რეიტინგი: {{{ $project->getRating() }}}</h3>
                         <div class="table-responsive-lg table-responsive-sm table-responsive-md">
                             <table class="table table-bordered" id="table">
                                 <thead>

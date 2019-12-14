@@ -87,7 +87,7 @@
 {{--                        <div class="danger">Jyostna</div>--}}
                         <address>
                             <p class="mb-4">ელექტრონული მისამართი: bp@nala.ge</p>
-                            <p>ტელეფონი: 595 57 77 34</p>
+                            <p>ტელეფონი: 0322726734</p>
 
                         </address>
                     </div>

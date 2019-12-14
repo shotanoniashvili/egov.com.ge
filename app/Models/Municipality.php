@@ -61,4 +61,10 @@ class Municipality extends Model implements \App\Interfaces\Searchable
     {
         return $this->projects()->count().' პრაქტიკა / ინიციატივა';
     }
+
+    public function delete() {
+        $this->users()->detach();
+
+        return parent::delete();
+    }
 }
