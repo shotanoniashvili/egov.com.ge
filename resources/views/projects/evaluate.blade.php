@@ -58,55 +58,60 @@
                 @include('notifications')
                 <form action="{{ route('projects.evaluate', $project->id) }}" method="post">
                     @csrf
-                    @foreach($project->category->rates->criterias as $criteria)
-                        <div class="criteria-container mb-5">
-                            <h3><strong>{{ $criteria->name }}</strong></h3>
-                            <hr>
-                            @foreach($criteria->subCriterias as $subCriteria)
-                                <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
-                                    <div class="subcriteria-name"><h4>{{ $subCriteria->name }}</h4></div>
-                                    @if($subCriteria->isFreePoint)
-                                        <div class="subcriteria-value mt-1">
-                                            ქულა (0-დან 10-მდე):
-                                            <input required min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="number" class="form-control d-inline-block w-auto" />
-                                        </div>
-                                    @elseif($subCriteria->isPercentable)
-                                        <div class="subcriteria-value mt-1">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <span class="mr-2">პროცენტული შეფასება:</span>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <input required value="0" type="range" min="0" max="100" step="1" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="number" max="100" min="1" class="range-field form-control" value="0" />
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @elseif($subCriteria->isCustomPoint)
-                                        <div class="subcriteria-value mt-1">
-                                            <span class="mr-2">პასუხი:</span>
-                                            @foreach($subCriteria->customCriterias as $custom)
-                                            <div class="form-check form-check-inline">
-                                                <input required class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][custom_point]" id="custom{{$subCriteria->id}}{{$custom->id}}" type="radio" value="{{$custom->id}}">
-                                                <label class="form-check-label" for="custom{{$subCriteria->id}}{{$custom->id}}">{{ $custom->title }} ({{ $custom->point }} ქ.)</label>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                    @endif
-                            </div>
-                            @endforeach
-                        </div>
-                    @endforeach
+                    @if($project->category->rates !== null && $project->category->rates->criterias !== null && count($project->category->rates->criterias) > 0)
 
-                    <div class="text-center">
-                        <button class="btn btn-success">შეფასება</button>
-                        <a href="{{ URL::to('my-account/to-evaluate') }}" class="btn btn-warning">უარყოფა</a>
-                    </div>
+                        @foreach($project->category->rates->criterias as $criteria)
+                            <div class="criteria-container mb-5">
+                                <h3><strong>{{ $criteria->name }}</strong></h3>
+                                <hr>
+                                @foreach($criteria->subCriterias as $subCriteria)
+                                    <div class="subcriteria-container pl-5 mt-2 border-bottom pb-3 mb-4">
+                                        <div class="subcriteria-name"><h4>{{ $subCriteria->name }}</h4></div>
+                                        @if($subCriteria->isFreePoint)
+                                            <div class="subcriteria-value mt-1">
+                                                ქულა (0-დან 10-მდე):
+                                                <input required min="0" max="10" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][free_point]" type="number" class="form-control d-inline-block w-auto" />
+                                            </div>
+                                        @elseif($subCriteria->isPercentable)
+                                            <div class="subcriteria-value mt-1">
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <span class="mr-2">პროცენტული შეფასება:</span>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <input required value="0" type="range" min="0" max="100" step="1" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][percent]" />
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="number" max="100" min="1" class="range-field form-control" value="0" />
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <span class="text-muted small d-block">პროცენტი: <span class="percent-point"></span> (ყოველი 10% არის 1 ქულა)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @elseif($subCriteria->isCustomPoint)
+                                            <div class="subcriteria-value mt-1">
+                                                <span class="mr-2">პასუხი:</span>
+                                                @foreach($subCriteria->customCriterias as $custom)
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" name="criterias[{{ $criteria->id }}][{{ $subCriteria->id }}][custom_point]" id="custom{{$subCriteria->id}}{{$custom->id}}" type="radio" value="{{$custom->id}}">
+                                                    <label class="form-check-label" for="custom{{$subCriteria->id}}{{$custom->id}}">{{ $custom->title }} ({{ $custom->point }} ქ.)</label>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                        @endif
+                                </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+
+                        <div class="text-center">
+                            <button class="btn btn-success">შეფასება</button>
+                            <a href="{{ URL::to('my-account/to-evaluate') }}" class="btn btn-warning">უარყოფა</a>
+                        </div>
+                    @else
+                        <h4>ამ თემატიკისთვის შეფასების მოდული არ არსებობს</h4>
+                    @endif
                 </form>
             </div>
             <div class="col-sm-12 col-md-4">
