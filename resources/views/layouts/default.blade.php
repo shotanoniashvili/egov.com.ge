@@ -81,6 +81,9 @@
                         <li  class="nav-item {!! (Request::is('/') ? 'active' : '') !!}">
                             <a href="{{ route('home') }}" class="nav-link"> მთავარი</a>
                         </li>
+                        <li  class="nav-item {!! (Request::is('news') ? 'active' : '') !!}">
+                            <a href="{{ URL::to('news') }}" class="nav-link"> სიახლეები</a>
+                        </li>
                         <li  class="nav-item {!! (Request::is('aboutus') ? 'active' : '') !!}">
                             <a href="{{ URL::to('aboutus') }}" class="nav-link"> ჩვენ შესახებ</a>
                         </li>
@@ -89,9 +92,6 @@
                         </li>
                         <li  class="nav-item {!! (Request::is('municipalities') ? 'active' : '') !!}">
                             <a href="{{ URL::to('municipalities') }}" class="nav-link"> მუნიციპალიტეტები</a>
-                        </li>
-                        <li  class="nav-item {!! (Request::is('news') ? 'active' : '') !!}">
-                            <a href="{{ URL::to('news') }}" class="nav-link"> სიახლეები</a>
                         </li>
                         <li  class="nav-item {!! (Request::is('archive') ? 'active' : '') !!}">
                             <a href="{{ URL::to('archive') }}" class="nav-link"> არქივი</a>

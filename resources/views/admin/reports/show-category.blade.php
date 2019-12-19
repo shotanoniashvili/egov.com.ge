@@ -41,7 +41,7 @@
                     </div>
                     <br />
                     <div class="card-body">
-                        @foreach($category->projects()->evaluated()->get() as $project)
+                        @forelse($category->projects()->evaluated()->get() as $project)
 
                             <div class="row border-bottom pb-3 mb-3">
                                 <div class="col-md-2">
@@ -116,7 +116,9 @@
                                     </table>
                                 </div>
                             </div>
-                        @endforeach
+                        @empty
+                            შეფასებული პროექტები არ არსებობს
+                        @endforelse
                     </div>
                 </div>
             </div>

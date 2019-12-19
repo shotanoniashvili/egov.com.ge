@@ -64,11 +64,24 @@ class ReportsController extends JoshController
 
         //$abc = ['J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('A1', 'პროექტის დასახელება');
+        $sheet->setCellValue('B1', 'მუნიციპალიტეტი');
+        $sheet->setCellValue('C1', 'ექსპერტი');
+        $sheet->setCellValue('D1', 'ექსპერტი');
+        $sheet->setCellValue('E1', 'წარმატებული');
+        $sheet->setCellValue('F1', 'გამჭვირვალე');
+        $sheet->setCellValue('G1', 'ადეკვატური');
+        $sheet->setCellValue('H1', 'გაზიარებადი');
+        $sheet->setCellValue('I1', 'მდგრადი');
+        $sheet->setCellValue('J1', 'ჯამური ქულა');
+        $sheet->setCellValue('K1', 'შეფასების თარიღი');
 
         $rows = 2;
         foreach($category->projects()->evaluated()->get() as $project){
-            $sheet->setCellValue('A' . $rows, $project->id);
+            $sheet->setCellValue('A' . $rows, $project->title);
+            $sheet->setCellValue('B' . $rows, $project->municipality->name);
+            $sheet->setCellValue('C' . $rows, $project->id);
+            $sheet->setCellValue('D' . $rows, $project->id);
 
             $rows++;
         }
