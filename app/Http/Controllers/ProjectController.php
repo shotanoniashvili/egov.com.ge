@@ -135,6 +135,7 @@ class ProjectController extends Controller
 
         if( $isAdmin
             || $project->is_active_for_web
+            || $project->is_archive
             || $isAuthor
             || $isExpert) {
             if($isAdmin || $isExpert || $isAuthor || $project->is_archive) {

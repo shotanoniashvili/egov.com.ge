@@ -49,7 +49,9 @@
     <div class="container mt-5 mb-5">
         <div class="welcome">
             <h3>{{ $project->title }} / შეფასება ({{ $expert->fullname }})</h3>
+            @if($user && !$user->isExpert())
             <span class="text-muted d-block">საერთო რეიტინგი: {{ $project->rating_points }}</span>
+            @endif
             <span class="text-muted">{{ $expert->fullname }}ს რეიტინგი: {{ $project->getRatingSumByExpert($expert->id) }}</span>
             @if($user->roles()->where('slug', 'admin')->count() > 0)
                 <a class="ml-3 btn btn-danger btn-sm btn-remove-evalution" href="#"><i class="fa fa-eraser"></i> შეფასების წაშლა</a>

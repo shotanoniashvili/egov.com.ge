@@ -50,7 +50,7 @@
                 <h2 class="primary marl12 my-3 position-relative">
                     {{ $project->title }}
                     <div class="project-actions">
-                        @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
+                        @if($user && $user->isAdmin())
                             <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-primary mb-3">
                                 <i class="fa fa-edit"></i> რედაქტირება
                             </a>
@@ -64,11 +64,14 @@
                             </a>
                         @endif
                         @if($user && $project->evaluations()->count() > 0
-                         && ($user->municipalities()->where('id', $project->municipality_id)->count() > 0
-                         || $user->roles()->where('slug', 'admin')->count() > 0
-                         || $user->categories()->where('id', $project->category_id)->count() > 0))
+                         && !$user->isExpert() && ($user->isAdmin() || $user->municipalities()->where('id', $project->municipality_id)->count() > 0))
                             <a data-toggle="modal" data-target="#choseExpert" class="btn btn-success mb-3">
                                 <i class="fa fa-check"></i> რეპორტების ნახვა
+                            </a>
+                        @endif
+                        @if($user && $user->categories()->where('id', $project->category_id)->count() > 0)
+                            <a href="{{ route('projects.rating', [$project->id, $user->id]) }}" class="btn btn-success mb-3">
+                                <i class="fa fa-check"></i> შეფასების ნახვა
                             </a>
                         @endif
                     </div>
@@ -101,7 +104,7 @@
                                     <img class="project-file-icon" src="{{ $document->getIconSrc() }}" />
                                     <a class="document-name" href="{{ asset($document->path) }}">{{$document->getTitle()}}</a>
                                     <small class="text-danger ml-2"> {{ $document->getSize() }}</small>
-                                    @if($user && $user->roles()->where('slug', 'admin')->count() > 0)
+                                    @if($user && $user->isAdmin())
                                         <button data-toggle="modal" data-target="#renameDocument" class="btn btn-primary btn-rename-document mr-2 ml-3" title="სახელის შეცვლა"><i class="fa fa-edit"></i></button>
                                         <button data-toggle="modal" data-target="#confirmDelete" class="btn btn-danger btn-delete-document mr-2" title="დოკუმენტის წაშლა"><i class="fa fa-trash"></i></button>
 
@@ -157,50 +160,53 @@
             <!-- /.col-sm-3 -->
         </div>
     </div>
-    <!-- //container Section End -->
-    <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">დოკუმენტის წაშლა</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+    @if($user && $user->isAdmin())
+        <!-- //container Section End -->
+        <div class="modal fade" id="confirmDelete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">დოკუმენტის წაშლა</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        დარწმუნებული ხართ რომ გსურთ წაშალოთ მითითებული დოკუმენტი?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
+                        <a type="button" class="btn btn-danger">დადასტურება</a>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    დარწმუნებული ხართ რომ გსურთ წაშალოთ მითითებული დოკუმენტი?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
-                    <a type="button" class="btn btn-danger">დადასტურება</a>
-                </div>
-            </div>
-            <!-- /.modal-content -->
-        </div>
-    </div>
-    <div class="modal fade" id="renameDocument" tabindex="-2" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">დოკუმენტის სახელის შეცვლა</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <form action="" method="post" id="renameForm">
-                        @csrf
-                        @method('patch')
-                        <div class="form-group">
-                            <label for="renameText">დოკუმენტის სახელი</label>
-                            <input id="renameText" type="text" value="" name="name" class="form-control" />
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
-                    <button type="submit" onclick="document.getElementById('renameForm').submit()" class="btn btn-primary">დადასტურება</button>
-                </div>
+                <!-- /.modal-content -->
             </div>
         </div>
-    </div>
-    @include('projects.chose-expert-modal', ['project' => $project])
+        <div class="modal fade" id="renameDocument" tabindex="-2" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">დოკუმენტის სახელის შეცვლა</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" method="post" id="renameForm">
+                            @csrf
+                            @method('patch')
+                            <div class="form-group">
+                                <label for="renameText">დოკუმენტის სახელი</label>
+                                <input id="renameText" type="text" value="" name="name" class="form-control" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">უარყოფა</button>
+                        <button type="submit" onclick="document.getElementById('renameForm').submit()" class="btn btn-primary">დადასტურება</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @include('projects.chose-expert-modal', ['project' => $project])
+    @endif
 @stop
 @section('footer_scripts')
 <script type="text/javascript">

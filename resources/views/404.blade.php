@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>404 page | Welcome to Josh Frontend</title>
+    <title>ასეთი გვერდი არ არსებობს | NALA</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- global level css-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/lib.css') }}">
@@ -31,10 +31,9 @@
         <div class="number">4</div>
     </div>
     <div class="hgroup">
-        <h1>Page Not Found</h1>
-        <h2>It seems that page you are looking for no longer exists.</h2>
+        <h1>ასეთი გვერდი არ არსებობს</h1>
         <a href="{{ route('home') }}" class="btn btn-primary text-white">
-            Home
+            მთავარი
         </a>
     </div>
     <!-- global js -->

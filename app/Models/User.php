@@ -77,4 +77,12 @@ class User extends EloquentUser
 
         return $projects;
     }
+
+    public function isAdmin() {
+        return $this->roles()->where('slug', 'admin')->count() > 0;
+    }
+
+    public function isExpert() {
+        return $this->roles()->where('slug', 'expert')->count() > 0;
+    }
 }

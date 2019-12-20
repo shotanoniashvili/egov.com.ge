@@ -202,12 +202,15 @@ class ProjectController extends JoshController
 
     public function renameDocument(Request $request, int $id) {
         try {
-            $document = ProjectDocument::findOrFail($id);
+            if($request->has('name') && !empty($request->name)) {
+                $document = ProjectDocument::findOrFail($id);
 
-            $document->name = $request->get('name');
-            $document->save();
-
-            return redirect()->back()->with('success', 'დოკუმენტის სახელი წარმატებით შეიცვალა');
+                $document->name = $request->get('name');
+                $document->save();
+                return redirect()->back()->with('success', 'დოკუმენტის სახელი წარმატებით შეიცვალა');
+            } else {
+                return redirect()->back()->with('error', 'დოკუმენტის სახელი უნდა შეიცავდეს მინიმუმ ერთ სიმბოლოს მაინც');
+            }
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'დაფიქსირდა შეცდომა დოკუმენტის სახელის შეცვლის დროს');
         }

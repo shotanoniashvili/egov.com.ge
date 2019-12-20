@@ -236,7 +236,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Admin', 'middleware' => 'admin',
     /*routes for reports */
     Route::group(['prefix' => 'reports'], function () {
         Route::get('categories/{category}/export', 'ReportsController@exportCategory')->name('reports.categories.export');
-        Route::get('experts/{expert}/export', 'ReportsController@exportExport')->name('reports.experts.export');
+        Route::get('experts/{expert}/export', 'ReportsController@exportExpert')->name('reports.experts.export');
         Route::get('projects/{project}/export', 'ReportsController@exportProject')->name('reports.projects.export');
 
         Route::get('categories', 'ReportsController@categories')->name('reports.categories');
